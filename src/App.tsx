@@ -1,13 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Box } from "@mui/material";
 
 function App() {
-  return (
-    <div className="App">
-
-    </div>
-  );
+  return <Box style={{ backgroundColor: "#000", height: 800 }}></Box>;
 }
 
 export default App;

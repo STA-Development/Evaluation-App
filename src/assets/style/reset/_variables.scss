@@ -1,0 +1,56 @@
+/**
+ * Variables
+ */
+
+
+/*
+ * Fonts
+ * ========================================================================== */
+
+$font-family: Arial, Helvetica, sans-serif;
+$font-family-title: Arial, Helvetica, sans-serif;
+
+$body-font: $font-family;
+$body-font-weight: 400;
+
+$header-font: $font-family-title;
+
+$basic-font-size: 100%;
+$paragraph: 16px;
+
+// Golden ration for 16px font-size
+$line-height: 24px;
+
+// For REM / EM
+//$basic-font-size: 62.5%;
+//$paragraph: 1.6rem;
+//$line-height: 2.4rem;
+
+
+/*
+ * Palette
+ * ========================================================================== */
+
+/*
+ * Basic Colors
+ * ========================================================================== */
+
+$bgColor: #F7FAFF;
+$greenColor: #B2E4D5;
+$submissionReadColor: #1EB892;
+$submissionNewColor: #FF6982;
+$submissionNotFinishedColor: #F2994A;
+$blueColor: #00A3FF;
+$navbarColor: #262F3F;
+$selectedNavbarColor: #333;
+$upColor: #DBE2EA;
+$tableEvenColor: #d0e1ea;
+$whiteColor: #fff;
+$lightBlue: rgba(12, 167.255, 0.08);
+$textColor: #131924;
+$titleColor: rgba(0, 0, 0, 0.6);
+
+
+/*
+ * Mixing Colors
+ * ========================================================================== */
