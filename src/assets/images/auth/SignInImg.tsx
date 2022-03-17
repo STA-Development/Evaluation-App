@@ -105,10 +105,10 @@ const SignInImg = () => {
       <path
         d="M657.394 487.369V454.424L649.738 394.339"
         stroke="#424647"
-        stroke-width="0.7693"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.7693"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M391.321 344.342C392.313 335.683 400.1 329.459 408.759 330.452C417.418 331.444 423.642 339.231 422.649 347.89C421.657 356.548 413.87 362.772 405.211 361.78C396.553 360.818 390.329 353.001 391.321 344.342Z"

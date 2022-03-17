@@ -1,15 +1,15 @@
-import React from 'react';
-import {Box} from "@mui/material";
+import React from "react";
+import { Box } from "@mui/material";
 import SignUp from "./SignUp";
-import SignIn from "./SignIn";
+import SignUpImg from "../../assets/images/auth/SignUpImg";
 
 const IndexAuth = () => {
-    return (
-        <Box className='bg'>
-            <SignUp/>
-
-        </Box>
-    );
+  return (
+    <Box className="bg authBox">
+      <SignUp />
+      <SignUpImg />
+    </Box>
+  );
 };
 
 export default IndexAuth;

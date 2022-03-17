@@ -4,10 +4,11 @@ const SignUpImg = () => {
   return (
     <svg
       width="844"
-      height="1024"
+      height="auto"
       viewBox="0 0 844 1024"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="auth__image"
     >
       <path d="M0 1024L426.306 0H845V1024H0Z" fill="#E0FAFD" />
       <path
@@ -125,26 +126,26 @@ const SignUpImg = () => {
       <path
         d="M705.973 488.722L774.76 464.189L740.348 408.596"
         stroke="#EADDD8"
-        stroke-width="0.7599"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.7599"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M659.404 467.791L642.465 423.074"
         stroke="#EADDD8"
-        stroke-width="0.7599"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.7599"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M707.081 523.49C707.081 523.49 759.714 516.893 786.245 501.702"
         stroke="#EADDD8"
-        stroke-width="0.7599"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.7599"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M126.912 771.492H229.095L229.095 600.78H126.912L126.912 771.492Z"

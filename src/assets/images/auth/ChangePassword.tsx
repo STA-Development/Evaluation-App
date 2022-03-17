@@ -130,18 +130,18 @@ const ChangePassword = () => {
       <path
         d="M330.129 446.154L276.671 364.882"
         stroke="#EFC375"
-        stroke-width="0.7847"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.7847"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M333.369 382.391L312.964 350.13"
         stroke="#EFC375"
-        stroke-width="0.7847"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.7847"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
