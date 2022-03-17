@@ -245,10 +245,10 @@ const PasswordRecovery = () => {
       <path
         d="M204.787 423.074L220.906 395.023"
         stroke="#EADDD8"
-        stroke-width="0.7599"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.7599"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M290.161 271.041C301.585 265.867 299.192 252.53 296.591 248.313C296.591 248.313 296.082 255.819 290.969 254.085C290.969 254.085 291.657 242.901 276.675 240C276.675 240 282.207 250.048 262.5 248.134C238.307 245.772 236.902 261.082 238.248 280.102L245.664 274.779L251.405 261.531H270.993L290.161 271.041Z"

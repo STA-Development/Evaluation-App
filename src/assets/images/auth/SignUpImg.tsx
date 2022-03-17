@@ -3,7 +3,7 @@ import React from "react";
 const SignUpImg = () => {
   return (
     <svg
-      width="844"
+      max="100%"
       height="auto"
       viewBox="0 0 844 1024"
       fill="none"

@@ -1,23 +1,44 @@
 .bg {
   background-color: $authBg;
   height: 100vh;
+  position: relative;
+  font-family: $body-font;
 }
 
-.authBox {
+
+.auth {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  .auth__title {
+  &__title {
     margin-left: 60px;
     width: 608px;
-    height: 578px;
+    max-width: 100%;
+    min-height: 578px;
     border-radius: 4px;
     background-color: #fff;
+    z-index: 10;
+    padding: 53px 94px 113px 94px;
   }
+
+  &__title-text {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__inner-text {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+
+
 }
 
 .auth__image {
-  
+  position: absolute;
+  right: 0;
 }
 

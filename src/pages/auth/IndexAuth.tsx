@@ -5,7 +5,7 @@ import SignUpImg from "../../assets/images/auth/SignUpImg";
 
 const IndexAuth = () => {
   return (
-    <Box className="bg authBox">
+    <Box className="bg auth">
       <SignUp />
       <SignUpImg />
     </Box>
