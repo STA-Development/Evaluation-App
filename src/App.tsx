@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
 import { Box } from "@mui/material";
-import IndexAuth from "./pages/auth/IndexAuth";
+import NavbarUpSide from "./components/navbar/NavbarUpSide";
 
 function App() {
   return (
     <Box className="bg">
-      <IndexAuth />
+      <NavbarUpSide />
     </Box>
   );
 }
