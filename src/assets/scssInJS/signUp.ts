@@ -4,7 +4,7 @@ import {makeStyles} from "@mui/styles";
 export const useStyles = makeStyles({
     authInput: {
         color: '#828282',
-        fontSize: '14px'
+        fontSize: '14px',
     },
     authText: {
         fontSize: "16px",

@@ -1,15 +1,26 @@
 import React from "react";
-import { Box } from "@mui/material";
+import {Box} from "@mui/material";
 import SignUp from "./SignUp";
-import SignUpImg from "../../assets/images/auth/SignUpImg";
+import AuthBackgroundVector from "../../assets/images/auth/AuthBackgroundVector";
 
 const IndexAuth = () => {
-  return (
-    <Box className="bg auth">
-      <SignUp />
-      <SignUpImg />
-    </Box>
-  );
+    return (
+        <Box className="bg auth">
+            <div>
+                <SignUp/>
+            </div>
+
+            <div className="testStyles">
+                <p></p>
+                <div className="childThing">
+                    <AuthBackgroundVector/>
+                </div>
+            </div>
+            {/*<Box className='auth__bg'>*/}
+            {/*    <AuthBackgroundVector/>*/}
+            {/*</Box>*/}
+        </Box>
+    );
 };
 
 export default IndexAuth;

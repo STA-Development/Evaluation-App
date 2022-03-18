@@ -16,6 +16,7 @@ export const theme = createTheme({
             "sans-serif",
             '-apple-system',
         ].join(','),
+
     },
 
     components: {
