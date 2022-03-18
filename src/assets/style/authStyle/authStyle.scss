@@ -19,19 +19,34 @@
     border-radius: 4px;
     background-color: #fff;
     z-index: 10;
-    padding: 53px 94px 113px 94px;
+    padding: 50px 94px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
   }
 
+  &__input {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 170px;
+  }
+
+
   &__title-text {
-    height: 100px;
+    height: 122px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 
     &__inner-text {
       font-size: 16px;
       font-weight: 400;
     }
+
+
   }
 
 
