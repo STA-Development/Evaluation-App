@@ -1,13 +1,20 @@
 import React from "react";
 import { Box } from "@mui/material";
-import SignUp from "./SignUp";
-import SignUpImg from "../../assets/images/auth/SignUpImg";
+import AuthBackgroundVector from "../../assets/images/auth/AuthBackgroundVector";
+import PassChanged from "./PassChanged";
 
 const IndexAuth = () => {
   return (
-    <Box className="bg auth">
-      <SignUp />
-      <SignUpImg />
+    <Box>
+      {/*<SignUp />*/}
+      {/*<SignIn />*/}
+      {/*<PassRecover />*/}
+      {/*<PassRecoverSent />*/}
+      {/*<PassRecoverNewPas />*/}
+      <PassChanged />
+      <Box component="div" className="childThing">
+        <AuthBackgroundVector />
+      </Box>
     </Box>
   );
 };

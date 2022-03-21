@@ -4,16 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./assets/style/main.scss";
-import {ThemeProvider} from "@mui/material/styles";
-import {theme} from "./assets/style/theme/theme";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "./assets/style/theme/theme";
+import { Box } from "@mui/material";
+import AuthBackgroundVector from "./assets/images/auth/AuthBackgroundVector";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <ThemeProvider theme={theme}>
-            <App/>
-        </ThemeProvider>
-    </React.StrictMode>,
-    document.getElementById("root")
+  <React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
