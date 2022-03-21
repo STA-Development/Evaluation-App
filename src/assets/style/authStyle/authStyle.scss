@@ -1,90 +1,44 @@
 .bg {
-  height: 100%;
   background-color: $authBg;
+  height: 100vh;
   position: relative;
-  font-family: $body-font
+  font-family: $body-font;
 }
 
-.Imjusttesting {
-  width: 100%;
-}
-
-.svgClass {
-  height: 100%;
-}
-
-.testStyles {
-  position: relative;
-  height: 100%;
-
-  //.childThing {
-  //  height: 100%;
-  //  right: 0;
-  //  position: absolute;
-  //}
-}
 
 .auth {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  &__bg {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    bottom: 0;
-    z-index: 1;
-  }
-
   &__title {
     margin-left: 60px;
     width: 608px;
     max-width: 100%;
-    max-height: 578px;
+    min-height: 578px;
     border-radius: 4px;
     background-color: #fff;
     z-index: 10;
-    padding: 50px 94px;
-
-
+    padding: 53px 94px 113px 94px;
   }
-
-  &__input {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    height: 170px;
-  }
-
 
   &__title-text {
-    height: 122px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 
     &__inner-text {
       font-size: 16px;
       font-weight: 400;
     }
-
-
   }
 
 
 }
 
-.auth__box-left {
+.auth__image {
   position: absolute;
   right: 0;
-  z-index: 1;
 }
-
-.auth__box-right {
-  max-width: 60%;
-}
-
 
