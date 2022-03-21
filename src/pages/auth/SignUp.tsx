@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,ChangeEvent} from "react";
 import {
   Box,
   Button,
@@ -15,6 +15,54 @@ import SignUpImg from "../../assets/images/auth/SignUpImg";
 
 const SignUp = () => {
   const classes = useStyles();
+  const [name, setName] = useState('');
+  const [email, setEmail] =useState('');
+  const [password,setPassword] = useState('');
+  const [nameError,setNameError] = useState(false);
+  const [emailError,setEmailError] = useState(false);
+  const [paswordError,setPasswordError] = useState(false);
+
+
+  const getName = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    setName(e.target.value)
+   // console.log('Name - ',name);
+  }
+  const getEmail = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    setEmail(e.target.value)
+   // console.log('Email - ', email);
+  }
+
+  const getPassword = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    setPassword(e.target.value)
+    //console.log('Password - ', name);
+  }
+const handleSubmitBtn = ()=>{
+  setNameError(false)
+  setEmailError(false)
+  setPasswordError(false)
+
+    if(name && email && password){
+      setNameError(false)
+      setEmailError(false)
+      setPasswordError(false)
+      console.log(name, email, password)
+
+      setEmail('');
+      setName('');
+      setPassword('');
+    }
+    if(!name){
+      setNameError(true)
+    }
+    if(!email){
+      setEmailError(true)
+    }
+    if(!password){
+      setPasswordError(true)
+    }
+
+
+  }
 
   return (
     <div>
@@ -43,8 +91,9 @@ const SignUp = () => {
                   <Button variant="text">Sign in</Button>
                 </Box>
               </Box>
-              <FormGroup>
+              <FormGroup >
                 <Box className="auth__input-box">
+
                   <TextField
                     inputProps={{ style: { fontSize: "14px" } }}
                     className={classes.authInput}
@@ -52,6 +101,9 @@ const SignUp = () => {
                     variant="outlined"
                     size="small"
                     fullWidth
+                    value={name}
+                    error = {nameError}
+                    onChange={getName}
                   />
                   <TextField
                     inputProps={{ style: { fontSize: "14px" } }}
@@ -60,7 +112,10 @@ const SignUp = () => {
                     variant="outlined"
                     type="email"
                     fullWidth
+                    error = {emailError}
+                    value={email}
                     size="small"
+                    onChange={getEmail}
                   />
                   <TextField
                     inputProps={{ style: { fontSize: "14px" } }}
@@ -69,7 +124,10 @@ const SignUp = () => {
                     type="password"
                     variant="outlined"
                     fullWidth
+                    error = {paswordError}
+                    value={password}
                     size="small"
+                    onChange={getPassword}
                   />
                 </Box>
 
@@ -79,7 +137,7 @@ const SignUp = () => {
                   value="checkbox"
                   className={classes.authCheck}
                 />
-                <Button variant="contained" size="large">
+                <Button variant="contained" size="large"  onClick={handleSubmitBtn}>
                   Sign Up
                 </Button>
               </FormGroup>

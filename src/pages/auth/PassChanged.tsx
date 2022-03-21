@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography,Paper } from "@mui/material";
 import { useStyles } from "../../assets/scssInJS/signUp";
 import ChangePassword from "../../assets/images/auth/ChangePassword";
-
+import CheckedGreenIcon from '../../assets/images/Icons/CheckedGreenIcon'
 const PassChanged = () => {
   const classes = useStyles();
 
@@ -17,7 +17,7 @@ const PassChanged = () => {
           alignItems="center"
         >
           <Grid item lg={5} md={6} sm={12}>
-            <Box className="authChahgePass">
+            <Paper className="authChahgePass auth__title">
               <Box component="div" className="auth__passRec">
                 <Typography variant="h2" className={classes.authHeader}>
                   Password Recovery
@@ -27,8 +27,11 @@ const PassChanged = () => {
                     Write your new password
                   </Typography>
                 </Box>
+                <Box>
+                  <CheckedGreenIcon/>
+                </Box>
               </Box>
-            </Box>
+            </Paper>
           </Grid>
           <Grid
             item

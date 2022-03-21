@@ -5,6 +5,7 @@ import {
   FormControlLabel,
   FormGroup,
   Grid,
+  Paper,
   TextField,
   Typography,
 } from "@mui/material";
@@ -26,7 +27,7 @@ const SignIn = () => {
           alignItems="center"
         >
           <Grid item lg={5} md={6} sm={12}>
-            <Box className="auth__title ">
+            <Paper className="auth__title ">
               <Box component="div" className="auth__title-text">
                 <Typography variant="h2" className={classes.authHeader}>
                   Sign In
@@ -75,7 +76,7 @@ const SignIn = () => {
                   Forgot Password?
                 </a>
               </FormGroup>
-            </Box>
+            </Paper>
           </Grid>
           <Grid
             item

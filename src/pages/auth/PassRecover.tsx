@@ -5,6 +5,7 @@ import {
   FormGroup,
   Grid,
   TextField,
+  Paper,
   Typography,
 } from "@mui/material";
 import { useStyles } from "../../assets/scssInJS/signUp";
@@ -24,7 +25,7 @@ const PassRecover = () => {
           alignItems="center"
         >
           <Grid item lg={5} md={6} sm={12}>
-            <Box className="auth__title ">
+            <Paper className="auth__title ">
               <Box component="div" className="auth__passRec">
                 <Typography variant="h2" className={classes.authHeader}>
                   Password Recovery
@@ -51,7 +52,7 @@ const PassRecover = () => {
                   SEND ME LINK
                 </Button>
               </FormGroup>
-            </Box>
+            </Paper>
           </Grid>
           <Grid
             item
