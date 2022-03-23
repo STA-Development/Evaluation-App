@@ -1,12 +1,11 @@
 import React from "react";
 import { Box } from "@mui/material";
 import AuthBackgroundVector from "../../assets/images/auth/AuthBackgroundVector";
-import SignUp from "./SignUp";
 
 const IndexAuth = () => {
   return (
     <Box>
-      <SignUp />
+      {/*<SignUp />*/}
       {/*<SignIn />*/}
       {/*<PassRecover />*/}
       {/*<PassRecoverSent />*/}

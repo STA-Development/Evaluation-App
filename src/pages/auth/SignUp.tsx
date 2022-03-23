@@ -1,4 +1,4 @@
-import React,{useState,ChangeEvent} from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -12,57 +12,65 @@ import {
 import Checkbox from "@mui/material/Checkbox";
 import { useStyles } from "../../assets/scssInJS/signUp";
 import SignUpImg from "../../assets/images/auth/SignUpImg";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/user/userSlice";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+  // const user = useSelector((s) => s.user.name);
+  // const mail = useSelector(selectEmail);
   const classes = useStyles();
-  const [name, setName] = useState('');
-  const [email, setEmail] =useState('');
-  const [password,setPassword] = useState('');
-  const [nameError,setNameError] = useState(false);
-  const [emailError,setEmailError] = useState(false);
-  const [paswordError,setPasswordError] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [nameError, setNameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [paswordError, setPasswordError] = useState(false);
 
+  const getName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+    // console.log('Name - ',name);
+  };
+  const getEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    // console.log('Email - ', email);
+  };
 
-  const getName = (e: React.ChangeEvent<HTMLInputElement>)=>{
-    setName(e.target.value)
-   // console.log('Name - ',name);
-  }
-  const getEmail = (e: React.ChangeEvent<HTMLInputElement>)=>{
-    setEmail(e.target.value)
-   // console.log('Email - ', email);
-  }
+  const getPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
 
-  const getPassword = (e: React.ChangeEvent<HTMLInputElement>)=>{
-    setPassword(e.target.value)
     //console.log('Password - ', name);
-  }
-const handleSubmitBtn = ()=>{
-  setNameError(false)
-  setEmailError(false)
-  setPasswordError(false)
+  };
+  const handleSubmitBtn = () => {
+    setNameError(false);
+    setEmailError(false);
+    setPasswordError(false);
 
-    if(name && email && password){
-      setNameError(false)
-      setEmailError(false)
-      setPasswordError(false)
-      console.log(name, email, password)
+    if (name && email && password) {
+      setNameError(false);
+      setEmailError(false);
+      setPasswordError(false);
 
-      setEmail('');
-      setName('');
-      setPassword('');
-    }
-    if(!name){
-      setNameError(true)
-    }
-    if(!email){
-      setEmailError(true)
-    }
-    if(!password){
-      setPasswordError(true)
-    }
+      dispatch(setUser("asd"));
 
+      console.log(name, email, password);
 
-  }
+      setEmail("");
+      setName("");
+      setPassword("");
+    }
+    if (!name) {
+      setNameError(true);
+    }
+    if (!email) {
+      setEmailError(true);
+    }
+    if (!password) {
+      setPasswordError(true);
+    }
+  };
+
+  // console.log(user);
 
   return (
     <div>
@@ -91,40 +99,39 @@ const handleSubmitBtn = ()=>{
                   <Button variant="text">Sign in</Button>
                 </Box>
               </Box>
-              <FormGroup >
+              <FormGroup>
                 <Box className="auth__input-box">
-
                   <TextField
-                    inputProps={{ style: { fontSize: "14px" } }}
+                    InputLabelProps={{ style: { fontSize: 14 } }}
                     className={classes.authInput}
                     label="Name / Surname"
                     variant="outlined"
                     size="small"
                     fullWidth
                     value={name}
-                    error = {nameError}
+                    error={nameError}
                     onChange={getName}
                   />
                   <TextField
-                    inputProps={{ style: { fontSize: "14px" } }}
+                    InputLabelProps={{ style: { fontSize: 14 } }}
                     className={classes.authInput}
                     label="Email"
                     variant="outlined"
                     type="email"
                     fullWidth
-                    error = {emailError}
+                    error={emailError}
                     value={email}
                     size="small"
                     onChange={getEmail}
                   />
                   <TextField
-                    inputProps={{ style: { fontSize: "14px" } }}
+                    InputLabelProps={{ style: { fontSize: 14 } }}
                     className={classes.authInput}
                     label="Password (6+ charachter , 1 capital letter, 1 number)"
                     type="password"
                     variant="outlined"
                     fullWidth
-                    error = {paswordError}
+                    error={paswordError}
                     value={password}
                     size="small"
                     onChange={getPassword}
@@ -137,7 +144,11 @@ const handleSubmitBtn = ()=>{
                   value="checkbox"
                   className={classes.authCheck}
                 />
-                <Button variant="contained" size="large"  onClick={handleSubmitBtn}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  onClick={handleSubmitBtn}
+                >
                   Sign Up
                 </Button>
               </FormGroup>

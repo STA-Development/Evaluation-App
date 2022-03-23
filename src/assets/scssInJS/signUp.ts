@@ -9,6 +9,9 @@ export const useStyles = makeStyles({
       marginBottom: "10px",
     },
   },
+  authInputSize: {
+    fontSize: "14px",
+  },
   recPassLabel: {
     margin: 0,
   },
