@@ -12,8 +12,9 @@ import {
 import Checkbox from "@mui/material/Checkbox";
 import { useStyles } from "../../assets/scssInJS/signUp";
 import SignUpImg from "../../assets/images/auth/SignUpImg";
-import { useDispatch } from "react-redux";
-import { setUser } from "../../redux/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+// import { setUser } from "../../redux/user/userSlice";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const SignUp = () => {
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [paswordError, setPasswordError] = useState(false);
+  // const count = useSelector((state: RootState) => state.user.name)
 
   const getName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -51,7 +53,7 @@ const SignUp = () => {
       setEmailError(false);
       setPasswordError(false);
 
-      dispatch(setUser("asd"));
+      // dispatch(setUser("asd"));
 
       console.log(name, email, password);
 
