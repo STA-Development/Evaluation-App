@@ -16,7 +16,6 @@ export const theme = createTheme({
             "sans-serif",
             '-apple-system',
         ].join(','),
-
     },
 
     components: {
@@ -29,7 +28,6 @@ export const theme = createTheme({
                     },
                     '&:active': {
                         backgroundColor: '#008FDF'
-
                     }
                 },
                 text: {
@@ -44,7 +42,7 @@ export const theme = createTheme({
                         color: '#008FDF'
 
                     }
-                }
+                },
 
             },
 
