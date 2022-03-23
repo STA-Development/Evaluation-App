@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import {
   Box,
   Button,
@@ -12,14 +12,14 @@ import {
 import Checkbox from "@mui/material/Checkbox";
 import { useStyles } from "../../assets/scssInJS/signUp";
 import SignUpImg from "../../assets/images/auth/SignUpImg";
-import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-// import { setUser } from "../../redux/user/userSlice";
+import { setUser,selectUser } from "../../redux/user/userSlice";
+import {useAppDispatch,useAppSelector} from '../../redux/hooks'
 
 const SignUp = () => {
-  const dispatch = useDispatch();
-  // const user = useSelector((s) => s.user.name);
-  // const mail = useSelector(selectEmail);
+  const dispatch = useAppDispatch()
+  const userInfo= useAppSelector(selectUser)
+
   const classes = useStyles();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,19 +31,20 @@ const SignUp = () => {
 
   const getName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
-    // console.log('Name - ',name);
+
   };
   const getEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
-    // console.log('Email - ', email);
+
   };
 
   const getPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
 
-    //console.log('Password - ', name);
   };
-  const handleSubmitBtn = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>)=> {
+    e.preventDefault();
+
     setNameError(false);
     setEmailError(false);
     setPasswordError(false);
@@ -53,7 +54,8 @@ const SignUp = () => {
       setEmailError(false);
       setPasswordError(false);
 
-      // dispatch(setUser("asd"));
+
+    dispatch(setUser({name, email, password}))
 
       console.log(name, email, password);
 
@@ -70,9 +72,11 @@ const SignUp = () => {
     if (!password) {
       setPasswordError(true);
     }
-  };
 
-  // console.log(user);
+  };
+  useEffect(()=>{
+    console.log(userInfo, 5555)
+  },[userInfo])
 
   return (
     <div>
@@ -102,7 +106,7 @@ const SignUp = () => {
                 </Box>
               </Box>
               <FormGroup>
-                <Box className="auth__input-box">
+                <Box component='form' noValidate className="auth__input-box" onSubmit={handleSubmit}>
                   <TextField
                     InputLabelProps={{ style: { fontSize: 14 } }}
                     className={classes.authInput}
@@ -113,6 +117,7 @@ const SignUp = () => {
                     value={name}
                     error={nameError}
                     onChange={getName}
+                    autoComplete="name"
                   />
                   <TextField
                     InputLabelProps={{ style: { fontSize: 14 } }}
@@ -125,6 +130,7 @@ const SignUp = () => {
                     value={email}
                     size="small"
                     onChange={getEmail}
+                    autoComplete="email"
                   />
                   <TextField
                     InputLabelProps={{ style: { fontSize: 14 } }}
@@ -137,8 +143,10 @@ const SignUp = () => {
                     value={password}
                     size="small"
                     onChange={getPassword}
+                    autoComplete="new-password"
+
                   />
-                </Box>
+
 
                 <FormControlLabel
                   control={<Checkbox />}
@@ -147,12 +155,13 @@ const SignUp = () => {
                   className={classes.authCheck}
                 />
                 <Button
+                  type='submit'
                   variant="contained"
                   size="large"
-                  onClick={handleSubmitBtn}
-                >
+                   >
                   Sign Up
                 </Button>
+                </Box>
               </FormGroup>
             </Paper>
           </Grid>

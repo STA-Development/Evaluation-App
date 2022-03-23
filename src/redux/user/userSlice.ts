@@ -33,35 +33,36 @@
 // // export const selectEmail = (e) => e.user.email;
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
+import {RootState} from '../store'
 export interface AuthPropsState {
-  name:string,
+  user:string,
   email:string
   isAuth: boolean,
-  userId:number
 }
 
 const initialState: AuthPropsState = {
-  name:'',
+  user:'',
   email:'',
-  isAuth:false,
-  userId:0
+  isAuth:true,
+
 }
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (state, action:PayloadAction<string>) => {
-      state.name = action.payload;
+    setUser: (state, action:PayloadAction<any>) => {
+      console.log(action, 7777)
+      state.user = action.payload.name
+      state.email = action.payload.email
+      state.isAuth = false
     },
-    setMail: (state, action: PayloadAction<string>) => {
-       state.email = action.payload;
-    },
+
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setUser,setMail } = userSlice.actions
-
+export const { setUser } = userSlice.actions
+export const selectUser = (state:RootState)=> state.user
+export const selectEmail = (state:RootState)=> state.user.email
 export default userSlice.reducer
