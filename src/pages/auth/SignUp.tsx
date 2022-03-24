@@ -16,7 +16,7 @@ const SignUp = () => {
 
   return (
     <Box className="auth__title">
-      <Box component="div" className="auth__title-text">
+      <Box className="auth__title-text">
         <Typography variant="h2" className={classes.authText}>
           Sign up
         </Typography>
