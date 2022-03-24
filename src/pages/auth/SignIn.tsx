@@ -1,15 +1,7 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  FormControlLabel,
-  FormGroup,
-  Grid,
-  TextField,
-  Typography,
-} from "@mui/material";
+import {Box, Button, FormControlLabel, FormGroup, Grid, TextField, Typography,} from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-import { useStyles } from "../../assets/scssInJS/signUp";
+import {useStyles} from "../../assets/scssInJS/signUp";
 import SignInImg from "../../assets/images/auth/SignInImg";
 
 const SignIn = () => {
@@ -43,7 +35,6 @@ const SignIn = () => {
                 <Box className="auth__input-box">
                   <TextField
                     className={classes.authInput}
-                    inputProps={{ style: { fontSize: "14px" } }}
                     label="Email"
                     variant="outlined"
                     type="email"
@@ -52,7 +43,6 @@ const SignIn = () => {
                   />
                   <TextField
                     className={classes.authInput}
-                    inputProps={{ style: { fontSize: "14px" } }}
                     label="Password"
                     type="password"
                     variant="outlined"
@@ -62,7 +52,7 @@ const SignIn = () => {
                 </Box>
 
                 <FormControlLabel
-                  control={<Checkbox />}
+                  control={<Checkbox/>}
                   label="Keep me signed in"
                   value="checkbox"
                   className={classes.authCheck}
@@ -83,10 +73,10 @@ const SignIn = () => {
             md={6}
             sm={12}
             justifyContent="center"
-            style={{ display: "flex" }}
+            style={{display: "flex"}}
           >
             <Box className="auth__box-right ">
-              <SignInImg />
+              <SignInImg/>
             </Box>
           </Grid>
         </Grid>

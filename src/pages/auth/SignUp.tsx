@@ -1,16 +1,7 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  FormControlLabel,
-  FormGroup,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
+import {Box, Button, FormControlLabel, FormGroup, Grid, Paper, TextField, Typography,} from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-import { useStyles } from "../../assets/scssInJS/signUp";
+import {useStyles} from "../../assets/scssInJS/signUp";
 import SignUpImg from "../../assets/images/auth/SignUpImg";
 
 const SignUp = () => {
@@ -26,7 +17,7 @@ const SignUp = () => {
           alignItems="center"
         >
           <Grid item md={5} sm={6} xs={12} alignItems="center">
-            <Paper className="auth__title ">
+            <Paper className="auth__card ">
               <Box component="div" className="auth__title-text">
                 <Typography
                   variant="h2"
@@ -46,7 +37,7 @@ const SignUp = () => {
               <FormGroup>
                 <Box className="auth__input-box">
                   <TextField
-                    inputProps={{ style: { fontSize: "14px" } }}
+                    inputProps={{style: {fontSize: "14px"}}}
                     className={classes.authInput}
                     label="Name / Surname"
                     variant="outlined"
@@ -54,7 +45,7 @@ const SignUp = () => {
                     fullWidth
                   />
                   <TextField
-                    inputProps={{ style: { fontSize: "14px" } }}
+                    inputProps={{style: {fontSize: "14px"}}}
                     className={classes.authInput}
                     label="Email"
                     variant="outlined"
@@ -63,7 +54,7 @@ const SignUp = () => {
                     size="small"
                   />
                   <TextField
-                    inputProps={{ style: { fontSize: "14px" } }}
+                    inputProps={{style: {fontSize: "14px"}}}
                     className={classes.authInput}
                     label="Password (6+ charachter , 1 capital letter, 1 number)"
                     type="password"
@@ -74,7 +65,7 @@ const SignUp = () => {
                 </Box>
 
                 <FormControlLabel
-                  control={<Checkbox />}
+                  control={<Checkbox/>}
                   label="Keep me signed in"
                   value="checkbox"
                   className={classes.authCheck}
@@ -85,16 +76,14 @@ const SignUp = () => {
               </FormGroup>
             </Paper>
           </Grid>
-          <Grid
-            item
-            md={7}
-            sm={6}
-            xs={12}
-            justifyContent="flex-end"
-            style={{ display: "flex" }}
+          <Grid className={classes.signUpRightGrid}
+                item
+                md={7}
+                sm={6}
+                xs={12}
           >
             <Box className="auth__box-right ">
-              <SignUpImg />
+              <SignUpImg/>
             </Box>
           </Grid>
         </Grid>

@@ -11,7 +11,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  height: 100vh;
+  height: 100%;
   z-index: 2;
 
 }
@@ -33,7 +33,7 @@
     z-index: 1;
   }
 
-  &__title {
+  &__card {
     width: 608px;
     min-height: 578px;
     border-radius: 4px;

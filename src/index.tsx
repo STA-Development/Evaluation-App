@@ -12,24 +12,22 @@ import Events from "./pages/events/Events";
 import Reports from "./pages/reports/Reports";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <ThemeProvider theme={theme}>
-                <Routes>
-                    <Route path="/" element={<App/>}>
-                        <Route path="dashboard" element={<Dashboard/>}/>
-                        <Route path="events" element={<Events/>}/>
-
-                        <Route path="reports" element={<Reports/>}/>
-
-                    </Route>
+  <React.StrictMode>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <Routes>
+          <Route path="/" element={<App/>}>
+            <Route path="dashboard" element={<Dashboard/>}/>
+            <Route path="events" element={<Events/>}/>
+            <Route path="reports" element={<Reports/>}/>
+          </Route>
 
 
-                </Routes>
-            </ThemeProvider>
-        </BrowserRouter>
-    </React.StrictMode>,
-    document.getElementById("root")
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

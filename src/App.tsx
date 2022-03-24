@@ -1,16 +1,18 @@
 import React from "react";
 import "./App.css";
 import {Box} from "@mui/material";
-import Sidebar from "./pages/sidebar/Sidebar";
-import {Outlet} from 'react-router-dom'
+import SignIn from "./pages/auth/SignIn";
 
 function App() {
-    return (
-        <Box className="bg" sx={{display: 'flex', justifyContent: "center"}}>
-            <Sidebar/>
-            <Outlet/>
-        </Box>
-    );
+  return (
+    <Box className="bg" sx={{display: 'flex', justifyContent: "center"}}>
+      {/*<Sidebar/>*/}
+      {/*<Outlet/>*/}
+      {/*<SignUp/>*/}
+      <SignIn/>
+
+    </Box>
+  );
 }
 
 export default App;

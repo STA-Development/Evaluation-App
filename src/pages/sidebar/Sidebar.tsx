@@ -18,59 +18,59 @@ import {sidebarList} from "./sidebarLists";
 
 
 const Sidebar = () => {
-    const classes = useStyles();
+  const classes = useStyles();
 
 
-    return (
-        <ThemeProvider theme={theme}>
-            <Drawer
-                className={classes.sidebar}
-                variant="permanent"
-                anchor="left"
-            >
-                <Box>
-                    <Toolbar sx={{height: "72px"}}/>
-                    <Box className={classes.upBox}>
-                        <Avatar className={classes.avatar}>
-                            <AvatarIcon/>
-                        </Avatar>
-                        <Typography sx={{margin: "20px 0px"}} className={classes.nameSurname}>
-                            Name Surname
-                        </Typography>
-                        <Link style={{textDecoration: "none"}} to={"/events-create"}>
-                            <Button variant="contained">CREATE EVENT</Button>
-                        </Link>
+  return (
+    <ThemeProvider theme={theme}>
+      <Drawer
+        className={classes.sidebar}
+        variant="permanent"
+        anchor="left"
+      >
+        <Box>
+          <Toolbar sx={{height: "72px"}}/>
+          <Box className={classes.upBox}>
+            <Avatar className={classes.avatar}>
+              <AvatarIcon/>
+            </Avatar>
+            <Typography sx={{margin: "20px 0px"}} className={classes.nameSurname}>
+              Name Surname
+            </Typography>
+            <Link style={{textDecoration: "none"}} to={"/events-create"}>
+              <Button variant="contained">CREATE EVENT</Button>
+            </Link>
 
+          </Box>
+          <Box className={classes.listBox}>
+            <List sx={{padding: "0px"}}>
+              {sidebarList.map((item) => (
+                <Link style={{textDecoration: "none"}} to={item.route}>
+                  <ListItem className={classes.listItem} button key={item.id}>
+                    <Box className={classes.listItemContent}>
+                      <ListItemIcon className={classes.itemIcon}>{item.icon}</ListItemIcon>
+                      <ListItemText className={classes.itemText} primary={item.name}/>
                     </Box>
-                    <Box className={classes.listBox}>
-                        <List sx={{padding: "0px"}}>
-                            {sidebarList.map((item) => (
-                                <Link style={{textDecoration: "none"}} to={item.route}>
-                                    <ListItem className={classes.listItem} button key={item.id}>
-                                        <Box className={classes.listItemContent}>
-                                            <ListItemIcon className={classes.itemIcon}>{item.icon}</ListItemIcon>
-                                            <ListItemText className={classes.itemText} primary={item.name}/>
-                                        </Box>
-                                    </ListItem>
-                                </Link>
-                            ))}
-                        </List>
-                    </Box>
-                </Box>
-                <Box className={classes.logOutBox}>
-                    <List>
-                        <ListItem sx={{marginBottom: "26px"}} className={classes.listItem} button>
-                            <Box className={classes.listItemContent}>
-                                <ListItemIcon className={classes.itemIcon}><LogOutIcon/></ListItemIcon>
-                                <ListItemText className={classes.itemText} primary="Log Out"/>
-                            </Box>
-                        </ListItem>
-                    </List>
-                </Box>
+                  </ListItem>
+                </Link>
+              ))}
+            </List>
+          </Box>
+        </Box>
+        <Box className={classes.logOutBox}>
+          <List>
+            <ListItem sx={{marginBottom: "26px"}} className={classes.listItem} button>
+              <Box className={classes.listItemContent}>
+                <ListItemIcon className={classes.itemIcon}><LogOutIcon/></ListItemIcon>
+                <ListItemText className={classes.itemText} primary="Log Out"/>
+              </Box>
+            </ListItem>
+          </List>
+        </Box>
 
-            </Drawer>
-        </ThemeProvider>
-    );
+      </Drawer>
+    </ThemeProvider>
+  );
 };
 
 export default Sidebar;
