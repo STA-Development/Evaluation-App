@@ -37,7 +37,6 @@ const SignUp = () => {
               <FormGroup>
                 <Box className="auth__input-box">
                   <TextField
-                    inputProps={{style: {fontSize: "14px"}}}
                     className={classes.authInput}
                     label="Name / Surname"
                     variant="outlined"
@@ -45,7 +44,6 @@ const SignUp = () => {
                     fullWidth
                   />
                   <TextField
-                    inputProps={{style: {fontSize: "14px"}}}
                     className={classes.authInput}
                     label="Email"
                     variant="outlined"

@@ -19,6 +19,10 @@ export const useStyles = makeStyles({
   recPassLabel: {
     margin: 0,
   },
+  passRecGrid: {
+    display: "flex",
+    justifyContent: "center"
+  },
   authText: {
     fontSize: "16px",
     color: "#333",
