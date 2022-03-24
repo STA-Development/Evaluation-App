@@ -9,6 +9,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import {useNavigate} from 'react-router-dom';
 import Checkbox from "@mui/material/Checkbox";
 import { useStyles } from "../../assets/scssInJS/signUp";
 import SignUpImg from "../../assets/images/auth/SignUpImg";
@@ -16,11 +17,13 @@ import SignUpImg from "../../assets/images/auth/SignUpImg";
 import { setUser } from "../../redux/user/userSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { selectUser } from "../../redux/selectors";
+import {  createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from '../../data/firebase'
 
 const SignUp = () => {
   const dispatch = useAppDispatch();
+  // const navigate = useNavigate();
   const userInfo = useAppSelector(selectUser);
-
   const classes = useStyles();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -29,6 +32,9 @@ const SignUp = () => {
   const [emailError, setEmailError] = useState(false);
   const [paswordError, setPasswordError] = useState(false);
   // const count = useSelector((state: RootState) => state.user.name)
+
+
+
 
   const getName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -40,7 +46,7 @@ const SignUp = () => {
   const getPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setNameError(false);
@@ -49,25 +55,40 @@ const SignUp = () => {
 
     if (name && email && password) {
       setNameError(false);
-      setEmailError(false);
+             setEmailError(false);
       setPasswordError(false);
 
-      dispatch(setUser({name, email, password}));
+      try{
+        const user = await createUserWithEmailAndPassword(auth, email, password )
+        console.log(user)
+
+    }catch (error:any){
+       console.log(error.message)
+    }
+
+
+
+
 
       setEmail("");
       setName("");
       setPassword("");
-    }
-    if (!name) {
+    }else    if (!name) {
       setNameError(true);
-    }
-    if (!email) {
+    }else    if (!email) {
       setEmailError(true);
-    }
-    if (!password) {
+    }else    if (!password) {
       setPasswordError(true);
+    }else{
+      console.log('Something error')
     }
+
+    console.log(`navigate('/prvate-routs')`)
   };
+
+
+
+
 
 
   return (
