@@ -1,11 +1,11 @@
 import {makeStyles} from "@mui/styles";
 
 export const useStyles = makeStyles({
-    navbar: {
-        height: '100vh',
-        flexShrink: 0,
+    sidebar: {
+        width: "250px",
         "& .MuiDrawer-paper": {
             width: "250px",
+
             backgroundColor: "#131924",
             borderRadius: "0px 50px 50px 0px",
             boxSizing: "border-box",

@@ -1,15 +1,14 @@
 import React from "react";
 import "./App.css";
 import {Box} from "@mui/material";
-import AppRoutes from "./routes/AppRoutes";
-import Navbar from "./pages/navbar/Navbar";
-
+import Sidebar from "./pages/sidebar/Sidebar";
+import {Outlet} from 'react-router-dom'
 
 function App() {
     return (
-        <Box className="bg">
-            <Navbar/>
-            <AppRoutes/>
+        <Box className="bg" sx={{display: 'flex', justifyContent: "center"}}>
+            <Sidebar/>
+            <Outlet/>
         </Box>
     );
 }
