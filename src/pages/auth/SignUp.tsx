@@ -7,8 +7,9 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useStyles } from "../../assets/styles";
+
 import Checkbox from "@mui/material/Checkbox";
+import { useStyles } from "../../assets/styles";
 
 const SignUp = () => {
   const classes = useStyles();
