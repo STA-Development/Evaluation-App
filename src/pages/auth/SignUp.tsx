@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -12,13 +12,14 @@ import {
 import Checkbox from "@mui/material/Checkbox";
 import { useStyles } from "../../assets/scssInJS/signUp";
 import SignUpImg from "../../assets/images/auth/SignUpImg";
-import { RootState } from "../../redux/store";
-import { setUser,selectUser } from "../../redux/user/userSlice";
-import {useAppDispatch,useAppSelector} from '../../redux/hooks'
+
+import { setUser } from "../../redux/user/userSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { selectUser } from "../../redux/selectors";
 
 const SignUp = () => {
-  const dispatch = useAppDispatch()
-  const userInfo= useAppSelector(selectUser)
+  const dispatch = useAppDispatch();
+  const userInfo = useAppSelector(selectUser);
 
   const classes = useStyles();
   const [name, setName] = useState("");
@@ -31,18 +32,15 @@ const SignUp = () => {
 
   const getName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
-
   };
   const getEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
-
   };
 
   const getPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
-
   };
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>)=> {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setNameError(false);
@@ -54,10 +52,7 @@ const SignUp = () => {
       setEmailError(false);
       setPasswordError(false);
 
-
-    dispatch(setUser({name, email, password}))
-
-      console.log(name, email, password);
+      dispatch(setUser({ name, email, password }));
 
       setEmail("");
       setName("");
@@ -72,11 +67,7 @@ const SignUp = () => {
     if (!password) {
       setPasswordError(true);
     }
-
   };
-  useEffect(()=>{
-    console.log(userInfo, 5555)
-  },[userInfo])
 
   return (
     <div>
@@ -106,7 +97,12 @@ const SignUp = () => {
                 </Box>
               </Box>
               <FormGroup>
-                <Box component='form' noValidate className="auth__input-box" onSubmit={handleSubmit}>
+                <Box
+                  component="form"
+                  noValidate
+                  className="auth__input-box"
+                  onSubmit={handleSubmit}
+                >
                   <TextField
                     InputLabelProps={{ style: { fontSize: 14 } }}
                     className={classes.authInput}
@@ -144,23 +140,17 @@ const SignUp = () => {
                     size="small"
                     onChange={getPassword}
                     autoComplete="new-password"
-
                   />
 
-
-                <FormControlLabel
-                  control={<Checkbox />}
-                  label="Keep me signed in"
-                  value="checkbox"
-                  className={classes.authCheck}
-                />
-                <Button
-                  type='submit'
-                  variant="contained"
-                  size="large"
-                   >
-                  Sign Up
-                </Button>
+                  <FormControlLabel
+                    control={<Checkbox />}
+                    label="Keep me signed in"
+                    value="checkbox"
+                    className={classes.authCheck}
+                  />
+                  <Button type="submit" variant="contained" size="large">
+                    Sign Up
+                  </Button>
                 </Box>
               </FormGroup>
             </Paper>
