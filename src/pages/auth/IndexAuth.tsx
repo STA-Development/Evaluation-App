@@ -16,9 +16,7 @@ const IndexAuth = () => {
                     <AuthBackgroundVector/>
                 </div>
             </div>
-            {/*<Box className='auth__bg'>*/}
-            {/*    <AuthBackgroundVector/>*/}
-            {/*</Box>*/}
+
         </Box>
     );
 };
