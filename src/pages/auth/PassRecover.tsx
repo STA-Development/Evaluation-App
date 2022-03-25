@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   Box,
   Button,
@@ -10,9 +10,42 @@ import {
 } from "@mui/material";
 import { useStyles } from "../../assets/scssInJS/signUp";
 import PasswordRecovery from "../../assets/images/auth/PasswordRecovery";
+import {  sendPasswordResetEmail ,sendSignInLinkToEmail} from "firebase/auth";
+import {auth} from '../../data/firebase'
 
 const PassRecover = () => {
   const classes = useStyles();
+const [email, setEmail] = useState('');
+const [error, setError] = useState(false);
+
+
+const actionCodeSettings = {
+    url: 'http://localhost:3000/signin',
+    handleCodeInApp: true,
+}
+
+
+
+
+const handleRecoverPass =async (e:React.FormEvent<HTMLFormElement>)=>{
+      e.preventDefault();
+
+
+        await sendPasswordResetEmail(auth, email)
+            .then((link)=>{
+              console.log("link", link)
+              console.log(`navigate('/passrecovernew pass rout')`)
+              console.log("auth", auth)
+              setEmail('');
+            })
+            .catch ((error)=>{
+              console.log(error)
+              setError(true)
+            })
+
+
+
+}
 
   return (
     <div>
@@ -37,7 +70,7 @@ const PassRecover = () => {
                 </Box>
               </Box>
               <FormGroup>
-                <Box className="auth__input-box">
+                <Box component='form' className="auth__input-box"  onSubmit={handleRecoverPass}>
                   <TextField
                     className={classes.authInput}
                     inputProps={{ style: { fontSize: "14px" } }}
@@ -46,11 +79,16 @@ const PassRecover = () => {
                     type="email"
                     fullWidth
                     size="small"
+                    value={email}
+                    error={error}
+                    autoComplete="email"
+                    onChange={(e)=>setEmail(e.target.value)}
                   />
-                </Box>
-                <Button variant="contained" size="large">
+
+                <Button variant="contained" size="large" type='submit'>
                   SEND ME LINK
                 </Button>
+                </Box>
               </FormGroup>
             </Paper>
           </Grid>

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   Box,
   Button,
@@ -12,11 +12,33 @@ import {
 import Checkbox from "@mui/material/Checkbox";
 import { useStyles } from "../../assets/scssInJS/signUp";
 import SignInImg from "../../assets/images/auth/SignInImg";
+import {  signInWithEmailAndPassword } from "firebase/auth";
+import {auth} from '../../data/firebase'
 
 const SignIn = () => {
   const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  
+  const handleSignIn  = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password)
+      console.log(auth)
+      if(auth.currentUser){
+        console.log(auth.currentUser)
+        console.log(`navigate('/private-route')`)
+      }
+    }
+    catch (error){
+      console.log(error)
+    }
+}
+
+
+
+
   return (
       <div>
         <Box>
@@ -42,7 +64,7 @@ const SignIn = () => {
                   </Box>
                 </Box>
                 <FormGroup>
-                  <Box className="auth__input-box">
+                  <Box component='form' className="auth__input-box"  onSubmit={handleSignIn} >
                     <TextField
                         className={classes.authInput}
                         inputProps={{style: {fontSize: "14px"}}}
@@ -51,6 +73,10 @@ const SignIn = () => {
                         type="email"
                         fullWidth
                         size="small"
+                        value={email}
+                        autoComplete="email"
+                        onChange={(e)=>setEmail(e.target.value)}
+
                     />
                     <TextField
                         className={classes.authInput}
@@ -60,23 +86,27 @@ const SignIn = () => {
                         variant="outlined"
                         fullWidth
                         size="small"
+                        value={password}
+                        autoComplete="current-password"
+                        onChange={(e)=>setPassword(e.target.value)}
+
                     />
+
+                    <FormControlLabel
+                        control={<Checkbox/>}
+                        label="Keep me signed in"
+                        value="checkbox"
+                        className={classes.authCheck}
+                    />
+
+                    <Button variant="contained" size="large" type='submit'>
+                      Sign In
+                    </Button>
                   </Box>
-
-                  <FormControlLabel
-                      control={<Checkbox/>}
-                      label="Keep me signed in"
-                      value="checkbox"
-                      className={classes.authCheck}
-                  />
-
-                  <Button variant="contained" size="large">
-                    Sign In
-                  </Button>
-                  <a href="!#" className="auth__forgot-pass">
-                    Forgot Password?
-                  </a>
                 </FormGroup>
+                <a href="!#" className="auth__forgot-pass">
+                  Forgot Password?
+                </a>
               </Paper>
             </Grid>
             <Grid

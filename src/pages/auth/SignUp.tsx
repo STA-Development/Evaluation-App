@@ -43,10 +43,11 @@ const SignUp = () => {
       setEmailError(false);
       setPasswordError(false);
 
-      try {
+
         await createUserWithEmailAndPassword(auth, email, password)
           .then(({user}) => {
             console.log(user)
+            console.log(auth)
             dispatch(setUser({
               user: name,
               email: user.email,
@@ -54,16 +55,13 @@ const SignUp = () => {
               // token: user.token,
             }))
           })
-
-
-      } catch (error: any) {
-        if (error.code === 'auth/email-already-in-use') {
-          alert('Email alredy un-use')
-        } else {
-          console.log(error.message)
-        }
-      }
-
+            .catch ((error:any)=> {
+              if (error.code === 'auth/email-already-in-use') {
+                alert('Email alredy un-use')
+              } else {
+                console.log(error.message)
+              }
+            })
 
       setEmail("");
       setName("");
