@@ -1,13 +1,21 @@
-import React, {useState} from "react";
-import {Box, Button, FormControlLabel, FormGroup, Grid, Paper, TextField, Typography,} from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Button,
+  FormControlLabel,
+  FormGroup,
+  Grid,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-import {useStyles} from "../../assets/scssInJS/signUp";
+import { useStyles } from "../../assets/scssInJS/signUp";
 import SignUpImg from "../../assets/images/auth/SignUpImg";
-import {useAppDispatch} from "../../redux/hooks";
-import {createUserWithEmailAndPassword} from "firebase/auth";
-import {auth} from '../../data/firebase'
-import {setUser} from "../../redux/user/userSlice";
-
+import { useAppDispatch } from "../../redux/hooks";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../data/firebase";
+import { setUser } from "../../redux/user/userSlice";
 
 const SignUp = () => {
   const dispatch = useAppDispatch();
@@ -21,16 +29,6 @@ const SignUp = () => {
   const [emailError, setEmailError] = useState(false);
   const [paswordError, setPasswordError] = useState(false);
 
-  const getName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
-  const getEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-
-  const getPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -43,25 +41,26 @@ const SignUp = () => {
       setEmailError(false);
       setPasswordError(false);
 
-
-        await createUserWithEmailAndPassword(auth, email, password)
-          .then(({user}) => {
-            console.log(user)
-            console.log(auth)
-            dispatch(setUser({
+      await createUserWithEmailAndPassword(auth, email, password)
+        .then(({ user }) => {
+          console.log(user);
+          console.log(auth);
+          dispatch(
+            setUser({
               user: name,
               email: user.email,
               id: user.uid,
               // token: user.token,
-            }))
-          })
-            .catch ((error:any)=> {
-              if (error.code === 'auth/email-already-in-use') {
-                alert('Email alredy un-use')
-              } else {
-                console.log(error.message)
-              }
             })
+          );
+        })
+        .catch((error: any) => {
+          if (error.code === "auth/email-already-in-use") {
+            alert("Email alredy un-use");
+          } else {
+            console.log(error.message);
+          }
+        });
 
       setEmail("");
       setName("");
@@ -73,12 +72,11 @@ const SignUp = () => {
     } else if (!password) {
       setPasswordError(true);
     } else {
-      console.log('Something error')
+      console.log("Something error");
     }
 
-    console.log(`navigate('/prviate-routs')`)
+    console.log(`navigate('/prviate-routs')`);
   };
-
 
   return (
     <div>
@@ -89,7 +87,7 @@ const SignUp = () => {
           justifyContent="space-around"
           alignItems="center"
         >
-          <Grid item md={5} sm={6} xs={12} alignItems="center">
+          <Grid item md={4} sm={12} xs={12} alignItems="center">
             <Paper className="auth__title ">
               <Box component="div" className="auth__title-text">
                 <Typography
@@ -115,7 +113,7 @@ const SignUp = () => {
                   onSubmit={handleSubmit}
                 >
                   <TextField
-                    InputLabelProps={{style: {fontSize: 14}}}
+                    InputLabelProps={{ style: { fontSize: 14 } }}
                     className={classes.authInput}
                     label="Name / Surname"
                     variant="outlined"
@@ -123,11 +121,13 @@ const SignUp = () => {
                     fullWidth
                     value={name}
                     error={nameError}
-                    onChange={getName}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      setName(e.target.value);
+                    }}
                     autoComplete="name"
                   />
                   <TextField
-                    InputLabelProps={{style: {fontSize: 14}}}
+                    InputLabelProps={{ style: { fontSize: 14 } }}
                     className={classes.authInput}
                     label="Email"
                     variant="outlined"
@@ -136,11 +136,13 @@ const SignUp = () => {
                     error={emailError}
                     value={email}
                     size="small"
-                    onChange={getEmail}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      setEmail(e.target.value);
+                    }}
                     autoComplete="email"
                   />
                   <TextField
-                    InputLabelProps={{style: {fontSize: 14}}}
+                    InputLabelProps={{ style: { fontSize: 14 } }}
                     className={classes.authInput}
                     label="Password (6+ charachter , 1 capital letter, 1 number)"
                     type="password"
@@ -149,12 +151,14 @@ const SignUp = () => {
                     error={paswordError}
                     value={password}
                     size="small"
-                    onChange={getPassword}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      setPassword(e.target.value);
+                    }}
                     autoComplete="new-password"
                   />
 
                   <FormControlLabel
-                    control={<Checkbox/>}
+                    control={<Checkbox />}
                     label="Keep me signed in"
                     value="checkbox"
                     className={classes.authCheck}
@@ -168,14 +172,14 @@ const SignUp = () => {
           </Grid>
           <Grid
             item
-            md={7}
-            sm={6}
+            md={6}
+            sm={12}
             xs={12}
             justifyContent="flex-end"
-            style={{display: "flex"}}
+            style={{ display: "flex" }}
           >
             <Box className="auth__box-right ">
-              <SignUpImg/>
+              <SignUpImg />
             </Box>
           </Grid>
         </Grid>
