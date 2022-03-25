@@ -4,18 +4,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./assets/style/main.scss";
-import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "./assets/style/theme/theme";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
-import firebase from './data/firebase'
+import {ThemeProvider} from "@mui/material/styles";
+import {theme} from "./assets/style/theme/theme";
+import {Provider} from "react-redux";
+import {store} from "./redux/store";
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <App />
+        <App/>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,
