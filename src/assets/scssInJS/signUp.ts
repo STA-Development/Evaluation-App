@@ -24,6 +24,7 @@ export const useStyles = makeStyles({
     fontWeight: 700,
     fontSize: "34px",
     color: "#333",
+    marginBottom:'30px'
   },
   authCheck: {
     marginBottom: "20px",
