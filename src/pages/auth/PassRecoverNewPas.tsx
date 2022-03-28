@@ -1,10 +1,16 @@
 import React from "react";
-import {Box, Button, FormControlLabel, FormGroup, Grid, TextField, Typography,} from "@mui/material";
-import Checkbox from "@mui/material/Checkbox";
-import {useStyles} from "../../assets/scssInJS/signUp";
-import SignInImg from "../../assets/images/auth/SignInImg";
+import {
+  Box,
+  Button,
+  FormGroup,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { useStyles } from "../../assets/scssInJS/signUp";
+import ChangePassword from "../../assets/images/auth/ChangePassword";
 
-const SignIn = () => {
+const PassRecoverNewPas = () => {
   const classes = useStyles();
 
   return (
@@ -19,51 +25,47 @@ const SignIn = () => {
         >
           <Grid item lg={5} md={6} sm={12}>
             <Box className="auth__title ">
-              <Box component="div" className="auth__title-text">
+              <Box component="div" className="auth__passRec">
                 <Typography variant="h2" className={classes.authHeader}>
-                  Sign In
+                  Password Recovery
                 </Typography>
                 <Box>
                   <Typography className={classes.authText}>
-                    Already have an account?
+                    Write your new password
                   </Typography>
-
-                  <Button variant="text">Sign up now</Button>
                 </Box>
               </Box>
               <FormGroup>
                 <Box className="auth__input-box">
                   <TextField
                     className={classes.authInput}
-                    label="Email"
+                    inputProps={{ style: { fontSize: "14px" } }}
+                    label="New Password"
                     variant="outlined"
-                    type="email"
+                    type="password"
                     fullWidth
                     size="small"
+                    helperText="Password shall be 6+ charachter , 1 capital letter, 1 number"
+                    FormHelperTextProps={{
+                      classes: {
+                        root: classes.recPassLabel,
+                      },
+                    }}
                   />
+
                   <TextField
                     className={classes.authInput}
-                    label="Password"
-                    type="password"
+                    inputProps={{ style: { fontSize: "14px" } }}
+                    label="Confirm password"
                     variant="outlined"
+                    type="password"
                     fullWidth
                     size="small"
                   />
                 </Box>
-
-                <FormControlLabel
-                  control={<Checkbox/>}
-                  label="Keep me signed in"
-                  value="checkbox"
-                  className={classes.authCheck}
-                />
-
                 <Button variant="contained" size="large">
-                  Sign In
+                  Save
                 </Button>
-                <a href="!#" className="auth__forgot-pass">
-                  Forgot Password?
-                </a>
               </FormGroup>
             </Box>
           </Grid>
@@ -73,10 +75,10 @@ const SignIn = () => {
             md={6}
             sm={12}
             justifyContent="center"
-            style={{display: "flex"}}
+            style={{ display: "flex" }}
           >
             <Box className="auth__box-right ">
-              <SignInImg/>
+              <ChangePassword />
             </Box>
           </Grid>
         </Grid>
@@ -85,4 +87,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default PassRecoverNewPas;

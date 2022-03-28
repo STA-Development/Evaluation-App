@@ -5,6 +5,17 @@
 /**
  * Disable Animation
  */
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
 @mixin disableAnimation {
   transform: none !important;
 

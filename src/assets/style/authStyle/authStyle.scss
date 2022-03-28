@@ -1,4 +1,125 @@
 .bg {
   background-color: $authBg;
+  position: relative;
+  font-family: $body-font;
   height: 100vh;
+  position: relative;
+  padding: 0 30px;
+}
+
+.childThing {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 2;
+
+}
+
+
+.auth {
+  display: flex;
+  z-index: 10;
+  height: 100vh;
+  position: relative;
+
+
+  &__bg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  &__title {
+    border-radius: 4px;
+    background-color: #fff;
+    z-index: 10;
+    padding: 50px 0;
+  }
+
+  &__input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    &____input {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__title-text {
+    height: 122px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    &__inner-text {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+
+  &__input {
+    margin-bottom: 20px;
+  }
+
+  &__forgot-pass {
+    color: $blueColor;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 10px;
+
+    &:hover {
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+
+}
+
+
+.auth__box-right {
+  max-width: 100%;
+  z-index: 3;
+
+  svg {
+    max-width: 100%;
+    width: 694px;
+  }
+}
+
+.auth__passRec {
+  margin: 50px 0 30px 0;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btnGroup {
+  display: flex;
+
+  button {
+    margin-right: 42px;
+    width: 150px;
+    height: 40px;
+  }
+}
+
+.authChahgePass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 411px;
+  padding: 0;
+
+  .auth__passRec{
+    margin: 0;
+    height: 175px;
+  }
 }
