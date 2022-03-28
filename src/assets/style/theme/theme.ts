@@ -1,16 +1,15 @@
-import { createTheme } from "@mui/material/styles";
+import {createTheme} from "@mui/material/styles";
 
 export const theme = createTheme({
-  // palette: {
-  //     primary: {
-  //         main: "#00A3FF",
-  //         light: 'none',
-  //         dark: 'none'
-  //     },
-  //
-  // },
+
+
   typography: {
-    fontFamily: ["Montserrat", "sans-serif", "-apple-system"].join(","),
+    fontFamily: [
+      'Montserrat',
+      "sans-serif",
+      '-apple-system',
+    ].join(','),
+
   },
 
   components: {
@@ -18,6 +17,7 @@ export const theme = createTheme({
       styleOverrides: {
         contained: {
           backgroundColor: "#00A3FF",
+
           "&:hover": {
             backgroundColor: "#40BAFF",
           },
@@ -40,4 +40,6 @@ export const theme = createTheme({
       },
     },
   },
+
+
 });
