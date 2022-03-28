@@ -1,8 +1,27 @@
 export const darkRed = "#cc0000";
 export const textColor = "#333";
 
-export const fontWeight700 = 700;
-export const fontWeight400 = 400;
-export const fonstSize34 = "34px";
-export const fonstSize16 = "16px";
-export const fonstSize14 = "14px";
+interface Fonts {
+  fontWeight700: number;
+  fontWeight400: number;
+  fontSize34: string;
+  fontSize16: string;
+  fontSize14: string;
+}
+
+interface Colors {
+  [key: string]: string;
+}
+
+export const font: Fonts = {
+  fontWeight700: 700,
+  fontWeight400: 400,
+  fontSize34: "34px",
+  fontSize16: "16px",
+  fontSize14: "14px",
+};
+
+export const color: Colors = {
+  textColor: "#333",
+  darkRed: "#cc0000",
+};

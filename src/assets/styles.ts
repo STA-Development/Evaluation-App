@@ -1,10 +1,10 @@
-import { makeStyles } from "@mui/material/styles";
-import { fonstSize34, fontWeight700, textColor } from "./style/reset/variables";
+import { makeStyles } from "@mui/styles";
+import { font, color } from "./style/reset/variables";
 
 export const useStyles = makeStyles({
   authText: {
-    fontWeight: fontWeight700,
-    fontSize: fonstSize34,
-    color: textColor,
+    fontWeight: font.fontWeight700,
+    fontSize: font.fontSize34,
+    color: color.textColor,
   },
 });
