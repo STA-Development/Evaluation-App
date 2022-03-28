@@ -3,7 +3,6 @@
   position: relative;
   font-family: $body-font;
   height: 100vh;
-  position: relative;
   padding: 0 30px;
 }
 
@@ -34,7 +33,6 @@
   }
 
   &__title {
-    min-height: 578px;
     border-radius: 4px;
     background-color: #fff;
     z-index: 10;
@@ -94,12 +92,22 @@
   }
 }
 
+
 .auth__passRecCheng {
   margin-bottom: 30px;
 
   h2 {
     margin-bottom: 30px;
   }
+}
+
+.auth__passRec {
+  margin: 50px 0 30px 0;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
 
 .btnGroup {
@@ -120,11 +128,13 @@
   height: 411px;
   padding: 0;
 
+
   .auth__passRec {
     margin: 0;
     height: 175px;
   }
 }
+
 
 .auth__passResend {
   margin: 0;

@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, Button, Grid, Typography } from "@mui/material";
-import { useStyles } from "../../assets/scssInJS/signUp";
+import {Box, Button, Grid, Typography} from "@mui/material";
+import {useStyles} from "../../assets/scssInJS/signUp";
 import PasswordRecovery from "../../assets/images/auth/PasswordRecovery";
 
 const PassRecover = () => {
@@ -38,17 +38,10 @@ const PassRecover = () => {
               </Box>
             </Box>
           </Grid>
-          <Grid
-            item
-            lg={4}
-            md={5}
-            sm={12}
-            xs={12}
-            justifyContent="center"
-            style={{ display: "flex" }}
-          >
+
+          <Grid className={classes.passRecGrid} item lg={7} md={6} sm={12}>
             <Box className="auth__box-right ">
-              <PasswordRecovery />
+              <PasswordRecovery/>
             </Box>
           </Grid>
         </Grid>

@@ -6,17 +6,26 @@ import reportWebVitals from "./reportWebVitals";
 import "./assets/style/main.scss";
 import {ThemeProvider} from "@mui/material/styles";
 import {theme} from "./assets/style/theme/theme";
-import {Provider} from "react-redux";
-import {store} from "./redux/store";
-
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Events from "./pages/events/Events";
+import Reports from "./pages/reports/Reports";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <App/>
+        <Routes>
+          <Route path="/" element={<App/>}>
+            <Route path="dashboard" element={<Dashboard/>}/>
+            <Route path="events" element={<Events/>}/>
+            <Route path="reports" element={<Reports/>}/>
+          </Route>
+
+
+        </Routes>
       </ThemeProvider>
-    </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

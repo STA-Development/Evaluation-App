@@ -1,4 +1,4 @@
-import { makeStyles } from "@mui/styles";
+import {makeStyles} from "@mui/styles";
 
 export const useStyles = makeStyles({
   authInput: {
@@ -12,8 +12,19 @@ export const useStyles = makeStyles({
   authInputSize: {
     fontSize: "14px",
   },
+  authInputProps: {
+    fontSize: "14px"
+  },
+  signUpRightGrid: {
+    display: "flex",
+    justifyContent: "flex-end"
+  },
   recPassLabel: {
     margin: 0,
+  },
+  passRecGrid: {
+    display: "flex",
+    justifyContent: "center"
   },
   authText: {
     fontSize: "16px",
