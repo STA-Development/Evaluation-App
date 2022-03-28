@@ -34,14 +34,12 @@
   }
 
   &__title {
-    //margin-left: 60px;
-    width: 608px;
-    //max-width: 100%;
+
     min-height: 578px;
     border-radius: 4px;
     background-color: #fff;
     z-index: 10;
-    padding: 50px 94px;
+    padding: 50px 0;
   }
 
   &__input-box {

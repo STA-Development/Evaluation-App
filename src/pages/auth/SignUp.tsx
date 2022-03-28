@@ -28,7 +28,6 @@ const SignUp = () => {
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [paswordError, setPasswordError] = useState(false);
-  // const count = useSelector((state: RootState) => state.user.name)
 
   const getName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);

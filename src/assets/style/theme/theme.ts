@@ -2,14 +2,7 @@ import {createTheme} from "@mui/material/styles";
 
 
 export const theme = createTheme({
-    // palette: {
-    //     primary: {
-    //         main: "#00A3FF",
-    //         light: 'none',
-    //         dark: 'none'
-    //     },
-    //
-    // },
+ 
     typography: {
         fontFamily: [
             'Montserrat',

@@ -16,22 +16,6 @@
 
 
 
-@mixin disableAnimation {
-  transform: none !important;
-
-  transition: none !important;
-  transition-property: none !important;
-  transition-duration: 0s !important;
-  transition-delay: 0s !important;
-
-  animation: none !important;
-  animation-duration: 0s !important;
-  animation-delay: 0s !important;
-  animation-iteration-count: 1 !important;
-
-  scroll-behavior: auto !important;
-}
-
 /**
  * Disable animation depends on Browser or Operation System configuration
  */
