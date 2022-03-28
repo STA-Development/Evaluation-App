@@ -1,51 +1,45 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
   FormGroup,
   Grid,
-  TextField,
   Paper,
+  TextField,
   Typography,
 } from "@mui/material";
 import { useStyles } from "../../assets/scssInJS/signUp";
 import PasswordRecovery from "../../assets/images/auth/PasswordRecovery";
-import {  sendPasswordResetEmail ,sendSignInLinkToEmail} from "firebase/auth";
-import {auth} from '../../data/firebase'
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../../data/firebase";
 
 const PassRecover = () => {
   const classes = useStyles();
-const [email, setEmail] = useState('');
-const [error, setError] = useState(false);
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState(false);
 
-
-const actionCodeSettings = {
-    url: 'http://localhost:3000/signin',
+  const actionCodeSettings = {
+    url: "http://localhost:3000/signin",
     handleCodeInApp: true,
-}
+  };
 
+  const handleRecoverPass = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    auth.useDeviceLanguage();
 
-
-
-const handleRecoverPass =async (e:React.FormEvent<HTMLFormElement>)=>{
-      e.preventDefault();
-
-
-        await sendPasswordResetEmail(auth, email)
-            .then((link)=>{
-              console.log("link", link)
-              console.log(`navigate('/passrecovernew pass rout')`)
-              console.log("auth", auth)
-              setEmail('');
-            })
-            .catch ((error)=>{
-              console.log(error)
-              setError(true)
-            })
-
-
-
-}
+    await sendPasswordResetEmail(auth, email)
+      .then((link) => {
+        console.log("link", link);
+        console.log(`navigate('/passrecovernew pass rout')`);
+        console.log("auth", auth);
+        setEmail("");
+        console.log(`navigate('/PassRecover')`);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(true);
+      });
+  };
 
   return (
     <div>
@@ -57,9 +51,9 @@ const handleRecoverPass =async (e:React.FormEvent<HTMLFormElement>)=>{
           justifyContent="space-evenly"
           alignItems="center"
         >
-          <Grid item lg={5} md={6} sm={12}>
+          <Grid item lg={4} md={4} sm={12} xs={12}>
             <Paper className="auth__title ">
-              <Box component="div" className="auth__passRec">
+              <Box component="div" className="auth__passRecCheng">
                 <Typography variant="h2" className={classes.authHeader}>
                   Password Recovery
                 </Typography>
@@ -70,7 +64,11 @@ const handleRecoverPass =async (e:React.FormEvent<HTMLFormElement>)=>{
                 </Box>
               </Box>
               <FormGroup>
-                <Box component='form' className="auth__input-box"  onSubmit={handleRecoverPass}>
+                <Box
+                  component="form"
+                  className="auth__input-box"
+                  onSubmit={handleRecoverPass}
+                >
                   <TextField
                     className={classes.authInput}
                     inputProps={{ style: { fontSize: "14px" } }}
@@ -82,21 +80,24 @@ const handleRecoverPass =async (e:React.FormEvent<HTMLFormElement>)=>{
                     value={email}
                     error={error}
                     autoComplete="email"
-                    onChange={(e)=>setEmail(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setEmail(e.target.value)
+                    }
                   />
 
-                <Button variant="contained" size="large" type='submit'>
-                  SEND ME LINK
-                </Button>
+                  <Button variant="contained" size="large" type="submit">
+                    SEND ME LINK
+                  </Button>
                 </Box>
               </FormGroup>
             </Paper>
           </Grid>
           <Grid
             item
-            lg={7}
-            md={6}
+            lg={4}
+            md={5}
             sm={12}
+            xs={12}
             justifyContent="center"
             style={{ display: "flex" }}
           >

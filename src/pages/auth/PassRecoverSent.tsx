@@ -16,9 +16,9 @@ const PassRecover = () => {
           justifyContent="space-evenly"
           alignItems="center"
         >
-          <Grid item lg={5} md={6} sm={12}>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
             <Box className="auth__title ">
-              <Box component="div" className="auth__passRec">
+              <Box component="div" className="auth__passResend">
                 <Typography variant="h2" className={classes.authHeader}>
                   Password Recovery
                 </Typography>
@@ -27,23 +27,23 @@ const PassRecover = () => {
                     Write your email , we will send you recovery link{" "}
                   </Typography>
                 </Box>
-              </Box>
-
-              <Box className="btnGroup">
-                <Button variant="outlined" size="large">
-                  Resend
-                </Button>
-                <Button variant="contained" size="large">
-                  Sign In
-                </Button>
+                <Box className="btnGroup">
+                  <Button variant="outlined" size="large">
+                    Resend
+                  </Button>
+                  <Button variant="contained" size="large">
+                    Sign In
+                  </Button>
+                </Box>
               </Box>
             </Box>
           </Grid>
           <Grid
             item
-            lg={7}
-            md={6}
+            lg={4}
+            md={5}
             sm={12}
+            xs={12}
             justifyContent="center"
             style={{ display: "flex" }}
           >

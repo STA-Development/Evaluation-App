@@ -23,9 +23,9 @@ const PassRecoverNewPas = () => {
           justifyContent="space-evenly"
           alignItems="center"
         >
-          <Grid item lg={5} md={6} sm={12}>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
             <Box className="auth__title ">
-              <Box component="div" className="auth__passRec">
+              <Box component="div" className="auth__passRecCheng">
                 <Typography variant="h2" className={classes.authHeader}>
                   Password Recovery
                 </Typography>
@@ -71,9 +71,10 @@ const PassRecoverNewPas = () => {
           </Grid>
           <Grid
             item
-            lg={7}
-            md={6}
+            lg={4}
+            md={5}
             sm={12}
+            xs={12}
             justifyContent="center"
             style={{ display: "flex" }}
           >
