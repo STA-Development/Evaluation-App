@@ -87,7 +87,7 @@ const SignUp = () => {
           justifyContent="space-around"
           alignItems="center"
         >
-          <Grid item md={4} sm={12} xs={12} alignItems="center">
+          <Grid item lg={4} md={6} sm={12} xs={12} alignItems="center">
             <Paper className="auth__title ">
               <Box component="div" className="auth__title-text">
                 <Typography
@@ -172,7 +172,8 @@ const SignUp = () => {
           </Grid>
           <Grid
             item
-            md={6}
+            lg={4}
+            md={5}
             sm={12}
             xs={12}
             justifyContent="flex-end"

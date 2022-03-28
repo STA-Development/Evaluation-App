@@ -14,6 +14,8 @@ import { useStyles } from "../../assets/scssInJS/signUp";
 import SignInImg from "../../assets/images/auth/SignInImg";
 import {  signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from '../../data/firebase'
+import { Link } from "react-router-dom";
+
 
 const SignIn = () => {
   const classes = useStyles();
@@ -49,7 +51,7 @@ const SignIn = () => {
               justifyContent="space-evenly"
               alignItems="center"
           >
-            <Grid item lg={5} md={6} sm={12}>
+            <Grid item lg={4} md={6} sm={12} xs={12}>
               <Paper className="auth__title ">
                 <Box component="div" className="auth__title-text">
                   <Typography variant="h2" className={classes.authHeader}>
@@ -104,16 +106,17 @@ const SignIn = () => {
                     </Button>
                   </Box>
                 </FormGroup>
-                <a href="!#" className="auth__forgot-pass">
+                <a href='#!' className="auth__forgot-pass" >
                   Forgot Password?
                 </a>
               </Paper>
             </Grid>
             <Grid
                 item
-                lg={7}
-                md={6}
+                lg={4}
+                md={5}
                 sm={12}
+                xs={12}
                 justifyContent="center"
                 style={{display: "flex"}}
             >

@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, Grid, Typography,Paper } from "@mui/material";
+import { Box, Grid, Paper, Typography } from "@mui/material";
 import { useStyles } from "../../assets/scssInJS/signUp";
 import ChangePassword from "../../assets/images/auth/ChangePassword";
-import CheckedGreenIcon from '../../assets/images/Icons/CheckedGreenIcon'
+import CheckedGreenIcon from "../../assets/images/Icons/CheckedGreenIcon";
+
 const PassChanged = () => {
   const classes = useStyles();
 
@@ -16,7 +17,7 @@ const PassChanged = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Grid item lg={5} md={6} sm={12}>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
             <Paper className="authChahgePass auth__title">
               <Box component="div" className="auth__passRec">
                 <Typography variant="h2" className={classes.authHeader}>
@@ -28,16 +29,17 @@ const PassChanged = () => {
                   </Typography>
                 </Box>
                 <Box>
-                  <CheckedGreenIcon/>
+                  <CheckedGreenIcon />
                 </Box>
               </Box>
             </Paper>
           </Grid>
           <Grid
             item
-            lg={7}
-            md={6}
+            lg={4}
+            md={5}
             sm={12}
+            xs={12}
             justifyContent="center"
             style={{ display: "flex" }}
           >

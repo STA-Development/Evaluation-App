@@ -39,13 +39,13 @@
     background-color: #fff;
     z-index: 10;
     padding: 50px;
-    margin-top: 50px;
   }
 
   &__input-box {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    margin-bottom: 15px;
 
     &____input {
       margin-bottom: 25px;
@@ -94,8 +94,12 @@
   }
 }
 
-.auth__passRec {
+.auth__passRecCheng {
   margin-bottom: 30px;
+
+  h2 {
+    margin-bottom: 30px;
+  }
 }
 
 .btnGroup {
@@ -116,8 +120,17 @@
   height: 411px;
   padding: 0;
 
-  .auth__passRec{
+  .auth__passRec {
     margin: 0;
     height: 175px;
   }
+}
+
+.auth__passResend {
+  margin: 0;
+  height: 175px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
