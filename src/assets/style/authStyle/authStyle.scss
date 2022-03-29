@@ -4,15 +4,29 @@
   font-family: $body-font;
   height: 100vh;
   padding: 0 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 .childThing {
   position: absolute;
   right: 0;
   top: 0;
-  height: 100vh;
+  height: 100%;
   z-index: 2;
 
+}
+
+.authGrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -33,6 +47,7 @@
   }
 
   &__title {
+    min-height: 578px;
     border-radius: 4px;
     background-color: #fff;
     z-index: 10;
@@ -127,6 +142,7 @@
   text-align: center;
   height: 411px;
   padding: 0;
+  flex-direction: column;
 
 
   .auth__passRec {

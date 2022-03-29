@@ -1,16 +1,14 @@
 import React from "react";
 import "./App.css";
 import {Box} from "@mui/material";
-import SignIn from "./pages/auth/SignIn";
+import PublicRoutes from "./routes/PublicRoutes";
+import PrivateRouts from "./routes/PrivateRouts";
 
 function App() {
+  const isTrue = true
   return (
-    <Box className="bg" sx={{display: 'flex', justifyContent: "center"}}>
-      {/*<Sidebar/>*/}
-      {/*<Outlet/>*/}
-      {/*<SignUp/>*/}
-      <SignIn/>
-
+    <Box className="bg center">
+      {isTrue ? <PublicRoutes/> : <PrivateRouts/>}
     </Box>
   );
 }
