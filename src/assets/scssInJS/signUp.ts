@@ -30,6 +30,7 @@ export const useStyles = makeStyles({
     fontSize: "16px",
     color: "#333",
     fontWeight: 400,
+    marginBottom: '15px'
   },
   authHeader: {
     fontWeight: 700,

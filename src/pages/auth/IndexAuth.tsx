@@ -1,19 +1,14 @@
 import React from "react";
-import { Box } from "@mui/material";
+import {Box} from "@mui/material";
 import AuthBackgroundVector from "../../assets/images/auth/AuthBackgroundVector";
-import PassRecover from "./PassRecover";
+import {Outlet} from 'react-router-dom'
 
 const IndexAuth = () => {
   return (
     <Box>
-      {/*<SignUp/>*/}
-      {/*<SignIn />*/}
-      <PassRecover />
-      {/*<PassRecoverSent />*/}
-      {/*<PassRecoverNewPas />*/}
-      {/*<PassChanged />*/}
+      <Outlet/>
       <Box component="div" className="childThing">
-        <AuthBackgroundVector />
+        <AuthBackgroundVector/>
       </Box>
     </Box>
   );

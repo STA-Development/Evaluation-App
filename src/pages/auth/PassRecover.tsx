@@ -1,25 +1,19 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  FormGroup,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { useStyles } from "../../assets/scssInJS/signUp";
+import React, {useState} from "react";
+import {Box, Button, FormGroup, Grid, Paper, TextField, Typography,} from "@mui/material";
+import {useStyles} from "../../assets/scssInJS/signUp";
 import PasswordRecovery from "../../assets/images/auth/PasswordRecovery";
-import { sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "../../data/firebase";
+import {sendPasswordResetEmail} from "firebase/auth";
+import {auth} from "../../data/firebase";
+import {useNavigate} from "react-router-dom";
 
 const PassRecover = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
 
   const actionCodeSettings = {
-    url: "http://localhost:3000/signin",
+    url: "http://localhost:3000/sign-in",
     handleCodeInApp: true,
   };
 
@@ -29,15 +23,14 @@ const PassRecover = () => {
 
     await sendPasswordResetEmail(auth, email)
       .then((link) => {
-        console.log("link", link);
-        console.log(`navigate('/passrecovernew pass rout')`);
-        console.log("auth", auth);
-        setEmail("");
-        console.log(`navigate('/PassRecover')`);
+        if (auth.config.authDomain) {
+          navigate('/password-recover-resend')
+          setEmail("");
+        }
       })
       .catch((error) => {
-        console.log(error);
         setError(true);
+        alert('Enter email')
       });
   };
 
@@ -45,15 +38,13 @@ const PassRecover = () => {
     <div>
       <Box>
         <Grid
-          className="auth"
+          className="auth authGrid"
           container
-          direction="row"
-          justifyContent="space-evenly"
-          alignItems="center"
+
         >
-          <Grid item lg={4} md={4} sm={12} xs={12}>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
             <Paper className="auth__title ">
-              <Box component="div" className="auth__passRecCheng">
+              <Box className="auth__passRecCheng">
                 <Typography variant="h2" className={classes.authHeader}>
                   Password Recovery
                 </Typography>
@@ -71,7 +62,7 @@ const PassRecover = () => {
                 >
                   <TextField
                     className={classes.authInput}
-                    inputProps={{ style: { fontSize: "14px" } }}
+                    inputProps={{style: {fontSize: "14px"}}}
                     label="Email"
                     variant="outlined"
                     type="email"
@@ -98,11 +89,10 @@ const PassRecover = () => {
             md={5}
             sm={12}
             xs={12}
-            justifyContent="center"
-            style={{ display: "flex" }}
+
           >
             <Box className="auth__box-right ">
-              <PasswordRecovery />
+              <PasswordRecovery/>
             </Box>
           </Grid>
         </Grid>
