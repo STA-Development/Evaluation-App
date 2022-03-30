@@ -1,17 +1,18 @@
 import {makeStyles} from "@mui/styles";
+import {font, margin} from "../style/globalVariables";
 
 export const useDashboardStyles = makeStyles({
   dashboardPage: {
-    width: 'calc(100% - 250px)',
-    height: "100vh", position: "relative", justifyContent: "center", paddingTop: "40px"
+    height: '100vh',
+    paddingTop: '30px'
   },
   dashboardHeader: {
-    fontWeight: "700",
+    fontWeight: font.fontWeigth700,
     fontFamily: "Montserrat",
-    fontSize: "24px"
+    fontSize: font.fontSize24
   },
   dashboardContent: {
-    height: "calc(100vh - 150px)",
+    height: '100%',
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -19,17 +20,26 @@ export const useDashboardStyles = makeStyles({
     flexDirection: "column",
   },
   dashText1: {
-    marginTop: "25px", fontWeight: "700", fontFamily: "Montserrat", fontSize: "18px"
+    marginTop: margin.margin25,
+    fontWeight: font.fontWeigth700,
+    fontFamily: "Montserrat",
+    fontSize: font.fontSize18,
   },
   dashText2: {
     width: "365px",
     textAlign: "center",
     flexDirection: "column",
-    fontWeight: "400",
+    fontWeight: font.fontWeigth400,
     fontFamily: "Montserrat",
-    fontSize: "16px",
-    margin: "20px"
+    fontSize: font.fontSize16,
+    margin: margin.margin20
   },
   dashboardEmptyImg: {},
-  dashboardEmptyText: {display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}
+  dashboardEmptyText: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+ 
 })

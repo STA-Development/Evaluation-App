@@ -1,19 +1,20 @@
 import {makeStyles} from "@mui/styles";
+import {color, font, margin} from "../style/globalVariables";
 
 export const useStyles = makeStyles({
   authInput: {
-    color: "#828282",
-    fontSize: "14px",
-    marginBottom: "25px",
+    color: color.gray,
+    fontSize: font.fontSize14,
+    marginBottom: margin.margin25,
     "&:nth-child(3)": {
-      marginBottom: "10px",
+      marginBottom: margin.margin10,
     },
   },
   authInputSize: {
-    fontSize: "14px",
+    fontSize: font.fontSize14,
   },
   authInputProps: {
-    fontSize: "14px"
+    fontSize: font.fontSize14
   },
   signUpRightGrid: {
     display: "flex",
@@ -27,18 +28,27 @@ export const useStyles = makeStyles({
     justifyContent: "center"
   },
   authText: {
-    fontSize: "16px",
-    color: "#333",
-    fontWeight: 400,
-    marginBottom: '15px'
+    fontSize: font.fontSize16,
+    color: color.darkGray,
+    fontWeight: font.fontWeigth400,
+    marginBottom: margin.margin15,
   },
   authHeader: {
-    fontWeight: 700,
-    fontSize: "34px",
-    color: "#333",
-    marginBottom: "30px",
+    fontWeight: font.fontWeigth600,
+    fontSize: font.fontSize34,
+    color: color.darkGray,
+    marginBottom: margin.margin30,
   },
   authCheck: {
-    marginBottom: "20px",
+    marginBottom: margin.margin20,
   },
+  link: {
+    textDecoration: 'none',
+    color: color.blue,
+    fontWeight: font.fontWeigth400,
+    '&:hover': {
+      textDecoration: 'none',
+    }
+
+  }
 });

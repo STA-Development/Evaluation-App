@@ -1,25 +1,22 @@
 import {makeStyles} from "@mui/styles";
+import {color, font, margin} from "../style/globalVariables";
 
-export const useStyles = makeStyles({
-  sidebar: {
-    width: "250px",
-    "& .MuiDrawer-paper": {
-      width: "250px",
-
-      backgroundColor: "#131924",
-      borderRadius: "0px 50px 50px 0px",
-      boxSizing: "border-box",
-      justifyContent: "space-between",
+export const useSliderStyle = makeStyles({
+  link: {
+    '&: active': {
+      textDecoration: 'none',
+      backgroundColor: 'green',
     }
   },
   listItem: {
     "&:hover": {
-      background: "#262F3F"
+      // background: color.navbar,
+      textDecoration: 'none'
     },
     padding: "15px 0px"
   },
   itemIcon: {
-    color: "#fff",
+    color: color.white,
     minWidth: "20px",
     minHeight: "20px",
     marginRight: "18px"
@@ -28,7 +25,7 @@ export const useStyles = makeStyles({
     '& span': {
       color: "#fff",
       fontWeight: 500,
-      fontSize: "18px",
+      fontSize: font.fontSize18,
       fontFamily: "Montserrat",
     },
   },
@@ -45,11 +42,11 @@ export const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginRight: "20px"
+    marginRight: margin.margin20
   },
   listBox: {
     padding: "0px",
-    marginTop: "20px"
+    marginTop: margin.margin20
   },
   logOutBox: {},
   avatar: {
@@ -57,10 +54,11 @@ export const useStyles = makeStyles({
     height: "105px"
   },
   nameSurname: {
-    color: "#fff",
-    fontWeight: 500,
-    fontSize: "16px",
+    color: color.white,
+    fontWeight: font.fontWeigth500,
+    fontSize: font.fontSize16,
     fontFamily: "Montserrat",
+    margin: '20px 0',
   },
 
 });

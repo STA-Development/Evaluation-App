@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
-import { Box, Grid, Paper, Typography } from "@mui/material";
-import { useStyles } from "../../assets/scssInJS/signUp";
+import React, {useEffect} from "react";
+import {Box, Grid, Paper, Typography} from "@mui/material";
+import {useStyles} from "../../assets/scssInJS/signUp";
 import ChangePassword from "../../assets/images/auth/ChangePassword";
 import CheckedGreenIcon from "../../assets/images/Icons/CheckedGreenIcon";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const PassChanged = () => {
   const classes = useStyles();
   const navigate = useNavigate();
+
+
   useEffect(() => {
     let timer = setTimeout(() => {
       navigate("/sign-in");
@@ -15,7 +17,7 @@ const PassChanged = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [navigate]);
 
   return (
     <Box>
@@ -32,14 +34,14 @@ const PassChanged = () => {
                 </Typography>
               </Box>
               <Box>
-                <CheckedGreenIcon />
+                <CheckedGreenIcon/>
               </Box>
             </Box>
           </Paper>
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
           <Box className="auth__box-right ">
-            <ChangePassword />
+            <ChangePassword/>
           </Box>
         </Grid>
       </Grid>
