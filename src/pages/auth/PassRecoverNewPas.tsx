@@ -73,7 +73,6 @@ const PassRecoverNewPas = () => {
               >
                 <TextField
                   className={classes.authInput}
-                  inputProps={{ style: { fontSize: "14px" } }}
                   label="New Password"
                   variant="outlined"
                   type="password"
@@ -93,7 +92,6 @@ const PassRecoverNewPas = () => {
 
                 <TextField
                   className={classes.authInput}
-                  inputProps={{ style: { fontSize: "14px" } }}
                   label="Confirm password"
                   variant="outlined"
                   type="password"

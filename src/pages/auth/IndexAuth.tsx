@@ -1,14 +1,14 @@
 import React from "react";
-import {Box} from "@mui/material";
+import { Box } from "@mui/material";
 import AuthBackgroundVector from "../../assets/images/auth/AuthBackgroundVector";
-import {Outlet} from 'react-router-dom'
+import { Outlet } from "react-router-dom";
 
 const IndexAuth = () => {
   return (
     <Box>
-      <Outlet/>
+      <Outlet />
       <Box component="div" className="childThing">
-        <AuthBackgroundVector/>
+        <AuthBackgroundVector />
       </Box>
     </Box>
   );

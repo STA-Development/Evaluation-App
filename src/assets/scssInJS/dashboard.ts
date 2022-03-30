@@ -1,27 +1,28 @@
-import {makeStyles} from "@mui/styles";
-import {font, margin} from "../style/globalVariables";
+import { makeStyles } from "@mui/styles";
+import { font, margin, padding } from "../style/globalVariables";
 
 export const useDashboardStyles = makeStyles({
   dashboardPage: {
-    height: '100vh',
-    paddingTop: '30px'
+    height: "calc(100vh - 66px)",
+    width: "calc(100% - 250px)",
+    paddingTop: padding.paddingTop30,
   },
   dashboardHeader: {
-    fontWeight: font.fontWeigth700,
+    fontWeight: font.fontWeight700,
     fontFamily: "Montserrat",
-    fontSize: font.fontSize24
+    fontSize: font.fontSize24,
+    marginBottom: margin.marginBottom25,
   },
   dashboardContent: {
-    height: '100%',
+    height: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
     flexDirection: "column",
   },
   dashText1: {
-    marginTop: margin.margin25,
-    fontWeight: font.fontWeigth700,
+    marginTop: margin.marginTop25,
+    fontWeight: font.fontWeight700,
     fontFamily: "Montserrat",
     fontSize: font.fontSize18,
   },
@@ -29,17 +30,19 @@ export const useDashboardStyles = makeStyles({
     width: "365px",
     textAlign: "center",
     flexDirection: "column",
-    fontWeight: font.fontWeigth400,
+    fontWeight: font.fontWeight400,
     fontFamily: "Montserrat",
     fontSize: font.fontSize16,
-    margin: margin.margin20
+    margin: margin.margin20,
   },
   dashboardEmptyImg: {},
   dashboardEmptyText: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
- 
-})
+  paddingContent: {
+    paddingTop: padding.paddingTop30,
+  },
+});

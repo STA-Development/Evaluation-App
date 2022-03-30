@@ -1,32 +1,18 @@
-import React from 'react';
-import {Box, Button, Typography} from "@mui/material";
-import {useDashboardStyles} from "../../assets/scssInJS/dashboard";
-import DashboardPageEmptyIcon from "../../assets/images/Icons/DashboardPageEmptyIcon"
-import {Link} from "react-router-dom";
+import React, { useState } from "react";
+import EmptyDashboard from "./EmptyDashboard";
+import FullDashboard from "./FullDashboard";
+import { Box, Typography } from "@mui/material";
+import { useDashboardStyles } from "../../assets/scssInJS/dashboard";
 
 const Dashboard = () => {
-  const classes = useDashboardStyles()
+  const classes = useDashboardStyles();
+
+  const [hasInfo, setHasInfo] = useState<boolean>(false);
+
   return (
     <Box className={classes.dashboardPage}>
-      <Typography className={classes.dashboardHeader}>
-        Dashboard
-      </Typography>
-      <Box className={classes.dashboardContent}>
-        <Box className={classes.dashboardEmptyImg}>
-          <DashboardPageEmptyIcon/>
-        </Box>
-        <Box className={classes.dashboardEmptyText}>
-          <Typography className={classes.dashText1}>
-            No dashboard information is available yet.
-          </Typography>
-          <Typography className={classes.dashText2}>
-            To see dashboard information you need to set up evaluation event first.
-          </Typography>
-          <Link style={{textDecoration: "none"}} to={"/events-create"}>
-            <Button variant="contained">CREATE EVENT</Button>
-          </Link>
-        </Box>
-      </Box>
+      <Typography className={classes.dashboardHeader}>Dashboard</Typography>
+      {hasInfo ? <EmptyDashboard /> : <FullDashboard />}
     </Box>
   );
 };

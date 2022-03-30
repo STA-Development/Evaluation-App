@@ -1,17 +1,15 @@
 $font-family: 'Montserrat', sans-serif;
 $font-family-title: 'Montserrat', sans-serif;
-
 $body-font: $font-family;
-$body-font-weight: 400;
-
+$fontWeight400:400;
+$fontWeight700:700;
+$body-font-weight: $fontWeight700;
 $header-font: $font-family-title;
-
 $basic-font-size: 100%;
 $paragraph: 16px;
-
-
 $line-height: 24px;
 
+//color
 
 $authBg: #F7FAFF;
 $greenColor: #B2E4D5;
@@ -19,12 +17,124 @@ $submissionReadColor: #1EB892;
 $submissionNewColor: #FF6982;
 $submissionNotFinishedColor: #F2994A;
 $blueColor: #00A3FF;
-$navbarColor: #262F3F;
+$navbarActiveColor: #262F3F;
 $selectedNavbarColor: #333;
 $upColor: #DBE2EA;
 $tableEvenColor: #d0e1ea;
 $whiteColor: #fff;
 $lightBlue: rgba(12, 167.255, 0.08);
-$textColor: #131924;
+$navbarColor: #131924;
 $titleColor: rgba(0, 0, 0, 0.6);
 
+
+
+
+$paddingTopBottom0:0px;
+$paddingLeftRight50:50px;
+$paddingLeftRight30:30px;
+$padding0:0px;
+$padding50:50px;
+
+$paddingTop0:0px;
+$paddingTop5:5px;
+$paddingTop10:10px;
+$paddingTop15:15px;
+$paddingTop20:20px;
+$paddingTop25:25px;
+$paddingTop30:30px;
+$paddingTop40:40px;
+$paddingTop50:50px;
+
+$paddingLeft0:0px;
+$paddingLeft5:5px;
+$paddingLeft10:10px;
+$paddingLeft15:15px;
+$paddingLeft20:20px;
+$paddingLeft25:25px;
+$paddingLeft30:30px;
+$paddingLeft40:40px;
+$paddingLeft50:50px;
+
+
+
+$paddingBottom0:0px;
+$paddingBottom5:5px;
+$paddingBottom10:10px;
+$paddingBottom15:15px;
+$paddingBottom20:20px;
+$paddingBottom25:25px;
+$paddingBottom30:30px;
+$paddingBottom40:40px;
+$paddingBottom50:50px;
+
+
+$paddingRight0:0px;
+$paddingRight5:5px;
+$paddingRight10:10px;
+$paddingRight15:15px;
+$paddingRight20:20px;
+$paddingRight25:25px;
+$paddingRight30:30px;
+$paddingRight40:40px;
+$paddingRight50:50px;
+
+$margin0:0px;
+
+$marginTop5:5px;
+$marginTop10:10px;
+$marginTop15:15px;
+$marginTop20:20px;
+$marginTop25:25px;
+$marginTop30:30px;
+$marginTop50:50px;
+
+
+$marginLeft0:0px;
+$marginLeft5:5px;
+$marginLeft10:10px;
+$marginLeft15:15px;
+$marginLeft20:20px;
+$marginLeft25:25px;
+$marginLeft30:30px;
+
+
+$marginBottom0:0px;
+$marginBottom5:5px;
+$marginBottom10:10px;
+$marginBottom15:15px;
+$marginBottom20:20px;
+$marginBottom25:25px;
+$marginBottom30:30px;
+
+
+$marginRight0:0px;
+$marginRight5:5px;
+$marginRight10:10px;
+$marginRight15:15px;
+$marginRight20:20px;
+$marginRight25:25px;
+$marginRight30:30px;
+$marginRight40:40px;
+
+$zIndex1:1;
+$zIndex2:2;
+$zIndex3:3;
+$zIndex4:4;
+$zIndex6:5;
+$zIndex6:6;
+$zIndex7:7;
+$zIndex8:8;
+$zIndex9:9;
+$zIndex10:10;
+
+$posTop0:0;
+$posBottom0:0;
+$posLeft0:0;
+$posRight0:0;
+
+$borderRadius4:4px;
+
+
+$fontSize14:14px;
+$fontSize16:16px;
+$fontSize18:18px;

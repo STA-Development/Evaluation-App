@@ -61,7 +61,6 @@ const PassRecover = () => {
                 >
                   <TextField
                     className={classes.authInput}
-                    inputProps={{ style: { fontSize: "14px" } }}
                     label="Email"
                     variant="outlined"
                     type="email"
