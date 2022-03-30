@@ -1,4 +1,5 @@
 import {createTheme} from "@mui/material/styles";
+import {color} from "../globalVariables";
 
 export const theme = createTheme({
 
@@ -39,6 +40,28 @@ export const theme = createTheme({
         },
       },
     },
+    MuiDrawer: {
+      styleOverrides: {
+        root: {
+          width: '250px'
+        },
+        paper: {
+          width: "250px",
+          padding: '72px 0 26px 0',
+          backgroundColor: color.text,
+          borderRadius: "0px 50px 50px 0px",
+          boxSizing: "border-box",
+          justifyContent: "space-between",
+        }
+      }
+    },
+    MuiListItemButton: {
+      styleOverrides: {
+        focusVisible: {
+          backgroundColor: 'yellow'
+        }
+      }
+    }
   },
 
 

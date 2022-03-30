@@ -1,14 +1,14 @@
 import React from 'react';
 import Sidebar from "./sidebar/Sidebar";
 import {Outlet} from "react-router-dom";
-import {Box} from "@mui/material";
+import {Grid} from "@mui/material";
 
 const Homepage = () => {
   return (
-    <Box>
+    <Grid container>
       <Sidebar/>
       <Outlet/>
-    </Box>
+    </Grid>
   );
 };
 

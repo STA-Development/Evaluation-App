@@ -1,22 +1,13 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  FormControlLabel,
-  FormGroup,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
+import React, {useState} from "react";
+import {Box, Button, FormControlLabel, FormGroup, Grid, Paper, TextField, Typography,} from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-import { useStyles } from "../../assets/scssInJS/signUp";
+import {useStyles} from "../../assets/scssInJS/signUp";
 import SignUpImg from "../../assets/images/auth/SignUpImg";
-import { useAppDispatch } from "../../redux/hooks";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../data/firebase";
-import { setUser } from "../../redux/user/userSlice";
-import { Link, useNavigate } from "react-router-dom";
+import {useAppDispatch} from "../../redux/hooks";
+import {createUserWithEmailAndPassword} from "firebase/auth";
+import {auth} from "../../data/firebase";
+import {setUser} from "../../redux/user/userSlice";
+import {Link, useNavigate} from "react-router-dom";
 
 const SignUp = () => {
   const dispatch = useAppDispatch();
@@ -42,7 +33,7 @@ const SignUp = () => {
       setPasswordError(false);
 
       await createUserWithEmailAndPassword(auth, email, password)
-        .then(({ user }) => {
+        .then(({user}) => {
           console.log(user);
           console.log(auth);
           dispatch(
@@ -96,7 +87,7 @@ const SignUp = () => {
                   Already have an account?
                 </Typography>
 
-                <Link to="/sign-in">Sign in</Link>
+                <Link to="/sign-in" className={classes.link}>Sign in</Link>
               </Box>
             </Box>
             <FormGroup>
@@ -107,7 +98,7 @@ const SignUp = () => {
                 onSubmit={handleSubmit}
               >
                 <TextField
-                  InputLabelProps={{ style: { fontSize: 14 } }}
+                  InputLabelProps={{style: {fontSize: 14}}}
                   className={classes.authInput}
                   label="Name / Surname"
                   variant="outlined"
@@ -122,7 +113,7 @@ const SignUp = () => {
                   }}
                 />
                 <TextField
-                  InputLabelProps={{ style: { fontSize: 14 } }}
+                  InputLabelProps={{style: {fontSize: 14}}}
                   className={classes.authInput}
                   label="Email"
                   variant="outlined"
@@ -138,7 +129,7 @@ const SignUp = () => {
                   }}
                 />
                 <TextField
-                  InputLabelProps={{ style: { fontSize: 14 } }}
+                  InputLabelProps={{style: {fontSize: 14}}}
                   className={classes.authInput}
                   label="Password (6+ charachter , 1 capital letter, 1 number)"
                   type="password"
@@ -155,7 +146,7 @@ const SignUp = () => {
                 />
 
                 <FormControlLabel
-                  control={<Checkbox />}
+                  control={<Checkbox/>}
                   label="Keep me signed in"
                   value="checkbox"
                   className={classes.authCheck}
@@ -169,7 +160,7 @@ const SignUp = () => {
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
           <Box className="auth__box-right ">
-            <SignUpImg />
+            <SignUpImg/>
           </Box>
         </Grid>
       </Grid>
