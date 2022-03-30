@@ -1,54 +1,63 @@
-import {makeStyles} from "@mui/styles";
-import {color, font, margin} from "../style/globalVariables";
+import { makeStyles } from "@mui/styles";
+import { color, font, margin } from "../style/globalVariables";
 
 export const useStyles = makeStyles({
   authInput: {
     color: color.gray,
     fontSize: font.fontSize14,
-    marginBottom: margin.margin25,
+    marginBottom: margin.marginBottom25,
+    "& label": {
+      fontSize: font.fontSize14,
+    },
     "&:nth-child(3)": {
-      marginBottom: margin.margin10,
+      marginBottom: margin.marginBottom10,
     },
   },
   authInputSize: {
     fontSize: font.fontSize14,
   },
   authInputProps: {
-    fontSize: font.fontSize14
+    fontSize: font.fontSize14,
   },
   signUpRightGrid: {
     display: "flex",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
   recPassLabel: {
     margin: 0,
   },
   passRecGrid: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   authText: {
     fontSize: font.fontSize16,
     color: color.darkGray,
-    fontWeight: font.fontWeigth400,
-    marginBottom: margin.margin15,
+    fontWeight: font.fontWeight400,
+    marginBottom: margin.marginBottom15,
   },
   authHeader: {
-    fontWeight: font.fontWeigth600,
+    fontWeight: font.fontWeight600,
     fontSize: font.fontSize34,
     color: color.darkGray,
-    marginBottom: margin.margin30,
+    marginBottom: margin.marginBottom30,
   },
   authCheck: {
-    marginBottom: margin.margin20,
+    marginBottom: margin.marginBottom20,
   },
   link: {
-    textDecoration: 'none',
+    textDecoration: "none",
     color: color.blue,
-    fontWeight: font.fontWeigth400,
-    '&:hover': {
-      textDecoration: 'none',
-    }
-
-  }
+    fontWeight: font.fontWeight400,
+    "&:hover": {
+      textDecoration: "none",
+    },
+  },
+  changedButton: {
+    position: "absolute",
+    right: "20px",
+    top: "25px",
+    fontSize: font.fontSize18,
+    color: color.closeButton,
+  },
 });

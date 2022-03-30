@@ -1,13 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./App.css";
-import {Box} from "@mui/material";
+import { Box } from "@mui/material";
 import PublicRoutes from "./routes/PublicRoutes";
 import PrivateRouts from "./routes/PrivateRouts";
-import {onAuthStateChanged} from "firebase/auth";
-import {auth} from "./data/firebase";
-import {useAppDispatch, useAppSelector} from "./redux/hooks";
-import {removeUser, setUser} from "./redux/user/userSlice";
-import {selectUserId} from "./redux/selectors";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./data/firebase";
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import { removeUser, setUser } from "./redux/user/userSlice";
+import { selectUserId } from "./redux/selectors";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -28,9 +28,7 @@ function App() {
 
   const [isAuth, setIsAuth] = useState(false);
   return (
-    <Box className="bg">
-      {userId ? <PrivateRouts/> : <PublicRoutes/>}
-    </Box>
+    <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>
   );
 }
 

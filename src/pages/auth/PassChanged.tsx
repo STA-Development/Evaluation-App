@@ -1,23 +1,19 @@
-import React, {useEffect} from "react";
-import {Box, Grid, Paper, Typography} from "@mui/material";
-import {useStyles} from "../../assets/scssInJS/signUp";
+import React, { useEffect } from "react";
+import { Box, Button, Grid, Paper, Typography } from "@mui/material";
+import { useStyles } from "../../assets/scssInJS/signUp";
 import ChangePassword from "../../assets/images/auth/ChangePassword";
 import CheckedGreenIcon from "../../assets/images/Icons/CheckedGreenIcon";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import CloseIcon from "../../assets/images/Icons/CloseIcon";
 
 const PassChanged = () => {
   const classes = useStyles();
   const navigate = useNavigate();
 
-
-  useEffect(() => {
-    let timer = setTimeout(() => {
-      navigate("/sign-in");
-    }, 2500);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [navigate]);
+  const handleClose = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    navigate("/sign-in");
+  };
 
   return (
     <Box>
@@ -25,6 +21,13 @@ const PassChanged = () => {
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Paper className="auth__title">
             <Box className="authChahgePass">
+              <Button
+                variant="text"
+                className={classes.changedButton}
+                onClick={handleClose}
+              >
+                <CloseIcon />
+              </Button>
               <Typography variant="h2" className={classes.authHeader}>
                 Password Recovery
               </Typography>
@@ -34,14 +37,14 @@ const PassChanged = () => {
                 </Typography>
               </Box>
               <Box>
-                <CheckedGreenIcon/>
+                <CheckedGreenIcon />
               </Box>
             </Box>
           </Paper>
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
           <Box className="auth__box-right ">
-            <ChangePassword/>
+            <ChangePassword />
           </Box>
         </Grid>
       </Grid>

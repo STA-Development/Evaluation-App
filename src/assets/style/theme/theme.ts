@@ -1,41 +1,34 @@
-import {createTheme} from "@mui/material/styles";
-import {color} from "../globalVariables";
+import { createTheme } from "@mui/material/styles";
+import { borderRedius, color, padding } from "../globalVariables";
 
 export const theme = createTheme({
-
-
   typography: {
-    fontFamily: [
-      'Montserrat',
-      "sans-serif",
-      '-apple-system',
-    ].join(','),
-
+    fontFamily: ["Montserrat", "sans-serif", "-apple-system"].join(","),
   },
 
   components: {
     MuiButton: {
       styleOverrides: {
         contained: {
-          backgroundColor: "#00A3FF",
+          backgroundColor: color.blue,
 
           "&:hover": {
-            backgroundColor: "#40BAFF",
+            backgroundColor: color.lightBlue,
           },
           "&:active": {
-            backgroundColor: "#008FDF",
+            backgroundColor: color.darkBlue,
           },
         },
         text: {
-          color: "#00A3FF",
+          color: color.blue,
           minWidth: 0,
           padding: 0,
           textTransform: "capitalize",
           "&:hover": {
-            color: "#40BAFF",
+            color: color.lightBlue,
           },
           "&:active": {
-            color: "#008FDF",
+            color: color.darkBlue,
           },
         },
       },
@@ -43,26 +36,29 @@ export const theme = createTheme({
     MuiDrawer: {
       styleOverrides: {
         root: {
-          width: '250px'
+          width: "250px",
         },
         paper: {
           width: "250px",
-          padding: '72px 0 26px 0',
+          padding: `
+          ${padding.paddingTop72}
+           ${padding.paddingRight0}
+           ${padding.paddingBottom26}
+           ${padding.paddingLeft0}
+           `,
           backgroundColor: color.text,
-          borderRadius: "0px 50px 50px 0px",
+          borderRadius: `${borderRedius.top0} ${borderRedius.right50} ${borderRedius.bottom50} ${borderRedius.left0}`,
           boxSizing: "border-box",
           justifyContent: "space-between",
-        }
-      }
+        },
+      },
     },
     MuiListItemButton: {
       styleOverrides: {
-        focusVisible: {
-          backgroundColor: 'yellow'
-        }
-      }
-    }
+        selected: {
+          backgroundColor: "yellow",
+        },
+      },
+    },
   },
-
-
 });
