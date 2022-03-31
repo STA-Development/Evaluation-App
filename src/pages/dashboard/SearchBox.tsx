@@ -1,30 +1,47 @@
-import React from "react";
+import React, {useState} from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select, {SelectChangeEvent} from "@mui/material/Select";
+import {useSearchBox} from "../../assets/scssInJS/searchBox";
 
 const SearchBox = () => {
-  const [age, setAge] = React.useState("");
+  const classes = useSearchBox();
+  const [title, setTitle] = useState<string>("");
+  const selectItems = [
+    {
+      id: 10,
+      name: "Event Title"
+    },
+    {
+      id: 20,
+      name: "Event Title"
+    },
+    {
+      id: 30,
+      name: "Event Title"
+    }
+  ]
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+    setTitle(event.target.value as string);
   };
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box className={classes.searchBox}>
       <FormControl fullWidth size="small">
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <InputLabel id="demo-simple-select-label">Search by Event title</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          label="Age"
+          labelId="Search by event title"
+          value={title}
+          label="Search by event title"
           onChange={handleChange}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {selectItems.map((item) => {
+            return (
+              <MenuItem value={item.id} key={item.id}>{item.name}</MenuItem>
+            )
+          })}
         </Select>
       </FormControl>
     </Box>
