@@ -81,7 +81,7 @@
     margin-top: $marginTop10;
 
     &:hover {
-      font-weight: $fontWeight700;
+      font-weight: $fontWeight400;
       text-decoration: none;
     }
   }
@@ -145,7 +145,7 @@
 
 
 .auth__passResend {
-  margin:  $margin0;
+  margin: $margin0;
   height: 175px;
   display: flex;
   flex-direction: column;
@@ -154,6 +154,6 @@
 }
 
 //Private Page
-.privatePage{
+.privatePage {
   padding: $paddingTopBottom0 $paddingLeftRight30;
 }

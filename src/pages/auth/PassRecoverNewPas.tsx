@@ -1,27 +1,21 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  FormGroup,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { useStyles } from "../../assets/scssInJS/signUp";
+import React, {useState} from "react";
+import {Box, Button, FormGroup, Grid, Paper, TextField, Typography,} from "@mui/material";
+import {useStyles} from "../../assets/scssInJS/signUp";
 import ChangePassword from "../../assets/images/auth/ChangePassword";
-import { confirmPasswordReset } from "firebase/auth";
-import { auth } from "../../data/firebase";
-import { useNavigate } from "react-router-dom";
+import {confirmPasswordReset} from "firebase/auth";
+import {auth} from "../../data/firebase";
+import {useNavigate} from "react-router-dom";
+import {useGlobalTheme} from "../../assets/style/globalVariables";
 
 const PassRecoverNewPas = () => {
   const classes = useStyles();
+  const globalClasses = useGlobalTheme();
   const navigate = useNavigate();
   const [resetPass, setResetPass] = useState<string>("");
   const [confirmPass, setConfirmPass] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
 
-  function getParameterByName(name: string) {
+  const getParameterByName = (name: string) => {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     let regexS = "[\\?&]" + name + "=([^&#]*)";
     let regex = new RegExp(regexS);
@@ -102,7 +96,7 @@ const PassRecoverNewPas = () => {
                     setConfirmPass(e.target.value);
                   }}
                 />
-                <Button variant="contained" size="large" type="submit">
+                <Button variant="contained" size="large" type="submit" className={globalClasses.button}>
                   Save
                 </Button>
               </Box>
@@ -111,7 +105,7 @@ const PassRecoverNewPas = () => {
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
           <Box className="auth__box-right ">
-            <ChangePassword />
+            <ChangePassword/>
           </Box>
         </Grid>
       </Grid>

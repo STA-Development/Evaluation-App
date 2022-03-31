@@ -3,11 +3,12 @@ import {Box, Button, Grid, Typography} from "@mui/material";
 import {useStyles} from "../../assets/scssInJS/signUp";
 import PasswordRecovery from "../../assets/images/auth/PasswordRecovery";
 import {useNavigate} from "react-router-dom";
+import {useGlobalTheme} from "../../assets/style/globalVariables";
 
 const PassRecover = () => {
   const classes = useStyles();
   const navigate = useNavigate();
-
+  const globalClasses = useGlobalTheme();
   const handleResend = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     navigate('/password-recover-email')
@@ -38,7 +39,7 @@ const PassRecover = () => {
                 <Button variant="outlined" size="large" onClick={handleResend}>
                   Resend
                 </Button>
-                <Button variant="contained" size="large" onClick={handleSignIn}>
+                <Button variant="contained" size="large" onClick={handleSignIn} className={globalClasses.button}>
                   Sign In
                 </Button>
               </Box>

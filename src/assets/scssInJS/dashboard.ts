@@ -1,20 +1,13 @@
-import { makeStyles } from "@mui/styles";
-import { font, margin, padding } from "../style/globalVariables";
+import {makeStyles} from "@mui/styles";
+import {font, margin, padding} from "../style/globalVariables";
 
 export const useDashboardStyles = makeStyles({
   dashboardPage: {
     height: "calc(100vh - 66px)",
-    width: "calc(100% - 250px)",
-    paddingTop: padding.paddingTop30,
   },
-  dashboardHeader: {
-    fontWeight: font.fontWeight700,
-    fontFamily: "Montserrat",
-    fontSize: font.fontSize24,
-    marginBottom: margin.marginBottom25,
-  },
+
   dashboardContent: {
-    height: "100%",
+    height: ' calc(100% - 91px)',
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

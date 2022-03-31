@@ -1,13 +1,39 @@
-import { makeStyles } from "@mui/styles";
-import { color, font, margin, padding } from "../style/globalVariables";
+import {makeStyles} from "@mui/styles";
+import {borderRedius, color, font, margin, padding} from "../style/globalVariables";
 
 export const useSliderStyle = makeStyles({
-  listItem: {
-    "&:hover": {
-      background: color.navbar,
-      textDecoration: "none",
+  drawer: {
+    width: '250px',
+    '&  > div': {
+      width: '251px',
+      backgroundColor: color.navbar,
+      padding: `
+      ${padding.paddingTop72}
+      ${padding.paddingRight0} 
+      ${padding.paddingBottom26}
+      ${padding.paddingLeft0}
+      `,
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      borderRadius: `
+        ${borderRedius.topLeft0}
+        ${borderRedius.topRight50}
+        ${borderRedius.bottomRight50}
+        ${borderRedius.bottomLeft0}
+       `,
     },
+  },
+
+  drawerBox: {
+    width: '250px',
+  },
+
+  listItem: {
     padding: `${padding.paddingTopBottom15} ${padding.paddingLeftRight0}`,
+    '&:hover': {
+      backgroundColor: color.activeLink
+    }
   },
   itemIcon: {
     color: color.white,
@@ -21,7 +47,9 @@ export const useSliderStyle = makeStyles({
       fontWeight: font.fontWeight500,
       fontSize: font.fontSize18,
       fontFamily: "Montserrat",
+
     },
+
   },
   listItemContent: {
     width: "141px",
@@ -36,6 +64,7 @@ export const useSliderStyle = makeStyles({
     flexDirection: "column",
     alignItems: "center",
     marginRight: margin.marginRight20,
+
   },
   listBox: {
     padding: padding.padding0,
@@ -52,5 +81,12 @@ export const useSliderStyle = makeStyles({
     fontSize: font.fontSize16,
     fontFamily: "Montserrat",
     margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
+  },
+
+  loadCircle: {
+    // display: 'flex',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // height: '100%',
   },
 });
