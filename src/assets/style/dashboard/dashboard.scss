@@ -1,0 +1,39 @@
+.canvasStyle {
+  max-width: 250px;
+  max-height: 250px;
+}
+
+
+.overViewEval {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+.overViewEvalFeedback {
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  p {
+    font-size: $fontSize14;
+    font-weight: $fontWeight700;
+    color: $navbarColor;
+  }
+
+  span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: block;
+    margin-right: $marginRight10;
+  }
+
+  & > div {
+    display: flex;
+    align-items: center;
+  }
+
+}

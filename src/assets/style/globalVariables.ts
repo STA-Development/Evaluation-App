@@ -7,6 +7,7 @@ export const font = {
   fontWeight600: 600,
   fontWeight700: 700,
   fontSize34: "34px",
+  fontSize20: '20px',
   fontSize24: "24px",
   fontSize18: "18px",
   fontSize16: "16px",
@@ -26,6 +27,9 @@ export const color = {
   activeLink: "#262F3F",
   white: "#fff",
   closeButton: "#4F4F4F",
+  overViewBoxshadow: 'rgba(0, 0, 0, 0.15)',
+  overViewBoxColor: '#1F6F8B'
+
 };
 export const margin = {
   marginTopBottom20: "20px",
@@ -40,12 +44,15 @@ export const margin = {
   marginTop20: "20px",
   marginRight18: "18px",
   marginRight20: "20px",
-
   margin20: "20px",
+  marginOverViewBox: '0px 4px 4px',
+  marginLeft30: '30px',
 };
 
 export const padding = {
   paddingTopBottom15: "15px",
+  paddingTopBottom20: "20px",
+  paddingLeftRight30: "30px",
   paddingLeftRight0: "0px",
   paddingBottom26: "26px",
   paddingTop72: "72px",
@@ -61,6 +68,8 @@ export const borderRedius = {
   topRight50: "50px",
   bottomRight50: "50px",
   bottomLeft0: "0px",
+  overViewBox: '10px',
+
 };
 
 
