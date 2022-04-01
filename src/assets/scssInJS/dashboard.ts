@@ -1,5 +1,5 @@
 import {makeStyles} from "@mui/styles";
-import {font, margin, padding} from "../style/globalVariables";
+import {borderRedius, color, font, margin, padding} from "../style/globalVariables";
 
 export const useDashboardStyles = makeStyles({
   dashboardPage: {
@@ -28,7 +28,7 @@ export const useDashboardStyles = makeStyles({
     fontSize: font.fontSize16,
     margin: margin.margin20,
   },
-  dashboardEmptyImg: {},
+
   dashboardEmptyText: {
     display: "flex",
     flexDirection: "column",
@@ -37,5 +37,31 @@ export const useDashboardStyles = makeStyles({
   },
   paddingContent: {
     paddingTop: padding.paddingTop30,
+  },
+  overview: {
+    padding: `${padding.paddingTopBottom20} ${padding.paddingLeftRight30}`,
+    backgroundColor: color.white,
+    boxShadow: `${margin.marginOverViewBox} ${color.overViewBoxshadow}`,
+    borderRadius: borderRedius.overViewBox,
+    height: '340px'
+  },
+  overViewTitle: {
+    height: '100%',
+    width: '2px',
+    backgroundColor: color.overViewBoxColor,
+    opacity: '0.27',
+    display: 'block',
+  },
+  dashboardHeader: {
+    fontSize: font.fontSize20,
+    fontWeight: font.fontWeight700,
+    marginTop: margin.marginTop50,
+    marginBottom: margin.marginBottom25
+  },
+  overviewHeader: {
+    fontSize: font.fontSize18,
+    fontWeight: font.fontWeight700,
+    marginLeft: margin.marginLeft30,
+    marginBottom: margin.marginBottom10,
   },
 });

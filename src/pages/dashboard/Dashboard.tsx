@@ -12,7 +12,9 @@ const Dashboard = () => {
 
   return (
     <Box className={classes.dashboardPage}>
-      <Typography className={globalClasses.titleHeader}>Dashboard</Typography>
+      <Typography className={globalClasses.titleHeader}>
+        Dashboard
+      </Typography>
       {hasInfo ? <EmptyDashboard/> : <FullDashboard/>}
     </Box>
   );
