@@ -1,13 +1,14 @@
 import React from "react";
-import SearchBox from "./SearchBox";
+import SelectBox from "./SelectBox";
 import OverviewDashboard from "./DashboardEventActivity/OverviewDashboard";
-
+import TopPerformers from "./TopPerformers";
 
 const FullDashboard = () => {
   return (
     <>
-      <SearchBox/>
-      <OverviewDashboard/>
+      <SelectBox />
+      <OverviewDashboard />
+      <TopPerformers />
     </>
   );
 };

@@ -1,5 +1,11 @@
-import {makeStyles} from "@mui/styles";
-import {borderRedius, color, font, margin, padding} from "../style/globalVariables";
+import { makeStyles } from "@mui/styles";
+import {
+  borderRedius,
+  color,
+  font,
+  margin,
+  padding,
+} from "../style/globalVariables";
 
 export const useDashboardStyles = makeStyles({
   dashboardPage: {
@@ -7,7 +13,7 @@ export const useDashboardStyles = makeStyles({
   },
 
   dashboardContent: {
-    height: ' calc(100% - 91px)',
+    height: " calc(100% - 91px)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -43,25 +49,40 @@ export const useDashboardStyles = makeStyles({
     backgroundColor: color.white,
     boxShadow: `${margin.marginOverViewBox} ${color.overViewBoxshadow}`,
     borderRadius: borderRedius.overViewBox,
-    height: '340px'
+    height: "340px",
   },
   overViewTitle: {
-    height: '100%',
-    width: '2px',
+    height: "100%",
+    width: "2px",
     backgroundColor: color.overViewBoxColor,
-    opacity: '0.27',
-    display: 'block',
+    opacity: "0.27",
+    display: "block",
   },
   dashboardHeader: {
     fontSize: font.fontSize20,
     fontWeight: font.fontWeight700,
     marginTop: margin.marginTop50,
-    marginBottom: margin.marginBottom25
+    marginBottom: margin.marginBottom25,
   },
   overviewHeader: {
     fontSize: font.fontSize18,
     fontWeight: font.fontWeight700,
-    marginLeft: margin.marginLeft30,
     marginBottom: margin.marginBottom10,
+  },
+
+  notEvalEmployiesText: {
+    fontSize: font.fontSize15,
+    color: color.navbar,
+    fontWeight: font.fontWeight700,
+  },
+  textPosition: {
+    fontSize: font.fontSize13,
+    color: color.textGrey,
+    fontWeight: font.fontWeight400,
+  },
+  textEvaluated: {
+    fontSize: font.fontSize10,
+    color: color.textGrey,
+    fontWeight: font.fontWeight400,
   },
 });

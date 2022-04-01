@@ -1,12 +1,13 @@
 .canvasStyle {
   max-width: 250px;
   max-height: 250px;
+  margin: 0 auto;
 }
 
 
 .overViewEval {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   height: 100%;
 }
@@ -36,4 +37,25 @@
     align-items: center;
   }
 
+}
+
+.notEvalEmployes{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  &__link{
+    color: $blueColor;
+    font-size: $fontSize14;
+    font-weight:$fontWeight500 ;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
+
+.notEvalEmployies__text{
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ececec;
 }
