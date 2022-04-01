@@ -1,28 +1,29 @@
-import React from 'react';
+import React from "react";
 import DashboardEventActive from "./DashboardEventActive";
-import {Box, Grid, Typography} from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import DashboardNotEvaluated from "./DashboardNotEvaluated";
-import {useDashboardStyles} from "../../../assets/scssInJS/dashboard";
+import { useDashboardStyles } from "../../../assets/scssInJS/dashboard";
 
 const OverviewDashboard = () => {
-  const classes = useDashboardStyles()
+  const classes = useDashboardStyles();
   return (
-
     <Box>
-      <Typography variant='h5' component='h4' className={classes.dashboardHeader}>Recent Evoluation Event
-        Activity</Typography>
+      <Typography
+        variant="h5"
+        component="h4"
+        className={classes.dashboardHeader}
+      >
+        Recent Evoluation Event Activity
+      </Typography>
       <Grid container spacing={2}>
         <Grid item md={7} sm={12}>
-          <DashboardEventActive/>
+          <DashboardEventActive />
         </Grid>
         <Grid item md={5} sm={12}>
-          <DashboardNotEvaluated/>
+          <DashboardNotEvaluated />
         </Grid>
       </Grid>
-
-
     </Box>
-
   );
 };
 

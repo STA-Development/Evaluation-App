@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import EmptyDashboard from "./EmptyDashboard";
 import FullDashboard from "./FullDashboard";
-import {Box, Typography} from "@mui/material";
-import {useDashboardStyles} from "../../assets/scssInJS/dashboard";
-import {useGlobalTheme} from "../../assets/style/globalVariables";
+import { Box, Typography } from "@mui/material";
+import { useDashboardStyles } from "../../assets/scssInJS/dashboard";
+import { useGlobalTheme } from "../../assets/style/globalVariables";
 
 const Dashboard = () => {
   const classes = useDashboardStyles();
@@ -12,10 +12,8 @@ const Dashboard = () => {
 
   return (
     <Box className={classes.dashboardPage}>
-      <Typography className={globalClasses.titleHeader}>
-        Dashboard
-      </Typography>
-      {hasInfo ? <EmptyDashboard/> : <FullDashboard/>}
+      <Typography className={globalClasses.titleHeader}>Dashboard</Typography>
+      {hasInfo ? <EmptyDashboard /> : <FullDashboard />}
     </Box>
   );
 };
