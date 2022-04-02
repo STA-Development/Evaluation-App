@@ -4,7 +4,7 @@ import {useStyles} from "../../assets/scssInJS/signUp";
 import ChangePassword from "../../assets/images/auth/ChangePassword";
 import {confirmPasswordReset} from "firebase/auth";
 import {auth} from "../../data/firebase";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {useGlobalTheme} from "../../assets/style/globalVariables";
 
 const PassRecoverNewPas = () => {
@@ -14,12 +14,13 @@ const PassRecoverNewPas = () => {
   const [resetPass, setResetPass] = useState<string>("");
   const [confirmPass, setConfirmPass] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
+  const location = useLocation();
 
   const getParameterByName = (name: string) => {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     let regexS = "[\\?&]" + name + "=([^&#]*)";
     let regex = new RegExp(regexS);
-    let results = regex.exec(window.location.href);
+    let results = regex.exec(location.search);
     if (results == null) return "";
     else return decodeURIComponent(results[1].replace(/\+/g, " "));
   }
