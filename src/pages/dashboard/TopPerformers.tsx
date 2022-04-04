@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import { useDashboardStyles } from "../../assets/scssInJS/dashboard";
+import { useDashboardStyles } from "../../assets/styleJs/dashboard/dashboard";
 import SliderPerformers from "./SliderPerformers";
 
 const TopPerformers = () => {

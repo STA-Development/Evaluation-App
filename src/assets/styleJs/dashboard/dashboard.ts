@@ -1,5 +1,11 @@
-import {makeStyles} from "@mui/styles";
-import {borderRedius, color, font, margin, padding,} from "../style/globalVariables";
+import { makeStyles } from "@mui/styles";
+import {
+  borderRedius,
+  color,
+  font,
+  margin,
+  padding,
+} from "../../style/globalVariables";
 
 export const useDashboardStyles = makeStyles({
   dashboardPage: {
@@ -81,32 +87,27 @@ export const useDashboardStyles = makeStyles({
   },
 
   sliderBoxListButton: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    flexDirection: 'column',
-    height: '100%'
-  },
-  sliderBoxListItem: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    flexDirection: 'column',
-    //height: '100px'
-  },
-  sidebarBoxList: {
-    height: '100%',
+    display: "flex",
+    justifyContent: "space-around",
+    flexDirection: "column",
+    height: "100%",
     color: color.textGrey,
     fontWeight: font.fontWeight400,
-
   },
+  sliderBoxListItem: {
+    display: "flex",
+    justifyContent: "space-around",
+    flexDirection: "column",
+  },
+
   sliderBoxCurrency: {
     fontSize: font.fontSize36,
-    margin: '0 auto',
+    margin: margin.margin0Auto,
   },
 
   sidebarBoxHeader: {
     fontSize: font.fontSize18,
     fontWeight: font.fontWeight700,
-
   },
   sidebarBoxText: {
     fontSize: font.fontSize13,
@@ -115,7 +116,6 @@ export const useDashboardStyles = makeStyles({
   sliderRockStars: {
     marginBottom: margin.marginBottom35,
     color: color.textGrey,
-    fontSze: font.fontSize14,
-  }
-
+    fontSize: font.fontSize14,
+  },
 });

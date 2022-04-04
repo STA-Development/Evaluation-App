@@ -1,7 +1,7 @@
 .canvasStyle {
   max-width: 250px;
   max-height: 250px;
-  margin: 0 auto;
+  margin: $margin0;
 }
 
 
@@ -42,7 +42,7 @@
 .notEvalEmployes {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: $marginBottom20;
 
   &__link {
     color: $blueColor;
@@ -58,7 +58,7 @@
 .notEvalEmployies__text {
   padding-bottom: $paddingBottom10;
   margin-bottom: $marginBottom16;
-  border-bottom: 1px solid #ececec;
+    border-bottom: $borderBottom solid $lightGrey;
 }
 
 .rec.rec-carousel-wrapper {
@@ -68,39 +68,45 @@
 
 .rec.rec-carousel button:first-child {
   position: absolute;
-  lefet: 0;
-  top: -30px;
+  left: $posLeft0;
+  top: $posTopM30;
 }
 
 .rec.rec-carousel button:last-child {
   position: absolute;
-  right: 30px;
-  top: -30px;
+  right: $posRight0;
+  top: $posTopM30;
 }
 
-.rec.rec-arrow:disabled {
+.rec.rec-carousel button:disabled {
   visibility: hidden;
-  background-color: red;
+
 }
 
 .rec .rec-arrow-left {
   position: absolute;
-  top: -20px;
-  left: 0;
+  top: $posTopM20;
+  left: $posLeft0;
   border: none;
-  border-radius: 0;
+  border-radius: $borderRadius0;
   background-color: transparent;
   box-shadow: none;
 }
 
+.rec.rec-slider-container{
+  margin: $margin0;
+}
+.rec.rec-item-wrapper{
+  justify-content: flex-start;
 
+}
 .sliderBox {
   width: 195px;
   height: 185px;
   background: $whiteColor;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: $boxShadow0 $boxShadow4 $boxShadow4 $sliderBox;
   border-radius: $boderRadius10;
-  border-top: 6px solid $greenColor;
+  border-top: $borderTop6 solid $greenColor;
   text-align: center;
 
 

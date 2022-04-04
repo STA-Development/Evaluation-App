@@ -1,11 +1,19 @@
-import React, {useState} from "react";
-import {Box, Button, FormGroup, Grid, Paper, TextField, Typography,} from "@mui/material";
-import {useStyles} from "../../assets/scssInJS/signUp";
+import React, { useState } from "react";
+import {
+  Box,
+  Button,
+  FormGroup,
+  Grid,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { useStyles } from "../../assets/styleJs/auth/signUp";
 import ChangePassword from "../../assets/images/auth/ChangePassword";
-import {confirmPasswordReset} from "firebase/auth";
-import {auth} from "../../data/firebase";
-import {useNavigate} from "react-router-dom";
-import {useGlobalTheme} from "../../assets/style/globalVariables";
+import { confirmPasswordReset } from "firebase/auth";
+import { auth } from "../../data/firebase";
+import { useNavigate } from "react-router-dom";
+import { useGlobalTheme } from "../../assets/style/globalVariables";
 
 const PassRecoverNewPas = () => {
   const classes = useStyles();
@@ -22,7 +30,7 @@ const PassRecoverNewPas = () => {
     let results = regex.exec(window.location.href);
     if (results == null) return "";
     else return decodeURIComponent(results[1].replace(/\+/g, " "));
-  }
+  };
   let actionCode = getParameterByName("oobCode");
 
   const handleResetPassword = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -96,7 +104,12 @@ const PassRecoverNewPas = () => {
                     setConfirmPass(e.target.value);
                   }}
                 />
-                <Button variant="contained" size="large" type="submit" className={globalClasses.button}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  type="submit"
+                  className={globalClasses.button}
+                >
                   Save
                 </Button>
               </Box>
@@ -105,7 +118,7 @@ const PassRecoverNewPas = () => {
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
           <Box className="auth__box-right ">
-            <ChangePassword/>
+            <ChangePassword />
           </Box>
         </Grid>
       </Grid>

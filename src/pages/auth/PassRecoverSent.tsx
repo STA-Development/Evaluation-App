@@ -1,29 +1,25 @@
 import React from "react";
-import {Box, Button, Grid, Typography} from "@mui/material";
-import {useStyles} from "../../assets/scssInJS/signUp";
+import { Box, Button, Grid, Typography } from "@mui/material";
+import { useStyles } from "../../assets/styleJs/auth/signUp";
 import PasswordRecovery from "../../assets/images/auth/PasswordRecovery";
-import {useNavigate} from "react-router-dom";
-import {useGlobalTheme} from "../../assets/style/globalVariables";
+import { useNavigate } from "react-router-dom";
+import { useGlobalTheme } from "../../assets/style/globalVariables";
 
 const PassRecover = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const globalClasses = useGlobalTheme();
   const handleResend = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault()
-    navigate('/password-recover-email')
-  }
+    e.preventDefault();
+    navigate("/password-recover-email");
+  };
   const handleSignIn = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    navigate('/sign-in');
-  }
+    navigate("/sign-in");
+  };
   return (
     <Box>
-      <Grid
-        className="auth authGrid"
-        container
-
-      >
+      <Grid className="auth authGrid" container>
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Box className="auth__title ">
             <Box component="div" className="auth__passResend">
@@ -39,7 +35,12 @@ const PassRecover = () => {
                 <Button variant="outlined" size="large" onClick={handleResend}>
                   Resend
                 </Button>
-                <Button variant="contained" size="large" onClick={handleSignIn} className={globalClasses.button}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  onClick={handleSignIn}
+                  className={globalClasses.button}
+                >
                   Sign In
                 </Button>
               </Box>
@@ -47,14 +48,16 @@ const PassRecover = () => {
           </Box>
         </Grid>
 
-        <Grid className={classes.passRecGrid}
-              item
-              lg={4}
-              md={5}
-              sm={12}
-              xs={12}>
+        <Grid
+          className={classes.passRecGrid}
+          item
+          lg={4}
+          md={5}
+          sm={12}
+          xs={12}
+        >
           <Box className="auth__box-right ">
-            <PasswordRecovery/>
+            <PasswordRecovery />
           </Box>
         </Grid>
       </Grid>

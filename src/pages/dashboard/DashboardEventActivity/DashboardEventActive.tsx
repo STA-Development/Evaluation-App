@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
 import { Pie } from "react-chartjs-2";
-import { useDashboardStyles } from "../../../assets/scssInJS/dashboard";
+import { useDashboardStyles } from "../../../assets/styleJs/dashboard/dashboard";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
