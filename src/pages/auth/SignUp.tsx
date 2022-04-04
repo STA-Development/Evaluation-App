@@ -47,7 +47,7 @@ const SignUp = () => {
             })
           );
 
-          navigate("/");
+          navigate("/dashboard");
         })
         .catch((error: any) => {
           if (error.code === "auth/email-already-in-use") {

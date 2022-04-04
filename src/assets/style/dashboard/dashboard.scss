@@ -39,23 +39,69 @@
 
 }
 
-.notEvalEmployes{
+.notEvalEmployes {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 
-  &__link{
+  &__link {
     color: $blueColor;
     font-size: $fontSize14;
-    font-weight:$fontWeight500 ;
-    &:hover{
+    font-weight: $fontWeight500;
+
+    &:hover {
       text-decoration: none;
     }
   }
 }
 
-.notEvalEmployies__text{
-  padding-bottom: 10px;
-  margin-bottom: 16px;
+.notEvalEmployies__text {
+  padding-bottom: $paddingBottom10;
+  margin-bottom: $marginBottom16;
   border-bottom: 1px solid #ececec;
+}
+
+.rec.rec-carousel-wrapper {
+  position: relative;
+}
+
+
+.rec.rec-carousel button:first-child {
+  position: absolute;
+  lefet: 0;
+  top: -30px;
+}
+
+.rec.rec-carousel button:last-child {
+  position: absolute;
+  right: 30px;
+  top: -30px;
+}
+
+.rec.rec-arrow:disabled {
+  visibility: hidden;
+  background-color: red;
+}
+
+.rec .rec-arrow-left {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+
+.sliderBox {
+  width: 195px;
+  height: 185px;
+  background: $whiteColor;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: $boderRadius10;
+  border-top: 6px solid $greenColor;
+  text-align: center;
+
+
 }
