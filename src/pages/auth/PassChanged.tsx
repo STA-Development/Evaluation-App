@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
-import { useStyles } from "../../assets/scssInJS/signUp";
+import { useStyles } from "../../assets/styleJs/auth/signUp";
 import ChangePassword from "../../assets/images/auth/ChangePassword";
 import CheckedGreenIcon from "../../assets/images/Icons/CheckedGreenIcon";
 import { useNavigate } from "react-router-dom";

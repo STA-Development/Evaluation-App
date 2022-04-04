@@ -1,4 +1,4 @@
-import {makeStyles} from "@mui/styles";
+import { makeStyles } from "@mui/styles";
 
 export const font = {
   fontWeight400: 400,
@@ -33,6 +33,7 @@ export const color = {
   overViewBoxColor: "#1F6F8B",
 };
 export const margin = {
+  margin0Auto: "0 auto",
   marginTopBottom20: "20px",
   marginTopBottom5: "5px",
   marginLeftRight0: "0px",

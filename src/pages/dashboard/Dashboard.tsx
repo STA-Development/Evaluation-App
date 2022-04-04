@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import EmptyDashboard from "./EmptyDashboard";
 import FullDashboard from "./FullDashboard";
 import { Box, Typography } from "@mui/material";
-import { useDashboardStyles } from "../../assets/scssInJS/dashboard";
+import { useDashboardStyles } from "../../assets/styleJs/dashboard/dashboard";
 import { useGlobalTheme } from "../../assets/style/globalVariables";
 
 const Dashboard = () => {

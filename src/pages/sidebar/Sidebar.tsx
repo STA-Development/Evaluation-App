@@ -5,21 +5,20 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import {useSliderStyle} from "../../assets/scssInJS/sidebar";
+import { useSliderStyle } from "../../assets/styleJs/sidebar";
 import Avatar from "@mui/material/Avatar";
 import AvatarIcon from "../../assets/images/navbar/AvatarIcon";
-import {Button, Typography} from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import LogOutIcon from "../../assets/images/Icons/LogOutIcon";
-import {NavLink, useLocation, useNavigate} from "react-router-dom";
-import {sidebarList} from "./sidebarLists";
-import {signOut} from "firebase/auth";
-import {auth} from "../../data/firebase";
-import {useAppSelector} from "../../redux/hooks";
-import {selectUserId} from "../../redux/selectors";
-import {useGlobalTheme} from "../../assets/style/globalVariables";
+import { NavLink, useNavigate } from "react-router-dom";
+import { sidebarList } from "./sidebarLists";
+import { signOut } from "firebase/auth";
+import { auth } from "../../data/firebase";
+import { useAppSelector } from "../../redux/hooks";
+import { selectUserId } from "../../redux/selectors";
+import { useGlobalTheme } from "../../assets/style/globalVariables";
 
 const Sidebar = () => {
-  const location = useLocation();
   const classes = useSliderStyle();
   const globalClasses = useGlobalTheme();
   const userId = useAppSelector(selectUserId);
@@ -39,16 +38,15 @@ const Sidebar = () => {
     }
   };
 
-
   return (
     <Drawer variant="permanent" anchor="left" className={classes.drawer}>
       <Box className={classes.drawerBox}>
         <Box className={classes.upBox}>
           <Avatar className={classes.avatar}>
-            <AvatarIcon/>
+            <AvatarIcon />
           </Avatar>
           <Typography className={classes.nameSurname}>Name Surname</Typography>
-          <NavLink style={{textDecoration: "none"}} to={"/"}>
+          <NavLink style={{ textDecoration: "none" }} to={"/"}>
             <Button
               variant="contained"
               size="large"
@@ -64,7 +62,7 @@ const Sidebar = () => {
               <NavLink
                 to={item.route}
                 key={item.id}
-                className={({isActive}) =>
+                className={({ isActive }) =>
                   isActive ? "link_active" : "nav-link"
                 }
               >
@@ -89,9 +87,9 @@ const Sidebar = () => {
           <ListItem className={classes.listItem} button onClick={handleLogOut}>
             <Box className={classes.listItemContent}>
               <ListItemIcon className={classes.itemIcon}>
-                <LogOutIcon/>
+                <LogOutIcon />
               </ListItemIcon>
-              <ListItemText className={classes.itemText} primary="Log Out"/>
+              <ListItemText className={classes.itemText} primary="Log Out" />
             </Box>
           </ListItem>
         </List>
