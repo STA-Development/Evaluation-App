@@ -1,10 +1,11 @@
-import { makeStyles } from "@mui/styles";
+import {makeStyles} from "@mui/styles";
 
 export const font = {
   fontWeight400: 400,
   fontWeight500: 500,
   fontWeight600: 600,
   fontWeight700: 700,
+  fontSize36: "36px",
   fontSize34: "34px",
   fontSize20: "20px",
   fontSize24: "24px",
@@ -35,6 +36,7 @@ export const margin = {
   marginTopBottom20: "20px",
   marginTopBottom5: "5px",
   marginLeftRight0: "0px",
+  marginBottom35: "35px",
   marginBottom30: "30px",
   marginBottom25: "25px",
   marginBottom20: "20px",
