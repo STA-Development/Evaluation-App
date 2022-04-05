@@ -12,16 +12,15 @@ import { useStyles } from "../../assets/scssInJS/signUp";
 import PasswordRecovery from "../../assets/images/auth/PasswordRecovery";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../data/firebase";
+import { useNavigate } from "react-router-dom";
+import { useGlobalTheme } from "../../assets/style/globalVariables";
 
 const PassRecover = () => {
   const classes = useStyles();
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState(false);
-
-  const actionCodeSettings = {
-    url: "http://localhost:3000/signin",
-    handleCodeInApp: true,
-  };
+  const globalClass = useGlobalTheme();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState<string>("");
+  const [error, setError] = useState<boolean>(false);
 
   const handleRecoverPass = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,14 +28,12 @@ const PassRecover = () => {
 
     await sendPasswordResetEmail(auth, email)
       .then((link) => {
-        console.log("link", link);
-        console.log(`navigate('/passrecovernew pass rout')`);
-        console.log("auth", auth);
-        setEmail("");
-        console.log(`navigate('/PassRecover')`);
+        if (auth.config.authDomain) {
+          navigate("/password-recover-resend");
+          setEmail("");
+        }
       })
       .catch((error) => {
-        console.log(error);
         setError(true);
       });
   };
@@ -44,16 +41,10 @@ const PassRecover = () => {
   return (
     <div>
       <Box>
-        <Grid
-          className="auth"
-          container
-          direction="row"
-          justifyContent="space-evenly"
-          alignItems="center"
-        >
-          <Grid item lg={4} md={4} sm={12} xs={12}>
+        <Grid className="auth authGrid" container>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
             <Paper className="auth__title ">
-              <Box component="div" className="auth__passRecCheng">
+              <Box className="auth__passRecCheng">
                 <Typography variant="h2" className={classes.authHeader}>
                   Password Recovery
                 </Typography>
@@ -66,12 +57,11 @@ const PassRecover = () => {
               <FormGroup>
                 <Box
                   component="form"
-                  className="auth__input-box"
+                  className="auth__input_box"
                   onSubmit={handleRecoverPass}
                 >
                   <TextField
                     className={classes.authInput}
-                    inputProps={{ style: { fontSize: "14px" } }}
                     label="Email"
                     variant="outlined"
                     type="email"
@@ -85,23 +75,20 @@ const PassRecover = () => {
                     }
                   />
 
-                  <Button variant="contained" size="large" type="submit">
+                  <Button
+                    variant="contained"
+                    size="large"
+                    type="submit"
+                    className={globalClass.button}
+                  >
                     SEND ME LINK
                   </Button>
                 </Box>
               </FormGroup>
             </Paper>
           </Grid>
-          <Grid
-            item
-            lg={4}
-            md={5}
-            sm={12}
-            xs={12}
-            justifyContent="center"
-            style={{ display: "flex" }}
-          >
-            <Box className="auth__box-right ">
+          <Grid item lg={4} md={5} sm={12} xs={12}>
+            <Box className="auth__box_right ">
               <PasswordRecovery />
             </Box>
           </Grid>

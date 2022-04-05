@@ -63,3 +63,13 @@ strong {
 .br {
   display: block;
 }
+
+
+.button {
+  background-color: $blueColor;
+}
+
+.outlet {
+  width: calc(100% - 250px);
+  padding-top: 30px;
+}

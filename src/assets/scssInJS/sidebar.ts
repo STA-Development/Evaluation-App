@@ -1,66 +1,86 @@
 import {makeStyles} from "@mui/styles";
+import {borderRedius, color, font, margin, padding} from "../style/globalVariables";
 
-export const useStyles = makeStyles({
-  sidebar: {
-    width: "250px",
-    "& .MuiDrawer-paper": {
-      width: "250px",
+export const useSliderStyle = makeStyles({
+  drawer: {
+    width: '250px',
+    '&  > div': {
+      width: '251px',
+      backgroundColor: color.navbar,
+      padding: `
+      ${padding.paddingTop72}
+      ${padding.paddingRight0} 
+      ${padding.paddingBottom26}
+      ${padding.paddingLeft0}
+      `,
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      borderRadius: `
+        ${borderRedius.topLeft0}
+        ${borderRedius.topRight50}
+        ${borderRedius.bottomRight50}
+        ${borderRedius.bottomLeft0}
+       `,
+    },
+  },
 
-      backgroundColor: "#131924",
-      borderRadius: "0px 50px 50px 0px",
-      boxSizing: "border-box",
-      justifyContent: "space-between",
+  drawerBox: {
+    width: '250px',
+  },
+
+  listItem: {
+    padding: `${padding.paddingTopBottom15} ${padding.paddingLeftRight0}`,
+    '&:hover': {
+      backgroundColor: color.activeLink
     }
   },
-  listItem: {
-    "&:hover": {
-      background: "#262F3F"
-    },
-    padding: "15px 0px"
-  },
   itemIcon: {
-    color: "#fff",
+    color: color.white,
     minWidth: "20px",
     minHeight: "20px",
-    marginRight: "18px"
+    marginRight: margin.marginRight18,
   },
   itemText: {
-    '& span': {
-      color: "#fff",
-      fontWeight: 500,
-      fontSize: "18px",
+    "& span": {
+      color: color.white,
+      fontWeight: font.fontWeight500,
+      fontSize: font.fontSize18,
       fontFamily: "Montserrat",
+
     },
+
   },
   listItemContent: {
     width: "141px",
     height: "24px",
-    paddingLeft: "25px",
+    paddingLeft: padding.paddingLeft25,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-
   },
   upBox: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginRight: "20px"
+    marginRight: margin.marginRight20,
+
   },
   listBox: {
-    padding: "0px",
-    marginTop: "20px"
+    padding: padding.padding0,
+    marginTop: margin.marginTop20,
   },
   logOutBox: {},
   avatar: {
     width: "105px",
-    height: "105px"
+    height: "105px",
   },
   nameSurname: {
-    color: "#fff",
-    fontWeight: 500,
-    fontSize: "16px",
+    color: color.white,
+    fontWeight: font.fontWeight500,
+    fontSize: font.fontSize16,
     fontFamily: "Montserrat",
+    margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
   },
 
 });
