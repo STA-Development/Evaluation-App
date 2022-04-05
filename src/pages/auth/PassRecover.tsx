@@ -27,7 +27,6 @@ const PassRecover = () => {
       })
       .catch((error) => {
         setError(true);
-        alert("Enter email");
       });
   };
 
