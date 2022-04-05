@@ -83,10 +83,4 @@ export const useSliderStyle = makeStyles({
     margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
   },
 
-  loadCircle: {
-    // display: 'flex',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // height: '100%',
-  },
 });

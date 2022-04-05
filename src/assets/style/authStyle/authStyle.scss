@@ -46,35 +46,23 @@
     position: relative;
   }
 
-  &__input-box {
+  &__input_box {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     margin-bottom: $marginBottom15;
-
-    &____input {
-      margin-bottom: $marginBottom25;
-    }
   }
 
-  &__title-text {
+  &__title_text {
     height: 122px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: $marginBottom30;
-
-    &__inner-text {
-      font-size: $fontSize16;
-      font-weight: $fontWeight400;
-    }
   }
 
-  &__input {
-    margin-bottom: $marginBottom20;
-  }
 
-  &__forgot-pass {
+  &__forgot_pass {
     color: $blueColor;
     font-size: $fontSize14;
     font-weight: $fontWeight400;
@@ -89,7 +77,7 @@
 }
 
 
-.auth__box-right {
+.auth__box_right {
   max-width: 100%;
   z-index: $zIndex3;
 
@@ -127,7 +115,7 @@
   }
 }
 
-.authChahgePass {
+.authChagePass {
   display: flex;
   justify-content: center;
   align-items: center;

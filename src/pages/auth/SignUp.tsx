@@ -85,7 +85,7 @@ const SignUp = () => {
       <Grid container className="auth authGrid">
         <Grid item lg={4} md={6} sm={12} xs={12} alignItems="center">
           <Paper className="auth__title ">
-            <Box className="auth__title-text">
+            <Box className="auth__title_text">
               <Typography
                 variant="h2"
                 className={classes.authHeader}
@@ -107,7 +107,7 @@ const SignUp = () => {
               <Box
                 component="form"
                 noValidate
-                className="auth__input-box"
+                className="auth__input_box"
                 onSubmit={handleSubmit}
               >
                 <TextField
@@ -174,7 +174,7 @@ const SignUp = () => {
           </Paper>
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
-          <Box className="auth__box-right ">
+          <Box className="auth__box_right ">
             <SignUpImg />
           </Box>
         </Grid>
