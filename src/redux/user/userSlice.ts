@@ -1,17 +1,17 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface AuthPropsState {
   user: string;
   email: string;
-  id: string;
+  uid: string;
   isAuth: boolean;
 }
 
 const initialState: AuthPropsState = {
-  user: '',
-  email: '',
-  id: '',
-  isAuth: true
+  user: "",
+  email: "",
+  uid: "",
+  isAuth: true,
 };
 
 export const userSlice = createSlice({
@@ -21,19 +21,19 @@ export const userSlice = createSlice({
     setUser(state, action: PayloadAction<any>) {
       state.user = action.payload.user;
       state.email = action.payload.email;
-      state.id = action.payload.id;
+      state.uid = action.payload.uid;
       state.isAuth = false;
     },
     removeUser(state) {
-      state.user = '';
-      state.email = '';
-      state.id = '';
+      state.user = "";
+      state.email = "";
+      state.uid = "";
       state.isAuth = false;
-    }
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {setUser, removeUser} = userSlice.actions;
+export const { setUser, removeUser } = userSlice.actions;
 
 export default userSlice.reducer;

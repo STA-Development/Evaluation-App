@@ -1,0 +1,15 @@
+.link_active {
+  background-color: $navbarActiveColor;
+  display: block;
+}
+
+.nav-link {
+  text-decoration: none;
+  background-color: $navbarColor;
+  display: block;
+
+  &:hover {
+    text-decoration: none;
+    background-color: $navbarActiveColor;
+  }
+}

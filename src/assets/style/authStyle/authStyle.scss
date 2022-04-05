@@ -1,80 +1,75 @@
 .bg {
   background-color: $authBg;
-  position: relative;
   font-family: $body-font;
   height: 100vh;
-  padding: 0 30px;
 }
 
 .childThing {
   position: absolute;
-  right: 0;
-  top: 0;
-  height: 100vh;
-  z-index: 2;
+  right: $posRight0;
+  top: $posTop0;
+  height: 100%;
+  z-index: $zIndex2;
 
+}
+
+.authGrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 
 .auth {
   display: flex;
-  z-index: 10;
+  z-index: $zIndex10;
   height: 100vh;
   position: relative;
-
+  padding: $paddingTopBottom0 $paddingLeftRight50;
 
   &__bg {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: $posRight0;
+    top: $posTop0;
     height: 100%;
-    bottom: 0;
-    z-index: 1;
+    bottom: $posBottom0;
+    z-index: $zIndex1;
   }
 
   &__title {
-    border-radius: 4px;
-    background-color: #fff;
-    z-index: 10;
-    padding: 50px;
+    min-height: 578px;
+    border-radius: $borderRadius4;
+    background-color: $whiteColor;
+    z-index: $zIndex10;
+    padding: $padding50;
+    position: relative;
   }
 
-  &__input-box {
+  &__input_box {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    margin-bottom: 15px;
-
-    &____input {
-      margin-bottom: 25px;
-    }
+    margin-bottom: $marginBottom15;
   }
 
-  &__title-text {
+  &__title_text {
     height: 122px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 30px;
-
-    &__inner-text {
-      font-size: 16px;
-      font-weight: 400;
-    }
+    margin-bottom: $marginBottom30;
   }
 
-  &__input {
-    margin-bottom: 20px;
-  }
 
-  &__forgot-pass {
+  &__forgot_pass {
     color: $blueColor;
-    font-size: 14px;
-    font-weight: 400;
-    margin-top: 10px;
+    font-size: $fontSize14;
+    font-weight: $fontWeight400;
+    margin-top: $marginTop10;
 
     &:hover {
-      font-weight: bold;
+      font-weight: $fontWeight400;
       text-decoration: none;
     }
   }
@@ -82,9 +77,9 @@
 }
 
 
-.auth__box-right {
+.auth__box_right {
   max-width: 100%;
-  z-index: 3;
+  z-index: $zIndex3;
 
   svg {
     max-width: 100%;
@@ -94,15 +89,15 @@
 
 
 .auth__passRecCheng {
-  margin-bottom: 30px;
+  margin-bottom: $marginBottom30;
 
   h2 {
-    margin-bottom: 30px;
+    margin-bottom: $marginBottom30;
   }
 }
 
 .auth__passRec {
-  margin: 50px 0 30px 0;
+  margin: $marginTop50 $marginLeft0 $marginBottom30 $marginLeft0;
   height: 90px;
   display: flex;
   flex-direction: column;
@@ -114,33 +109,39 @@
   display: flex;
 
   button {
-    margin-right: 42px;
+    margin-right: $marginRight40;
     width: 150px;
     height: 40px;
   }
 }
 
-.authChahgePass {
+.authChagePass {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   height: 411px;
-  padding: 0;
+  padding: $padding0;
+  flex-direction: column;
 
 
   .auth__passRec {
-    margin: 0;
+    margin: $margin0;
     height: 175px;
   }
 }
 
 
 .auth__passResend {
-  margin: 0;
+  margin: $margin0;
   height: 175px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+//Private Page
+.privatePage {
+  padding: $paddingTopBottom0 $paddingLeftRight30;
 }
