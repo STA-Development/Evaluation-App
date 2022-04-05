@@ -53,18 +53,17 @@
       text-decoration: none;
     }
   }
-}
 
-.notEvalEmployies__text {
-  padding-bottom: $paddingBottom10;
-  margin-bottom: $marginBottom16;
+  &__text {
+    padding-bottom: $paddingBottom10;
+    margin-bottom: $marginBottom16;
     border-bottom: $borderBottom solid $lightGrey;
+  }
 }
 
 .rec.rec-carousel-wrapper {
   position: relative;
 }
-
 
 .rec.rec-carousel button:first-child {
   position: absolute;
@@ -80,7 +79,6 @@
 
 .rec.rec-carousel button:disabled {
   visibility: hidden;
-
 }
 
 .rec .rec-arrow-left {
@@ -93,13 +91,15 @@
   box-shadow: none;
 }
 
-.rec.rec-slider-container{
+.rec.rec-slider-container {
   margin: $margin0;
 }
-.rec.rec-item-wrapper{
+
+.rec.rec-item-wrapper {
   justify-content: flex-start;
 
 }
+
 .sliderBox {
   width: 195px;
   height: 185px;
@@ -108,6 +108,4 @@
   border-radius: $boderRadius10;
   border-top: $borderTop6 solid $greenColor;
   text-align: center;
-
-
 }
