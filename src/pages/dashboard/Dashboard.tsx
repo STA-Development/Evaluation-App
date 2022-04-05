@@ -11,7 +11,7 @@ const Dashboard = () => {
   const [hasInfo, setHasInfo] = useState<boolean>(false);
 
   return (
-    <Box className={classes.dashboardPage}>
+    <Box className={`${classes.dashboardPage} privatePage`}>
       <Typography className={globalClasses.titleHeader}>Dashboard</Typography>
       {hasInfo ? <EmptyDashboard /> : <FullDashboard />}
     </Box>

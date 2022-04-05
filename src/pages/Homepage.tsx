@@ -5,7 +5,7 @@ import { Box, Grid } from "@mui/material";
 
 const Homepage = () => {
   return (
-    <Grid container className="privatePage">
+    <Grid container>
       <Sidebar />
       <Box className="outlet">
         <Outlet />
