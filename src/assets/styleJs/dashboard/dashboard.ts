@@ -93,6 +93,7 @@ export const useDashboardStyles = makeStyles({
     height: "100%",
     color: color.textGrey,
     fontWeight: font.fontWeight400,
+    padding: padding.padding0,
   },
   sliderBoxListItem: {
     display: "flex",

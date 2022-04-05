@@ -56,7 +56,7 @@ const PassRecover = () => {
           sm={12}
           xs={12}
         >
-          <Box className="auth__box-right ">
+          <Box className="auth__box_right ">
             <PasswordRecovery />
           </Box>
         </Grid>

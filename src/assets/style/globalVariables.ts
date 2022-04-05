@@ -32,6 +32,7 @@ export const color = {
   overViewBoxshadow: "rgba(0, 0, 0, 0.15)",
   overViewBoxColor: "#1F6F8B",
 };
+
 export const margin = {
   margin0Auto: "0 auto",
   marginTopBottom20: "20px",
@@ -73,6 +74,11 @@ export const borderRedius = {
   bottomRight50: "50px",
   bottomLeft0: "0px",
   overViewBox: "10px",
+};
+
+export const position = {
+  right20: "20px",
+  top25: "25px",
 };
 
 export const useGlobalTheme = makeStyles({

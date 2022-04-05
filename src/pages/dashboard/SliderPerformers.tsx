@@ -8,7 +8,7 @@ import LeftArrowIcon from "../../assets/images/Icons/LeftArrowIcon";
 
 const SliderPerformers = () => {
   const classes = useDashboardStyles();
-  console.log(consts);
+
   const myArrow = ({ type, onClick, isEdge }: any): any => {
     const pointer =
       type === consts.PREV ? <LeftArrowIcon /> : <RightArrowIcon />;
@@ -80,12 +80,12 @@ const SliderPerformers = () => {
     { width: 550, itemsToShow: 2 },
     { width: 768, itemsToShow: 4 },
     { width: 1200, itemsToShow: 6 },
+    { width: 1440, itemsToShow: 6 },
   ];
 
   return (
     <Box>
       <Typography className={classes.sliderRockStars}>6 Rock Stars</Typography>
-
       <Carousel
         isRTL={false}
         itemsToShow={6}
@@ -94,7 +94,6 @@ const SliderPerformers = () => {
         breakPoints={breakPoints}
         renderArrow={myArrow}
         itemPosition={consts.START}
-        // outerSpacing={0}
       >
         {sliderItems.map((item) => (
           <Box className="sliderBox" key={item.id}>

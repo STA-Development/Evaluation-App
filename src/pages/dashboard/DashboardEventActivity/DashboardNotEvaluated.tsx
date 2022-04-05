@@ -1,7 +1,7 @@
 import React from "react";
-import {Box, Typography} from "@mui/material";
-import {useDashboardStyles} from "../../../assets/styleJs/dashboard/dashboard";
-import {Link} from "react-router-dom";
+import { Box, Typography } from "@mui/material";
+import { useDashboardStyles } from "../../../assets/styleJs/dashboard/dashboard";
+import { Link } from "react-router-dom";
 
 const DashboardNotEvaluated = () => {
   const classes = useDashboardStyles();
