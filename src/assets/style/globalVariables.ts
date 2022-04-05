@@ -72,6 +72,10 @@ export const borderRedius = {
 
 };
 
+export const position={
+  right20:'20px',
+  top25:'25px',
+};
 
 export const useGlobalTheme = makeStyles({
 

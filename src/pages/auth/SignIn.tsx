@@ -1,12 +1,21 @@
-import React, {useState} from "react";
-import {Box, Button, FormControlLabel, FormGroup, Grid, Paper, TextField, Typography,} from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Button,
+  FormControlLabel,
+  FormGroup,
+  Grid,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-import {useStyles} from "../../assets/scssInJS/signUp";
+import { useStyles } from "../../assets/scssInJS/signUp";
 import SignInImg from "../../assets/images/auth/SignInImg";
-import {signInWithEmailAndPassword} from "firebase/auth";
-import {auth} from "../../data/firebase";
-import {Link, useNavigate} from "react-router-dom";
-import {useGlobalTheme} from "../../assets/style/globalVariables";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../data/firebase";
+import { Link, useNavigate } from "react-router-dom";
+import { useGlobalTheme } from "../../assets/style/globalVariables";
 
 const SignIn = () => {
   const classes = useStyles();
@@ -27,8 +36,8 @@ const SignIn = () => {
       }
     } catch (error) {
       console.log(error);
-      setPassword('')
-      setEmail('')
+      setPassword("");
+      setEmail("");
       setError(true);
     }
   };
@@ -88,13 +97,18 @@ const SignIn = () => {
                 />
 
                 <FormControlLabel
-                  control={<Checkbox/>}
+                  control={<Checkbox />}
                   label="Keep me signed in"
                   value="checkbox"
                   className={classes.authCheck}
                 />
 
-                <Button variant="contained" size="large" type="submit" className={globalClasses.button}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  type="submit"
+                  className={globalClasses.button}
+                >
                   Sign In
                 </Button>
               </Box>
@@ -106,7 +120,7 @@ const SignIn = () => {
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
           <Box className="auth__box-right ">
-            <SignInImg/>
+            <SignInImg />
           </Box>
         </Grid>
       </Grid>

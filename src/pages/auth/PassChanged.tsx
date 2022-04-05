@@ -20,7 +20,7 @@ const PassChanged = () => {
       <Grid className="auth authGrid" container>
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Paper className="auth__title">
-            <Box className="authChahgePass">
+            <Box className="authChagePass">
               <Button
                 variant="text"
                 className={classes.changedButton}
