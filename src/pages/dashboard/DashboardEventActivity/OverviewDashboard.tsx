@@ -2,17 +2,13 @@ import React from "react";
 import DashboardEventActive from "./DashboardEventActive";
 import { Box, Grid, Typography } from "@mui/material";
 import DashboardNotEvaluated from "./DashboardNotEvaluated";
-import { useDashboardStyles } from "../../../assets/styleJs/dashboard/dashboard";
+import { useGlobalTheme } from "../../../assets/style/globalVariables";
 
 const OverviewDashboard = () => {
-  const classes = useDashboardStyles();
+  const classes = useGlobalTheme();
   return (
     <Box>
-      <Typography
-        variant="h5"
-        component="h4"
-        className={classes.dashboardHeader}
-      >
+      <Typography variant="h5" component="h4" className={classes.contentHeader}>
         Recent Evoluation Event Activity
       </Typography>
       <Grid container spacing={2}>
