@@ -1,4 +1,4 @@
-import { makeStyles } from "@mui/styles";
+import {makeStyles} from "@mui/styles";
 
 export const font = {
   fontWeight400: 400,
@@ -31,6 +31,7 @@ export const color = {
   closeButton: "#4F4F4F",
   overViewBoxshadow: "rgba(0, 0, 0, 0.15)",
   overViewBoxColor: "#1F6F8B",
+
 };
 
 export const margin = {

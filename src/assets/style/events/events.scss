@@ -1,14 +1,21 @@
+.events__outlet {
+  padding: 30px;
+}
+
 .events {
-  &__outlet{
-    padding:30px;
-  }
+
   &__sidebar {
-    padding:0 72px;
+    padding: 0 72px;
     margin: 0;
     height: 72px;
     background-color: #DBE2EA;
     display: flex;
     align-items: center;
+
+    &_box {
+      display: flex;
+      justify-content: flex-start;
+    }
 
 
     &:before {
@@ -24,29 +31,90 @@
 
 
 }
-.events__link{
-  font-size: 18px;
+
+.events__link {
+
   font-weight: 400;
-  color: $navbarColor;
-  transition: all .3s;
+  color: #131924;
+  transition: all 0.3s;
   text-decoration: none;
-  &:hover{
-    text-decoration: none;
+  font-size: 18px;
+  display: inline-block;
+  width: 185px;
+
+  &:hover {
     font-weight: 700;
-  }
-  &:active{
     text-decoration: none;
-    font-weight: 700;
   }
+
+  &:active {
+    text-decoration: none;
+  }
+
 }
 
-.events__active{
-  text-decoration: none;
+.events__active {
   font-weight: 700;
-  font-size: 18px;
-  color: $navbarColor;
-  &:active{
-    text-decoration: none;
-    font-weight: 700;
+  text-decoration: none;
+
+}
+
+
+.event__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.ongoingEvents {
+  width: 272px;
+  //height: 290px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 20px;
+
+
+  &__chart {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__percent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    color: $greyColor;
+
+    h4 {
+      font-size: 36px;
+      font-weight: 700;
+
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+
+  &__quarterly {
+    h5 {
+      font-size: 16px;
+      font-weight: 700;
+      color: $greyColor;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__date {
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      color: #898989
+    }
   }
 }

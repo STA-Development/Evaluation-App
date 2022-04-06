@@ -1,11 +1,7 @@
 import React from "react";
-import { Box, List } from "@mui/material";
-import { NavLink } from "react-router-dom";
-import { Outlet } from "react-router-dom";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import { useEventsStyle } from "../../assets/styleJs/events/events";
+import {Box} from "@mui/material";
+import {NavLink, Outlet} from "react-router-dom";
+import {useEventsStyle} from "../../assets/styleJs/events/events";
 
 interface EventsLink {
   id: number;
@@ -19,7 +15,7 @@ const Events = () => {
     {
       id: Math.random(),
       name: "Events",
-      route: "/events",
+      route: "events",
     },
     {
       id: Math.random(),
@@ -35,24 +31,25 @@ const Events = () => {
   return (
     <Box className="events">
       <Box className="events__sidebar">
-        {eventsSidebar.map((link) => (
-          <NavLink
-            to={link.route}
-            key={link.id}
-            className={({ isActive }) =>
-              isActive ? "events__active" : "events__link"
-            }
-          >
-            <ListItem className={classes.listItem}>
-              <Box>
-                <ListItemText primary={link.name} />
-              </Box>
-            </ListItem>
-          </NavLink>
-        ))}
+
+        <Box className='events__sidebar-box'>
+          {eventsSidebar.map((link) => (
+            <NavLink
+              to={link.route}
+              key={link.id}
+              style={{textDecoration: 'none'}}
+              className={({isActive}) =>
+                isActive ? "events__active events__link" : "events__link"
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
+        </Box>
+
       </Box>
       <Box className="events__outlet">
-        <Outlet />
+        <Outlet/>
       </Box>
     </Box>
   );
