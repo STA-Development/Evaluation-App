@@ -1,7 +1,7 @@
 import React from "react";
-import {Box} from "@mui/material";
-import {NavLink, Outlet} from "react-router-dom";
-import {useEventsStyle} from "../../assets/styleJs/events/events";
+import { Box } from "@mui/material";
+import { NavLink, Outlet } from "react-router-dom";
+import { useEventsStyle } from "../../assets/styleJs/events/events";
 
 interface EventsLink {
   id: number;
@@ -9,13 +9,12 @@ interface EventsLink {
   route: string;
 }
 
-const Events = () => {
-  const classes = useEventsStyle();
+const RootEvents = () => {
   const eventsSidebar: EventsLink[] = [
     {
       id: Math.random(),
       name: "Events",
-      route: "events",
+      route: "/events",
     },
     {
       id: Math.random(),
@@ -31,14 +30,13 @@ const Events = () => {
   return (
     <Box className="events">
       <Box className="events__sidebar">
-
-        <Box className='events__sidebar-box'>
+        <Box className="events__sidebar-box">
           {eventsSidebar.map((link) => (
             <NavLink
               to={link.route}
               key={link.id}
-              style={{textDecoration: 'none'}}
-              className={({isActive}) =>
+              style={{ textDecoration: "none" }}
+              className={({ isActive }) =>
                 isActive ? "events__active events__link" : "events__link"
               }
             >
@@ -46,13 +44,12 @@ const Events = () => {
             </NavLink>
           ))}
         </Box>
-
       </Box>
       <Box className="events__outlet">
-        <Outlet/>
+        <Outlet />
       </Box>
     </Box>
   );
 };
 
-export default Events;
+export default RootEvents;

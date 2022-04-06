@@ -24,15 +24,18 @@ $whiteColor: #fff;
 $lightBlue: rgba(12, 167.255, 0.08);
 $navbarColor: #131924;
 $titleColor: rgba(0, 0, 0, 0.6);
-
+$darkGrey:#898989;
 $greyColor: #4f4f4f;
 $lightGrey: #ececec;
 $sliderBox: rgba(0, 0, 0, 0.15);
-
+$eventBox:rgba(0, 0, 0, 0.25);
 $paddingTopBottom0: 0px;
+$paddingLeftRight72: 72px;
 $paddingLeftRight50: 50px;
 $paddingLeftRight30: 30px;
 $padding0: 0px;
+$padding20: 20px;
+$padding30: 30px;
 $padding50: 50px;
 
 $paddingTop0: 0px;
@@ -102,11 +105,13 @@ $marginBottom16: 16px;
 $marginBottom20: 20px;
 $marginBottom25: 25px;
 $marginBottom30: 30px;
+$marginBottom40: 40px;
 
 $marginRight0: 0px;
 $marginRight5: 5px;
 $marginRight10: 10px;
 $marginRight15: 15px;
+$marginRight16: 16px;
 $marginRight20: 20px;
 $marginRight25: 25px;
 $marginRight30: 30px;
@@ -132,17 +137,19 @@ $posTopM20: -20px;
 
 $borderRadius0: 0;
 $borderRadius4: 4px;
-$boderRadius10: 10px;
+$borderRadius10: 10px;
 
-$tSize10: 10px;
+$fontSize10: 10px;
 $fontSize13: 13px;
 $fontSize14: 14px;
 $fontSize15: 15px;
 $fontSize16: 16px;
 $fontSize18: 18px;
+$fontSize36: 36px;
 
 $borderBottom: 1px;
 $borderTop6: 6px;
 
 $boxShadow0: 0px;
 $boxShadow4: 4px;
+$boxShadow10: 10px;

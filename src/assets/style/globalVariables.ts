@@ -1,4 +1,4 @@
-import {makeStyles} from "@mui/styles";
+import { makeStyles } from "@mui/styles";
 
 export const font = {
   fontWeight400: 400,
@@ -24,6 +24,7 @@ export const color = {
   gray: "#828282",
   darkGray: "#333",
   textGrey: "#4f4f4f",
+  lightGrey: "#ececec",
   text: "#131924",
   navbar: "#131924",
   activeLink: "#262F3F",
@@ -31,7 +32,6 @@ export const color = {
   closeButton: "#4F4F4F",
   overViewBoxshadow: "rgba(0, 0, 0, 0.15)",
   overViewBoxColor: "#1F6F8B",
-
 };
 
 export const margin = {
@@ -39,6 +39,7 @@ export const margin = {
   marginTopBottom20: "20px",
   marginTopBottom5: "5px",
   marginLeftRight0: "0px",
+  marginBottom50: "50px",
   marginBottom35: "35px",
   marginBottom30: "30px",
   marginBottom25: "25px",
@@ -99,6 +100,12 @@ export const useGlobalTheme = makeStyles({
     fontWeight: font.fontWeight700,
     fontFamily: "Montserrat",
     fontSize: font.fontSize24,
+    marginBottom: margin.marginBottom25,
+  },
+
+  contentHeader: {
+    fontSize: font.fontSize20,
+    fontWeight: font.fontWeight700,
     marginBottom: margin.marginBottom25,
   },
 });
