@@ -1,12 +1,9 @@
-import { makeStyles } from "@mui/styles";
-import { color, font, padding } from "../../style/globalVariables";
+import {makeStyles} from "@mui/styles";
+import {margin} from "../../style/globalVariables";
 
 export const useEventsStyle = makeStyles({
-  listItem: {
-    fontSize: font.fontSize18,
-    fontWeight: font.fontWeight400,
-    "&:hover": {
-      textDecoration: "none",
-    },
-  },
+  ongoingEventsDivider: {
+    margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
+    backgroundColor: '#ececec',
+  }
 });
