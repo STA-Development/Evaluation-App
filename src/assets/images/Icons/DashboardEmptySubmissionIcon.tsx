@@ -9,7 +9,7 @@ const DashboardEmptySubmissionIcon = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_1432_25597)">
+      <g clipPath="url(#clip0_1432_25597)">
         <path
           d="M49.4838 45.2636L48.6451 42.8923C47.4569 39.5446 44.1021 37.5221 40.6075 37.9405L7.19888 41.8462C3.00533 42.3344 0.0698491 46.1005 0.559096 50.2851L10.0645 131.397C10.4139 134.256 13 136.279 15.8655 135.93L135.382 121.982C138.247 121.633 140.274 119.052 139.925 116.193L131.677 46.1005C131.328 43.241 128.742 41.2185 125.876 41.5672L56.4731 49.6574C53.3978 50.0062 50.4623 48.1928 49.4838 45.2636Z"
           fill="#00A3FF"
@@ -180,7 +180,7 @@ const DashboardEmptySubmissionIcon = () => {
       </g>
       <defs>
         <clipPath id="clip0_1432_25597">
-          <rect width="143" height="136" fill="white" />
+          <rect width="143" height="136" fill="white"/>
         </clipPath>
       </defs>
     </svg>
