@@ -16,10 +16,10 @@ const OverviewDashboard = () => {
         Recent Evoluation Event Activity
       </Typography>
       <Grid container spacing={2}>
-        <Grid item md={7} sm={12}>
+        <Grid item md={6} sm={12}>
           <DashboardEventActive />
         </Grid>
-        <Grid item md={5} sm={12}>
+        <Grid item md={6} sm={12}>
           <DashboardNotEvaluated />
         </Grid>
       </Grid>
