@@ -1,11 +1,13 @@
-import React, { useRef } from "react";
-import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
-import { Box, Button, Divider, Grid, Typography } from "@mui/material";
-import { NavLink } from "react-router-dom";
-import { useGlobalTheme } from "../../../../assets/style/globalVariables";
-import { useDashboardStyles } from "../../../../assets/styleJs/dashboard/dashboard";
-import { useEventsStyle } from "../../../../assets/styleJs/events/events";
+import React from "react";
+import {ArcElement, Chart as ChartJS, Legend, Tooltip} from "chart.js";
+import {Doughnut} from "react-chartjs-2";
+import {Box, Button, Divider, Grid, Typography} from "@mui/material";
+import {NavLink} from "react-router-dom";
+import {useGlobalTheme} from "../../../../assets/style/globalVariables";
+import {useDashboardStyles} from "../../../../assets/styleJs/dashboard/dashboard";
+import {useEventsStyle} from "../../../../assets/styleJs/events/events";
+import {randomColor, randomNumber} from "../../../../assets/styleJs/utils";
+
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -14,22 +16,19 @@ const OngoingEvent = () => {
   const globalClasses = useGlobalTheme();
   const classes = useDashboardStyles();
 
+
   const data = [
     {
       datasets: [
         {
           label: "# of Votes",
           data: [
-            Math.floor(Math.random() * 100),
-            Math.floor(Math.random() * 100),
+            randomNumber(),
+            randomNumber(),
           ],
           backgroundColor: [
-            `rgba(${Math.random() * 255} ${Math.random() * 255} ${
-              Math.random() * 255
-            })`,
-            `rgba(${Math.random() * 255} ${Math.random() * 255} ${
-              Math.random() * 255
-            })`,
+            `rgb(${randomColor()} ${randomColor()} ${randomColor()} )`,
+            `rgb(${randomColor()} ${randomColor()} ${randomColor()} )`
           ],
           borderWidth: 1,
         },
@@ -49,16 +48,12 @@ const OngoingEvent = () => {
         {
           label: "# of Votes",
           data: [
-            Math.floor(Math.random() * 100),
-            Math.floor(Math.random() * 100),
+            randomNumber(),
+            randomNumber(),
           ],
           backgroundColor: [
-            `rgba(${Math.random() * 255} ${Math.random() * 255} ${
-              Math.random() * 255
-            })`,
-            `rgba(${Math.random() * 255} ${Math.random() * 255} ${
-              Math.random() * 255
-            })`,
+            `rgb(${randomColor()} ${randomColor()} ${randomColor()} )`,
+            `rgb(${randomColor()} ${randomColor()} ${randomColor()} )`,
           ],
           borderWidth: 1,
         },
@@ -78,16 +73,12 @@ const OngoingEvent = () => {
         {
           label: "# of Votes",
           data: [
-            Math.floor(Math.random() * 100),
-            Math.floor(Math.random() * 100),
+            randomNumber(),
+            randomNumber(),
           ],
           backgroundColor: [
-            `rgba(${Math.random() * 255} ${Math.random() * 255} ${
-              Math.random() * 255
-            })`,
-            `rgba(${Math.random() * 255} ${Math.random() * 255} ${
-              Math.random() * 255
-            })`,
+            `rgb(${randomColor()} ${randomColor()} ${randomColor()} )`,
+            `rgb(${randomColor()} ${randomColor()} ${randomColor()} )`,
           ],
           borderWidth: 1,
         },
@@ -114,7 +105,7 @@ const OngoingEvent = () => {
         >
           Ongoing Events
         </Typography>
-        <NavLink style={{ textDecoration: "none" }} to={"/"}>
+        <NavLink style={{textDecoration: "none"}} to={"/"}>
           <Button
             variant="contained"
             size="large"
@@ -130,18 +121,18 @@ const OngoingEvent = () => {
             <Grid container className="ongoingEvents__grid">
               <Grid item md={6}>
                 <Box className="ongoingEvents__chart">
-                  <Doughnut data={item} />
+                  <Doughnut data={item}/>
                 </Box>
               </Grid>
               <Grid item md={6}>
                 <Box className="ongoingEvents__percent">
                   <Typography variant="h4" component="h4">
-                    {item.percent}
+                    {item.datasets[0].data[0]}
                   </Typography>
                   <Typography>In Progress</Typography>
                 </Box>
               </Grid>
-              <Divider className={eventClass.ongoingEventsDivider} />
+              <Divider className={eventClass.ongoingEventsDivider}/>
               <Grid item md={12}>
                 <Box className="ongoingEvents__quarterly">
                   <Typography component="h5">{item.header}</Typography>

@@ -1,17 +1,24 @@
 import React from "react";
-import { Box, ListItem, ListItemButton, Typography } from "@mui/material";
+import {Box, ListItem, ListItemButton, Typography} from "@mui/material";
 // @ts-ignore
-import Carousel, { consts } from "react-elastic-carousel";
-import { useDashboardStyles } from "../../assets/styleJs/dashboard/dashboard";
+import Carousel, {consts} from "react-elastic-carousel";
+import {useDashboardStyles} from "../../assets/styleJs/dashboard/dashboard";
 import RightArrowIcon from "../../assets/images/Icons/RightArrowIcon";
 import LeftArrowIcon from "../../assets/images/Icons/LeftArrowIcon";
+
+interface Arrow {
+  type?: string,
+  onClick?: () => void,
+  isEdge?: boolean
+}
+
 
 const SliderPerformers = () => {
   const classes = useDashboardStyles();
 
-  const myArrow = ({ type, onClick, isEdge }: any): any => {
+  const myArrow = ({type, onClick, isEdge}: Arrow) => {
     const pointer =
-      type === consts.PREV ? <LeftArrowIcon /> : <RightArrowIcon />;
+      type === consts.PREV ? <LeftArrowIcon/> : <RightArrowIcon/>;
     return (
       <button onClick={onClick} disabled={isEdge}>
         {pointer}
@@ -76,11 +83,11 @@ const SliderPerformers = () => {
     },
   ];
   const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2 },
-    { width: 768, itemsToShow: 4 },
-    { width: 1200, itemsToShow: 6 },
-    { width: 1440, itemsToShow: 6 },
+    {width: 1, itemsToShow: 1},
+    {width: 550, itemsToShow: 2},
+    {width: 768, itemsToShow: 4},
+    {width: 1200, itemsToShow: 6},
+    {width: 1440, itemsToShow: 6},
   ];
 
   return (
