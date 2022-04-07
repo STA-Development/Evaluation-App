@@ -1,8 +1,10 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
-import { Pie } from "react-chartjs-2";
 import { useDashboardStyles } from "../../../assets/styleJs/dashboard/dashboard";
+
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -11,45 +13,86 @@ const DashboardEventActive = () => {
 
   const dataStyles = [
     {
-      id: 1,
+      id: Math.random(),
       data: 13,
       color: "rgba(178, 228, 213, 1)",
       name: "Rock Stars",
     },
     {
-      id: 2,
+      id: Math.random(),
       data: 10,
       color: "rgba(177, 142, 166, 1)",
       name: "Good Potential",
     },
     {
-      id: 3,
+      id: Math.random(),
       data: 4,
       color: "rgba(242, 166, 166, 1)",
       name: "Need Help",
     },
     {
-      id: 4,
+      id: Math.random(),
       data: 7,
       color: "rgba(231, 243, 238, 1)",
       name: "Waitng For The Evoluation",
     },
   ];
 
-  const data = {
-    datasets: [
+  const options = {
+    chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
+      type: "pie",
+      spacingRight: 100,
+    },
+    legend: {
+      align: "right",
+      verticalAlign: "top",
+      layout: "vertical",
+      x: 0,
+      y: 100,
+      padding: 0,
+      itemMarginTop: 20,
+      itemMarginRight: 50,
+      itemMarginBottom: 5,
+      itemStyle: {
+        lineHeight: "14px",
+      },
+    },
+    title: {
+      text: "",
+    },
+    tooltip: {
+      pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
+    },
+    accessibility: {
+      point: {
+        valueSuffix: "%",
+      },
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: "pointer",
+        dataLabels: {
+          enabled: false,
+        },
+        showInLegend: true,
+      },
+    },
+    series: [
       {
-        label: "# of Votes",
-        data: dataStyles.map((data) => data.data),
-        backgroundColor: dataStyles.map((data) => data.color),
-        borderColor: dataStyles.map((data) => data.color),
-        borderWidth: 1,
-        hoverOffset: 15,
+        name: "Brands",
+        colorByPoint: true,
+        data: dataStyles.map((item) => {
+          return {
+            name: item.name,
+            y: item.data,
+          };
+        }),
       },
     ],
-    option: {
-      maintainAspectRatio: false,
-    },
   };
 
   return (
@@ -61,32 +104,10 @@ const DashboardEventActive = () => {
       >
         Overview
       </Typography>
-      <Grid container>
-        <Grid item md={6}>
-          <Box className="canvasStyle">
-            <Pie data={data} />
-          </Box>
-        </Grid>
-        <Grid item md={1}>
-          <Typography component="span" className={classes.overViewTitle} />
-        </Grid>
-        <Grid item md={5}>
-          <Box className="overViewEval">
-            <Box className="overViewEvalFeedback">
-              {dataStyles.map((data) => (
-                <Box key={data.id}>
-                  <Typography
-                    variant="body1"
-                    component="span"
-                    sx={{ backgroundColor: data.color }}
-                  />
-                  <Typography>{data.name}</Typography>
-                </Box>
-              ))}
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
+
+      <Box className="canvasStyle">
+        <HighchartsReact highcharts={Highcharts} options={options} />
+      </Box>
     </Box>
   );
 };

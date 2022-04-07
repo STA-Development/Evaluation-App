@@ -5351,6 +5351,16 @@ he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
+highcharts-react-official@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/highcharts-react-official/-/highcharts-react-official-3.1.0.tgz#921e5614f9e8580bc99a1e3b531d51a70f396500"
+  integrity sha512-CkWJHrVMOc6CT8KFu1dR+a0w5OxCVKKgZUNWtEi5TmR0xqBDIDe+RyM652MAN/jBYppxMo6TCUVlRObCyWAn0Q==
+
+highcharts@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-10.0.0.tgz#a78c3c8f077834ab2431a03c6699b2fbc511a37f"
+  integrity sha512-a14PrTraVaoSNyaRPhLF/jJ3/09rJwfUZedLgZOkzozGz4K/H8WtWNJtUZt/tc5QiJkaZHw4YX7vvuO98s+EoA==
+
 history@^5.2.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/history/-/history-5.3.0.tgz#1548abaa245ba47992f063a0783db91ef201c73b"
@@ -8018,11 +8028,6 @@ react-app-polyfill@^3.0.0:
     raf "^3.4.1"
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
-
-react-chartjs-2@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/react-chartjs-2/-/react-chartjs-2-4.0.1.tgz#38ed1d5b6e2f789408450c981e9e8e1d78b2e015"
-  integrity sha512-q8bgWzKoFvBvD7YcjT/hXG8jt55TaMAuJ1dmI3tKFJ7CijUWYz4pIfOhkTI6PBTwqu/pmeWsClBRd/7HiWzN1g==
 
 react-dev-utils@^12.0.0:
   version "12.0.0"
