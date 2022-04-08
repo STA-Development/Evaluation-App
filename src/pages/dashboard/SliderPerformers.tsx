@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, ListItem, ListItemButton, Typography } from "@mui/material";
+import {Box, ListItem, ListItemButton, Typography} from "@mui/material";
 import Carousel from "react-elastic-carousel";
-import { useDashboardStyles } from "../../assets/styleJs/dashboard/dashboard";
+import {useDashboardStyles} from "../../assets/styleJs/dashboard/dashboard";
 import RightArrowIcon from "../../assets/images/Icons/RightArrowIcon";
 import LeftArrowIcon from "../../assets/images/Icons/LeftArrowIcon";
 
@@ -14,8 +14,8 @@ interface Arrow {
 const SliderPerformers = () => {
   const classes = useDashboardStyles();
 
-  const myArrow = ({ type, onClick, isEdge }: Arrow) => {
-    const pointer = type === "PREV" ? <LeftArrowIcon /> : <RightArrowIcon />;
+  const myArrow = ({type, onClick, isEdge}: Arrow) => {
+    const pointer = type === "PREV" ? <LeftArrowIcon/> : <RightArrowIcon/>;
     return (
       <button onClick={onClick} disabled={isEdge}>
         {pointer}
@@ -80,11 +80,11 @@ const SliderPerformers = () => {
     },
   ];
   const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2 },
-    { width: 768, itemsToShow: 4 },
-    { width: 1200, itemsToShow: 6 },
-    { width: 1440, itemsToShow: 6 },
+    {width: 1, itemsToShow: 1},
+    {width: 550, itemsToShow: 2},
+    {width: 768, itemsToShow: 4},
+    {width: 1200, itemsToShow: 6},
+    {width: 1440, itemsToShow: 6},
   ];
 
   return (
@@ -97,7 +97,6 @@ const SliderPerformers = () => {
         pagination={false}
         breakPoints={breakPoints}
         renderArrow={myArrow}
-        itemPosition={"START"}
       >
         {sliderItems.map((item) => (
           <Box className="sliderBox" key={item.id}>

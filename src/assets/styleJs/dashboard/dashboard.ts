@@ -1,16 +1,11 @@
-import { makeStyles } from "@mui/styles";
-import {
-  borderRedius,
-  color,
-  font,
-  margin,
-  padding,
-} from "../../style/globalVariables";
+import {makeStyles} from "@mui/styles";
+import {borderRedius, color, font, margin, padding,} from "../../style/globalVariables";
 
 export const useDashboardStyles = makeStyles({
-  dashboardPage: {
+  emptyDashboard: {
     height: "calc(100vh - 66px)",
   },
+
 
   dashboardContent: {
     height: " calc(100% - 91px)",
