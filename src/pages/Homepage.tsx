@@ -1,14 +1,14 @@
 import React from "react";
 import Sidebar from "./sidebar/Sidebar";
-import { Outlet } from "react-router-dom";
-import { Box, Grid } from "@mui/material";
+import {Outlet} from "react-router-dom";
+import {Box, Grid} from "@mui/material";
 
 const Homepage = () => {
   return (
-    <Grid container className="privatePage">
-      <Sidebar />
+    <Grid container>
+      <Sidebar/>
       <Box className="outlet">
-        <Outlet />
+        <Outlet/>
       </Box>
     </Grid>
   );

@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
-import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
-import { useDashboardStyles } from "../../../assets/styleJs/dashboard/dashboard";
+import {Box, Typography} from "@mui/material";
+import {ArcElement, Chart as ChartJS, Legend, Tooltip} from "chart.js";
+import {useDashboardStyles} from "../../../assets/styleJs/dashboard/dashboard";
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
@@ -14,26 +14,26 @@ const DashboardEventActive = () => {
   const dataStyles = [
     {
       id: Math.random(),
-      data: 13,
+      percent: 13,
       color: "rgba(178, 228, 213, 1)",
       name: "Rock Stars",
     },
     {
       id: Math.random(),
-      data: 10,
+      percent: 10,
       color: "rgba(177, 142, 166, 1)",
       name: "Good Potential",
     },
     {
       id: Math.random(),
-      data: 4,
-      color: "rgba(242, 166, 166, 1)",
+      percent: 4,
+      color: "rgba(231, 243, 238, 1)",
       name: "Need Help",
     },
     {
       id: Math.random(),
-      data: 7,
-      color: "rgba(231, 243, 238, 1)",
+      percent: 7,
+      color: "rgba(242, 166, 166, 1)",
       name: "Waitng For The Evoluation",
     },
   ];
@@ -45,19 +45,23 @@ const DashboardEventActive = () => {
       plotShadow: false,
       type: "pie",
       spacingRight: 100,
+      height: 280
     },
     legend: {
       align: "right",
-      verticalAlign: "top",
+      verticalAlign: "middle",
       layout: "vertical",
       x: 0,
-      y: 100,
+      y: 0,
       padding: 0,
       itemMarginTop: 20,
       itemMarginRight: 50,
-      itemMarginBottom: 5,
+      itemMarginBottom: 0,
       itemStyle: {
         lineHeight: "14px",
+      },
+      ColorString: {
+        backgroundColor: '#000',
       },
     },
     title: {
@@ -73,6 +77,7 @@ const DashboardEventActive = () => {
     },
     plotOptions: {
       pie: {
+        center: ['50%', '50%'],
         allowPointSelect: true,
         cursor: "pointer",
         dataLabels: {
@@ -83,12 +88,13 @@ const DashboardEventActive = () => {
     },
     series: [
       {
-        name: "Brands",
+        name: "Job",
         colorByPoint: true,
         data: dataStyles.map((item) => {
           return {
             name: item.name,
-            y: item.data,
+            y: item.percent,
+            color: item.color,
           };
         }),
       },
@@ -106,7 +112,7 @@ const DashboardEventActive = () => {
       </Typography>
 
       <Box className="canvasStyle">
-        <HighchartsReact highcharts={Highcharts} options={options} />
+        <HighchartsReact highcharts={Highcharts} options={options}/>
       </Box>
     </Box>
   );

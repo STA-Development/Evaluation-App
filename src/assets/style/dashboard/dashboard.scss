@@ -1,4 +1,4 @@
-  .highcharts-credits{
+.highcharts-credits {
   display: none;
 }
 
@@ -102,4 +102,9 @@
   border-radius: $boderRadius10;
   border-top: $borderTop6 solid $greenColor;
   text-align: center;
+}
+
+.rec.rec-carousel-item > div {
+  display: flex;
+  justify-content: flex-start;
 }
