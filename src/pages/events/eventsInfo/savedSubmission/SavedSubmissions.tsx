@@ -1,16 +1,10 @@
-import React, { useState } from "react";
-import EmptySavedSubmission from "./EmptySavedSubmission";
+import React from "react";
 
 const SavedSubmissions = () => {
-  const [isTrue, setIsTrue] = useState(true);
   return (
-    <>
-      {isTrue ? (
-        <>
-          <EmptySavedSubmission />
-        </>
-      ) : null}
-    </>
+    <div>
+      <h4>Saved Submissons</h4>
+    </div>
   );
 };
 

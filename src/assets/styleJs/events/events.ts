@@ -3,6 +3,8 @@ import { font, margin } from "../../style/globalVariables";
 import { color } from "../../style/globalVariables";
 
 export const useEventsStyle = makeStyles({
+
+
   ongoingEventsDivider: {
     margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
     backgroundColor: color.lightGrey,

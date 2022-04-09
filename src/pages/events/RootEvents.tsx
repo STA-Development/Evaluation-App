@@ -1,52 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box } from "@mui/material";
-import { NavLink, Outlet } from "react-router-dom";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Events from "./eventsInfo/ongoingEvent/Events";
+import SavedSubmissions from "./eventsInfo/savedSubmission/SavedSubmissions";
+import Submissions from "./eventsInfo/submission/Submissions";
+import EmptyEvents from "./eventsInfo/ongoingEvent/EmptyEvents";
+import EmptySubmission from "./eventsInfo/submission/EmptySubmission";
+import EmptySavedSubmission from "./eventsInfo/savedSubmission/EmptySavedSubmission";
 import { useEventsStyle } from "../../assets/styleJs/events/events";
+import { useGlobalTheme } from "../../assets/style/globalVariables";
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
 
-interface EventsLink {
-  id: number;
-  name: string;
-  route: string;
+function TabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+function a11yProps(index: number) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
 }
 
 const RootEvents = () => {
-  const eventsSidebar: EventsLink[] = [
-    {
-      id: Math.random(),
-      name: "Events",
-      route: "/events",
-    },
-    {
-      id: Math.random(),
-      name: "Submissions",
-      route: "submissions",
-    },
-    {
-      id: Math.random(),
-      name: "Saved Submissions",
-      route: "saved_submissions",
-    },
-  ];
+  const globalClasses = useGlobalTheme();
+  const [value, setValue] = useState<number>(0);
+  const [hasEvents, setHasEvents] = useState<boolean>(true);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
+
   return (
     <Box className="events">
       <Box className="events__sidebar">
-        <Box className="events__sidebar-box">
-          {eventsSidebar.map((link) => (
-            <NavLink
-              to={link.route}
-              key={link.id}
-              style={{ textDecoration: "none" }}
-              className={({ isActive }) =>
-                isActive ? "events__active events__link" : "events__link"
-              }
-            >
-              {link.name}
-            </NavLink>
-          ))}
-        </Box>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs"
+          className={globalClasses.eventTabsBox}
+        >
+          <Tab
+            label="Events"
+            {...a11yProps(0)}
+            className={globalClasses.eventTabs}
+          />
+          <Tab
+            label="Submissions"
+            {...a11yProps(1)}
+            className={globalClasses.eventTabs}
+          />
+          <Tab
+            label="Saved Submissions"
+            {...a11yProps(2)}
+            className={globalClasses.eventTabs}
+          />
+        </Tabs>
       </Box>
-      <Box className="events__outlet">
-        <Outlet />
+      <Box className="events__info">
+        <TabPanel value={value} index={0}>
+          {hasEvents ? <Events /> : <EmptyEvents />}
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          {hasEvents ? <Submissions /> : <EmptySubmission />}
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          {hasEvents ? <SavedSubmissions /> : <EmptySavedSubmission />}
+        </TabPanel>
       </Box>
     </Box>
   );

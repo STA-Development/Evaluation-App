@@ -1,9 +1,14 @@
-.events__outlet {
+.events__info {
   padding: $padding30;
 }
 
 .events {
-
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $marginBottom25;
+  }
   &__sidebar {
     padding: $paddingTopBottom0 $paddingLeftRight72;
     margin: $margin0;
@@ -12,14 +17,8 @@
     display: flex;
     align-items: center;
 
-    &_box {
-      display: flex;
-      justify-content: flex-start;
-    }
-
-
     &:before {
-      content: '';
+      content: "";
       width: 250px;
       height: 72px;
       position: absolute;
@@ -28,57 +27,21 @@
       top: $posTop0;
     }
   }
-
-
-}
-
-.events__link {
-
-  font-weight: Ё $fontWeight400;
-  color: $navbarColor;
-  transition: all 0.3s;
-  text-decoration: none;
-  font-size: $fontSize18;
-  display: inline-block;
-  width: 185px;
-
-  &:hover {
-    font-weight: $fontWeight700;
-    text-decoration: none;
-  }
-
-  &:active {
-    text-decoration: none;
-  }
-
-}
-
-.events__active {
-  font-weight: $fontWeight700;
-  text-decoration: none;
-
-}
-
-
-.event__header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: $marginBottom25;
 }
 
 .ongoingEvents {
   width: 272px;
-  background: #FFFFFF;
+  background: $whiteColor;
   box-shadow: $boxShadow0 $boxShadow4 $boxShadow4 $eventBox;
   border-radius: $borderRadius10;
   padding: $padding20;
   margin-right: $marginRight16;
   margin-bottom: $marginBottom30;
 
-  &__chart {
-    width: 100%;
-    margin: $margin0Auto;
-  }
+  //&__chart {
+  //  width: 100%;
+  //  margin: $margin0Auto;
+  //}
 
   &__percent {
     display: flex;
@@ -91,7 +54,6 @@
     h4 {
       font-size: $fontSize36;
       font-weight: $fontWeight700;
-
     }
 
     p {
@@ -99,7 +61,6 @@
       font-weight: $fontWeight400;
     }
   }
-
 
   &__quarterly {
     h5 {
@@ -118,13 +79,11 @@
       font-size: $fontSize14;
       font-weight: $fontWeight400;
       color: $darkGrey;
-
     }
   }
 
   &__statistic {
     display: flex;
     flex-wrap: wrap;
-
   }
 }
