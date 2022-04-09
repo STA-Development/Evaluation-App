@@ -64,6 +64,7 @@ export const padding = {
   paddingBottom26: "26px",
   paddingTop72: "72px",
   paddingTop30: "30px",
+  paddingTop16: "16px",
   paddingLeft25: "25px",
   padding0: "0px",
   paddingLeft0: "0px",
@@ -107,5 +108,18 @@ export const useGlobalTheme = makeStyles({
     fontSize: font.fontSize20,
     fontWeight: font.fontWeight700,
     marginBottom: margin.marginBottom25,
+  },
+  eventTabsBox: {
+    height: "72px",
+    paddingTop: padding.paddingTop16,
+    "& .Mui-selected": {
+      fontWeight: font.fontWeight700,
+      color: color.navbar,
+    },
+  },
+  eventTabs: {
+    fontSize: font.fontSize18,
+    fontWeight: font.fontWeight400,
+    color: color.navbar,
   },
 });

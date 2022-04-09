@@ -68,7 +68,6 @@ export const useDashboardStyles = makeStyles({
   overviewHeader: {
     fontSize: font.fontSize24,
     fontWeight: font.fontWeight700,
-    marginBottom: margin.marginBottom10,
   },
 
   notEvalEmployiesText: {
