@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Box } from "@mui/material";
+import React, {useState} from "react";
+import {Box} from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -9,16 +9,16 @@ import Submissions from "./eventsInfo/submission/Submissions";
 import EmptyEvents from "./eventsInfo/ongoingEvent/EmptyEvents";
 import EmptySubmission from "./eventsInfo/submission/EmptySubmission";
 import EmptySavedSubmission from "./eventsInfo/savedSubmission/EmptySavedSubmission";
-import { useEventsStyle } from "../../assets/styleJs/events/events";
-import { useGlobalTheme } from "../../assets/style/globalVariables";
+import {useGlobalTheme} from "../../assets/style/globalVariables";
+
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
   value: number;
 }
 
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
+const TabPanel = (props: TabPanelProps) => {
+  const {children, value, index, ...other} = props;
 
   return (
     <div
@@ -29,7 +29,7 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{p: 3}}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -37,7 +37,7 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-function a11yProps(index: number) {
+const a11yProps = (index: number) => {
   return {
     id: `simple-tab-${index}`,
     "aria-controls": `simple-tabpanel-${index}`,
@@ -81,13 +81,13 @@ const RootEvents = () => {
       </Box>
       <Box className="events__info">
         <TabPanel value={value} index={0}>
-          {hasEvents ? <Events /> : <EmptyEvents />}
+          {hasEvents ? <Events/> : <EmptyEvents/>}
         </TabPanel>
         <TabPanel value={value} index={1}>
-          {hasEvents ? <Submissions /> : <EmptySubmission />}
+          {hasEvents ? <Submissions/> : <EmptySubmission/>}
         </TabPanel>
         <TabPanel value={value} index={2}>
-          {hasEvents ? <SavedSubmissions /> : <EmptySavedSubmission />}
+          {hasEvents ? <SavedSubmissions/> : <EmptySavedSubmission/>}
         </TabPanel>
       </Box>
     </Box>

@@ -1,7 +1,5 @@
-.canvasStyle {
-  max-width: 250px;
-  max-height: 250px;
-  margin: $margin0;
+.highcharts-credits {
+  display: none;
 }
 
 
@@ -104,4 +102,9 @@
   border-radius: $borderRadius10;
   border-top: $borderTop6 solid $greenColor;
   text-align: center;
+}
+
+.rec.rec-carousel-item > div {
+  display: flex;
+  justify-content: flex-start;
 }
