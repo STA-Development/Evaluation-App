@@ -1,12 +1,11 @@
 import React from "react";
-import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
-import { Box, Button, Divider, Grid, Typography } from "@mui/material";
-import { NavLink } from "react-router-dom";
-import { useGlobalTheme } from "../../../../assets/style/globalVariables";
-import { useDashboardStyles } from "../../../../assets/styleJs/dashboard/dashboard";
-import { useEventsStyle } from "../../../../assets/styleJs/events/events";
-import { randomColor, randomNumber } from "../../../../assets/styleJs/utils";
+import {ArcElement, Chart as ChartJS, Legend, Tooltip} from "chart.js";
+import {Box, Button, Divider, Grid, Typography} from "@mui/material";
+import {NavLink} from "react-router-dom";
+import {useGlobalTheme} from "../../../../assets/style/globalVariables";
+import {useDashboardStyles} from "../../../../assets/styleJs/dashboard/dashboard";
+import {useEventsStyle} from "../../../../assets/styleJs/events/events";
+import {randomColor, randomNumber} from "../../../../assets/styleJs/utils";
 import ProgressBar from "react-customizable-progressbar";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -53,7 +52,7 @@ const OngoingEvent = () => {
         >
           Ongoing Events
         </Typography>
-        <NavLink style={{ textDecoration: "none" }} to={"/"}>
+        <NavLink style={{textDecoration: "none"}} to={"/"}>
           <Button
             variant="contained"
             size="large"
@@ -88,7 +87,7 @@ const OngoingEvent = () => {
                 </Box>
               </Grid>
 
-              <Divider className={eventClass.ongoingEventsDivider} />
+              <Divider className={eventClass.ongoingEventsDivider}/>
               <Grid item md={12}>
                 <Box className="ongoingEvents__quarterly">
                   <Typography component="h5">{item.header}</Typography>

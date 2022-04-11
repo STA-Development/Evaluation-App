@@ -1,4 +1,4 @@
-import { makeStyles } from "@mui/styles";
+import {makeStyles} from "@mui/styles";
 
 export const font = {
   fontWeight400: 400,
@@ -49,6 +49,7 @@ export const margin = {
   marginTop50: "50px",
   marginTop25: "25px",
   marginTop20: "20px",
+  marginTop10: "10px",
   marginRight18: "18px",
   marginRight20: "20px",
   margin20: "20px",
@@ -108,6 +109,7 @@ export const useGlobalTheme = makeStyles({
     fontSize: font.fontSize20,
     fontWeight: font.fontWeight700,
     marginBottom: margin.marginBottom25,
+    marginTop: margin.marginTop10
   },
   eventTabsBox: {
     height: "72px",
