@@ -4,6 +4,7 @@ import Carousel from "react-elastic-carousel";
 import {useDashboardStyles} from "../../assets/styleJs/dashboard/dashboard";
 import RightArrowIcon from "../../assets/images/Icons/RightArrowIcon";
 import LeftArrowIcon from "../../assets/images/Icons/LeftArrowIcon";
+import {v4 as uuidv4} from 'uuid';
 
 interface Arrow {
   type?: string;
@@ -25,55 +26,55 @@ const SliderPerformers = () => {
 
   const sliderItems = [
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Jenny Cooper",
       position: "UI UX Designer",
       currency: 10,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Sam Jhonson",
       position: "UI UX Designer",
       currency: 10,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Anna Smith",
       position: "UI UX Designer",
       currency: 9,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Jenny Cooper",
       position: "UI UX Designer",
       currency: 9,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Jenny Cooper",
       position: "UI UX Designer",
       currency: 9,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Jenny Cooper",
       position: "UI UX Designer",
       currency: 8,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Jenny Cooper",
       position: "UI UX Designer",
       currency: 10,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Sam Jhonson",
       position: "UI UX Designer",
       currency: 9,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Jenny Cooper",
       position: "UI UX Designer",
       currency: 10,

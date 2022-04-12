@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-
-import { useSelectBox } from "../../assets/styleJs/dashboard/selectBox";
+import Select, {SelectChangeEvent} from "@mui/material/Select";
+import {useSelectBox} from "../../assets/styleJs/dashboard/selectBox";
+import {v4 as uuidv4} from 'uuid';
 
 interface SelectItems {
-  id: number;
+  id: string;
   name: string;
 }
 
@@ -17,15 +17,15 @@ const SelectBox = () => {
   const [title, setTitle] = useState<string>("");
   const [selectItems, setSelectItems] = useState<SelectItems[]>([
     {
-      id: 10,
+      id: uuidv4(),
       name: "Event Title",
     },
     {
-      id: 20,
+      id: uuidv4(),
       name: "Event Title",
     },
     {
-      id: 30,
+      id: uuidv4(),
       name: "Event Title",
     },
   ]);

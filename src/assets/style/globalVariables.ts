@@ -1,4 +1,4 @@
-import { makeStyles } from "@mui/styles";
+import {makeStyles} from "@mui/styles";
 
 export const font = {
   fontWeight400: 400,
@@ -18,16 +18,15 @@ export const font = {
 };
 
 export const color = {
-  blue: "#00A3FF",
+  blueColor: "#00A3FF",
   lightBlue: "#40BAFF",
   darkBlue: "#008FDF",
-  gray: "#828282",
+  grayColor: "#828282",
   darkGray: "#333",
   textGrey: "#4f4f4f",
-  text: "#131924",
-  navbar: "#131924",
+  navbarColor: "#131924",
   activeLink: "#262F3F",
-  white: "#fff",
+  whiteColor: "#fff",
   closeButton: "#4F4F4F",
   overViewBoxshadow: "rgba(0, 0, 0, 0.15)",
   overViewBoxColor: "#1F6F8B",
@@ -83,9 +82,9 @@ export const position = {
 
 export const useGlobalTheme = makeStyles({
   button: {
-    color: color.white,
+    color: color.whiteColor,
     display: "block",
-    backgroundColor: color.blue,
+    backgroundColor: color.blueColor,
     "&:hover": {
       backgroundColor: color.lightBlue,
     },

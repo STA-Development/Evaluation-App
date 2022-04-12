@@ -1,19 +1,11 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  FormGroup,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { useStyles } from "../../assets/styleJs/auth/signUp";
+import React, {useState} from "react";
+import {Box, Button, FormGroup, Grid, Paper, TextField, Typography,} from "@mui/material";
+import {useStyles} from "../../assets/styleJs/auth/signUp";
 import PasswordRecovery from "../../assets/images/auth/PasswordRecovery";
-import { sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "../../data/firebase";
-import { useNavigate } from "react-router-dom";
-import { useGlobalTheme } from "../../assets/style/globalVariables";
+import {sendPasswordResetEmail} from "firebase/auth";
+import {auth} from "../../data/firebase";
+import {useNavigate} from "react-router-dom";
+import {useGlobalTheme} from "../../assets/style/globalVariables";
 
 const PassRecover = () => {
   const classes = useStyles();
@@ -40,10 +32,10 @@ const PassRecover = () => {
 
   return (
     <Box>
-      <Grid className="auth authGrid" container>
+      <Grid className="auth auth__grid" container>
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Paper className="auth__title ">
-            <Box className="auth__passRecCheng">
+            <Box className="auth__pass_rec_cheng">
               <Typography variant="h2" className={classes.authHeader}>
                 Password Recovery
               </Typography>
@@ -88,7 +80,7 @@ const PassRecover = () => {
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
           <Box className="auth__box_right ">
-            <PasswordRecovery />
+            <PasswordRecovery/>
           </Box>
         </Grid>
       </Grid>

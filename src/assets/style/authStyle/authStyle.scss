@@ -13,7 +13,7 @@
 
 }
 
-.authGrid {
+.auth__grid {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -88,7 +88,7 @@
 }
 
 
-.auth__passRecCheng {
+.auth__pass_rec_cheng {
   margin-bottom: $marginBottom30;
 
   h2 {
@@ -96,7 +96,7 @@
   }
 }
 
-.auth__passRec {
+.auth__passr_rec {
   margin: $marginTop50 $marginLeft0 $marginBottom30 $marginLeft0;
   height: 90px;
   display: flex;
@@ -115,7 +115,7 @@
   }
 }
 
-.authChagePass {
+.auth__change_pass {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,14 +125,14 @@
   flex-direction: column;
 
 
-  .auth__passRec {
+  .auth__pass_rec {
     margin: $margin0;
     height: 175px;
   }
 }
 
 
-.auth__passResend {
+.auth__pass_resend {
   margin: $margin0;
   height: 175px;
   display: flex;

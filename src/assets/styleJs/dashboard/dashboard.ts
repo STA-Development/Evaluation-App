@@ -41,7 +41,7 @@ export const useDashboardStyles = makeStyles({
   },
   overview: {
     padding: `${padding.paddingTopBottom20} ${padding.paddingLeftRight30}`,
-    backgroundColor: color.white,
+    backgroundColor: color.whiteColor,
     boxShadow: `${margin.marginOverViewBox} ${color.overViewBoxshadow}`,
     borderRadius: borderRedius.overViewBox,
     height: "100%",
@@ -67,7 +67,7 @@ export const useDashboardStyles = makeStyles({
 
   notEvalEmployiesText: {
     fontSize: font.fontSize15,
-    color: color.navbar,
+    color: color.navbarColor,
     fontWeight: font.fontWeight700,
   },
   textPosition: {
