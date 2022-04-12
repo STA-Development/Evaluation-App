@@ -73,7 +73,7 @@ const SignUp = () => {
 
   return (
     <Box>
-      <Grid container className="auth authGrid">
+      <Grid container className="auth auth__grid">
         <Grid item lg={4} md={6} sm={12} xs={12} alignItems="center">
           <Paper className="auth__title ">
             <Box className="auth__title_text">
