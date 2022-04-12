@@ -10,7 +10,7 @@ const MinusIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <g filter="url(#filter0_d_1444_14371)">
-        <rect x="8" y="4" width="18" height="18" rx="4" fill="white" />
+        <rect x="8" y="4" width="18" height="18" rx="4" fill="white"/>
         <rect
           x="9"
           y="5"
@@ -18,7 +18,7 @@ const MinusIcon = () => {
           height="16"
           rx="3"
           stroke="#979797"
-          stroke-width="2"
+          strokeWidth="2"
         />
       </g>
       <path
@@ -33,17 +33,17 @@ const MinusIcon = () => {
           width="34"
           height="34"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix"/>
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
             values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
             result="hardAlpha"
           />
-          <feOffset dy="4" />
-          <feGaussianBlur stdDeviation="4" />
+          <feOffset dy="4"/>
+          <feGaussianBlur stdDeviation="4"/>
           <feColorMatrix
             type="matrix"
             values="0 0 0 0 0.172549 0 0 0 0 0.152941 0 0 0 0 0.219608 0 0 0 0.04 0"

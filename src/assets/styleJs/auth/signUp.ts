@@ -1,9 +1,9 @@
-import { makeStyles } from "@mui/styles";
-import {color, font, margin, position} from "../style/globalVariables";
+import {makeStyles} from "@mui/styles";
+import {color, font, margin, position} from "../../style/globalVariables";
 
 export const useStyles = makeStyles({
   authInput: {
-    color: color.gray,
+    color: color.grayColor,
     fontSize: font.fontSize14,
     marginBottom: margin.marginBottom25,
     "& label": {
@@ -47,7 +47,7 @@ export const useStyles = makeStyles({
   },
   link: {
     textDecoration: "none",
-    color: color.blue,
+    color: color.blueColor,
     fontWeight: font.fontWeight400,
     "&:hover": {
       textDecoration: "none",

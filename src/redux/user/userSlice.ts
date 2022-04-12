@@ -5,12 +5,14 @@ export interface AuthPropsState {
   email: string;
   uid: string;
   isAuth: boolean;
+  token: string;
 }
 
 const initialState: AuthPropsState = {
   user: "",
   email: "",
   uid: "",
+  token: "",
   isAuth: true,
 };
 
@@ -22,6 +24,7 @@ export const userSlice = createSlice({
       state.user = action.payload.user;
       state.email = action.payload.email;
       state.uid = action.payload.uid;
+      state.token = action.payload.token;
       state.isAuth = false;
     },
     removeUser(state) {

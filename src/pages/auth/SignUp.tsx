@@ -1,23 +1,14 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  FormControlLabel,
-  FormGroup,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
+import React, {useState} from "react";
+import {Box, Button, FormControlLabel, FormGroup, Grid, Paper, TextField, Typography,} from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-import { useStyles } from "../../assets/scssInJS/signUp";
+import {useStyles} from "../../assets/styleJs/auth/signUp";
 import SignUpImg from "../../assets/images/auth/SignUpImg";
-import { useAppDispatch } from "../../redux/hooks";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../data/firebase";
-import { setUser } from "../../redux/user/userSlice";
-import { Link, useNavigate } from "react-router-dom";
-import { useGlobalTheme } from "../../assets/style/globalVariables";
+import {useAppDispatch} from "../../redux/hooks";
+import {createUserWithEmailAndPassword} from "firebase/auth";
+import {auth} from "../../data/firebase";
+import {setUser} from "../../redux/user/userSlice";
+import {Link, useNavigate} from "react-router-dom";
+import {useGlobalTheme} from "../../assets/style/globalVariables";
 
 const SignUp = () => {
   const dispatch = useAppDispatch();
@@ -44,7 +35,7 @@ const SignUp = () => {
       setPasswordError(false);
 
       await createUserWithEmailAndPassword(auth, email, password)
-        .then(({ user }) => {
+        .then(({user}) => {
           console.log(user);
           console.log(auth);
           dispatch(
@@ -56,9 +47,9 @@ const SignUp = () => {
             })
           );
 
-          navigate("/");
+          navigate("/dashboard");
         })
-        .catch((error: any) => {
+        .catch((error) => {
           if (error.code === "auth/email-already-in-use") {
             alert("Email alredy un-use");
           } else {
@@ -82,7 +73,7 @@ const SignUp = () => {
 
   return (
     <Box>
-      <Grid container className="auth authGrid">
+      <Grid container className="auth auth__grid">
         <Grid item lg={4} md={6} sm={12} xs={12} alignItems="center">
           <Paper className="auth__title ">
             <Box className="auth__title_text">
@@ -156,7 +147,7 @@ const SignUp = () => {
                 />
 
                 <FormControlLabel
-                  control={<Checkbox />}
+                  control={<Checkbox/>}
                   label="Keep me signed in"
                   value="checkbox"
                   className={classes.authCheck}
@@ -175,7 +166,7 @@ const SignUp = () => {
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
           <Box className="auth__box_right ">
-            <SignUpImg />
+            <SignUpImg/>
           </Box>
         </Grid>
       </Grid>

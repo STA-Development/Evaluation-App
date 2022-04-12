@@ -1,21 +1,12 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  FormControlLabel,
-  FormGroup,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
+import React, {useState} from "react";
+import {Box, Button, FormControlLabel, FormGroup, Grid, Paper, TextField, Typography,} from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-import { useStyles } from "../../assets/scssInJS/signUp";
+import {useStyles} from "../../assets/styleJs/auth/signUp";
 import SignInImg from "../../assets/images/auth/SignInImg";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../data/firebase";
-import { Link, useNavigate } from "react-router-dom";
-import { useGlobalTheme } from "../../assets/style/globalVariables";
+import {signInWithEmailAndPassword} from "firebase/auth";
+import {auth} from "../../data/firebase";
+import {Link, useNavigate} from "react-router-dom";
+import {useGlobalTheme} from "../../assets/style/globalVariables";
 
 const SignIn = () => {
   const classes = useStyles();
@@ -24,27 +15,30 @@ const SignIn = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
+  const [isFetching, setIsFetching] = useState<boolean>(false);
 
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setIsFetching(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log(auth);
       if (auth.currentUser) {
-        navigate("/");
+        navigate("/dashboard");
       }
+      setIsFetching(false);
     } catch (error) {
       console.log(error);
       setPassword("");
       setEmail("");
       setError(true);
+      setIsFetching(false);
     }
   };
 
   return (
     <Box>
-      <Grid className="auth authGrid" container>
+      <Grid className="auth auth__grid" container>
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Paper className="auth__title ">
             <Box className="auth__title_text">
@@ -97,7 +91,7 @@ const SignIn = () => {
                 />
 
                 <FormControlLabel
-                  control={<Checkbox />}
+                  control={<Checkbox/>}
                   label="Keep me signed in"
                   value="checkbox"
                   className={classes.authCheck}
@@ -120,7 +114,7 @@ const SignIn = () => {
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
           <Box className="auth__box_right ">
-            <SignInImg />
+            <SignInImg/>
           </Box>
         </Grid>
       </Grid>
