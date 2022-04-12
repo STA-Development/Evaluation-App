@@ -9,7 +9,7 @@ const DotsImg = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_1570_2)">
+      <g clipPath="url(#clip0_1570_2)">
         <path
           d="M6.4 171.3C6.4 173.1 5 174.5 3.2 174.5C1.4 174.5 0 173.1 0 171.3C0 169.5 1.4 168.1 3.2 168.1C4.9 168.1 6.4 169.6 6.4 171.3Z"
           fill="#DBF6FF"
@@ -333,7 +333,7 @@ const DotsImg = () => {
       </g>
       <defs>
         <clipPath id="clip0_1570_2">
-          <rect width="179.1" height="174.5" fill="white" />
+          <rect width="179.1" height="174.5" fill="white"/>
         </clipPath>
       </defs>
     </svg>

@@ -9,7 +9,7 @@ const DeleteIcon = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_2649_18843)">
+      <g clipPath="url(#clip0_2649_18843)">
         <path
           d="M11.4828 6.52148C11.25 6.52148 11.0613 6.71019 11.0613 6.94303V14.9102C11.0613 15.1429 11.25 15.3318 11.4828 15.3318C11.7157 15.3318 11.9044 15.1429 11.9044 14.9102V6.94303C11.9044 6.71019 11.7157 6.52148 11.4828 6.52148Z"
           fill="#979797"
@@ -29,7 +29,7 @@ const DeleteIcon = () => {
       </g>
       <defs>
         <clipPath id="clip0_2649_18843">
-          <rect width="18" height="18" fill="white" />
+          <rect width="18" height="18" fill="white"/>
         </clipPath>
       </defs>
     </svg>

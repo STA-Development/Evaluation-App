@@ -71,5 +71,7 @@ strong {
 
 .outlet {
   width: calc(100% - 250px);
-  padding-top: 30px;
+  padding: $paddingTopBottom30;
+  background-color: $authBg;
+
 }

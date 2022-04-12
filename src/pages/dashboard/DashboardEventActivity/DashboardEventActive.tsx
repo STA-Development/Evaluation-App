@@ -1,8 +1,11 @@
-import React from 'react';
-import {Box, Grid, Typography} from "@mui/material";
-import {ArcElement, Chart as ChartJS, Legend, Tooltip} from 'chart.js';
-import {Pie} from 'react-chartjs-2';
-import {useDashboardStyles} from "../../../assets/scssInJS/dashboard";
+import React from "react";
+import {Box, Typography} from "@mui/material";
+import {ArcElement, Chart as ChartJS, Legend, Tooltip} from "chart.js";
+import {useDashboardStyles} from "../../../assets/styleJs/dashboard/dashboard";
+
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
+import {v4 as uuidv4} from 'uuid'
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -11,79 +14,107 @@ const DashboardEventActive = () => {
 
   const dataStyles = [
     {
-      id: 1,
-      color: 'rgba(178, 228, 213, 1)',
-      name: 'Rock Stars',
+      id: uuidv4(),
+      percent: 13,
+      color: "rgba(178, 228, 213, 1)",
+      name: "Rock Stars",
     },
     {
-      id: 2,
-      color: 'rgba(177, 142, 166, 1)',
-      name: 'Good Potential',
+      id: uuidv4(),
+      percent: 10,
+      color: "rgba(177, 142, 166, 1)",
+      name: "Good Potential",
     },
     {
-      id: 3,
-      color: 'rgba(242, 166, 166, 1)',
-
-      name: 'Need Help',
+      id: uuidv4(),
+      percent: 4,
+      color: "rgba(231, 243, 238, 1)",
+      name: "Need Help",
     },
     {
-      id: 4,
-      color: 'rgba(231, 243, 238, 1)',
-      name: 'Waitng For The Evoluation',
+      id: uuidv4(),
+      percent: 7,
+      color: "rgba(242, 166, 166, 1)",
+      name: "Waitng For The Evoluation",
     },
-  ]
+  ];
 
-  const data = {
-
-    datasets: [
+  const options = {
+    chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
+      type: "pie",
+      spacingRight: 100,
+      height: 280
+    },
+    legend: {
+      align: "right",
+      verticalAlign: "middle",
+      layout: "vertical",
+      x: 0,
+      y: 0,
+      padding: 0,
+      itemMarginTop: 20,
+      itemMarginRight: 50,
+      itemMarginBottom: 0,
+      itemStyle: {
+        lineHeight: "14px",
+      },
+      ColorString: {
+        backgroundColor: '#000',
+      },
+    },
+    title: {
+      text: "",
+    },
+    tooltip: {
+      pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
+    },
+    accessibility: {
+      point: {
+        valueSuffix: "%",
+      },
+    },
+    plotOptions: {
+      pie: {
+        center: ['50%', '50%'],
+        allowPointSelect: true,
+        cursor: "pointer",
+        dataLabels: {
+          enabled: false,
+        },
+        showInLegend: true,
+      },
+    },
+    series: [
       {
-        label: '# of Votes',
-        data: [13, 10, 4, 7],
-        backgroundColor: dataStyles.map((data) => (
-          data.color
-        )),
-        borderColor: dataStyles.map((data) => (
-          data.color
-        )),
-        borderWidth: 1,
-        hoverOffset: 15,
+        name: "Job",
+        colorByPoint: true,
+        data: dataStyles.map((item) => {
+          return {
+            name: item.name,
+            y: item.percent,
+            color: item.color,
+          };
+        }),
       },
     ],
-    option: {
-      maintainAspectRatio: false,
-    }
   };
 
-
   return (
-
-
     <Box className={classes.overview}>
-      <Typography variant="h4" component="h4" className={classes.overviewHeader}>Overview</Typography>
-      <Grid container>
-        <Grid item md={6}>
-          <Box className='canvasStyle'>
-            <Pie data={data}/>
-          </Box>
-        </Grid>
-        <Grid item md={1}>
-          <Typography component='span' className={classes.overViewTitle}/>
-        </Grid>
-        <Grid item md={5}>
-          <Box className='overViewEval'>
-            <Box className='overViewEvalFeedback'>
-              {dataStyles.map((data) => (
-                <Box key={data.id}>
-                  <Typography variant='body1' component='span' sx={{backgroundColor: data.color}}/>
-                  <Typography>
-                    {data.name}
-                  </Typography>
-                </Box>
-              ))}
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
+      <Typography
+        variant="h4"
+        component="h4"
+        className={classes.overviewHeader}
+      >
+        Overview
+      </Typography>
+
+      <Box className="canvasStyle">
+        <HighchartsReact highcharts={Highcharts} options={options}/>
+      </Box>
     </Box>
   );
 };

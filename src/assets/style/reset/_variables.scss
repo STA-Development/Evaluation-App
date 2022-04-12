@@ -2,6 +2,7 @@ $font-family: 'Montserrat', sans-serif;
 $font-family-title: 'Montserrat', sans-serif;
 $body-font: $font-family;
 $fontWeight400: 400;
+$fontWeight500: 500;
 $fontWeight700: 700;
 $body-font-weight: $fontWeight700;
 $header-font: $font-family-title;
@@ -24,6 +25,11 @@ $lightBlue: rgba(12, 167.255, 0.08);
 $navbarColor: #131924;
 $titleColor: rgba(0, 0, 0, 0.6);
 
+$greyColor: #4f4f4f;
+$lightGrey: #ececec;
+$sliderBox: rgba(0, 0, 0, 0.15);
+$paddingTopBottom30: 30px;
+$paddingLeftRight0: 0px;
 $paddingTopBottom0: 0px;
 $paddingLeftRight50: 50px;
 $paddingLeftRight30: 30px;
@@ -72,6 +78,7 @@ $paddingRight40: 40px;
 $paddingRight50: 50px;
 
 $margin0: 0px;
+$margin0Auto: 0 auto;
 $marginTop5: 5px;
 $marginTop10: 10px;
 $marginTop15: 15px;
@@ -92,6 +99,7 @@ $marginBottom0: 0px;
 $marginBottom5: 5px;
 $marginBottom10: 10px;
 $marginBottom15: 15px;
+$marginBottom16: 16px;
 $marginBottom20: 20px;
 $marginBottom25: 25px;
 $marginBottom30: 30px;
@@ -120,10 +128,22 @@ $posTop0: 0;
 $posBottom0: 0;
 $posLeft0: 0;
 $posRight0: 0;
+$posTopM30: -30px;
+$posTopM20: -20px;
 
+$borderRadius0: 0;
 $borderRadius4: 4px;
+$boderRadius10: 10px;
 
-$fontSize10: 10px;
+$tSize10: 10px;
+$fontSize13: 13px;
 $fontSize14: 14px;
+$fontSize15: 15px;
 $fontSize16: 16px;
 $fontSize18: 18px;
+
+$borderBottom: 1px;
+$borderTop6: 6px;
+
+$boxShadow0: 0px;
+$boxShadow4: 4px;

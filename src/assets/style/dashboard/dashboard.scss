@@ -1,12 +1,11 @@
-.canvasStyle {
-  max-width: 250px;
-  max-height: 250px;
+.highcharts-credits {
+  display: none;
 }
 
 
 .overViewEval {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   height: 100%;
 }
@@ -36,4 +35,76 @@
     align-items: center;
   }
 
+}
+
+.notEvalEmployes {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $marginBottom20;
+
+  &__link {
+    color: $blueColor;
+    font-size: $fontSize14;
+    font-weight: $fontWeight500;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__text {
+    padding-bottom: $paddingBottom10;
+    margin-bottom: $marginBottom16;
+    border-bottom: $borderBottom solid $lightGrey;
+  }
+}
+
+.rec.rec-carousel-wrapper {
+  position: relative;
+}
+
+.rec.rec-carousel button:first-child {
+  position: absolute;
+  left: $posLeft0;
+  top: $posTopM30;
+}
+
+.rec.rec-carousel button:last-child {
+  position: absolute;
+  right: $posRight0;
+  top: $posTopM30;
+}
+
+.rec.rec-carousel button:disabled {
+  visibility: hidden;
+}
+
+.rec .rec-arrow-left {
+  position: absolute;
+  top: $posTopM20;
+  left: $posLeft0;
+  border: none;
+  border-radius: $borderRadius0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.rec.rec-slider-container {
+  margin: $margin0;
+}
+
+
+.sliderBox {
+  width: 176px;
+  height: 188px;
+  background: $whiteColor;
+  box-shadow: $boxShadow0 $boxShadow4 $boxShadow4 $sliderBox;
+  border-radius: $boderRadius10;
+  border-top: $borderTop6 solid $greenColor;
+  text-align: center;
+}
+
+.rec.rec-carousel-item > div {
+  display: flex;
+  justify-content: flex-start;
 }
