@@ -1,5 +1,6 @@
 .events__info {
   padding: $padding30;
+  background-color: $authBg;
 }
 
 .events {
@@ -9,6 +10,7 @@
     align-items: center;
     margin-bottom: $marginBottom25;
   }
+
   &__sidebar {
     padding: $paddingTopBottom0 $paddingLeftRight72;
     margin: $margin0;
