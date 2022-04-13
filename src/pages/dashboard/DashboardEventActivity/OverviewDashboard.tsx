@@ -9,7 +9,7 @@ const OverviewDashboard = () => {
   return (
     <Box>
       <Typography
-        variant="h5"
+        variant="h4"
         component="h4"
         className={classes.dashboardHeader}
       >
