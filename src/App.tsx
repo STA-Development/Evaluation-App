@@ -8,6 +8,7 @@ import { auth } from "./data/firebase";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import { removeUser, setUser } from "./redux/user/userSlice";
 import { selectUserId } from "./redux/selectors";
+import {ContextProvider} from "./pages/events/createEvents/EventsContext";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -31,7 +32,10 @@ function App() {
   }, [auth, dispatch]);
 
   return (
-    <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>
+    <ContextProvider>
+      <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>
+    </ContextProvider>
+
   );
 }
 
