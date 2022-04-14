@@ -1,66 +1,64 @@
-import React from 'react';
+import React from "react";
 import {TableCell, TableHead, TableRow, TableSortLabel} from "@mui/material";
+import {useEventsStyle} from "../../../../../assets/styleJs/events/events";
 
 const headCells = [
   {
-    id: 'status',
-
-    label: 'Status',
+    id: "status",
+    label: "Status",
   },
   {
-    id: 'name',
-
-    label: 'Name',
+    id: "name",
+    label: "Name",
   },
   {
-    id: 'date',
-
-    label: 'Date',
+    id: "date",
+    label: "Date",
   },
   {
-    id: 'evaluators',
-
-    label: 'Evaluators',
+    id: "evaluators",
+    label: "Evaluators",
   },
   {
-    id: 'evaluatees',
-
-    label: 'Evaluatees',
+    id: "evaluatees",
+    label: "Evaluatees",
+  },
+  {
+    id: "evaluatees",
+    label: "",
   },
 ];
 
+const TableHeader = ({
+                       valueToOrderBy,
+                       orderDirection,
+                       handleRequestSort,
+                     }: any) => {
 
-const TableHeader = ({valueToOrderBy, orderDirection, handleRequestSort}: any) => {
-
+  const classes = useEventsStyle();
   const createSortHandler = (property: any) => (e: any) => {
-    handleRequestSort(e, property)
+    handleRequestSort(e, property);
+  };
 
-  }
 
   return (
     <TableHead>
-      <TableRow>
-        <TableCell key='name'>
-          <TableSortLabel
-            active={valueToOrderBy === 'status'}
-            direction={valueToOrderBy === 'status' ? orderDirection : 'asc'}
-            onClick={createSortHandler('status')}
+      <TableRow className='table__paper_header_cell'>
+        {headCells.map((cell) => (
+          <TableCell
+            key={cell.id}
+            className={classes.tableHeader}
+
           >
-            Status
-          </TableSortLabel>
-        </TableCell>
-
-        <TableCell key='age'>
-          <TableSortLabel
-            active={valueToOrderBy === 'name'}
-            direction={valueToOrderBy === 'name' ? orderDirection : 'asc'}
-            onClick={createSortHandler('name')}
-          >
-            Name
-          </TableSortLabel>
-        </TableCell>
-
-
+            <TableSortLabel
+              active={valueToOrderBy === cell.label}
+              direction={valueToOrderBy === cell.label ? orderDirection : "asc"}
+              onClick={createSortHandler(cell.id)}
+            >
+              {cell.label}
+            </TableSortLabel>
+          </TableCell>
+        ))}
       </TableRow>
     </TableHead>
   );
