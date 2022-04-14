@@ -1,5 +1,5 @@
 import React from "react";
-import {TableCell, TableHead, TableRow, TableSortLabel} from "@mui/material";
+import {TableCell, TableRow, TableSortLabel} from "@mui/material";
 import {useEventsStyle} from "../../../../../assets/styleJs/events/events";
 
 const headCells = [
@@ -42,7 +42,7 @@ const TableHeader = ({
 
 
   return (
-    <TableHead>
+    <TableHead-asd>
       <TableRow className='table__paper_header_cell'>
         {headCells.map((cell) => (
           <TableCell
@@ -60,7 +60,7 @@ const TableHeader = ({
           </TableCell>
         ))}
       </TableRow>
-    </TableHead>
+    </TableHead-asd>
   );
 };
 
