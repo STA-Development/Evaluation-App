@@ -1,6 +1,15 @@
-import React, {useState} from "react";
-import {Paper, Table, TableBody, TableCell, TableContainer, TableRow,} from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow,
+} from "@mui/material";
 import TableHeader from "./TableHeader";
+import { Link } from "react-router-dom";
 
 interface RowsInfo {
   status: string;
@@ -8,6 +17,7 @@ interface RowsInfo {
   date: string;
   evaluators: string;
   evaluatees: string;
+  report: any;
 }
 
 const rowInformation = [
@@ -17,6 +27,12 @@ const rowInformation = [
     date: "Good Date",
     evaluators: "Evaluators",
     evaluatees: "Evaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
   },
   {
     status: "apcoming",
@@ -24,6 +40,12 @@ const rowInformation = [
     date: "Date",
     evaluators: "Evaluators",
     evaluatees: "Evaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
   },
   {
     status: "vpcoming",
@@ -31,6 +53,12 @@ const rowInformation = [
     date: "Date",
     evaluators: "Evaluators",
     evaluatees: "dEvaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
   },
   {
     status: "vpcoming",
@@ -38,6 +66,12 @@ const rowInformation = [
     date: "Date",
     evaluators: "6Evaluators",
     evaluatees: "Evaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
   },
   {
     status: "apcoming",
@@ -45,6 +79,12 @@ const rowInformation = [
     date: "Date",
     evaluators: "cEvaluators",
     evaluatees: "Evaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
   },
   {
     status: "apcoming",
@@ -52,34 +92,26 @@ const rowInformation = [
     date: "Date",
     evaluators: "Evaluators",
     evaluatees: "Evaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
   },
-  {
-    status: "apcoming",
-    name: "cuarter Evoluation",
-    date: "zDate",
-    evaluators: "Evaluators",
-    evaluatees: "zEvaluatees",
-  },
-  {
-    status: "apcoming",
-    name: "cuarter Evoluation",
-    date: "zDate",
-    evaluators: "aaEvaluators",
-    evaluatees: "zEvaluatees",
-  },
-  {
-    status: "apcoming",
-    name: "cuarter Evoluation",
-    date: "zDate",
-    evaluators: "Evaluators",
-    evaluatees: "zEvaluatees",
-  },
+
   {
     status: "apcoming",
     name: "cuarter Evoluation",
     date: "fdDate",
     evaluators: "asdEvaluators",
     evaluatees: "zEvaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
   },
   {
     status: "apcoming",
@@ -87,7 +119,91 @@ const rowInformation = [
     date: "zDate",
     evaluators: "dfgdsEvaluators",
     evaluatees: "zEvaluatees",
-    report: 'asd'
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
+  },
+  {
+    status: "apcoming",
+    name: "cuarter Evoluation",
+    date: "zDate",
+    evaluators: "dfgdsEvaluators",
+    evaluatees: "zEvaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
+  },
+  {
+    status: "apcoming",
+    name: "cuarter Evoluation",
+    date: "zDate",
+    evaluators: "dfgdsEvaluators",
+    evaluatees: "zEvaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
+  },
+  {
+    status: "apcoming",
+    name: "cuarter Evoluation",
+    date: "zDate",
+    evaluators: "dfgdsEvaluators",
+    evaluatees: "zEvaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
+  },
+  {
+    status: "apcoming",
+    name: "cuarter Evoluation",
+    date: "zDate",
+    evaluators: "dfgdsEvaluators",
+    evaluatees: "zEvaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
+  },
+  {
+    status: "apcoming",
+    name: "cuarter Evoluation",
+    date: "zDate",
+    evaluators: "dfgdsEvaluators",
+    evaluatees: "zEvaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
+  },
+
+  {
+    status: "apcoming",
+    name: "cuarter Evoluation",
+    date: "zDate",
+    evaluators: "dfgdsEvaluators",
+    evaluatees: "zEvaluatees",
+    report: (
+      <Box className="report__box">
+        <Link to={""}>See Report</Link>
+        <Link to={""}>Restart</Link>
+      </Box>
+    ),
   },
 ];
 
@@ -133,24 +249,21 @@ const TableContent = () => {
 
   return (
     <>
-      <Paper className='table__paper'>
-        <TableContainer className='table__paper_list'>
-          <Table stickyHeader>
+      <Paper className="table__paper">
+        <TableContainer className="table__paper_list">
+          <Table>
             <TableHeader
               valueToOrderBy={valueToOrderBy}
               orderDirection={orderDirection}
               handleRequestSort={handleRequestSort}
-
             />
             <TableBody>
               {sortedRowInformation(
                 rowInformation,
                 getComparator(orderDirection, valueToOrderBy)
               ).map((person: any, index: any) => (
-                <TableRow key={index} hover className='table__paper_row'>
-                  <TableCell>
-                    {person.status}
-                  </TableCell>
+                <TableRow key={index} hover className="table__paper_row">
+                  <TableCell>{person.status}</TableCell>
                   <TableCell>{person.name}</TableCell>
                   <TableCell>{person.date}</TableCell>
                   <TableCell>{person.evaluators}</TableCell>
