@@ -89,3 +89,63 @@
     flex-wrap: wrap;
   }
 }
+
+.table__paper {
+  width: 100%;
+  overflow: hidden;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  max-height: 440px;
+
+  &_list {
+    max-height: 440px;
+
+  }
+
+  &_header {
+    background-color: $greyColor;
+  }
+
+  &_header_cell {
+
+    th {
+      width: 190px;
+      border-right: 1px solid $tableBorderColor;
+      border-bottom-color: transparent;
+      border-top-color: transparent;
+      color: $navbarColor;
+      padding: 20px 9px;
+
+      span {
+        font-weight: $fontWeight700;
+        font-size: $fontSize16;
+
+        &:hover {
+          color: $navbarColor;
+        }
+
+        &:focus {
+          color: $navbarColor;
+        }
+      }
+
+      &:nth-child(5) {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &_row {
+    td {
+      font-size: $fontSize14;
+      font-weight: $fontWeight400;
+      color: $greyColor;
+      width: 190px;
+      border-right: 1px solid $tableBorderColor;
+      padding: 10px 20px;
+      border-bottom-color: transparent;
+    }
+
+  }
+
+}
+

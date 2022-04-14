@@ -1,6 +1,5 @@
-import { makeStyles } from "@mui/styles";
-import { font, margin } from "../../style/globalVariables";
-import { color } from "../../style/globalVariables";
+import {makeStyles} from "@mui/styles";
+import {color, font, margin} from "../../style/globalVariables";
 
 export const useEventsStyle = makeStyles({
 
@@ -37,5 +36,9 @@ export const useEventsStyle = makeStyles({
     fontFamily: "Montserrat",
     fontSize: font.fontSize16,
     margin: margin.margin20,
+  },
+  tableHeader: {
+    backgroundColor: color.greenColor,
+    color: color.navbar,
   },
 });

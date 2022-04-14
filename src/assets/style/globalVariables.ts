@@ -32,6 +32,7 @@ export const color = {
   closeButton: "#4F4F4F",
   overViewBoxshadow: "rgba(0, 0, 0, 0.15)",
   overViewBoxColor: "#1F6F8B",
+  greenColor: '#B2E4D5'
 };
 
 export const margin = {
