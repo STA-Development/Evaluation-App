@@ -1,9 +1,7 @@
-import {makeStyles} from "@mui/styles";
-import {color, font, margin} from "../../style/globalVariables";
+import { makeStyles } from "@mui/styles";
+import { color, font, margin } from "../../style/globalVariables";
 
 export const useEventsStyle = makeStyles({
-
-
   ongoingEventsDivider: {
     margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
     backgroundColor: color.lightGrey,
@@ -39,6 +37,15 @@ export const useEventsStyle = makeStyles({
   },
   tableHeader: {
     backgroundColor: color.greenColor,
-    color: color.navbar,
+    "&: span": {
+      display: "flex",
+      justifyContent: "flex-start",
+      alignItem: "center",
+    },
+  },
+  sortableIcon: {
+    "& svg": {
+      display: "none",
+    },
   },
 });
