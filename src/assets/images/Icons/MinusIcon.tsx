@@ -18,7 +18,7 @@ const MinusIcon = () => {
           height="16"
           rx="3"
           stroke="#979797"
-          stroke-width="2"
+          strokeWidth="2"
         />
       </g>
       <path
@@ -33,9 +33,9 @@ const MinusIcon = () => {
           width="34"
           height="34"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"

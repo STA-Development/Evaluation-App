@@ -78,6 +78,8 @@ const RootEvents = () => {
             className={globalClasses.eventTabs}
           />
         </Tabs>
+
+
       </Box>
       <Box className="events__info">
         <TabPanel value={value} index={0}>

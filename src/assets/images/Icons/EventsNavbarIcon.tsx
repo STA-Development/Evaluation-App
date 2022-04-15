@@ -9,34 +9,34 @@ const EventsNavbarIcon = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_2969_10025)">
+      <g clipPath="url(#clip0_2969_10025)">
         <path
           d="M19.375 1.25C19.375 0.875 19.125 0.625 18.75 0.625H1.25C0.875 0.625 0.625 0.875 0.625 1.25V18.75C0.625 19.125 0.875 19.375 1.25 19.375H18.75C19.125 19.375 19.375 19.125 19.375 18.75V1.25Z"
           stroke="white"
-          stroke-width="2"
-          stroke-miterlimit="10"
+          strokeWidth="2"
+          strokeMiterlimit="10"
         />
         <path
           d="M19.375 5H0.625"
           stroke="white"
-          stroke-width="2"
-          stroke-miterlimit="10"
+          strokeWidth="2"
+          strokeMiterlimit="10"
         />
         <path
           d="M3.75 3.75V6.25"
           stroke="white"
-          stroke-width="2"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M16.25 3.75V6.25"
           stroke="white"
-          stroke-width="2"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path d="M6.875 9.375H4.375V11.875H6.875V9.375Z" fill="white" />
         <path d="M11.25 9.375H8.75V11.875H11.25V9.375Z" fill="white" />

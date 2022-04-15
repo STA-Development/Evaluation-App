@@ -15,7 +15,7 @@ const MyEvents = () => {
         My Events
       </Typography>
       <Box>
-        <TableContent/>
+        {/*<TableContent/>*/}
       </Box>
     </Box>
   );
