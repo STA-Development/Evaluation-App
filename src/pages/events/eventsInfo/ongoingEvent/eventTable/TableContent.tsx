@@ -17,10 +17,10 @@ interface RowsInfo {
   date: string;
   evaluators: string;
   evaluatees: string;
-  report: any;
+  report: object;
 }
 
-const rowInformation = [
+const rowInformation:RowsInfo[] = [
   {
     status: "Upcoming",
     name: "Quarter Evoluation",
@@ -199,7 +199,7 @@ const rowInformation = [
     evaluators: "dfgdsEvaluators",
     evaluatees: "zEvaluatees",
     report: (
-      <Box className="report__box">
+      <Box className="report__box" component="span">
         <Link to={""}>See Report</Link>
         <Link to={""}>Restart</Link>
       </Box>
@@ -208,10 +208,10 @@ const rowInformation = [
 ];
 
 const TableContent = () => {
-  const [orderDirection, setOrderDirection] = useState("asc");
+  const [orderDirection, setOrderDirection] = useState<string>("asc");
   const [valueToOrderBy, setValueToOrderBy] = useState<string>("status");
 
-  const handleRequestSort = (e: any, property: any) => {
+  const handleRequestSort = (e: object, property:string) => {
     setValueToOrderBy(property);
     const isAscending = valueToOrderBy === property && orderDirection === "asc";
 
@@ -234,17 +234,18 @@ const TableContent = () => {
       : (a: any, b: any) => -descendingComporator(a, b, orderBy);
   };
 
-  const sortedRowInformation = (rowArray: any, comparator: any) => {
-    const stabilizedRowArray = rowArray.map((el: any, index: any) => [
+  const sortedRowInformation = (rowArray: object[], comparator:any) => {
+    const stabilizedRowArray = rowArray.map((el, index) => [
       el,
       index,
     ]);
-    stabilizedRowArray.sort((a: any, b: any) => {
+    stabilizedRowArray.sort((a:any, b:any) => {
+
       const order = comparator(a[0], b[0]);
       if (order !== 0) return order;
       return a[1] - b[1];
     });
-    return stabilizedRowArray.map((el: any) => el[0]);
+    return stabilizedRowArray.map((el ) => el[0]);
   };
 
   return (
@@ -263,7 +264,7 @@ const TableContent = () => {
                 getComparator(orderDirection, valueToOrderBy)
               ).map((person: any, index: any) => (
                 <TableRow key={index} hover className="table__paper_row">
-                  <TableCell>{person.status}</TableCell>
+                 <TableCell>{person.status}</TableCell>
                   <TableCell>{person.name}</TableCell>
                   <TableCell>{person.date}</TableCell>
                   <TableCell>{person.evaluators}</TableCell>

@@ -3,7 +3,7 @@ import React from 'react';
 const AvatarIcon = () => {
     return (
         <svg width="105" height="105" viewBox="0 0 105 105" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_3010_9928)">
+            <g clipPath="url(#clip0_3010_9928)">
                 <path
                     d="M52.5051 99.1212L73.306 93.8684C85.179 84.0094 92.7415 69.1388 92.7415 52.5002C92.7415 26.8359 74.7539 5.37305 50.698 0.0305634C22.5375 0.98028 0 24.1082 0 52.5C0 67.0835 5.94727 80.277 15.5474 89.7906L52.5051 99.1212Z"
                     fill="#CBE2FF"/>

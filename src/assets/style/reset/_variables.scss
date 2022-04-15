@@ -28,14 +28,19 @@ $darkGrey: #898989;
 $greyColor: #4f4f4f;
 $lightGrey: #ececec;
 $tableBorderColor: #BDBDBD;
-
+$tablePaperColor:rgba(0, 0, 0, 0.25);
 $sliderBox: rgba(0, 0, 0, 0.15);
 $eventBox: rgba(0, 0, 0, 0.25);
 $paddingTopBottom0: 0px;
+$paddingTopBottom10: 10px;
+$paddingTopBottom20: 20px;
 $paddingLeftRight72: 72px;
 $paddingLeftRight50: 50px;
 $paddingLeftRight30: 30px;
+$paddingLeftRight20: 20px;
+$paddingLeftRight10: 10px;
 $padding0: 0px;
+$padding10:10px;
 $padding20: 20px;
 $padding30: 30px;
 $padding50: 50px;
@@ -151,7 +156,13 @@ $fontSize36: 36px;
 
 $borderBottom: 1px;
 $borderTop6: 6px;
+$borderRight1:1px;
 
 $boxShadow0: 0px;
 $boxShadow4: 4px;
 $boxShadow10: 10px;
+
+
+$filterTop:0px;
+$filterRight:4px;
+$filterBottom:4px;

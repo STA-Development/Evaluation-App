@@ -47,9 +47,9 @@ const TableHeader = ({
   valueToOrderBy,
   orderDirection,
   handleRequestSort,
-}: any) => {
+}:any) => {
   const classes = useEventsStyle();
-  const createSortHandler = (property: any) => (e: any) => {
+  const createSortHandler = (property: string | undefined) => (e: object) => {
     handleRequestSort(e, property);
   };
 

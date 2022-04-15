@@ -7,7 +7,7 @@ export const sidebarList = [
   {
     id: 1,
     name: "Dashboard",
-    route: "dashboard",
+    route: "/",
     icon: <DashboardNavbarIcon/>
   },
   {
