@@ -31,5 +31,5 @@ jobs:
           node-version: 16.14.2
           registry-url: https://npm.pkg.github.com/
 
-      - uses: ./.github/actions/ci-validation
+      - uses: ../actions/ci-validation
         name: Static code analysis and build
