@@ -1,8 +1,8 @@
 import React from "react";
-import {Box, Typography} from "@mui/material";
-import {useDashboardStyles} from "../../../assets/styleJs/dashboard/dashboard";
-import {Link} from "react-router-dom";
-import {v4 as uuidv4} from 'uuid'
+import { Box, Typography } from "@mui/material";
+import { useDashboardStyles } from "../../../assets/styleJs/dashboard/dashboard";
+import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 const DashboardNotEvaluated = () => {
   const classes = useDashboardStyles();
@@ -29,7 +29,7 @@ const DashboardNotEvaluated = () => {
 
   return (
     <Box className={classes.overview}>
-      <Box className="notEvalEmployes">
+      <Box className="not__eval_employees">
         <Typography
           variant="h4"
           component="h4"
@@ -37,17 +37,17 @@ const DashboardNotEvaluated = () => {
         >
           Not Evaluated Employees
         </Typography>
-        <Link to="/events" className="notEvalEmployes__link">
+        <Link to="/events" className="not__eval_employees_link">
           Set Up Evaluation {">"}
         </Link>
       </Box>
-      <Box className="notEvalEmployies__lists">
+      <Box>
         {evalutedEmployees.map((data) => (
-          <Box className="notEvalEmployes__text" key={data.id}>
+          <Box className="not__eval_employees_text" key={data.id}>
             <Typography
               variant="h6"
               component="h6"
-              className={classes.notEvalEmployiesText}
+              className={classes.notEvalEmployeesText}
             >
               {data.name}
             </Typography>

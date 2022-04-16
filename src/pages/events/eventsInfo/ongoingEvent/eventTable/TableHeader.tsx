@@ -38,7 +38,6 @@ const headCells = [
   },
   {
     id: uuidv4(),
-    // name:"",
     label: "",
   },
 ];
@@ -47,7 +46,7 @@ const TableHeader = ({
   valueToOrderBy,
   orderDirection,
   handleRequestSort,
-}:any) => {
+}: any) => {
   const classes = useEventsStyle();
   const createSortHandler = (property: string | undefined) => (e: object) => {
     handleRequestSort(e, property);

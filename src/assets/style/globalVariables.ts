@@ -28,10 +28,9 @@ export const color = {
   navbarColor: "#131924",
   activeLink: "#262F3F",
   whiteColor: "#fff",
-  closeButton: "#4F4F4F",
   overViewBoxshadow: "rgba(0, 0, 0, 0.15)",
   overViewBoxColor: "#1F6F8B",
-  greenColor: '#B2E4D5'
+  greenColor: "#B2E4D5",
 };
 
 export const margin = {
@@ -109,7 +108,7 @@ export const useGlobalTheme = makeStyles({
     fontSize: font.fontSize20,
     fontWeight: font.fontWeight700,
     marginBottom: margin.marginBottom25,
-    marginTop: margin.marginTop10
+    marginTop: margin.marginTop10,
   },
   eventTabsBox: {
     height: "72px",

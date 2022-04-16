@@ -1,14 +1,19 @@
-import {makeStyles} from "@mui/styles";
-import {borderRedius, color, font, margin, padding,} from "../../style/globalVariables";
+import { makeStyles } from "@mui/styles";
+import {
+  borderRedius,
+  color,
+  font,
+  margin,
+  padding,
+} from "../../style/globalVariables";
 
 export const useDashboardStyles = makeStyles({
   emptyDashboard: {
     //height: "calc(100vh - 96px)",
   },
 
-
   dashboardPage: {
-    height:'100vh',
+    height: "100vh",
     padding: padding.paddingTop30,
   },
 
@@ -69,7 +74,7 @@ export const useDashboardStyles = makeStyles({
     fontWeight: font.fontWeight700,
   },
 
-  notEvalEmployiesText: {
+  notEvalEmployeesText: {
     fontSize: font.fontSize15,
     color: color.navbarColor,
     fontWeight: font.fontWeight700,

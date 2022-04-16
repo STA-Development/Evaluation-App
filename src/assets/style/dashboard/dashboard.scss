@@ -1,7 +1,3 @@
-.dashboard{
-  padding: 40px 30px;
-}
-
 .highcharts-credits {
   display: none;
 }
@@ -41,12 +37,12 @@
 
 }
 
-.notEvalEmployes {
+.not__eval_employees {
   display: flex;
   justify-content: space-between;
   margin-bottom: $marginBottom20;
 
-  &__link {
+  &_link {
     color: $blueColor;
     font-size: $fontSize14;
     font-weight: $fontWeight500;
@@ -56,7 +52,7 @@
     }
   }
 
-  &__text {
+  &_text {
     padding-bottom: $paddingBottom10;
     margin-bottom: $marginBottom16;
     border-bottom: $borderBottom solid $lightGrey;
@@ -113,6 +109,13 @@
   justify-content: flex-start;
 }
 
-.rec-carousel .rec-item-wrapper{
+.rec-carousel .rec-item-wrapper {
   height: 195px;
+}
+
+
+.empty__link {
+  &:hover {
+    text-decoration: none;
+  }
 }

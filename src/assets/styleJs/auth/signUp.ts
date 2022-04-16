@@ -1,5 +1,5 @@
-import {makeStyles} from "@mui/styles";
-import {color, font, margin, position} from "../../style/globalVariables";
+import { makeStyles } from "@mui/styles";
+import { color, font, margin, position } from "../../style/globalVariables";
 
 export const useStyles = makeStyles({
   authInput: {
@@ -58,6 +58,6 @@ export const useStyles = makeStyles({
     right: position.right20,
     top: position.top25,
     fontSize: font.fontSize18,
-    color: color.closeButton,
+    color: color.textGrey,
   },
 });
