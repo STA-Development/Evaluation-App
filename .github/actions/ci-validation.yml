@@ -1,0 +1,34 @@
+name: 'CI E2E validation'
+inputs:
+  node_version:
+    description: 'Node version'
+    required: false
+    default: v16.14.2
+  pat_to_read_package:
+    description: 'Pat to read Packages'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install Modules
+      run: |
+        echo "::group::Activate NodeJs version manager and install version"
+        export NVM_DIR=~/.nvm
+        source ~/.nvm/nvm.sh
+        nvm install ${{ inputs.node_version }}
+        nvm use ${{ inputs.node_version }}
+        echo "::endgroup::"
+
+        echo "::group::Install yarn modules"
+        yarn install
+        echo "::endgroup::"
+      shell: bash
+
+    - name: Static code analysis and build
+      run: |
+        
+        echo "::group::Build"
+        yarn run build
+        echo "::endgroup::"
+      shell: bash
