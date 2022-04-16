@@ -19,7 +19,7 @@ const EmptyDashboard = () => {
           To see dashboard information you need to set up evaluation event
           first.
         </Typography>
-        <Link to={"/events-create"} className="empty__link">
+        <Link to={"/events-create"} className="text__decoration_none">
           <Button variant="contained">CREATE EVENT</Button>
         </Link>
       </Box>

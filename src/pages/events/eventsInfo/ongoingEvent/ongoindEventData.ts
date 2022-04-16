@@ -1,4 +1,4 @@
-import { randomColor, randomNumber } from "../../../../assets/styleJs/utils";
+import { randomColor, randomNumber } from "../../../../utils/utils";
 
 export const data = [
   {

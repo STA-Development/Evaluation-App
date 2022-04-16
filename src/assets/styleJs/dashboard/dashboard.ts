@@ -8,10 +8,6 @@ import {
 } from "../../style/globalVariables";
 
 export const useDashboardStyles = makeStyles({
-  emptyDashboard: {
-    //height: "calc(100vh - 96px)",
-  },
-
   dashboardPage: {
     height: "100vh",
     padding: padding.paddingTop30,

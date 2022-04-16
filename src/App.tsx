@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import { Box } from "@mui/material";
 import PublicRoutes from "./routes/PublicRoutes";
@@ -13,22 +13,20 @@ function App() {
   const dispatch = useAppDispatch();
   const userId = useAppSelector(selectUserId);
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(
-          setUser({
-            user: user.displayName,
-            uid: user.uid,
-            email: user.email,
-            token: user.refreshToken,
-          })
-        );
-      } else {
-        dispatch(removeUser());
-      }
-    });
-  }, [dispatch]);
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      dispatch(
+        setUser({
+          user: user.displayName,
+          uid: user.uid,
+          email: user.email,
+          token: user.refreshToken,
+        })
+      );
+    } else {
+      dispatch(removeUser());
+    }
+  });
 
   return (
     <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>
