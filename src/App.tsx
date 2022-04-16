@@ -28,7 +28,7 @@ function App() {
         dispatch(removeUser());
       }
     });
-  }, [auth, dispatch]);
+  }, [dispatch]);
 
   return (
     <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>

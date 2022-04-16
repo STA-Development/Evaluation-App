@@ -1,12 +1,12 @@
 import React from "react";
-import {ArcElement, Chart as ChartJS, Legend, Tooltip} from "chart.js";
-import {Box, Button, Divider, Grid, Typography} from "@mui/material";
-import {NavLink} from "react-router-dom";
-import {useGlobalTheme} from "../../../../assets/style/globalVariables";
-import {useDashboardStyles} from "../../../../assets/styleJs/dashboard/dashboard";
-import {useEventsStyle} from "../../../../assets/styleJs/events/events";
-import {randomColor, randomNumber} from "../../../../assets/styleJs/utils";
+import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
+import { Box, Button, Divider, Grid, Typography } from "@mui/material";
+import { NavLink } from "react-router-dom";
+import { useGlobalTheme } from "../../../../assets/style/globalVariables";
+import { useDashboardStyles } from "../../../../assets/styleJs/dashboard/dashboard";
+import { useEventsStyle } from "../../../../assets/styleJs/events/events";
 import ProgressBar from "react-customizable-progressbar";
+import { data } from "./ongoindEventData";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -14,33 +14,6 @@ const OngoingEvent = () => {
   const eventClass = useEventsStyle();
   const globalClasses = useGlobalTheme();
   const classes = useDashboardStyles();
-
-  const data = [
-    {
-      header: "Quarterly Development Team Evoluation",
-      progress: randomNumber(),
-      color: `rgb(${randomColor()} ${randomColor()}  ${randomColor()})`,
-      dataStart: "Oct 15 2020",
-      dataEnd: "Dec 30 2020",
-      id: Math.random(),
-    },
-    {
-      header: "Quarterly Development Team Evoluation",
-      progress: randomNumber(),
-      color: `rgb(${randomColor()} ${randomColor()}  ${randomColor()})`,
-      dataStart: "Oct 15 2020",
-      dataEnd: "Dec 30 2020",
-      id: Math.random(),
-    },
-    {
-      header: "Quarterly Development Team Evoluation",
-      progress: randomNumber(),
-      color: `rgb(${randomColor()} ${randomColor()}  ${randomColor()})`,
-      dataStart: "Oct 15 2020",
-      dataEnd: "Dec 30 2020",
-      id: Math.random(),
-    },
-  ];
 
   return (
     <Box>
@@ -52,7 +25,7 @@ const OngoingEvent = () => {
         >
           Ongoing Events
         </Typography>
-        <NavLink style={{textDecoration: "none"}} to={"/"}>
+        <NavLink style={{ textDecoration: "none" }} to={"/"}>
           <Button
             variant="contained"
             size="large"
@@ -62,12 +35,12 @@ const OngoingEvent = () => {
           </Button>
         </NavLink>
       </Box>
-      <Box className="ongoingEvents__statistic">
+      <Box className="ongoing__events__statistic">
         {data.map((item) => (
-          <Box className="ongoingEvents" key={item.id}>
-            <Grid container className="ongoingEvents__grid">
+          <Box className="ongoing__events" key={item.id}>
+            <Grid container>
               <Grid item md={6}>
-                <Box className="ongoingEvents__chart">
+                <Box>
                   <ProgressBar
                     radius={40}
                     progress={item.progress}
@@ -79,7 +52,7 @@ const OngoingEvent = () => {
                 </Box>
               </Grid>
               <Grid item md={6}>
-                <Box className="ongoingEvents__percent">
+                <Box className="ongoing__events__percent">
                   <Typography variant="h4" component="h4">
                     {item.progress}%
                   </Typography>
@@ -87,11 +60,11 @@ const OngoingEvent = () => {
                 </Box>
               </Grid>
 
-              <Divider className={eventClass.ongoingEventsDivider}/>
+              <Divider className={eventClass.ongoingEventsDivider} />
               <Grid item md={12}>
-                <Box className="ongoingEvents__quarterly">
+                <Box className="ongoing__events__quarterly">
                   <Typography component="h5">{item.header}</Typography>
-                  <Box className="ongoingEvents__date">
+                  <Box className="ongoing__events__date">
                     <Grid container>
                       <Grid item md={6}>
                         <Typography> Start Date: </Typography>

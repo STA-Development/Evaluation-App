@@ -1,5 +1,5 @@
 .events__info {
-  padding:$padding10;
+  padding: $padding30;
   background-color: $authBg;
 }
 
@@ -31,7 +31,7 @@
   }
 }
 
-.ongoingEvents {
+.ongoing__events {
   width: 272px;
   background: $whiteColor;
   box-shadow: $boxShadow0 $boxShadow4 $boxShadow4 $eventBox;
@@ -90,11 +90,6 @@
   overflow: hidden;
   filter: drop-shadow($filterTop $filterRight $filterBottom $tablePaperColor);
 
-
-  //&_list {
-  //  max-height: 440px;
-  //}
-
   &_header {
     background-color: $greyColor;
   }
@@ -128,10 +123,7 @@
           color: $navbarColor;
         }
       }
-
-
     }
-
   }
 
   &_row {
@@ -156,12 +148,15 @@
     color: $blueColor;
     font-size: $fontSize14;
     font-weight: $fontWeight500;
+
     &:first-child {
       margin-right: $marginRight15;
     }
+
     &:hover {
       text-decoration: none;
     }
+
     &:focus {
       text-decoration: none;
     }
