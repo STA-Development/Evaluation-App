@@ -19,7 +19,7 @@ const EmptyEvents = () => {
           To see dashboard information you need to set up evaluation event
           first.
         </Typography>
-        <Link style={{ textDecoration: "none" }} to={"/"}>
+        <Link className="text__decoration_none" to={"/"}>
           <Button variant="contained">CREATE EVENT</Button>
         </Link>
       </Box>

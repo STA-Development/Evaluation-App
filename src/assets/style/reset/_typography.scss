@@ -63,3 +63,10 @@ strong {
   width: calc(100% - 250px);
   background-color: $authBg;
 }
+
+
+.text__decoration_none {
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -13,8 +13,8 @@ const Dashboard = () => {
   return (
     <Box className={classes.dashboardPage}>
       <Typography className={globalClasses.titleHeader}>Dashboard</Typography>
-      {hasInfo ? (
-        <Box className={classes.emptyDashboard}>
+      {!hasInfo ? (
+        <Box>
           <EmptyDashboard />
         </Box>
       ) : (
