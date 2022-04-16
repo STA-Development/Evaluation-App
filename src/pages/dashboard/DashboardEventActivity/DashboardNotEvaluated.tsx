@@ -2,24 +2,25 @@ import React from "react";
 import {Box, Typography} from "@mui/material";
 import {useDashboardStyles} from "../../../assets/styleJs/dashboard/dashboard";
 import {Link} from "react-router-dom";
+import {v4 as uuidv4} from 'uuid'
 
 const DashboardNotEvaluated = () => {
   const classes = useDashboardStyles();
   const evalutedEmployees = [
     {
-      id: Math.random(),
+      id: uuidv4(),
       name: "Anna Cooper",
       position: "Anna Cooper",
       evalDate: "Last evaluated 6 months ago",
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       name: "Anna Cooper",
       position: "Content Writer",
       evalDate: "Last evaluated 6 months ago",
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       name: "Jenny Adams",
       position: "Content Writer",
       evalDate: "Last evaluated 6 months ago",

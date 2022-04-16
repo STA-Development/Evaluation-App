@@ -8,7 +8,7 @@ const Homepage = () => {
     <Grid container>
       <Sidebar />
       <Box className="outlet">
-        <Outlet />
+        <Outlet/>
       </Box>
     </Grid>
   );

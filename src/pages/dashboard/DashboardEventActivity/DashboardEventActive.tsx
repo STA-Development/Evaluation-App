@@ -5,6 +5,7 @@ import {useDashboardStyles} from "../../../assets/styleJs/dashboard/dashboard";
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import {v4 as uuidv4} from 'uuid'
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -13,25 +14,25 @@ const DashboardEventActive = () => {
 
   const dataStyles = [
     {
-      id: Math.random(),
+      id: uuidv4(),
       percent: 13,
       color: "rgba(178, 228, 213, 1)",
       name: "Rock Stars",
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       percent: 10,
       color: "rgba(177, 142, 166, 1)",
       name: "Good Potential",
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       percent: 4,
       color: "rgba(231, 243, 238, 1)",
       name: "Need Help",
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       percent: 7,
       color: "rgba(242, 166, 166, 1)",
       name: "Waitng For The Evoluation",
@@ -114,7 +115,6 @@ const DashboardEventActive = () => {
       <Box className="canvasStyle">
         <HighchartsReact highcharts={Highcharts} options={options}/>
       </Box>
-
     </Box>
   );
 };

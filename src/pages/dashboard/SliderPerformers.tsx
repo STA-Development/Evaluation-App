@@ -1,10 +1,10 @@
 import React from "react";
-import { Box, ListItem, ListItemButton, Typography } from "@mui/material";
-// @ts-ignore
-import Carousel, { consts } from "react-elastic-carousel";
-import { useDashboardStyles } from "../../assets/styleJs/dashboard/dashboard";
+import {Box, ListItem, ListItemButton, Typography} from "@mui/material";
+import Carousel from "react-elastic-carousel";
+import {useDashboardStyles} from "../../assets/styleJs/dashboard/dashboard";
 import RightArrowIcon from "../../assets/images/Icons/RightArrowIcon";
 import LeftArrowIcon from "../../assets/images/Icons/LeftArrowIcon";
+import {v4 as uuidv4} from 'uuid';
 
 interface Arrow {
   type?: string;
@@ -15,9 +15,8 @@ interface Arrow {
 const SliderPerformers = () => {
   const classes = useDashboardStyles();
 
-  const myArrow = ({ type, onClick, isEdge }: Arrow) => {
-    const pointer =
-      type === consts.PREV ? <LeftArrowIcon /> : <RightArrowIcon />;
+  const myArrow = ({type, onClick, isEdge}: Arrow) => {
+    const pointer = type === "PREV" ? <LeftArrowIcon/> : <RightArrowIcon/>;
     return (
       <button onClick={onClick} disabled={isEdge}>
         {pointer}
@@ -27,55 +26,55 @@ const SliderPerformers = () => {
 
   const sliderItems = [
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Jenny Cooper",
       position: "UI UX Designer",
       currency: 10,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Sam Jhonson",
       position: "UI UX Designer",
       currency: 10,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Anna Smith",
       position: "UI UX Designer",
       currency: 9,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Jenny Cooper",
       position: "UI UX Designer",
       currency: 9,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Jenny Cooper",
       position: "UI UX Designer",
       currency: 9,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Jenny Cooper",
       position: "UI UX Designer",
       currency: 8,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Jenny Cooper",
       position: "UI UX Designer",
       currency: 10,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Sam Jhonson",
       position: "UI UX Designer",
       currency: 9,
     },
     {
-      id: Math.random(),
+      id: uuidv4(),
       headerName: "Jenny Cooper",
       position: "UI UX Designer",
       currency: 10,
@@ -99,7 +98,6 @@ const SliderPerformers = () => {
         pagination={false}
         breakPoints={breakPoints}
         renderArrow={myArrow}
-        itemPosition={consts.START}
       >
         {sliderItems.map((item) => (
           <Box className="slider__box" key={item.id}>

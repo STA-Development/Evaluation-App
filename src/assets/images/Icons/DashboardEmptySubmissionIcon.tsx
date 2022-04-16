@@ -180,7 +180,7 @@ const DashboardEmptySubmissionIcon = () => {
       </g>
       <defs>
         <clipPath id="clip0_1432_25597">
-          <rect width="143" height="136" fill="white" />
+          <rect width="143" height="136" fill="white"/>
         </clipPath>
       </defs>
     </svg>

@@ -1,8 +1,8 @@
 import React from "react";
 import DashboardEventActive from "./DashboardEventActive";
-import {Box, Grid, Typography} from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import DashboardNotEvaluated from "./DashboardNotEvaluated";
-import {useDashboardStyles} from "../../../assets/styleJs/dashboard/dashboard";
+import { useDashboardStyles } from "../../../assets/styleJs/dashboard/dashboard";
 
 const OverviewDashboard = () => {
   const classes = useDashboardStyles();
