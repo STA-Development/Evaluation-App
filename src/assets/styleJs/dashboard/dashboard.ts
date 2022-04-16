@@ -3,17 +3,17 @@ import {borderRedius, color, font, margin, padding,} from "../../style/globalVar
 
 export const useDashboardStyles = makeStyles({
   emptyDashboard: {
-    height: "calc(100vh - 66px)",
+    //height: "calc(100vh - 96px)",
   },
 
 
   dashboardPage: {
-    height: "calc(100vh - 66px)",
-    paddingTop: padding.paddingTop30,
+    height:'100vh',
+    padding: padding.paddingTop30,
   },
 
   dashboardContent: {
-    height: " calc(100vh - 91px)",
+    height: " calc(100vh - 191px)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -46,7 +46,7 @@ export const useDashboardStyles = makeStyles({
   },
   overview: {
     padding: `${padding.paddingTopBottom20} ${padding.paddingLeftRight30}`,
-    backgroundColor: color.white,
+    backgroundColor: color.whiteColor,
     boxShadow: `${margin.marginOverViewBox} ${color.overViewBoxshadow}`,
     borderRadius: borderRedius.overViewBox,
     height: "340px",
@@ -71,7 +71,7 @@ export const useDashboardStyles = makeStyles({
 
   notEvalEmployiesText: {
     fontSize: font.fontSize15,
-    color: color.navbar,
+    color: color.navbarColor,
     fontWeight: font.fontWeight700,
   },
   textPosition: {

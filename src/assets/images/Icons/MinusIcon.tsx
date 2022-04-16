@@ -35,15 +35,15 @@ const MinusIcon = () => {
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >
-          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix"/>
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
             values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
             result="hardAlpha"
           />
-          <feOffset dy="4" />
-          <feGaussianBlur stdDeviation="4" />
+          <feOffset dy="4"/>
+          <feGaussianBlur stdDeviation="4"/>
           <feColorMatrix
             type="matrix"
             values="0 0 0 0 0.172549 0 0 0 0 0.152941 0 0 0 0 0.219608 0 0 0 0.04 0"

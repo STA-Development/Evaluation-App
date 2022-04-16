@@ -8,7 +8,7 @@ const CheckedGreenIcon = () => {
             <path fillRule="evenodd" clipRule="evenodd" d="M39.33 22.4663L27.3158 37.1086L18.6431 28.4358L20.596 26.4829L27.1138 33.0006L37.1948 20.7144L39.33 22.4663Z" fill="white"/>
         </svg>
 
-    );
+  );
 };
 
 export default CheckedGreenIcon;

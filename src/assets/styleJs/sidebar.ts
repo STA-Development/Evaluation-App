@@ -6,7 +6,7 @@ export const useSliderStyle = makeStyles({
     width: '250px',
     '&  > div': {
       width: '251px',
-      backgroundColor: color.navbar,
+      backgroundColor: color.navbarColor,
       padding: `
       ${padding.paddingTop72}
       ${padding.paddingRight0} 
@@ -36,14 +36,14 @@ export const useSliderStyle = makeStyles({
     }
   },
   itemIcon: {
-    color: color.white,
+    color: color.whiteColor,
     minWidth: "20px",
     minHeight: "20px",
     marginRight: margin.marginRight18,
   },
   itemText: {
     "& span": {
-      color: color.white,
+      color: color.whiteColor,
       fontWeight: font.fontWeight500,
       fontSize: font.fontSize18,
       fontFamily: "Montserrat",
@@ -76,7 +76,7 @@ export const useSliderStyle = makeStyles({
     height: "105px",
   },
   nameSurname: {
-    color: color.white,
+    color: color.whiteColor,
     fontWeight: font.fontWeight500,
     fontSize: font.fontSize16,
     fontFamily: "Montserrat",

@@ -11,9 +11,9 @@ const Dashboard = () => {
   const [hasInfo, setHasInfo] = useState<boolean>(false);
 
   return (
-    <Box className="dashboard">
+    <Box className={classes.dashboardPage}>
       <Typography className={globalClasses.titleHeader}>Dashboard</Typography>
-      {hasInfo ? (
+      {!hasInfo ? (
         <Box className={classes.emptyDashboard}>
           <EmptyDashboard />
         </Box>
