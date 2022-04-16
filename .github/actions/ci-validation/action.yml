@@ -28,6 +28,10 @@ runs:
     - name: Static code analysis and build
       run: |
         
+        echo "::group::Eslint"
+        yarn run eslint
+        echo "::endgroup::"
+        
         echo "::group::Build"
         yarn run build
         echo "::endgroup::"
