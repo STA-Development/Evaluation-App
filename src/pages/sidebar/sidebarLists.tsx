@@ -1,25 +1,26 @@
-import DashboardNavbarIcon from "../../assets/images/Icons/DashboardNavbarIcon"
-import EventsNavbarIcon from "../../assets/images/Icons/EventsNavbarIcon"
-import ReportsNavbarIcon from "../../assets/images/Icons/ReportsNavbarIcon"
+import React from 'react'
+import DashboardNavbarIcon from '../../assets/images/Icons/DashboardNavbarIcon'
+import EventsNavbarIcon from '../../assets/images/Icons/EventsNavbarIcon'
+import ReportsNavbarIcon from '../../assets/images/Icons/ReportsNavbarIcon'
 
-
+// eslint-disable-next-line import/prefer-default-export
 export const sidebarList = [
   {
     id: 1,
-    name: "Dashboard",
-    route: "dashboard",
-    icon: <DashboardNavbarIcon/>
+    name: 'Dashboard',
+    route: 'dashboard',
+    icon: <DashboardNavbarIcon />,
   },
   {
     id: 2,
-    name: "Events",
-    route: "events",
-    icon: <EventsNavbarIcon/>
+    name: 'Events',
+    route: 'events',
+    icon: <EventsNavbarIcon />,
   },
   {
     id: 3,
-    name: "Reports",
-    route: "reports",
-    icon: <ReportsNavbarIcon/>
-  }
+    name: 'Reports',
+    route: 'reports',
+    icon: <ReportsNavbarIcon />,
+  },
 ]
