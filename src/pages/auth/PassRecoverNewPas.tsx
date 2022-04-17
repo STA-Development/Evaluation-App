@@ -1,50 +1,52 @@
-import React, {useState} from "react";
-import {Box, Button, FormGroup, Grid, Paper, TextField, Typography,} from "@mui/material";
-import {useStyles} from "../../assets/styleJs/auth/signUp";
-import ChangePassword from "../../assets/images/auth/ChangePassword";
-import {confirmPasswordReset} from "firebase/auth";
-import {auth} from "../../data/firebase";
-import {useLocation, useNavigate} from "react-router-dom";
+import React, {useState} from 'react'
+import {confirmPasswordReset} from 'firebase/auth'
+import {useLocation, useNavigate} from 'react-router-dom'
+import {Box, Button, FormGroup, Grid, Paper, TextField, Typography} from '@mui/material'
+import {auth} from '../../data/firebase'
+import useStyles from '../../assets/styleJs/auth/signUp'
+import ChangePassword from '../../assets/images/auth/ChangePassword'
 
-import {useGlobalTheme} from "../../assets/style/globalVariables";
+import {useGlobalTheme} from '../../assets/style/globalVariables'
 
 const PassRecoverNewPas = () => {
-  const classes = useStyles();
-  const globalClasses = useGlobalTheme();
-  const navigate = useNavigate();
-  const [resetPass, setResetPass] = useState<string>("");
-  const [confirmPass, setConfirmPass] = useState<string>("");
-  const [error, setError] = useState<boolean>(false);
-  const location = useLocation();
+  const classes = useStyles()
+  const globalClasses = useGlobalTheme()
+  const navigate = useNavigate()
+  const [resetPass, setResetPass] = useState<string>('')
+  const [confirmPass, setConfirmPass] = useState<string>('')
+  const [error, setError] = useState<boolean>(false)
+  const location = useLocation()
 
   const getParameterByName = (name: string) => {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    let regexS = "[\\?&]" + name + "=([^&#]*)";
-    let regex = new RegExp(regexS);
-    let results = regex.exec(location.search);
-    if (results == null) return "";
-    else return decodeURIComponent(results[1].replace(/\+/g, " "));
-  };
-  let actionCode = getParameterByName("oobCode");
+    // eslint-disable-next-line no-param-reassign
+    name = name.replace(/[\\[]/, '\\[').replace(/[\]]/, '\\]')
+    const regexS = `[\\?&]${name}=([^&#]*)`
+    const regex = new RegExp(regexS)
+    const results = regex.exec(location.search)
+    if (results == null) return ''
+    return decodeURIComponent(results[1].replace(/\+/g, ' '))
+  }
+  const actionCode = getParameterByName('oobCode')
 
   const handleResetPassword = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (resetPass === confirmPass) {
       confirmPasswordReset(auth, actionCode, resetPass)
         .then((resp) => {
-          console.log(resp);
+          console.log(resp)
         })
+        // eslint-disable-next-line @typescript-eslint/no-shadow
         .catch((error) => {
-          console.log(error);
-        });
-      setResetPass("");
-      setConfirmPass("");
-      navigate("/password-changed");
+          console.log(error)
+        })
+      setResetPass('')
+      setConfirmPass('')
+      navigate('/password-changed')
     } else {
-      setError(true);
+      setError(true)
     }
-  };
+  }
 
   return (
     <Box>
@@ -56,17 +58,11 @@ const PassRecoverNewPas = () => {
                 Password Recovery
               </Typography>
               <Box>
-                <Typography className={classes.authText}>
-                  Write your new password
-                </Typography>
+                <Typography className={classes.authText}>Write your new password</Typography>
               </Box>
             </Box>
             <FormGroup>
-              <Box
-                component="form"
-                className="auth__input_box"
-                onSubmit={handleResetPassword}
-              >
+              <Box component="form" className="auth__input_box" onSubmit={handleResetPassword}>
                 <TextField
                   className={classes.authInput}
                   label="New Password"
@@ -82,7 +78,7 @@ const PassRecoverNewPas = () => {
                     },
                   }}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setResetPass(e.target.value);
+                    setResetPass(e.target.value)
                   }}
                 />
 
@@ -95,7 +91,7 @@ const PassRecoverNewPas = () => {
                   error={error}
                   size="small"
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setConfirmPass(e.target.value);
+                    setConfirmPass(e.target.value)
                   }}
                 />
                 <Button
@@ -112,12 +108,12 @@ const PassRecoverNewPas = () => {
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
           <Box className="auth__box_right ">
-            <ChangePassword/>
+            <ChangePassword />
           </Box>
         </Grid>
       </Grid>
     </Box>
-  );
-};
+  )
+}
 
-export default PassRecoverNewPas;
+export default PassRecoverNewPas
