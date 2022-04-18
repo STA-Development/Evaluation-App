@@ -14,7 +14,9 @@ export const font = {
   fontSize15: "15px",
   fontSize14: "14px",
   fontSize13: "13px",
+  fontSize12: "12px",
   fontSize10: "10px",
+  fontSize8: "8px",
 };
 
 export const color = {
@@ -31,11 +33,13 @@ export const color = {
   overViewBoxshadow: "rgba(0, 0, 0, 0.15)",
   overViewBoxColor: "#1F6F8B",
   greenColor: "#B2E4D5",
+  tableBorderColor: "#bdbdbd",
 };
 
 export const margin = {
   margin0Auto: "0 auto",
   marginTopBottom20: "20px",
+  marginTopBottom10: "10px",
   marginTopBottom5: "5px",
   marginLeftRight0: "0px",
   marginBottom50: "50px",
@@ -45,6 +49,7 @@ export const margin = {
   marginBottom20: "20px",
   marginBottom15: "15px",
   marginBottom10: "10px",
+  marginBottom5: "5px",
   marginTop50: "50px",
   marginTop25: "25px",
   marginTop20: "20px",
