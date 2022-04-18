@@ -5,8 +5,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import Reports from "../pages/reports/Reports";
 import Homepage from "../pages/Homepage";
 
-const PrivateRouts = () => {
-  return (
+const PrivateRouts = () => (
     <Routes>
       <Route path="/" element={<Homepage/>}>
         <Route path="dashboard" element={<Dashboard/>}/>
@@ -15,6 +14,5 @@ const PrivateRouts = () => {
       </Route>
     </Routes>
   );
-};
 
 export default PrivateRouts;
