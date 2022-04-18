@@ -19,15 +19,13 @@ const PassRecover = () => {
     auth.useDeviceLanguage()
 
     await sendPasswordResetEmail(auth, email)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .then((link) => {
+      .then(() => {
         if (auth.config.authDomain) {
           navigate('/password-recover-resend')
           setEmail('')
         }
       })
-      // eslint-disable-next-line @typescript-eslint/no-shadow,@typescript-eslint/no-unused-vars
-      .catch((error) => {
+      .catch(() => {
         setError(true)
       })
   }

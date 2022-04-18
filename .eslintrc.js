@@ -49,6 +49,7 @@ module.exports = {
       },
     ],
     'import/no-unresolved': 'error', // turn on errors for missing imports
+    'no-param-reassign': 0,
   },
   settings: {
     'import/parsers': {

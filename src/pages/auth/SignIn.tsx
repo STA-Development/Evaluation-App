@@ -37,9 +37,7 @@ const SignIn = () => {
         navigate('/dashboard')
       }
       setIsFetching(false)
-      // eslint-disable-next-line @typescript-eslint/no-shadow
-    } catch (error) {
-      console.log(error)
+    } catch (err) {
       setPassword('')
       setEmail('')
       setError(true)

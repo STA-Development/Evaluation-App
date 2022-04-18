@@ -3,8 +3,7 @@ import DashboardNavbarIcon from '../../assets/images/Icons/DashboardNavbarIcon'
 import EventsNavbarIcon from '../../assets/images/Icons/EventsNavbarIcon'
 import ReportsNavbarIcon from '../../assets/images/Icons/ReportsNavbarIcon'
 
-// eslint-disable-next-line import/prefer-default-export
-export const sidebarList = [
+const sidebarList = [
   {
     id: 1,
     name: 'Dashboard',
@@ -24,3 +23,4 @@ export const sidebarList = [
     icon: <ReportsNavbarIcon />,
   },
 ]
+export default sidebarList

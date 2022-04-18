@@ -1,4 +1,3 @@
-// eslint-disable-next-line filenames/match-regex
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import SignIn from '../pages/auth/SignIn'

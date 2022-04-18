@@ -53,7 +53,6 @@ const SignUp = () => {
               user: name,
               email: user.email,
               id: user.uid,
-              // token: user.token,
             }),
           )
 
