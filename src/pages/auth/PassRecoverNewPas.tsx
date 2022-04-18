@@ -18,9 +18,8 @@ const PassRecoverNewPas = () => {
   const location = useLocation()
 
   const getParameterByName = (name: string) => {
-    // eslint-disable-next-line no-param-reassign
-    name = name.replace(/[\\[]/, '\\[').replace(/[\]]/, '\\]')
-    const regexS = `[\\?&]${name}=([^&#]*)`
+    const replaceName = name.replace(/[\\[]/, '\\[').replace(/[\]]/, '\\]')
+    const regexS = `[\\?&]${replaceName}=([^&#]*)`
     const regex = new RegExp(regexS)
     const results = regex.exec(location.search)
     if (results == null) return ''
@@ -36,9 +35,8 @@ const PassRecoverNewPas = () => {
         .then((resp) => {
           console.log(resp)
         })
-        // eslint-disable-next-line @typescript-eslint/no-shadow
-        .catch((error) => {
-          console.log(error)
+        .catch((err) => {
+          console.log(err)
         })
       setResetPass('')
       setConfirmPass('')
