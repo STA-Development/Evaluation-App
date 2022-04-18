@@ -1,0 +1,36 @@
+name: Validate Build
+on:
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get Week
+        id: get-week
+        run: |
+          echo "::set-output name=week::$(/bin/date -u "+%U")"
+        shell: bash
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-${{ steps.get-week.outputs.week }}-${{ hashFiles('yarn.lock') }}
+
+      - name: setup-nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.14.2
+          registry-url: https://npm.pkg.github.com/
+
+      - uses: ./.github/actions/ci-validation
+        name: Static code analysis and build
+
