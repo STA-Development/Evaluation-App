@@ -1,0 +1,48 @@
+.submission__quarterly {
+  margin: $marginTopBottom40 $marginLeftRight0;
+  width: 270px;
+  height: 251px;
+  border-top: 8px solid transparent;
+  border-radius: 10px 10px 0 0;
+  background-color: $whiteColor;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px 12px 10px 15px;
+
+  &_categories {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $marginBottom5;
+
+    h6 {
+      color: $submissionNewColor;
+      font-size: $fontSize10;
+      font-weight: $fontWeight700;
+    }
+
+    p {
+      font-size: $fontSize8;
+      color: $tableBorderColor;
+    }
+  }
+
+  &_evaluators {
+    display: flex;
+    justify-content: space-between;
+    color: $greyColor;
+
+  }
+}
+
+.border__color_red {
+  border-top-color: $submissionNewColor;
+}
+
+.border__color_green {
+  background-color: $submissionReadColor;
+}
+
+.border__color_orange {
+  background-color: $submissionNotFinishedColor;
+}
+
