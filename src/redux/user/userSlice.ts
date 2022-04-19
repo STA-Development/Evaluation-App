@@ -16,7 +16,7 @@ const initialState: AuthPropsState = {
   isAuth: true,
 }
 
-export const userSlice = createSlice({
+const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
