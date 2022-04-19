@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import { color, font, margin } from "../../style/globalVariables";
+import { color, font, margin, padding } from "../../style/globalVariables";
 
 const useSubmissionsStyle = makeStyles({
   header: {
@@ -35,7 +35,7 @@ const useSubmissionsStyle = makeStyles({
     alignItems: "end",
   },
   viewFormButton: {
-    padding: 0,
+    padding: padding.padding0,
     fontSize: font.fontSize12,
   },
 
@@ -43,6 +43,15 @@ const useSubmissionsStyle = makeStyles({
     fontSize: font.fontSize10,
     fontWeight: font.fontWeight700,
     textTransform: "uppercase",
+  },
+  viewButtonDown: {
+    display: "flex",
+    alignItems: "end",
+    marginBottom: margin.marginBottomM15,
+  },
+  formControl: {
+    width: "400px",
+    marginBottom: margin.marginBottom30,
   },
 });
 

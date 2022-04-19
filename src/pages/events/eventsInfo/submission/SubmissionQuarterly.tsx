@@ -13,6 +13,7 @@ const SubmissionQuarterly = ({
   savedSubmission,
 }: any) => {
   const classes = useSubmissionsStyle();
+
   return (
     <Box className={`submission__quarterly border__color_${color}`}>
       <Box className="submission__quarterly_categories">
@@ -62,7 +63,11 @@ const SubmissionQuarterly = ({
             {savedSubmission && "Saved Submission"}
           </Typography>
         </Box>
-        <Box className={classes.viewFormBox}>
+        <Box
+          className={
+            savedSubmission ? classes.viewFormBox : classes.viewButtonDown
+          }
+        >
           <Button variant="text" className={classes.viewFormButton}>
             View form
           </Button>
