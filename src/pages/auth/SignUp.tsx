@@ -46,8 +46,6 @@ const SignUp = () => {
 
       await createUserWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
-          console.log(user)
-          console.log(auth)
           dispatch(
             setUser({
               user: name,
@@ -55,15 +53,10 @@ const SignUp = () => {
               id: user.uid,
             }),
           )
-
           navigate('/dashboard')
         })
         .catch((error) => {
-          if (error.code === 'auth/email-already-in-use') {
-            alert('Email alredy un-use')
-          } else {
-            console.log(error.message)
-          }
+          throw new Error(error)
         })
 
       setEmail('')
@@ -75,8 +68,6 @@ const SignUp = () => {
       setEmailError(true)
     } else if (!password) {
       setPasswordError(true)
-    } else {
-      console.log('Something error')
     }
   }
 
