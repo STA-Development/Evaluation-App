@@ -1,25 +1,23 @@
 .submission {
-
   .rec.rec-carousel-wrapper {
     position: relative;
-
   }
 
   .rec.rec-carousel > button:first-child {
     position: absolute;
     left: $posLeft0;
-    top: 0;
+    top: $posTop0;
   }
 
   .rec.rec-carousel > button:last-child {
     position: absolute;
     right: $posRight0;
-    top: 0;
+    top: $posTop0;
   }
 
   .rec.rec-carousel > button:disabled {
     visibility: hidden;
-    margin-bottom: 30px;
+    margin-bottom: $marginBottom30;
   }
 
   .rec .rec-arrow-left {
@@ -46,27 +44,25 @@
   }
 
   .rec.rec-carousel {
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: $marginTop30;
+    margin-bottom: $marginBottom10;
   }
 }
-
 
 .submission__quarterly {
   width: 270px;
   height: 251px;
-  border-top: 8px solid transparent;
-  border-radius: 10px 10px 0 0;
+  border-top: $borderTop8 solid $transparent;
+  border-radius: $borderRadius10 $borderRadius10 $borderRadius0 $borderRadius0;
   background-color: $whiteColor;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 10px 12px 10px 15px;
+  box-shadow: $boxShadow0 $boxShadow4 $boxShadow4 $tablePaperColor;
+  padding: $paddingTop10 $paddingRight12 $paddingBottom10 $paddingLeft15;
 
   &_categories {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: $marginBottom5;
-
 
     p {
       font-size: $fontSize8;
@@ -78,10 +74,7 @@
     display: flex;
     justify-content: space-between;
     color: $greyColor;
-
   }
-
-
 }
 
 .border__color_red {
@@ -98,7 +91,6 @@
 
 .status__color_red {
   color: $submissionNewColor;
-
 }
 
 .status__color_green {

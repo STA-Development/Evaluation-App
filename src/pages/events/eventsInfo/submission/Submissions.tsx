@@ -9,6 +9,7 @@ import LeftArrowIcon from "../../../../assets/images/Icons/LeftArrowIcon";
 import RightArrowIcon from "../../../../assets/images/Icons/RightArrowIcon";
 import submissionReadData from "./submissionQuarterlyData/submissionRead";
 import submissionNotFinished from "./submissionQuarterlyData/submissionNotFinished";
+import useSubmissionsStyle from "../../../../assets/styleJs/submissions/submissions";
 
 interface SubmissionItems {
   id: string;
@@ -23,6 +24,7 @@ interface Arrow {
 }
 
 const Submissions = () => {
+  const classes = useSubmissionsStyle();
   const [title, setTitle] = useState<string>("");
 
   const myArrow = ({ type, onClick, isEdge }: Arrow) => {
@@ -64,7 +66,7 @@ const Submissions = () => {
 
   return (
     <Box className="submission">
-      <FormControl sx={{ width: "400px", mb: "30px" }}>
+      <FormControl className={classes.formControl}>
         <InputLabel id="demo-simple-select-label">
           Search by Event and/or Evaluator’s name
         </InputLabel>
@@ -84,75 +86,72 @@ const Submissions = () => {
           })}
         </Select>
       </FormControl>
-      <Box>
-        <Carousel
-          isRTL={false}
-          itemsToShow={4}
-          itemsToScroll={1}
-          pagination={false}
-          breakPoints={breakPoints}
-          renderArrow={myArrow}
-        >
-          {submissionNewData.map((data: any) => (
-            <SubmissionQuarterly
-              color={data.color}
-              status={data.status}
-              employeesName={data.employeesName}
-              employeesPosition={data.employeesPosition}
-              employerName={data.employerName}
-              employerPosition={data.employerPosition}
-              date={data.date}
-              savedSubmission={false}
-            />
-          ))}
-        </Carousel>
-      </Box>
-      <Box>
-        <Carousel
-          isRTL={false}
-          itemsToShow={4}
-          itemsToScroll={1}
-          pagination={false}
-          breakPoints={breakPoints}
-          renderArrow={myArrow}
-        >
-          {submissionReadData.map((data: any) => (
-            <SubmissionQuarterly
-              color={data.color}
-              status={data.status}
-              employeesName={data.employeesName}
-              employeesPosition={data.employeesPosition}
-              employerName={data.employerName}
-              employerPosition={data.employerPosition}
-              date={data.date}
-              savedSubmission={true}
-            />
-          ))}
-        </Carousel>
-      </Box>
-      <Box>
-        <Carousel
-          isRTL={false}
-          itemsToShow={4}
-          itemsToScroll={1}
-          pagination={false}
-          breakPoints={breakPoints}
-          renderArrow={myArrow}
-        >
-          {submissionNotFinished.map((data: any) => (
-            <SubmissionQuarterly
-              color={data.color}
-              status={data.status}
-              employeesName={data.employeesName}
-              employeesPosition={data.employeesPosition}
-              employerName={data.employerName}
-              employerPosition={data.employerPosition}
-              date={data.date}
-              savedSubmission={false}
-            />
-          ))}
-        </Carousel>
-      </Box>
+
+      <Carousel
+        isRTL={false}
+        itemsToShow={4}
+        itemsToScroll={1}
+        pagination={false}
+        breakPoints={breakPoints}
+        renderArrow={myArrow}
+      >
+        {submissionNewData.map((data) => (
+          <SubmissionQuarterly
+            color={data.color}
+            status={data.status}
+            employeesName={data.employeesName}
+            employeesPosition={data.employeesPosition}
+            employerName={data.employerName}
+            employerPosition={data.employerPosition}
+            date={data.date}
+            savedSubmission={false}
+          />
+        ))}
+      </Carousel>
+
+      <Carousel
+        isRTL={false}
+        itemsToShow={4}
+        itemsToScroll={1}
+        pagination={false}
+        breakPoints={breakPoints}
+        renderArrow={myArrow}
+      >
+        {submissionReadData.map((data) => (
+          <SubmissionQuarterly
+            color={data.color}
+            status={data.status}
+            employeesName={data.employeesName}
+            employeesPosition={data.employeesPosition}
+            employerName={data.employerName}
+            employerPosition={data.employerPosition}
+            date={data.date}
+            savedSubmission={true}
+          />
+        ))}
+      </Carousel>
+
+      <Carousel
+        isRTL={false}
+        itemsToShow={4}
+        itemsToScroll={1}
+        pagination={false}
+        breakPoints={breakPoints}
+        renderArrow={myArrow}
+      >
+        {submissionNotFinished.map((data) => (
+          <SubmissionQuarterly
+            color={data.color}
+            status={data.status}
+            employeesName={data.employeesName}
+            employeesPosition={data.employeesPosition}
+            employerName={data.employerName}
+            employerPosition={data.employerPosition}
+            date={data.date}
+            savedSubmission={false}
+          />
+        ))}
+      </Carousel>
     </Box>
   );
 };

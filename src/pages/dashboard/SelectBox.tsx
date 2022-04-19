@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, {SelectChangeEvent} from "@mui/material/Select";
-import {useSelectBox} from "../../assets/styleJs/dashboard/selectBox";
-import {v4 as uuidv4} from 'uuid';
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { useSelectBox } from "../../assets/styleJs/dashboard/selectBox";
+import { v4 as uuidv4 } from "uuid";
 
 interface SelectItems {
   id: string;
@@ -34,7 +34,7 @@ const SelectBox = () => {
     setTitle(event.target.value as string);
   };
   return (
-    <Box className={classes.useSelectBox}>
+    <Box className={classes.selectBox}>
       <FormControl fullWidth size="small">
         <InputLabel id="demo-simple-select-label">
           Search by Event title
