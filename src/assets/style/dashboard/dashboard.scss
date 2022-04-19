@@ -62,19 +62,19 @@
   position: relative;
 }
 
-.rec.rec-carousel button:first-child {
+.rec.rec-carousel > button:first-child {
   position: absolute;
   left: $posLeft0;
   top: $posTopM30;
 }
 
-.rec.rec-carousel button:last-child {
+.rec.rec-carousel > button:last-child {
   position: absolute;
   right: $posRight0;
   top: $posTopM30;
 }
 
-.rec.rec-carousel button:disabled {
+.rec.rec-carousel > button:disabled {
   visibility: hidden;
 }
 

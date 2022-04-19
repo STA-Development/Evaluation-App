@@ -2,15 +2,28 @@ import React from "react";
 import { Box, Button, Divider, Typography } from "@mui/material";
 import useSubmissionsStyle from "../../../../assets/styleJs/submissions/submissions";
 
-const SubmissionQuarterly = () => {
+const SubmissionQuarterly = ({
+  color,
+  status,
+  employeesName,
+  employeesPosition,
+  employerName,
+  employerPosition,
+  date,
+  savedSubmission,
+}: any) => {
   const classes = useSubmissionsStyle();
   return (
-    <Box className="submission__quarterly border__color_red">
+    <Box className={`submission__quarterly border__color_${color}`}>
       <Box className="submission__quarterly_categories">
-        <Typography variant="h6" component="h6">
-          NEW
+        <Typography
+          variant="h6"
+          component="h6"
+          className={`${classes.statusName} status__color_${color}`}
+        >
+          {status}
         </Typography>
-        <Typography>Submitted on : Nov 9</Typography>
+        <Typography>Submitted on : {date}</Typography>
       </Box>
 
       <Typography className={classes.header} variant="h4" component="h4">
@@ -25,10 +38,10 @@ const SubmissionQuarterly = () => {
             variant="h5"
             component="h5"
           >
-            Jenny Cooper
+            {employeesName}
           </Typography>
           <Typography className={classes.evaluatorPosition}>
-            UI UX Designer
+            {employeesPosition}
           </Typography>
 
           <Typography className={classes.submitedReview}>
@@ -40,13 +53,13 @@ const SubmissionQuarterly = () => {
             variant="h5"
             component="h5"
           >
-            Anna Adams
+            {employerName}
           </Typography>
           <Typography className={classes.evaluatorPosition}>
-            Project Manager
+            {employerPosition}
           </Typography>
           <Typography className={classes.savedSubmission}>
-            Saved Submission
+            {savedSubmission && "Saved Submission"}
           </Typography>
         </Box>
         <Box className={classes.viewFormBox}>
