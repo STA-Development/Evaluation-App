@@ -7,8 +7,8 @@ import CreateEvent from "../pages/events/createEvents/CreateEvent";
 import {CreateEventCriteria} from "../pages/events/createEvents/CreateEventCriteria";
 import Homepage from "../pages/Homepage";
 
-const PrivateRouts = () => {
-  return (
+const PrivateRouts = () => (
+
     <Routes>
       <Route path="/" element={<Homepage/>}>
         <Route path="dashboard" element={<Dashboard/>}/>
@@ -19,7 +19,6 @@ const PrivateRouts = () => {
       </Route>
     </Routes>
 
-  );
-};
+  )
 
-export default PrivateRouts;
+export default PrivateRouts
