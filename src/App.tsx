@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React  from "react";
 import "./App.css";
 import { Box } from "@mui/material";
 import PublicRoutes from "./routes/PublicRoutes";
@@ -10,26 +10,24 @@ import { removeUser, setUser } from "./redux/user/userSlice";
 import { selectUserId } from "./redux/selectors";
 import {ContextProvider} from "./pages/events/createEvents/EventsContext";
 
-function App() {
-  const dispatch = useAppDispatch();
-  const userId = useAppSelector(selectUserId);
+const App = () => {
+  const dispatch = useAppDispatch()
+  const userId = useAppSelector(selectUserId)
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(
-          setUser({
-            user: user.displayName,
-            uid: user.uid,
-            email: user.email,
-            token: user.refreshToken,
-          })
-        );
-      } else {
-        dispatch(removeUser());
-      }
-    });
-  }, [auth, dispatch]);
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      dispatch(
+        setUser({
+          user: user.displayName,
+          uid: user.uid,
+          email: user.email,
+          token: user.refreshToken,
+        }),
+      )
+    } else {
+      dispatch(removeUser())
+    }
+  })
 
   return (
     <ContextProvider>
@@ -39,4 +37,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
