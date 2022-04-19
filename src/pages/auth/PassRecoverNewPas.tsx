@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import {Box, Button, FormGroup, Grid, Paper, TextField, Typography} from '@mui/material'
-import {useStyles} from '../../assets/styleJs/auth/signUp'
-import ChangePassword from '../../assets/images/auth/ChangePassword'
 import {confirmPasswordReset} from 'firebase/auth'
-import {auth} from '../../data/firebase'
 import {useLocation, useNavigate} from 'react-router-dom'
+import {Box, Button, FormGroup, Grid, Paper, TextField, Typography} from '@mui/material'
+import {auth} from '../../data/firebase'
+import useStyles from '../../assets/styleJs/auth/signUp'
+import ChangePassword from '../../assets/images/auth/ChangePassword'
 
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 
@@ -18,26 +18,21 @@ const PassRecoverNewPas = () => {
   const location = useLocation()
 
   const getParameterByName = (name: string) => {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]')
-    let regexS = '[\\?&]' + name + '=([^&#]*)'
-    let regex = new RegExp(regexS)
-    let results = regex.exec(location.search)
+    const replaceName = name.replace(/[\\[]/, '\\[').replace(/[\]]/, '\\]')
+    const regexS = `[\\?&]${replaceName}=([^&#]*)`
+    const regex = new RegExp(regexS)
+    const results = regex.exec(location.search)
     if (results == null) return ''
-    else return decodeURIComponent(results[1].replace(/\+/g, ' '))
+    return decodeURIComponent(results[1].replace(/\+/g, ' '))
   }
-  let actionCode = getParameterByName('oobCode')
+  const actionCode = getParameterByName('oobCode')
 
   const handleResetPassword = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     if (resetPass === confirmPass) {
       confirmPasswordReset(auth, actionCode, resetPass)
-        .then((resp) => {
-          console.log(resp)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+
       setResetPass('')
       setConfirmPass('')
       navigate('/password-changed')

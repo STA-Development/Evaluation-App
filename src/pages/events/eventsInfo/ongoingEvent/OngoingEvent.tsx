@@ -1,36 +1,28 @@
-import React from "react";
-import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
-import { Box, Button, Divider, Grid, Typography } from "@mui/material";
-import { NavLink } from "react-router-dom";
-import { useGlobalTheme } from "../../../../assets/style/globalVariables";
-import { useDashboardStyles } from "../../../../assets/styleJs/dashboard/dashboard";
-import { useEventsStyle } from "../../../../assets/styleJs/events/events";
-import ProgressBar from "react-customizable-progressbar";
-import { data } from "./ongoindEventData";
+import React from 'react'
+import {ArcElement, Chart as ChartJS, Legend, Tooltip} from 'chart.js'
+import {Box, Button, Divider, Grid, Typography} from '@mui/material'
+import {NavLink} from 'react-router-dom'
+import ProgressBar from 'react-customizable-progressbar'
+import {useGlobalTheme} from '../../../../assets/style/globalVariables'
+import useDashboardStyles from '../../../../assets/styleJs/dashboard/dashboard'
+import useEventsStyle from '../../../../assets/styleJs/events/events'
+import {data} from './ongoindEventData'
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend)
 
 const OngoingEvent = () => {
-  const eventClass = useEventsStyle();
-  const globalClasses = useGlobalTheme();
-  const classes = useDashboardStyles();
+  const eventClass = useEventsStyle()
+  const globalClasses = useGlobalTheme()
+  const classes = useDashboardStyles()
 
   return (
     <Box>
       <Box className="events__header">
-        <Typography
-          variant="h4"
-          component="h4"
-          className={classes.overviewHeader}
-        >
+        <Typography variant="h4" component="h4" className={classes.overviewHeader}>
           Ongoing Events
         </Typography>
-        <NavLink className="text__decoration_none" to={"/"}>
-          <Button
-            variant="contained"
-            size="large"
-            className={globalClasses.button}
-          >
+        <NavLink className="text__decoration_none" to="/">
+          <Button variant="contained" size="large" className={globalClasses.button}>
             CREATE EVENT
           </Button>
         </NavLink>
@@ -87,7 +79,7 @@ const OngoingEvent = () => {
         ))}
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default OngoingEvent;
+export default OngoingEvent

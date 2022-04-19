@@ -1,11 +1,11 @@
-import React from "react";
-import DashboardEventActive from "./DashboardEventActive";
-import { Box, Grid, Typography } from "@mui/material";
-import DashboardNotEvaluated from "./DashboardNotEvaluated";
-import { useDashboardStyles } from "../../../assets/styleJs/dashboard/dashboard";
+import React from 'react'
+import {Box, Grid, Typography} from '@mui/material'
+import DashboardEventActive from './DashboardEventActive'
+import DashboardNotEvaluated from './DashboardNotEvaluated'
+import useDashboardStyles from '../../../assets/styleJs/dashboard/dashboard'
 
 const OverviewDashboard = () => {
-  const classes = useDashboardStyles();
+  const classes = useDashboardStyles()
   return (
     <Box>
       <Typography
@@ -17,14 +17,14 @@ const OverviewDashboard = () => {
       </Typography>
       <Grid container spacing={2}>
         <Grid item md={6} sm={12}>
-          <DashboardEventActive/>
+          <DashboardEventActive />
         </Grid>
         <Grid item md={6} sm={12}>
-          <DashboardNotEvaluated/>
+          <DashboardNotEvaluated />
         </Grid>
       </Grid>
     </Box>
-  );
-};
+  )
+}
 
-export default OverviewDashboard;
+export default OverviewDashboard

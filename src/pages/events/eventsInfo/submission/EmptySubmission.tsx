@@ -1,10 +1,10 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
-import { useEventsStyle } from "../../../../assets/styleJs/events/events";
-import EventEmptySubmission from "../../../../assets/images/Icons/EventEmptySubmission";
+import React from 'react'
+import {Box, Typography} from '@mui/material'
+import useEventsStyle from '../../../../assets/styleJs/events/events'
+import EventEmptySubmission from '../../../../assets/images/Icons/EventEmptySubmission'
 
 const EmptySubmission = () => {
-  const classes = useEventsStyle();
+  const classes = useEventsStyle()
   return (
     <Box className={classes.eventContent}>
       <Box>
@@ -15,12 +15,11 @@ const EmptySubmission = () => {
           No one submitted their evaluation form yet.
         </Typography>
         <Typography className={classes.text2}>
-          As soon as evaluator submits the form , you will be able to review it
-          here.{" "}
+          As soon as evaluator submits the form , you will be able to review it here.{' '}
         </Typography>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default EmptySubmission;
+export default EmptySubmission
