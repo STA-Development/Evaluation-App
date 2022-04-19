@@ -28,12 +28,6 @@ const Sidebar = () => {
     e.preventDefault()
     if (userId) {
       signOut(auth)
-        .then((out) => {
-          console.log(out)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
       navigate('/')
     }
   }

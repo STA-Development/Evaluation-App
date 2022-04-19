@@ -32,12 +32,7 @@ const PassRecoverNewPas = () => {
 
     if (resetPass === confirmPass) {
       confirmPasswordReset(auth, actionCode, resetPass)
-        .then((resp) => {
-          console.log(resp)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+
       setResetPass('')
       setConfirmPass('')
       navigate('/password-changed')
