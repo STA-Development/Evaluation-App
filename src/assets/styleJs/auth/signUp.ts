@@ -1,15 +1,15 @@
-import { makeStyles } from "@mui/styles";
-import { color, font, margin, position } from "../../style/globalVariables";
+import {makeStyles} from '@mui/styles'
+import {color, font, margin, position} from '../../style/globalVariables'
 
-export const useStyles = makeStyles({
+const useStyles = makeStyles({
   authInput: {
     color: color.grayColor,
     fontSize: font.fontSize14,
     marginBottom: margin.marginBottom25,
-    "& label": {
+    '& label': {
       fontSize: font.fontSize14,
     },
-    "&:nth-child(3)": {
+    '&:nth-child(3)': {
       marginBottom: margin.marginBottom10,
     },
   },
@@ -20,15 +20,15 @@ export const useStyles = makeStyles({
     fontSize: font.fontSize14,
   },
   signUpRightGrid: {
-    display: "flex",
-    justifyContent: "flex-end",
+    display: 'flex',
+    justifyContent: 'flex-end',
   },
   recPassLabel: {
     margin: 0,
   },
   passRecGrid: {
-    display: "flex",
-    justifyContent: "center",
+    display: 'flex',
+    justifyContent: 'center',
   },
   authText: {
     fontSize: font.fontSize16,
@@ -46,18 +46,20 @@ export const useStyles = makeStyles({
     marginBottom: margin.marginBottom20,
   },
   link: {
-    textDecoration: "none",
+    textDecoration: 'none',
     color: color.blueColor,
     fontWeight: font.fontWeight400,
-    "&:hover": {
-      textDecoration: "none",
+    '&:hover': {
+      textDecoration: 'none',
     },
   },
   changedButton: {
-    position: "absolute",
+    position: 'absolute',
     right: position.right20,
     top: position.top25,
     fontSize: font.fontSize18,
     color: color.textGrey,
   },
-});
+})
+
+export default useStyles

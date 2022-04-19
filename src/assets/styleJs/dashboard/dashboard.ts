@@ -1,46 +1,40 @@
-import { makeStyles } from "@mui/styles";
-import {
-  borderRedius,
-  color,
-  font,
-  margin,
-  padding,
-} from "../../style/globalVariables";
+import {makeStyles} from '@mui/styles'
+import {borderRedius, color, font, margin, padding} from '../../style/globalVariables'
 
-export const useDashboardStyles = makeStyles({
+const useDashboardStyles = makeStyles({
   dashboardPage: {
-    height: "100vh",
+    height: '100vh',
     padding: padding.paddingTop30,
   },
 
   dashboardContent: {
-    height: " calc(100vh - 191px)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
+    height: ' calc(100vh - 191px)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
   },
   dashText1: {
     marginTop: margin.marginTop25,
     fontWeight: font.fontWeight700,
-    fontFamily: "Montserrat",
+    fontFamily: 'Montserrat',
     fontSize: font.fontSize18,
   },
   dashText2: {
-    width: "365px",
-    textAlign: "center",
-    flexDirection: "column",
+    width: '365px',
+    textAlign: 'center',
+    flexDirection: 'column',
     fontWeight: font.fontWeight400,
-    fontFamily: "Montserrat",
+    fontFamily: 'Montserrat',
     fontSize: font.fontSize16,
     margin: margin.margin20,
   },
 
   dashboardEmptyText: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   paddingContent: {
     paddingTop: padding.paddingTop30,
@@ -50,14 +44,14 @@ export const useDashboardStyles = makeStyles({
     backgroundColor: color.whiteColor,
     boxShadow: `${margin.marginOverViewBox} ${color.overViewBoxshadow}`,
     borderRadius: borderRedius.overViewBox,
-    height: "340px",
+    height: '340px',
   },
   overViewTitle: {
-    height: "100%",
-    width: "2px",
+    height: '100%',
+    width: '2px',
     backgroundColor: color.overViewBoxColor,
-    opacity: "0.27",
-    display: "block",
+    opacity: '0.27',
+    display: 'block',
   },
   dashboardHeader: {
     fontSize: font.fontSize20,
@@ -87,18 +81,18 @@ export const useDashboardStyles = makeStyles({
   },
 
   sliderBoxListButton: {
-    display: "flex",
-    justifyContent: "space-around",
-    flexDirection: "column",
-    height: "100%",
+    display: 'flex',
+    justifyContent: 'space-around',
+    flexDirection: 'column',
+    height: '100%',
     color: color.textGrey,
     fontWeight: font.fontWeight400,
     padding: padding.padding0,
   },
   sliderBoxListItem: {
-    display: "flex",
-    justifyContent: "space-around",
-    flexDirection: "column",
+    display: 'flex',
+    justifyContent: 'space-around',
+    flexDirection: 'column',
   },
 
   sliderBoxCurrency: {
@@ -119,4 +113,6 @@ export const useDashboardStyles = makeStyles({
     color: color.textGrey,
     fontSize: font.fontSize14,
   },
-});
+})
+
+export default useDashboardStyles
