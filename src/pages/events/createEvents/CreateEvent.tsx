@@ -1,5 +1,17 @@
-import React, {FC, useContext, useState} from 'react';
-import {Box, Button, Checkbox, Grid, IconButton, Paper, TextField, TextFieldProps, Typography} from "@mui/material";
+import React, {FC, useContext, useState,} from 'react';
+import {useNavigate} from "react-router-dom";
+import {
+  Box,
+  Button,
+  Checkbox,
+  FormGroup,
+  Grid,
+  IconButton,
+  Paper,
+  TextField,
+  TextFieldProps,
+  Typography
+} from "@mui/material";
 import {useCreateEventStyles} from "../../../assets/styleJs/events/createEvent"
 import {v4 as uuidv4} from "uuid";
 import DeleteIcon from "../../../assets/images/Icons/DeleteIcon";
@@ -8,11 +20,12 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker'
 import CalendarIcon from "../../../assets/images/Icons/CalendarIcon";
 import {EventContext} from "./EventsContext";
+import HorizontalLabelPositionBelowStepper from "../createEventsPageComponenets/CreateEvetsStepper";
 
 
 const CreateEvent: FC = () => {
   const classes = useCreateEventStyles()
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const UseEventContext = () => useContext(EventContext)
   const {state, dispatch} = UseEventContext()
 
@@ -45,7 +58,7 @@ const CreateEvent: FC = () => {
     date: "Hire date",
     dateValue: null,
     salary: "Monthly Salary",
-    salaryValue: 0
+    salaryValue: null
   })
 
 
@@ -55,11 +68,9 @@ const CreateEvent: FC = () => {
     dispatch({type: 'Evaluators', payload: evaluatorsList})
     dispatch({type: 'Evaluatees', payload: evaluateesList})
     console.log(state)
-    // navigate("criteria")
+    navigate("criteria")
   }
-  // useEffect(() => {
-  //   console.log(state)
-  // }, [state])
+
 
   const label = {inputProps: {'aria-label': 'Checkbox demo'}}
 
@@ -139,6 +150,16 @@ const CreateEvent: FC = () => {
     setEvaluateesList(newArray)
   }
 
+  const handleEvaluatorsSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    renderEvaluators(evaluatorsCount)
+  }
+
+  const handleEvaluateesSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    renderEvaluatees(evaluateesCount)
+  }
+
   const renderEvaluators = (count: number) => {
     let found = false
     evaluatorsList.forEach(function (el: any) {
@@ -194,193 +215,118 @@ const CreateEvent: FC = () => {
   return (
 
     <div className={classes.rootCreateEvent}>
-
-      <Box className={classes.eventTitleBox}>
-        <Typography>Event Title:</Typography>
-        <TextField
-          InputLabelProps={{style: {fontSize: 14}}}
-          className={classes.createEventInput}
-          label="Event Title"
-          variant="outlined"
-          type="eventTitle"
-          fullWidth
-          size="small"
-          value={eventTitle}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setEventTitle(e.target.value)
-          }}
-        />
+      <Box className={classes.classesHeaderBox}>
+        <Box className={classes.headerTitle}>
+          <Typography className={classes.headerRegular}>
+            Events /
+          </Typography>
+          <Typography className={classes.headerTitleBold}>
+            Create Event
+          </Typography>
+        </Box>
+        <Box className={classes.createEventStepper}>
+          <HorizontalLabelPositionBelowStepper/>
+        </Box>
       </Box>
-      <Box className={classes.eventTitleBox}>
-        <Typography>Evaluators:</Typography>
-        <TextField
-          InputLabelProps={{
-            style: {
-              fontSize: 14
-            }
-          }}
-          className={classes.createEventInput}
-          label="Evaluators"
-          variant="outlined"
-          type="number"
-          fullWidth
-          size="small"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setEvaluatorsCount(e.target.value)
-          }}
-        /><Button type="submit" variant="contained" size="medium"
-                  onClick={() => {
-                    renderEvaluators(evaluatorsCount)
-                  }}>
-        ADD
-      </Button>
-      </Box>
-      <Box className={classes.eventTitleBox}>
-        <Checkbox {...label} checked={checked} onChange={handleChangeCheckbox}/>
-        <Typography>Include Top Manager as Evaluator </Typography>
-      </Box>
-      <Box className={classes.evaluatorsArr}>
-        <Grid container>
-          {evaluatorsList.map((item: any) => {
-            return (
-              <Paper key={item.id} className={classes.evaluatorCard}>
-                <Box className={classes.evaluatorCardHeader}>
-                  <Typography className={classes.evaluatorHeaderName}
-                  >
-                    {item.header}
-                  </Typography>
-                  <IconButton className={classes.deleteIconButton} onClick={() => {
-                    handleRemoveEvaluator(item)
-                  }} aria-label="delete">
-                    <DeleteIcon/>
-                  </IconButton>
-                </Box>
-                <Box>
-                  <TextField
-                    className={`${classes.evaluateeCardInput} ${classes.mt14}`}
-                    label={item.name}
-                    value={item.nameValue}
-                    variant="outlined"
-                    size="small"
-                    fullWidth
-                    onChange={(e) => onChangeEvaluatorName(item.id, e.target.value)}
-                  />
-                  <TextField
-                    className={`${classes.evaluateeCardInput} ${classes.mt20}`}
-                    label={item.position}
-                    value={item.positionValue}
-                    variant="outlined"
-                    size="small"
-                    fullWidth
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      onChangeEvaluatorPosition(item.id, e.target.value)
-                    }}
-                  />
-                  <TextField
-                    className={`${classes.evaluateeCardInput} ${classes.mt20}`}
-                    label={item.email}
-                    value={item.emailValue}
-                    variant="outlined"
-                    size="small"
-                    autoComplete="email"
-                    fullWidth
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      onChangeEvaluatorEmail(item.id, e.target.value)
-                    }}
-                  />
-                </Box>
-              </Paper>
-            )
-          })}
-        </Grid>
-      </Box>
-      <Box>
+      <Box className={classes.infoRootBox}>
         <Box className={classes.eventTitleBox}>
-          <Typography>Evaluatees:</Typography>
+          <Typography className={classes.eventTitleText}>Event Title:</Typography>
           <TextField
             InputLabelProps={{style: {fontSize: 14}}}
-            className={classes.createEventInput}
-            label="Evaluatees"
+            className={`${classes.eventTitleInput} textField-remove-border`}
+            label="Event Title"
             variant="outlined"
-            type="number"
+            type="input"
             fullWidth
             size="small"
+            value={eventTitle}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setEvaluateesCount(e.target.value)
+              setEventTitle(e.target.value)
             }}
-          /><Button type="submit" variant="contained" size="medium" onClick={() => {
-          renderEvaluatees(evaluateesCount)
-        }}>
-          ADD
-        </Button>
+          />
         </Box>
-        <Box className={classes.evaluateesArr}>
+        <Box className={classes.eventInfoBoxEvaluator}>
+          <Typography className={classes.evaluatorText}>Evaluators:</Typography>
+          <FormGroup className={classes.addButtonBox}>
+            <Box
+              component="form"
+              onSubmit={handleEvaluatorsSubmit}
+            >
+              <TextField
+                InputLabelProps={{
+                  style: {
+                    fontSize: 14
+                  }
+                }}
+                className={`${classes.evaluatorInput} textField-remove-border`}
+                label="Number of evaluators"
+                variant="outlined"
+                type="number"
+                fullWidth
+                size="small"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setEvaluatorsCount(e.target.value)
+                }}
+              /><Button className={classes.addButton} type="submit" variant="contained" size="medium"
+                        >
+              ADD
+            </Button>
+            </Box>
+          </FormGroup>
+        </Box>
+        <Box className={classes.checkboxManagerBox}>
+          <Checkbox style={{
+            color: "#00A3FF"
+          }} className={classes.checkbox} {...label} checked={checked} onChange={handleChangeCheckbox}/>
+          <Typography className={classes.managerText}>Include Top Manager as Evaluator </Typography>
+        </Box>
+        <Box className={classes.evaluatorsArr}>
           <Grid container>
-            {evaluateesList.map((item: any) => {
+            {evaluatorsList.map((item: any) => {
               return (
-                <Paper key={item.id} className={classes.evaluateeCard}>
-                  <Box className={classes.evaluateeCardHeader}>
-                    <Typography className={classes.evaluateeHeaderName}
+                <Paper key={item.id} className={classes.evaluatorCard}>
+                  <Box className={classes.evaluatorCardHeader}>
+                    <Typography className={classes.evaluatorHeaderName}
                     >
                       {item.header}
                     </Typography>
-                    <IconButton onClick={() => {
-                      handleRemoveEvaluatee(item)
+                    <IconButton className={classes.deleteIconButton} onClick={() => {
+                      handleRemoveEvaluator(item)
                     }} aria-label="delete">
                       <DeleteIcon/>
                     </IconButton>
                   </Box>
-                  <Box>
+                  <Box className={classes.evaluatorCardInputBox}>
                     <TextField
-                      className={`${classes.evaluateeCardInput} ${classes.mt14}`}
+                      className={classes.evaluateeCardInput}
                       label={item.name}
                       value={item.nameValue}
                       variant="outlined"
                       size="small"
                       fullWidth
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                        onChangeEvaluateeName(item.id, e.target.value)
-                      }}
+                      onChange={(e) => onChangeEvaluatorName(item.id, e.target.value)}
                     />
                     <TextField
-                      className={`${classes.evaluateeCardInput} ${classes.mt20}`}
+                      className={classes.evaluateeCardInput}
                       label={item.position}
                       value={item.positionValue}
                       variant="outlined"
                       size="small"
                       fullWidth
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                        onChangeEvaluateePosition(item.id, e.target.value)
+                        onChangeEvaluatorPosition(item.id, e.target.value)
                       }}
                     />
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      <DesktopDatePicker
-                        components={{
-                          OpenPickerIcon: CalendarIcon
-                        }}
-                        label={item.date}
-                        inputFormat="MM/dd/yyyy"
-                        value={item.dateValue}
-                        onChange={(event: any) => {
-                          onChangeEvaluateeDate(item.id, event);
-                        }}
-                        renderInput={(params: JSX.IntrinsicAttributes & TextFieldProps) =>
-                          <TextField size='small'
-                                     className={`${classes.evaluateeCardInput} ${classes.mt20}`}
-                                     {...params}
-                          />}
-                      />
-                    </LocalizationProvider>
                     <TextField
-                      className={`${classes.evaluateeCardInput} ${classes.mt20}`}
-                      label={item.salary}
-                      value={item.salaryValue}
+                      className={classes.evaluateeCardInput}
+                      label={item.email}
+                      value={item.emailValue}
                       variant="outlined"
                       size="small"
-                      type="number"
+                      autoComplete="email"
                       fullWidth
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                        onChangeEvaluateeSalary(item.id, e.target.value)
+                        onChangeEvaluatorEmail(item.id, e.target.value)
                       }}
                     />
                   </Box>
@@ -389,9 +335,111 @@ const CreateEvent: FC = () => {
             })}
           </Grid>
         </Box>
-      </Box>
-      <Box>
-        <Button type="submit" variant="contained" size="medium" onClick={navigateToCriteriasAndSendDataToContext}>
+        <Box>
+          <Box className={classes.eventInfoBoxEvaluatee}>
+            <Typography className={classes.evaluatorText}>Evaluatees:</Typography>
+            <FormGroup className={classes.addButtonBox}>
+            <Box
+              component="form"
+              onSubmit={handleEvaluateesSubmit}>
+              <TextField
+                InputLabelProps={{style: {fontSize: 14}}}
+                className={`${classes.evaluatorInput} textField-remove-border`}
+                label="Number of evaluatees"
+                variant="outlined"
+                type="number"
+                fullWidth
+                size="small"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setEvaluateesCount(e.target.value)
+                }}
+              /><Button className={classes.addButton} type="submit" variant="contained" size="medium" >
+              ADD
+            </Button>
+            </Box>
+            </FormGroup>
+          </Box>
+          <Box className={classes.evaluateesArr}>
+            <Grid container>
+              {evaluateesList.map((item: any) => {
+                return (
+                  <Paper key={item.id} className={classes.evaluateeCard}>
+                    <Box className={classes.evaluateeCardHeader}>
+                      <Typography className={classes.evaluateeHeaderName}
+                      >
+                        {item.header}
+                      </Typography>
+                      <IconButton onClick={() => {
+                        handleRemoveEvaluatee(item)
+                      }} aria-label="delete">
+                        <DeleteIcon/>
+                      </IconButton>
+                    </Box>
+                    <Box className={classes.evaluateeCardInputBox}>
+                      <TextField
+                        className={classes.evaluateeCardInput}
+                        label={item.name}
+                        value={item.nameValue}
+                        variant="outlined"
+                        size="small"
+                        fullWidth
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                          onChangeEvaluateeName(item.id, e.target.value)
+                        }}
+                      />
+                      <TextField
+                        className={classes.evaluateeCardInput}
+                        label={item.position}
+                        value={item.positionValue}
+                        variant="outlined"
+                        size="small"
+                        fullWidth
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                          onChangeEvaluateePosition(item.id, e.target.value)
+                        }}
+                      />
+                      <LocalizationProvider dateAdapter={AdapterDateFns}>
+                        <DesktopDatePicker
+                          components={{
+                            OpenPickerIcon: CalendarIcon
+                          }}
+                          label={item.date}
+                          inputFormat="MM/dd/yyyy"
+                          value={item.dateValue}
+                          onChange={(event: any) => {
+                            onChangeEvaluateeDate(item.id, event);
+                          }}
+                          renderInput={(params: JSX.IntrinsicAttributes & TextFieldProps) =>
+                            <TextField size='small'
+                                       className={classes.evaluateeCardInput}
+                                       {...params}
+                            />}
+                        />
+                      </LocalizationProvider>
+                      <TextField
+                        className={classes.evaluateeCardInput}
+                        label={item.salary}
+                        value={item.salaryValue}
+                        variant="outlined"
+                        size="small"
+                        type="number"
+                        fullWidth
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                          onChangeEvaluateeSalary(item.id, e.target.value)
+                        }}
+                      />
+                    </Box>
+                  </Paper>
+                )
+              })}
+            </Grid>
+          </Box>
+        </Box>
+        <Box>
+        </Box>
+
+        <Button className={classes.nextButton} type="submit" variant="contained" size="medium"
+                onClick={navigateToCriteriasAndSendDataToContext}>
           NEXT
         </Button>
       </Box>

@@ -15,7 +15,7 @@ const PrivateRouts = () => {
         <Route path="events" element={<Events/>}/>
         <Route path="reports" element={<Reports/>}/>
         <Route path="events-create" element={<CreateEvent/>}/>
-        <Route path="criteria" element={<CreateEventCriteria/>}/>
+        <Route path="events-create/criteria" element={<CreateEventCriteria/>}/>
       </Route>
     </Routes>
 

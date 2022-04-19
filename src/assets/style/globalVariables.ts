@@ -30,6 +30,7 @@ export const color = {
   closeButton: "#4F4F4F",
   overViewBoxshadow: "rgba(0, 0, 0, 0.15)",
   overViewBoxColor: "#1F6F8B",
+  tableBorderColor: "#BDBDBD"
 };
 
 export const margin = {
@@ -37,19 +38,33 @@ export const margin = {
   marginTopBottom20: "20px",
   marginTopBottom5: "5px",
   marginLeftRight0: "0px",
+  marginBottom85: "85px",
+  marginBottom40: "40px",
   marginBottom35: "35px",
   marginBottom30: "30px",
   marginBottom25: "25px",
   marginBottom20: "20px",
+  marginBottom16: "16px",
   marginBottom15: "15px",
   marginBottom10: "10px",
   marginTop50: "50px",
+  marginTop30: "30px",
   marginTop25: "25px",
   marginTop20: "20px",
+  marginTop15: "15px",
+  marginTop10: "10px",
+  marginRight8: "8px",
+  marginRight15: "15px",
+  marginRight16: "16px",
   marginRight18: "18px",
   marginRight20: "20px",
+  marginRight35: "35px",
+  marginRight40: "40px",
   margin20: "20px",
   marginOverViewBox: "0px 4px 4px",
+  marginLeft2: "2px",
+  marginLeft3: "3px",
+  marginLeft15: "15px",
   marginLeft30: "30px",
 };
 
@@ -73,6 +88,14 @@ export const borderRedius = {
   bottomRight50: "50px",
   bottomLeft0: "0px",
   overViewBox: "10px",
+  top4: "4px",
+  right0: "0px",
+  bottom0: "0px",
+  left4: "4px",
+  top0: "0px",
+  right4: "4px",
+  bottom4: "4px",
+  left0: "0px"
 };
 
 export const position = {
