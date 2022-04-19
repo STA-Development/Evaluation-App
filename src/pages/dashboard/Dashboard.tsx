@@ -8,7 +8,7 @@ import { useGlobalTheme } from "../../assets/style/globalVariables";
 const Dashboard = () => {
   const classes = useDashboardStyles();
   const globalClasses = useGlobalTheme();
-  const [hasInfo, setHasInfo] = useState<boolean>(false);
+  const [hasInfo] = useState<boolean>(false);
 
   return (
     <Box className={classes.dashboardPage}>
