@@ -74,6 +74,7 @@ const Sidebar = () => {
                     </ListItemIcon>
                     <ListItemText
                       className={classes.itemText}
+
                       primary={item.name}
                     />
                   </Box>
