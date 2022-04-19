@@ -1,5 +1,58 @@
+.submission {
+
+  .rec.rec-carousel-wrapper {
+    position: relative;
+
+  }
+
+  .rec.rec-carousel > button:first-child {
+    position: absolute;
+    left: $posLeft0;
+    top: 0;
+  }
+
+  .rec.rec-carousel > button:last-child {
+    position: absolute;
+    right: $posRight0;
+    top: 0;
+  }
+
+  .rec.rec-carousel > button:disabled {
+    visibility: hidden;
+    margin-bottom: 30px;
+  }
+
+  .rec .rec-arrow-left {
+    position: absolute;
+    top: $posTopM20;
+    left: $posLeft0;
+    border: none;
+    border-radius: $borderRadius0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .rec.rec-slider-container {
+    margin: $margin0;
+  }
+
+  .rec.rec-carousel-item > div {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .rec-carousel .rec-item-wrapper {
+    height: 260px;
+  }
+
+  .rec.rec-carousel {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+
 .submission__quarterly {
-  margin: $marginTopBottom40 $marginLeftRight0;
   width: 270px;
   height: 251px;
   border-top: 8px solid transparent;
@@ -14,11 +67,6 @@
     align-items: center;
     margin-bottom: $marginBottom5;
 
-    h6 {
-      color: $submissionNewColor;
-      font-size: $fontSize10;
-      font-weight: $fontWeight700;
-    }
 
     p {
       font-size: $fontSize8;
@@ -32,6 +80,8 @@
     color: $greyColor;
 
   }
+
+
 }
 
 .border__color_red {
@@ -39,10 +89,23 @@
 }
 
 .border__color_green {
-  background-color: $submissionReadColor;
+  border-top-color: $submissionReadColor;
 }
 
 .border__color_orange {
-  background-color: $submissionNotFinishedColor;
+  border-top-color: $submissionNotFinishedColor;
+}
+
+.status__color_red {
+  color: $submissionNewColor;
+
+}
+
+.status__color_green {
+  color: $submissionReadColor;
+}
+
+.status__color_orange {
+  color: $submissionNotFinishedColor;
 }
 

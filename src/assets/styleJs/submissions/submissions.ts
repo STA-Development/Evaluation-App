@@ -38,6 +38,12 @@ const useSubmissionsStyle = makeStyles({
     padding: 0,
     fontSize: font.fontSize12,
   },
+
+  statusName: {
+    fontSize: font.fontSize10,
+    fontWeight: font.fontWeight700,
+    textTransform: "uppercase",
+  },
 });
 
 export default useSubmissionsStyle;
