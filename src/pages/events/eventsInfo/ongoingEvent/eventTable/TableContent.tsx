@@ -4,11 +4,11 @@ import TableHeader from './TableHeader'
 import Report from './Report'
 
 interface RowsInfo {
-  status: string | number
-  name: string | number
-  date: string | number
-  evaluators: string | number
-  evaluates: string | number
+  status: string
+  name: string
+  date: string
+  evaluators: string
+  evaluates: string
   report: any
 }
 

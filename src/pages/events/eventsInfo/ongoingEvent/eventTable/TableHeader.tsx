@@ -38,7 +38,6 @@ const headCells = [
 
 const TableHeader = ({valueToOrderBy, orderDirection, handleRequestSort}: any) => {
   const classes = useEventsStyle()
-  console.log(typeof orderDirection)
   const createSortHandler = (property: string | undefined) => (e: object) => {
     handleRequestSort(e, property)
   }

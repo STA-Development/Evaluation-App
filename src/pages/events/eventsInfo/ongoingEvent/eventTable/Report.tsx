@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom'
 
 const Report = () => (
   <Box className="report__box">
-    <Link to="">See Report</Link>
-    <Link to="">Restart</Link>
+    <Link to="/">See Report</Link>
+    <Link to="/">Restart</Link>
   </Box>
 )
 
