@@ -1,10 +1,10 @@
 import React from "react";
-import {Box, ListItem, ListItemButton, Typography} from "@mui/material";
 import Carousel from "react-elastic-carousel";
-import {useDashboardStyles} from "../../assets/styleJs/dashboard/dashboard";
+import { Box, ListItem, ListItemButton, Typography } from "@mui/material";
+import { useDashboardStyles } from "../../assets/styleJs/dashboard/dashboard";
 import RightArrowIcon from "../../assets/images/Icons/RightArrowIcon";
 import LeftArrowIcon from "../../assets/images/Icons/LeftArrowIcon";
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 interface Arrow {
   type?: string;
@@ -15,8 +15,8 @@ interface Arrow {
 const SliderPerformers = () => {
   const classes = useDashboardStyles();
 
-  const myArrow = ({type, onClick, isEdge}: Arrow) => {
-    const pointer = type === "PREV" ? <LeftArrowIcon/> : <RightArrowIcon/>;
+  const myArrow = ({ type, onClick, isEdge }: Arrow) => {
+    const pointer = type === "PREV" ? <LeftArrowIcon /> : <RightArrowIcon />;
     return (
       <button onClick={onClick} disabled={isEdge}>
         {pointer}
