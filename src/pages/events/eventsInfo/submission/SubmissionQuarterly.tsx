@@ -1,6 +1,17 @@
-import React from "react";
-import { Box, Button, Divider, Typography } from "@mui/material";
-import useSubmissionsStyle from "../../../../assets/styleJs/submissions/submissions";
+import React from 'react'
+import {Box, Button, Divider, Typography} from '@mui/material'
+import useSubmissionsStyle from '../../../../assets/styleJs/submissions/submissions'
+
+interface SubmissionDataTypes {
+  color: string
+  status: string
+  employeesName: string
+  employeesPosition: string
+  employerName: string
+  employerPosition: string
+  date: string
+  savedSubmission: boolean
+}
 
 const SubmissionQuarterly = ({
   color,
@@ -9,10 +20,10 @@ const SubmissionQuarterly = ({
   employeesPosition,
   employerName,
   employerPosition,
-  date,
   savedSubmission,
-}: any) => {
-  const classes = useSubmissionsStyle();
+  date,
+}: SubmissionDataTypes) => {
+  const classes = useSubmissionsStyle()
 
   return (
     <Box className={`submission__quarterly border__color_${color}`}>
@@ -34,47 +45,29 @@ const SubmissionQuarterly = ({
 
       <Box className="submission__quarterly_evaluators">
         <Box>
-          <Typography
-            className={classes.evaluatorName}
-            variant="h5"
-            component="h5"
-          >
+          <Typography className={classes.evaluatorName} variant="h5" component="h5">
             {employeesName}
           </Typography>
-          <Typography className={classes.evaluatorPosition}>
-            {employeesPosition}
-          </Typography>
+          <Typography className={classes.evaluatorPosition}>{employeesPosition}</Typography>
 
-          <Typography className={classes.submitedReview}>
-            submitted review for
-          </Typography>
+          <Typography className={classes.submitedReview}>submitted review for</Typography>
 
-          <Typography
-            className={classes.evaluatorName}
-            variant="h5"
-            component="h5"
-          >
+          <Typography className={classes.evaluatorName} variant="h5" component="h5">
             {employerName}
           </Typography>
-          <Typography className={classes.evaluatorPosition}>
-            {employerPosition}
-          </Typography>
+          <Typography className={classes.evaluatorPosition}>{employerPosition}</Typography>
           <Typography className={classes.savedSubmission}>
-            {savedSubmission && "Saved Submission"}
+            {savedSubmission && 'Saved Submission'}
           </Typography>
         </Box>
-        <Box
-          className={
-            savedSubmission ? classes.viewFormBox : classes.viewButtonDown
-          }
-        >
+        <Box className={savedSubmission ? classes.viewFormBox : classes.viewButtonDown}>
           <Button variant="text" className={classes.viewFormButton}>
             View form
           </Button>
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default SubmissionQuarterly;
+export default SubmissionQuarterly

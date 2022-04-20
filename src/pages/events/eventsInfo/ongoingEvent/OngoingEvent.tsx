@@ -6,7 +6,7 @@ import ProgressBar from 'react-customizable-progressbar'
 import {useGlobalTheme} from '../../../../assets/style/globalVariables'
 import useDashboardStyles from '../../../../assets/styleJs/dashboard/dashboard'
 import useEventsStyle from '../../../../assets/styleJs/events/events'
-import {data} from './ongoindEventData'
+import data from './ongoindEventData'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
