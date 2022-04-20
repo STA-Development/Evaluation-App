@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Box,
   Paper,
   Table,
   TableBody,
@@ -9,95 +8,65 @@ import {
   TableRow,
 } from "@mui/material";
 import TableHeader from "./TableHeader";
-import { Link } from "react-router-dom";
+import Report from "./Report";
 
 interface RowsInfo {
-  status: string;
-  name: string;
-  date: string;
-  evaluators: string;
-  evaluatees: string;
-  report: object;
+  status: string | number;
+  name: string | number;
+  date: string | number;
+  evaluators: string | number;
+  evaluates: string | number;
+  report: any;
 }
 
-const rowInformation: RowsInfo[] = [
+const rows: RowsInfo[] = [
   {
     status: "Upcoming",
     name: "Quarter Evoluation",
     date: "Good Date",
     evaluators: "Evaluators",
-    evaluatees: "Evaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "Evaluatees",
+    report: <Report />,
   },
   {
     status: "apcoming",
     name: "cuarter Evoluation",
     date: "Date",
     evaluators: "Evaluators",
-    evaluatees: "Evaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "Evaluatees",
+    report: <Report />,
   },
   {
     status: "vpcoming",
     name: "cuarter Evoluation",
     date: "Date",
     evaluators: "Evaluators",
-    evaluatees: "dEvaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "dEvaluatees",
+    report: <Report />,
   },
   {
     status: "vpcoming",
     name: "cuarter Evoluation",
     date: "Date",
     evaluators: "6Evaluators",
-    evaluatees: "Evaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "Evaluatees",
+    report: <Report />,
   },
   {
     status: "apcoming",
     name: "cuarter Evoluation",
     date: "Date",
     evaluators: "cEvaluators",
-    evaluatees: "Evaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "Evaluatees",
+    report: <Report />,
   },
   {
     status: "apcoming",
     name: "cuarter Evoluation",
     date: "Date",
     evaluators: "Evaluators",
-    evaluatees: "Evaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "Evaluatees",
+    report: <Report />,
   },
 
   {
@@ -105,91 +74,56 @@ const rowInformation: RowsInfo[] = [
     name: "cuarter Evoluation",
     date: "fdDate",
     evaluators: "asdEvaluators",
-    evaluatees: "zEvaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "zEvaluatees",
+    report: <Report />,
   },
   {
     status: "apcoming",
     name: "cuarter Evoluation",
     date: "zDate",
     evaluators: "dfgdsEvaluators",
-    evaluatees: "zEvaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "zEvaluatees",
+    report: <Report />,
   },
   {
     status: "apcoming",
     name: "cuarter Evoluation",
     date: "zDate",
     evaluators: "dfgdsEvaluators",
-    evaluatees: "zEvaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "zEvaluatees",
+    report: <Report />,
   },
   {
     status: "apcoming",
     name: "cuarter Evoluation",
     date: "zDate",
     evaluators: "dfgdsEvaluators",
-    evaluatees: "zEvaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "zEvaluatees",
+    report: <Report />,
   },
   {
     status: "apcoming",
     name: "cuarter Evoluation",
     date: "zDate",
     evaluators: "dfgdsEvaluators",
-    evaluatees: "zEvaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "zEvaluatees",
+    report: <Report />,
   },
   {
     status: "apcoming",
     name: "cuarter Evoluation",
     date: "zDate",
     evaluators: "dfgdsEvaluators",
-    evaluatees: "zEvaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "zEvaluatees",
+    report: <Report />,
   },
   {
     status: "apcoming",
     name: "cuarter Evoluation",
     date: "zDate",
     evaluators: "dfgdsEvaluators",
-    evaluatees: "zEvaluatees",
-    report: (
-      <Box className="report__box">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "zEvaluatees",
+    report: <Report />,
   },
 
   {
@@ -197,28 +131,26 @@ const rowInformation: RowsInfo[] = [
     name: "cuarter Evoluation",
     date: "zDate",
     evaluators: "dfgdsEvaluators",
-    evaluatees: "zEvaluatees",
-    report: (
-      <Box className="report__box" component="span">
-        <Link to={""}>See Report</Link>
-        <Link to={""}>Restart</Link>
-      </Box>
-    ),
+    evaluates: "zEvaluatees",
+    report: <Report />,
   },
 ];
 
 const TableContent = () => {
-  const [orderDirection, setOrderDirection] = useState<string>("asc");
-  const [valueToOrderBy, setValueToOrderBy] = useState<string>("status");
+  const [orderDirection, setOrderDirection] = useState<Order>("asc");
+  const [valueToOrderBy, setValueToOrderBy] =
+    useState<keyof RowsInfo>("status");
 
-  const handleRequestSort = (e: object, property: string) => {
+  const handleRequestSort = (
+    event: React.MouseEvent<unknown>,
+    property: keyof RowsInfo
+  ) => {
+    const isAsc = valueToOrderBy === property && orderDirection === "asc";
+    setOrderDirection(isAsc ? "desc" : "asc");
     setValueToOrderBy(property);
-    const isAscending = valueToOrderBy === property && orderDirection === "asc";
-
-    setOrderDirection(isAscending ? "desc" : "asc");
   };
 
-  const descendingComporator = (a: any, b: any, orderBy: any) => {
+  function descendingComporator<T>(a: T, b: T, orderBy: keyof T) {
     if (b[orderBy] < a[orderBy]) {
       return -1;
     }
@@ -226,23 +158,37 @@ const TableContent = () => {
       return 1;
     }
     return 0;
-  };
+  }
 
-  const getComparator = (order: any, orderBy: any) => {
+  type Order = "asc" | "desc";
+
+  function getComparator<Key extends keyof any>(
+    order: Order,
+    orderBy: Key
+  ): (
+    a: { [key in Key]: number | string },
+    b: { [key in Key]: number | string }
+  ) => number {
     return order === "desc"
-      ? (a: any, b: any) => descendingComporator(a, b, orderBy)
-      : (a: any, b: any) => -descendingComporator(a, b, orderBy);
-  };
+      ? (a, b) => descendingComporator(a, b, orderBy)
+      : (a, b) => -descendingComporator(a, b, orderBy);
+  }
 
-  const sortedRowInformation = (rowArray: object[], comparator: any) => {
-    const stabilizedRowArray = rowArray.map((el, index) => [el, index]);
-    stabilizedRowArray.sort((a: any, b: any) => {
+  function sortedRowInformation<T>(
+    array: T[],
+    comparator: (a: T, b: T) => number
+  ) {
+    const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
+    stabilizedThis.sort((a, b) => {
       const order = comparator(a[0], b[0]);
-      if (order !== 0) return order;
+      if (order !== 0) {
+        return order;
+      }
       return a[1] - b[1];
     });
-    return stabilizedRowArray.map((el) => el[0]);
-  };
+    return stabilizedThis.map((el) => el[0]);
+  }
+
   return (
     <>
       <Paper className="table__paper">
@@ -255,15 +201,15 @@ const TableContent = () => {
             />
             <TableBody>
               {sortedRowInformation(
-                rowInformation,
+                rows,
                 getComparator(orderDirection, valueToOrderBy)
-              ).map((person: any, index: any) => (
+              ).map((person, index) => (
                 <TableRow key={index} hover className="table__paper_row">
                   <TableCell>{person.status}</TableCell>
                   <TableCell>{person.name}</TableCell>
                   <TableCell>{person.date}</TableCell>
                   <TableCell>{person.evaluators}</TableCell>
-                  <TableCell>{person.evaluatees}</TableCell>
+                  <TableCell>{person.evaluates}</TableCell>
                   <TableCell>{person.report}</TableCell>
                 </TableRow>
               ))}

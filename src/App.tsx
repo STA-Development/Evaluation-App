@@ -15,14 +15,7 @@ function App() {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      dispatch(
-        setUser({
-          user: user.displayName,
-          uid: user.uid,
-          email: user.email,
-          token: user.refreshToken,
-        })
-      );
+      dispatch(setUser(user));
     } else {
       dispatch(removeUser());
     }
