@@ -32,6 +32,7 @@ module.exports = {
     "prettier",
   ],
   rules: {
+    "react/require-default-props": 0, // https://stackoverflow.com/questions/69687167/proptype-name-is-not-required-but-has-no-corresponding-defaultprops-declarati
     "disable-next-line": [0, { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
     "import/extensions": [1, { extensions: [".js", ".jsx", ".ts", ".tsx"] }], // There is no need for each import statement highlight the file's extension
     "react/jsx-filename-extension": [
