@@ -1,9 +1,9 @@
 import React  from "react";
 import "./App.css";
 import { Box } from "@mui/material";
+import { onAuthStateChanged } from "firebase/auth";
 import PublicRoutes from "./routes/PublicRoutes";
 import PrivateRouts from "./routes/PrivateRouts";
-import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./data/firebase";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import { removeUser, setUser } from "./redux/user/userSlice";
