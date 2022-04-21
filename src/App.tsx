@@ -14,6 +14,7 @@ const App = () => {
   const userId = useAppSelector(selectUserId)
 
   onAuthStateChanged(auth, (user) => {
+    console.log(user)
     if (user) {
       dispatch(
         setUser({
