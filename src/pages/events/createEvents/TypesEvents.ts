@@ -1,14 +1,25 @@
 export interface IEvaluator {
+  id: string,
+  header: string,
   name: string,
+  nameValue: string,
   position: string,
+  positionValue: string,
   email: string,
+  emailValue: string
 }
 
 export interface IEvaluatee {
+  id: string,
+  header: string,
   name: string,
+  nameValue: string,
   position: string,
-  date: object,
-  monthlySalery: number
+  positionValue: string,
+  date: string,
+  dateValue: unknown,
+  salary: string,
+  salaryValue: number | string | null
 }
 
 export interface ICriteria {
@@ -16,7 +27,7 @@ export interface ICriteria {
   rating: number
 }
 
-export type Event = {
+export interface Event {
   id: string,
   eventTitle: string,
   evaluators: IEvaluator[],
@@ -24,30 +35,32 @@ export type Event = {
   criterias: ICriteria[],
   ratingRange: number,
   bonusPercentage: number,
-  startDate: {},
-  endDate: {},
+  startDate: object,
+  endDate: object,
   status: string
 }
 
 
 export type Action =
-  { type: 'Event_Title', payload: any }
-  | { type: 'Evaluators', payload: any }
-  | { type: 'Evaluatees', payload: any }
-  | { type: 'Criterias', payload: any }
-  | { type: 'Rating_Range', payload: any }
-  | { type: 'Bonus_Percentage', payload: any }
-  | { type: 'Start_Date', payload: any }
-  | { type: 'End_Date', payload: any }
-  | { type: 'Status', payload: any }
+  { type: 'EVENT_TITLE', eventTitle: string }
+  | { type: 'EVALUATORS', evaluators: IEvaluator[] }
+  | { type: 'EVALUATEES', evaluatees: IEvaluatee[] }
+  | { type: 'CRITERIAS', criterias: ICriteria[] }
+  | { type: 'RATING_RANGE', ratingRange: number }
+  | { type: 'BONUS_PERCENTAGE', bonusPercentage: number }
+  | { type: 'START_DATE', startDate: object }
+  | { type: 'END_DATE', endDate: object }
+  | { type: 'STATUS', status: string }
 
 export type Dispatch = (action: Action) => void
 export type EventProviderProps = { children: JSX.Element | JSX.Element[] }
 
-
-export interface EventContextType {
-  state?: Event,
-  dispatch?: any
+export interface ITopManagerEmptyObjInfoType {
+  id: string,
+  header: string,
+  name: string,
+  position: string,
+  email: string
 }
 
 

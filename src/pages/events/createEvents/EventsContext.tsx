@@ -1,8 +1,8 @@
 import React, {useReducer} from "react";
-import {Action, Event, EventContextType, EventProviderProps} from "./TypesEvents";
 import {v4 as uuidv4} from "uuid";
+import {Action, Event, EventProviderProps} from "./TypesEvents";
 
-const emptyEvent: Event = {
+const initialState: Event = {
   id: uuidv4(),
   eventTitle: "",
   evaluators: [],
@@ -15,46 +15,59 @@ const emptyEvent: Event = {
   status: ""
 }
 
-// const initialEventContext: { state: Event, dispatch: React.Dispatch<Action> } = {state: }
+const initialEventContext: {
+  state: Event,
+  dispatch: React.Dispatch<Action>
+} = {
+  state: initialState,
+  dispatch: () => ({})
+}
 
-export const EventContext = React.createContext <EventContextType>({})
+export const EventContext = React.createContext(initialEventContext)
 
-export function eventReducer(state: Event, action: Action) {
+function eventReducer(state: Event, action: Action) {
   switch (action.type) {
-    case 'Event_Title': {
-      return {...state, id: uuidv4(), eventTitle: action.payload}
+    case 'EVENT_TITLE': {
+      return {...state, id: uuidv4(), eventTitle: action.eventTitle}
     }
-    case 'Evaluators': {
-      return {...state, evaluators: action.payload}
+    case 'EVALUATORS': {
+      return {...state, evaluators: action.evaluators}
     }
-    case 'Evaluatees': {
-      return {...state, evaluatees: action.payload}
+    case 'EVALUATEES': {
+      return {...state, evaluatees: action.evaluatees}
     }
-    case 'Criterias': {
-      return {...state, criterias: action.payload}
+    case 'CRITERIAS': {
+      return {...state, criterias: action.criterias}
     }
-    case 'Rating_Range': {
-      return {...state, ratingRange: action.payload}
+    case 'RATING_RANGE': {
+      return {...state, ratingRange: action.ratingRange}
     }
-    case 'Bonus_Percentage': {
-      return {...state, bonusPercentage: action.payload}
+    case 'BONUS_PERCENTAGE': {
+      return {...state, bonusPercentage: action.bonusPercentage}
     }
-    case 'Start_Date': {
-      return {...state, startDate: action.payload}
+    case 'START_DATE': {
+      return {...state, startDate: action.startDate}
     }
-    case 'End_Date': {
-      return {...state, endDate: action.payload}
+    case 'END_DATE': {
+      return {...state, endDate: action.endDate}
     }
-    case 'Status': {
-      return {...state, status: action.payload}
+    case 'STATUS': {
+      return {...state, status: action.status}
+    }
+    default: {
+      return state
     }
   }
 }
 
 
-export function ContextProvider({children}: EventProviderProps) {
-  const [state, dispatch] = useReducer(eventReducer, emptyEvent)
-  return <EventContext.Provider value={{state, dispatch}}>{children}</EventContext.Provider>
+export const ContextProvider = ({children}: EventProviderProps) => {
+  const [state, dispatch] = useReducer(eventReducer, initialState)
+  const value = React.useMemo(() => ({
+    state, dispatch
+  }), []);
+
+  return <EventContext.Provider value={value}>{children}</EventContext.Provider>
 }
 
 

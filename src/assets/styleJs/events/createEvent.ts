@@ -1,8 +1,7 @@
 import {makeStyles} from "@mui/styles";
 import {borderRedius, color, font, margin, padding} from "../../style/globalVariables";
 
-
-export const useCreateEventStyles = makeStyles({
+const useCreateEventStyles = makeStyles({
   rootCreateEvent: {
     height: "100%"
   },
@@ -56,6 +55,13 @@ export const useCreateEventStyles = makeStyles({
 
   evaluatorCardInput: {width: "336px", height: "40px"},
   evaluateeCardInput: {width: "336px", height: "40px"},
+  evaluateeCardDateInput: {
+    "& > div > input": {
+      padding : `${padding.paddingTopBottom10} ${padding.paddingLeftRight14}`,
+    },
+    width: "336px",
+    height: "40px",
+  },
 
   evaluatorCardHeader: {
     display: "flex",
@@ -190,12 +196,19 @@ export const useCreateEventStyles = makeStyles({
     display: "flex",
     width: "100%"
   },
+  evaluatorNumberErrorText: {
+    marginBottom: margin.marginBottom25,
+    color: color.redColor,
+    ontWeight: font.fontWeight500,
+    fontSize: font.fontSize18
+  },
 
   stepperStepLabel: {
     "& > span": {
       padding : padding.padding0
     }
   },
+
   stepperStack: {
     width: '70%',
     padding: padding.padding0,
@@ -207,3 +220,5 @@ export const useCreateEventStyles = makeStyles({
     padding: padding.padding0
   }
 })
+
+export default useCreateEventStyles

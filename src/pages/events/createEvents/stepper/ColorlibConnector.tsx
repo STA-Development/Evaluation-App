@@ -1,11 +1,10 @@
-import React from 'react';
 import {styled} from "@mui/material/styles";
 import StepConnector, {stepConnectorClasses} from "@mui/material/StepConnector";
 import {color} from "../../../../assets/style/globalVariables";
 
 
 
-const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
+const ColorlibConnector = styled(StepConnector)(() => ({
     [`& .${stepConnectorClasses.alternativeLabel}`]: {
       top: 22,
     },

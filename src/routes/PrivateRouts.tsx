@@ -4,7 +4,7 @@ import Events from "../pages/events/Events";
 import Dashboard from "../pages/dashboard/Dashboard";
 import Reports from "../pages/reports/Reports";
 import CreateEvent from "../pages/events/createEvents/CreateEvent";
-import {CreateEventCriteria} from "../pages/events/createEvents/CreateEventCriteria";
+import CreateEventCriteria from "../pages/events/createEvents/CreateEventCriteria";
 import Homepage from "../pages/Homepage";
 
 const PrivateRouts = () => (

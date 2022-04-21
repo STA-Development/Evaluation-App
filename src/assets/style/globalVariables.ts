@@ -30,7 +30,8 @@ export const color = {
   closeButton: "#4F4F4F",
   overViewBoxshadow: "rgba(0, 0, 0, 0.15)",
   overViewBoxColor: "#1F6F8B",
-  tableBorderColor: "#BDBDBD"
+  tableBorderColor: "#BDBDBD",
+  redColor: "red",
 };
 
 export const margin = {
@@ -69,9 +70,11 @@ export const margin = {
 };
 
 export const padding = {
+  paddingTopBottom10: "10px",
   paddingTopBottom15: "15px",
   paddingTopBottom20: "20px",
   paddingLeftRight30: "30px",
+  paddingLeftRight14: "14px",
   paddingLeftRight0: "0px",
   paddingBottom26: "26px",
   paddingTop72: "72px",
