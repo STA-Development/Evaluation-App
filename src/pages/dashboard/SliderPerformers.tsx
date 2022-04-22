@@ -1,5 +1,5 @@
 import React from 'react'
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid'
 import {Box, ListItem, ListItemButton, Typography} from '@mui/material'
 import Carousel from 'react-elastic-carousel'
 import useDashboardStyles from '../../assets/styleJs/dashboard/dashboard'
@@ -23,11 +23,12 @@ const SliderPerformers = () => {
       </button>
     )
   }
-  interface SliderItemsType{
-    id?:any;
-    headerName?:string;
-    position?:string;
-    currency?:number
+
+  interface SliderItemsType {
+    id?: string
+    headerName?: string
+    position?: string
+    currency?: number
   }
 
   const sliderItems: SliderItemsType[] = [
