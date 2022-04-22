@@ -27,7 +27,7 @@ module.exports = {
     'disable-next-line': [0, {extensions: ['.js', '.jsx', '.ts', '.tsx']}],
     'import/extensions': [1, {extensions: ['.js', '.jsx', '.ts', '.tsx']}], // There is no need for each import statement highlight the file's extension
     'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx', '.ts', '.tsx']}], // It should allow us to write JSX in files with .tsx extension
-    'react/jsx-props-no-spreading': [1, {custom: 'ignore'}], // In the root component (Myapp) we have ...pageProps which is out of reach from us to pass all the props manually, so that's why we added this rule.
+    'react/jsx-props-no-spreading': 0,
     'jsx-a11y/no-static-element-interactions': 0, // The same as jsx-a11y/click-events-have-key-events
     'react/no-array-index-key': 0, // In application we have both static lists and expanding lists, neither draggable nor removing from the middle of array approach. So we can use that safely.
     'consistent-return': 0, // In application it requires to put return at the end of the arrow function which in the majority places will cause an issue.

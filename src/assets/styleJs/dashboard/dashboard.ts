@@ -1,9 +1,9 @@
-import {makeStyles} from "@mui/styles";
-import {borderRedius, color, font, margin, padding,} from "../../style/globalVariables";
+import {makeStyles} from '@mui/styles'
+import {borderRedius, color, font, margin, padding} from '../../style/globalVariables'
 
-export const useDashboardStyles = makeStyles({
+const useDashboardStyles = makeStyles({
   dashboardPage: {
-    height: "100vh",
+    height: '100vh',
     padding: padding.paddingTop30,
   },
 
@@ -44,7 +44,7 @@ export const useDashboardStyles = makeStyles({
     backgroundColor: color.whiteColor,
     boxShadow: `${margin.marginOverViewBox} ${color.overViewBoxshadow}`,
     borderRadius: borderRedius.overViewBox,
-    height: "100%",
+    height: '100%',
   },
   overViewTitle: {
     height: '100%',
