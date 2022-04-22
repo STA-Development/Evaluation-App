@@ -1,7 +1,7 @@
-import {makeStyles} from "@mui/styles";
-import {borderRedius, color, font, margin, padding} from "../style/globalVariables";
+import {makeStyles} from '@mui/styles'
+import {borderRedius, color, font, margin, padding} from '../style/globalVariables'
 
-export const useSliderStyle = makeStyles({
+const useSliderStyle = makeStyles({
   drawer: {
     width: '250px',
     '&  > div': {
@@ -32,39 +32,36 @@ export const useSliderStyle = makeStyles({
   listItem: {
     padding: `${padding.paddingTopBottom15} ${padding.paddingLeftRight0}`,
     '&:hover': {
-      backgroundColor: color.activeLink
-    }
+      backgroundColor: color.activeLink,
+    },
   },
   itemIcon: {
     color: color.whiteColor,
-    minWidth: "20px",
-    minHeight: "20px",
+    minWidth: '20px',
+    minHeight: '20px',
     marginRight: margin.marginRight18,
   },
   itemText: {
-    "& span": {
+    '& span': {
       color: color.whiteColor,
       fontWeight: font.fontWeight500,
       fontSize: font.fontSize18,
-      fontFamily: "Montserrat",
-
+      fontFamily: 'Montserrat',
     },
-
   },
   listItemContent: {
-    width: "141px",
-    height: "24px",
+    width: '141px',
+    height: '24px',
     paddingLeft: padding.paddingLeft25,
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   upBox: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     marginRight: margin.marginRight20,
-
   },
   listBox: {
     padding: padding.padding0,
@@ -72,15 +69,16 @@ export const useSliderStyle = makeStyles({
   },
   logOutBox: {},
   avatar: {
-    width: "105px",
-    height: "105px",
+    width: '105px',
+    height: '105px',
   },
   nameSurname: {
     color: color.whiteColor,
     fontWeight: font.fontWeight500,
     fontSize: font.fontSize16,
-    fontFamily: "Montserrat",
+    fontFamily: 'Montserrat',
     margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
   },
+})
 
-});
+export default useSliderStyle

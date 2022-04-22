@@ -1,7 +1,7 @@
-import React from "react";
-import Sidebar from "./sidebar/Sidebar";
-import { Outlet } from "react-router-dom";
-import { Box, Grid } from "@mui/material";
+import React from 'react'
+import {Outlet} from 'react-router-dom'
+import {Box, Grid} from '@mui/material'
+import Sidebar from './sidebar/Sidebar'
 
 const Homepage = () => (
   <Grid container>
@@ -10,6 +10,6 @@ const Homepage = () => (
       <Outlet />
     </Box>
   </Grid>
-);
+)
 
 export default Homepage;

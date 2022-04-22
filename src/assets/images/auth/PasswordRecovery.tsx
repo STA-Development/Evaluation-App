@@ -204,10 +204,10 @@ const PasswordRecovery = () => (
     <path
       d="M227.664 94.4376L251.468 80.0835"
       stroke="#EADDD8"
-      stroke-width="0.7599"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="0.7599"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M184.304 207.176L192.647 296.381C192.976 299.73 190.674 302.78 187.354 303.438L85.052 322.996C81.2841 323.713 77.7255 321.082 77.3068 317.284L67.9468 232.505C67.588 229.216 69.741 226.166 72.9707 225.388L176.29 201.435C180.147 200.508 183.915 203.229 184.304 207.176Z"
@@ -232,18 +232,18 @@ const PasswordRecovery = () => (
     <path
       d="M143.543 266.058L118.334 279.575"
       stroke="#EADDD8"
-      stroke-width="0.7599"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="0.7599"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M120.787 183.074L136.906 155.023"
       stroke="#EADDD8"
-      stroke-width="0.7599"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="0.7599"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M206.161 31.0406C217.585 25.8672 215.192 12.5299 212.591 8.31337C212.591 8.31337 212.082 15.8194 206.969 14.0849C206.969 14.0849 207.657 2.90071 192.675 0C192.675 0 198.207 10.0478 178.5 8.13396C154.307 5.77152 152.902 21.0825 154.248 40.1016L161.664 34.7786L167.405 21.5311H186.993L206.161 31.0406Z"

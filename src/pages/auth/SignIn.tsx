@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import {signInWithEmailAndPassword} from 'firebase/auth'
+import {Link, useNavigate} from 'react-router-dom'
 import {
   Box,
   Button,
@@ -10,11 +12,11 @@ import {
   Typography,
 } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox'
-import {useStyles} from '../../assets/styleJs/auth/signUp'
-import SignInImg from '../../assets/images/auth/SignInImg'
-import {signInWithEmailAndPassword} from 'firebase/auth'
 import {auth} from '../../data/firebase'
-import {Link, useNavigate} from 'react-router-dom'
+
+import useStyles from '../../assets/styleJs/auth/signUp'
+import SignInImg from '../../assets/images/auth/SignInImg'
+
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 
 const SignIn = () => {
@@ -24,7 +26,7 @@ const SignIn = () => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
-  const [isFetching, setIsFetching] = useState<boolean>(false)
+  const [, setIsFetching] = useState<boolean>(false)
 
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -32,7 +34,7 @@ const SignIn = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password)
       if (auth.currentUser) {
-        navigate('/')
+        navigate('/dashboard')
       }
       setIsFetching(false)
     } catch (err) {
@@ -40,7 +42,6 @@ const SignIn = () => {
       setEmail('')
       setError(true)
       setIsFetching(false)
-      throw new Error()
     }
   }
 

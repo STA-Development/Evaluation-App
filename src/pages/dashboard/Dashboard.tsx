@@ -23,7 +23,7 @@ const Dashboard = () => {
         </Box>
       )}
     </Box>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

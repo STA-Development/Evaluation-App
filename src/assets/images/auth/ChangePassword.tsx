@@ -93,13 +93,8 @@ const ChangePassword = () => (
       fill="#383635"
     />
     <path d="M451 266.679H184.884V281.499H451V266.679Z" fill="#FFEEE3" />
-    <path
-      d="M250.333 664.354V281.5"
-      stroke="#2A272D"
-      stroke-width="2.2811"
-      stroke-miterlimit="10"
-    />
-    <path d="M383.41 664.354V281.5" stroke="#2A272D" stroke-width="2.2811" stroke-miterlimit="10" />
+    <path d="M250.333 664.354V281.5" stroke="#2A272D" strokeWidth="2.2811" strokeMiterlimit="10" />
+    <path d="M383.41 664.354V281.5" stroke="#2A272D" strokeWidth="2.2811" strokeMiterlimit="10" />
     <path d="M351.975 258.613H241.268V265.782H351.975V258.613Z" fill="#2A272D" />
     <path
       d="M351.976 265.817L387.822 161.176L380.308 159.384L345.187 259.889L351.976 265.817Z"
@@ -124,4 +119,4 @@ const ChangePassword = () => (
   </svg>
 )
 
-export default ChangePassword
+export default ChangePassword;
