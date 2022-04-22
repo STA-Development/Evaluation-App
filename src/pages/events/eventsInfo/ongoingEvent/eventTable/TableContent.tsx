@@ -132,7 +132,7 @@ const TableContent = () => {
     return 0
   }
 
-  function getComparator<Key extends keyof any>(
+  function getComparator<Key extends keyof RowsInfo>(
     order: Order,
     orderBy: Key,
   ): (a: {[key in Key]: number | string}, b: {[key in Key]: number | string}) => number {
