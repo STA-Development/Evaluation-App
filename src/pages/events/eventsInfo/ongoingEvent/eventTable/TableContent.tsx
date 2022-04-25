@@ -1,16 +1,13 @@
 import React, {useState} from 'react'
 import {Paper, Table, TableBody, TableCell, TableContainer, TableRow} from '@mui/material'
-import TableHeader from './TableHeader'
 import Report from './Report'
+import TableHeader from './TableHeader'
 
-interface RowsInfo {
-  status: string
-  name: string
-  date: string
-  evaluators: string
-  evaluates: string
-  report: any
+export interface RowsInfo {
+  [keyof: string]: string | number
 }
+
+export type Order = 'asc' | 'desc'
 
 const rows: RowsInfo[] = [
   {
@@ -19,7 +16,6 @@ const rows: RowsInfo[] = [
     date: 'Good Date',
     evaluators: 'Evaluators',
     evaluates: 'Evaluatees',
-    report: <Report />,
   },
   {
     status: 'apcoming',
@@ -27,7 +23,6 @@ const rows: RowsInfo[] = [
     date: 'Date',
     evaluators: 'Evaluators',
     evaluates: 'Evaluatees',
-    report: <Report />,
   },
   {
     status: 'vpcoming',
@@ -35,7 +30,6 @@ const rows: RowsInfo[] = [
     date: 'Date',
     evaluators: 'Evaluators',
     evaluates: 'dEvaluatees',
-    report: <Report />,
   },
   {
     status: 'vpcoming',
@@ -43,7 +37,6 @@ const rows: RowsInfo[] = [
     date: 'Date',
     evaluators: '6Evaluators',
     evaluates: 'Evaluatees',
-    report: <Report />,
   },
   {
     status: 'apcoming',
@@ -51,7 +44,6 @@ const rows: RowsInfo[] = [
     date: 'Date',
     evaluators: 'cEvaluators',
     evaluates: 'Evaluatees',
-    report: <Report />,
   },
   {
     status: 'apcoming',
@@ -59,7 +51,6 @@ const rows: RowsInfo[] = [
     date: 'Date',
     evaluators: 'Evaluators',
     evaluates: 'Evaluatees',
-    report: <Report />,
   },
 
   {
@@ -68,7 +59,6 @@ const rows: RowsInfo[] = [
     date: 'fdDate',
     evaluators: 'asdEvaluators',
     evaluates: 'zEvaluatees',
-    report: <Report />,
   },
   {
     status: 'apcoming',
@@ -76,7 +66,6 @@ const rows: RowsInfo[] = [
     date: 'zDate',
     evaluators: 'dfgdsEvaluators',
     evaluates: 'zEvaluatees',
-    report: <Report />,
   },
   {
     status: 'apcoming',
@@ -84,7 +73,6 @@ const rows: RowsInfo[] = [
     date: 'zDate',
     evaluators: 'dfgdsEvaluators',
     evaluates: 'zEvaluatees',
-    report: <Report />,
   },
   {
     status: 'apcoming',
@@ -92,7 +80,6 @@ const rows: RowsInfo[] = [
     date: 'zDate',
     evaluators: 'dfgdsEvaluators',
     evaluates: 'zEvaluatees',
-    report: <Report />,
   },
   {
     status: 'apcoming',
@@ -100,7 +87,6 @@ const rows: RowsInfo[] = [
     date: 'zDate',
     evaluators: 'dfgdsEvaluators',
     evaluates: 'zEvaluatees',
-    report: <Report />,
   },
   {
     status: 'apcoming',
@@ -108,7 +94,6 @@ const rows: RowsInfo[] = [
     date: 'zDate',
     evaluators: 'dfgdsEvaluators',
     evaluates: 'zEvaluatees',
-    report: <Report />,
   },
   {
     status: 'apcoming',
@@ -116,7 +101,6 @@ const rows: RowsInfo[] = [
     date: 'zDate',
     evaluators: 'dfgdsEvaluators',
     evaluates: 'zEvaluatees',
-    report: <Report />,
   },
 
   {
@@ -125,7 +109,6 @@ const rows: RowsInfo[] = [
     date: 'zDate',
     evaluators: 'dfgdsEvaluators',
     evaluates: 'zEvaluatees',
-    report: <Report />,
   },
 ]
 
@@ -149,9 +132,7 @@ const TableContent = () => {
     return 0
   }
 
-  type Order = 'asc' | 'desc'
-
-  function getComparator<Key extends keyof any>(
+  function getComparator<Key extends keyof RowsInfo>(
     order: Order,
     orderBy: Key,
   ): (a: {[key in Key]: number | string}, b: {[key in Key]: number | string}) => number {
@@ -190,7 +171,9 @@ const TableContent = () => {
                   <TableCell>{person.date}</TableCell>
                   <TableCell>{person.evaluators}</TableCell>
                   <TableCell>{person.evaluates}</TableCell>
-                  <TableCell>{person.report}</TableCell>
+                  <TableCell>
+                    <Report />
+                  </TableCell>
                 </TableRow>
               ),
             )}
