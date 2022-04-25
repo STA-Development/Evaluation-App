@@ -24,13 +24,13 @@ const ColorlibStepIcon=({active, className, completed, icon}: StepIconProps) =>{
 }
 const CustomizedSteppers = () => {
   const classes = useCreateEventStyles()
+  const arr: number[] = [1,2,3]
 
   return (
     <Stack className={classes.stepperStack}>
-
       <Stepper activeStep={1} connector={<ColorlibConnector/>} className={classes.stepperRoot}>
-        {[1, 2, 3].map((label) => (
-          <Step key={label} className={classes.stepperStep}>
+        {arr.map((label: number) => (
+          <Step key={label} className={classes.stepperRoot}>
             <StepLabel className={classes.stepperStepLabel} StepIconComponent={ColorlibStepIcon}/>
           </Step>
         ))}

@@ -18,12 +18,6 @@ const useCreateEventStyles = makeStyles({
     width: "40%",
     marginBottom: margin.marginBottom25
   },
-  eventInfoBoxEvaluatee: {
-    display: "flex",
-    alignItems: "center",
-    width: "40%",
-    marginBottom: margin.marginBottom25,
-  },
   evaluatorCard: {
     width: "368px",
     height: "245px",
@@ -32,28 +26,13 @@ const useCreateEventStyles = makeStyles({
     marginBottom: margin.marginBottom16,
     boxShadow: "none"
   },
-  evaluateeCard: {
-    width: "368px",
-    height: "305px",
-    padding: `${margin.marginTop10} ${margin.marginRight15} ${margin.marginBottom40} ${margin.marginLeft15}`,
-    marginRight: margin.marginRight16,
-    marginBottom: margin.marginBottom16,
-    boxShadow: "none",
-  },
   evaluatorCardInputBox: {
     display: "flex",
     justifyContent: "space-evenly",
     flexDirection: "column",
     height:'100%'
   },
-  evaluateeCardInputBox: {
-    display: "flex",
-    justifyContent: "space-evenly",
-    flexDirection: "column",
-    height:'100%'
-  },
 
-  evaluatorCardInput: {width: "336px", height: "40px"},
   evaluateeCardInput: {width: "336px", height: "40px"},
   evaluateeCardDateInput: {
     "& > div > input": {
@@ -67,18 +46,10 @@ const useCreateEventStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
   },
-  evaluateeCardHeader: {
-    display: "flex",
-    justifyContent: "space-between",
-  },
   deleteIconButton: {
     padding: padding.padding0
   },
   evaluatorHeaderName: {
-    fontWeight: font.fontWeight500,
-    fontSize: font.fontSize16
-  },
-  evaluateeHeaderName: {
     fontWeight: font.fontWeight500,
     fontSize: font.fontSize16
   },
@@ -93,20 +64,12 @@ const useCreateEventStyles = makeStyles({
 
   evaluatorInput: {
     backgroundColor: color.whiteColor,
-    fontSize: "14px",
+    fontSize: font.fontSize14,
     "&:nth-child(3)": {
       marginBottom: margin.marginBottom10,
     },
     width: "67%",
     borderRadius: `${borderRedius.top4} ${borderRedius.right0} ${borderRedius.bottom0} ${borderRedius.left4}`,
-  },
-
-  createEventInput: {
-    backgroundColor: color.whiteColor,
-    fontSize: font.fontSize14,
-    "&:nth-child(3)": {
-      marginBottom: margin.marginBottom10,
-    },
   },
   evaluatorsArr: {
     display: "flex",
@@ -114,36 +77,21 @@ const useCreateEventStyles = makeStyles({
     marginTop: margin.marginTop30,
     marginBottom: margin.marginBottom30
   },
-  evaluatorsArr1: {
-    display: "flex",
-    width: "100%",
-    marginTop: margin.marginTop30,
-  },
   evaluateesArr: {
     display: "flex",
     width: "100%",
   },
-  classesHeaderBox: {
-
-  },
   headerTitle: {
     display: "flex",
   },
-
   headerRegular: {
     fontWeight: font.fontWeight400,
     fontSize: font.fontSize16
 
   },
-  managerText: {
-    fontWeight: font.fontWeight400,
-    fontSize: font.fontSize14
-  },
-
   infoRootBox:{
     width: "100%"
   },
-
   headerTitleBold: {
     fontWeight: font.fontWeight700,
     fontSize: font.fontSize16,
@@ -202,23 +150,18 @@ const useCreateEventStyles = makeStyles({
     ontWeight: font.fontWeight500,
     fontSize: font.fontSize18
   },
-
   stepperStepLabel: {
     "& > span": {
-      padding : padding.padding0
+      padding : 0
     }
   },
-
   stepperStack: {
     width: '70%',
-    padding: padding.padding0,
+    padding: 0,
   },
   stepperRoot: {
-    padding: padding.padding0
+    padding: 0
   },
-  stepperStep: {
-    padding: padding.padding0
-  }
 })
 
 export default useCreateEventStyles

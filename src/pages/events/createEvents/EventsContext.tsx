@@ -1,6 +1,7 @@
 import React, {useReducer} from "react";
 import {v4 as uuidv4} from "uuid";
 import {Action, Event, EventProviderProps} from "./TypesEvents";
+import createEventReducerTypes from "../../../types"
 
 const initialState: Event = {
   id: uuidv4(),
@@ -25,33 +26,33 @@ const initialEventContext: {
 
 export const EventContext = React.createContext(initialEventContext)
 
-function eventReducer(state: Event, action: Action) {
+function eventReducer (state: Event, action: Action): Event {
   switch (action.type) {
-    case 'EVENT_TITLE': {
+    case createEventReducerTypes.eventTitle : {
       return {...state, id: uuidv4(), eventTitle: action.eventTitle}
     }
-    case 'EVALUATORS': {
+    case (createEventReducerTypes.evaluators): {
       return {...state, evaluators: action.evaluators}
     }
-    case 'EVALUATEES': {
+    case createEventReducerTypes.evaluatees: {
       return {...state, evaluatees: action.evaluatees}
     }
-    case 'CRITERIAS': {
+    case createEventReducerTypes.criterias: {
       return {...state, criterias: action.criterias}
     }
-    case 'RATING_RANGE': {
+    case createEventReducerTypes.ratingRange: {
       return {...state, ratingRange: action.ratingRange}
     }
-    case 'BONUS_PERCENTAGE': {
+    case createEventReducerTypes.bonusPercentage: {
       return {...state, bonusPercentage: action.bonusPercentage}
     }
-    case 'START_DATE': {
+    case createEventReducerTypes.startDate: {
       return {...state, startDate: action.startDate}
     }
-    case 'END_DATE': {
+    case createEventReducerTypes.endDate: {
       return {...state, endDate: action.endDate}
     }
-    case 'STATUS': {
+    case createEventReducerTypes.status: {
       return {...state, status: action.status}
     }
     default: {
@@ -60,8 +61,7 @@ function eventReducer(state: Event, action: Action) {
   }
 }
 
-
-export const ContextProvider = ({children}: EventProviderProps) => {
+export const EventContextProvider = ({children}: EventProviderProps) => {
   const [state, dispatch] = useReducer(eventReducer, initialState)
   const value = React.useMemo(() => ({
     state, dispatch
@@ -69,7 +69,4 @@ export const ContextProvider = ({children}: EventProviderProps) => {
 
   return <EventContext.Provider value={value}>{children}</EventContext.Provider>
 }
-
-
-
 
