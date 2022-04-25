@@ -69,4 +69,3 @@ export const EventContextProvider = ({children}: EventProviderProps) => {
 
   return <EventContext.Provider value={value}>{children}</EventContext.Provider>
 }
-
