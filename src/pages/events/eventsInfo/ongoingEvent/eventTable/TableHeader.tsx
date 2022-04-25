@@ -1,17 +1,11 @@
 import React from 'react'
 import {v4 as uuidv4} from 'uuid'
-import {Box, TableCell, TableHead, TableRow, TableSortLabel} from '@mui/material'
 import useEventsStyle from '../../../../../assets/styleJs/events/events'
+import {IheadCell, IrowsInfo, ItableHeaderCell} from '../../../../../types/types'
+import {Box, TableCell, TableHead, TableRow, TableSortLabel} from '@mui/material'
 import UpDwonArrows from '../../../../../assets/images/Icons/UpDwonArrows'
-import {Order, RowsInfo} from './TableContent'
 
-interface ItestInterFace {
-  id: string
-  name: keyof RowsInfo
-  label: string
-}
-
-const headCells: ItestInterFace[] = [
+const headCells: IheadCell[] = [
   {
     id: uuidv4(),
     name: 'status',
@@ -44,15 +38,9 @@ const headCells: ItestInterFace[] = [
   },
 ]
 
-interface Asd {
-  valueToOrderBy: string | number
-  orderDirection: Order
-  handleRequestSort: (event: React.MouseEvent, property: keyof RowsInfo) => void
-}
-
-const TableHeader = ({valueToOrderBy, orderDirection, handleRequestSort}: Asd) => {
+const TableHeader = ({valueToOrderBy, orderDirection, handleRequestSort}: ItableHeaderCell) => {
   const classes = useEventsStyle()
-  const createSortHandler = (property: keyof RowsInfo) =>
+  const createSortHandler = (property: keyof IrowsInfo) =>
     function (e: React.MouseEvent) {
       handleRequestSort(e, property)
     }

@@ -9,14 +9,9 @@ import EmptyEvents from './eventsInfo/ongoingEvent/EmptyEvents'
 import EmptySubmission from './eventsInfo/submission/EmptySubmission'
 import EmptySavedSubmission from './eventsInfo/savedSubmission/EmptySavedSubmission'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
+import {ItabPanelProps} from '../../types/types'
 
-interface TabPanelProps {
-  children?: React.ReactNode
-  index: number
-  value: number
-}
-
-const TabPanel = (props: TabPanelProps) => {
+const TabPanel = (props: ItabPanelProps) => {
   const {children, value, index, ...other} = props
 
   return (

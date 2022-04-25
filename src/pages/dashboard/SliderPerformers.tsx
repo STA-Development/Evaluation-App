@@ -5,17 +5,12 @@ import Carousel from 'react-elastic-carousel'
 import useDashboardStyles from '../../assets/styleJs/dashboard/dashboard'
 import RightArrowIcon from '../../assets/images/Icons/RightArrowIcon'
 import LeftArrowIcon from '../../assets/images/Icons/LeftArrowIcon'
-
-interface Arrow {
-  type?: string
-  onClick?: () => void
-  isEdge?: boolean
-}
+import {Iarrow} from '../../types/types'
 
 const SliderPerformers = () => {
   const classes = useDashboardStyles()
 
-  const myArrow = ({type, onClick, isEdge}: Arrow) => {
+  const myArrow = ({type, onClick, isEdge}: Iarrow) => {
     const pointer = type === 'PREV' ? <LeftArrowIcon /> : <RightArrowIcon />
     return (
       <button type="button" onClick={onClick} disabled={isEdge}>

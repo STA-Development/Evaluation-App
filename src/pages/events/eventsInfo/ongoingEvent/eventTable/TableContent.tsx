@@ -2,14 +2,9 @@ import React, {useState} from 'react'
 import {Paper, Table, TableBody, TableCell, TableContainer, TableRow} from '@mui/material'
 import Report from './Report'
 import TableHeader from './TableHeader'
+import {IrowsInfo, Order} from '../../../../../types/types'
 
-export interface RowsInfo {
-  [keyof: string]: string | number
-}
-
-export type Order = 'asc' | 'desc'
-
-const rows: RowsInfo[] = [
+const rows: IrowsInfo[] = [
   {
     status: 'Upcoming',
     name: 'Quarter Evoluation',
@@ -114,9 +109,9 @@ const rows: RowsInfo[] = [
 
 const TableContent = () => {
   const [orderDirection, setOrderDirection] = useState<Order>('asc')
-  const [valueToOrderBy, setValueToOrderBy] = useState<keyof RowsInfo>('status')
+  const [valueToOrderBy, setValueToOrderBy] = useState<keyof IrowsInfo>('status')
 
-  const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof RowsInfo) => {
+  const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof IrowsInfo) => {
     const isAsc = valueToOrderBy === property && orderDirection === 'asc'
     setOrderDirection(isAsc ? 'desc' : 'asc')
     setValueToOrderBy(property)
@@ -132,7 +127,7 @@ const TableContent = () => {
     return 0
   }
 
-  function getComparator<Key extends keyof RowsInfo>(
+  function getComparator<Key extends keyof IrowsInfo>(
     order: Order,
     orderBy: Key,
   ): (a: {[key in Key]: number | string}, b: {[key in Key]: number | string}) => number {
