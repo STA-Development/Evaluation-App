@@ -1,24 +1,26 @@
 import {styled} from "@mui/material/styles";
+import {border, color, borderRedius} from "../../../../assets/style/globalVariables"
+
 
 const ColorlibStepIconRoot = styled('div')<{
   ownerState: { completed?: boolean; active?: boolean };
 }>(({ ownerState }) => ({
   backgroundColor:  '',
-  border:'2px solid #00A3FF',
+  border: `${border.border2} ${border.solid} ${color.blueColor}`,
   zIndex: 1,
-  color: '#00A3FF',
+  color: color.blueColor,
   width: 40,
   height: 40,
   display: 'flex',
-  borderRadius: '50%',
+  borderRadius: borderRedius.all50,
   justifyContent: 'center',
   alignItems: 'center',
   ...(ownerState.active && {
     backgroundColor:'transparent',
   }),
   ...(ownerState.completed && {
-    backgroundColor:'#00A3FF',
-    color:'#fff'
+    backgroundColor: color.blueColor,
+    color: color.whiteColor
   }),
 }));
 

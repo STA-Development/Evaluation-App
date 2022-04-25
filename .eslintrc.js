@@ -33,7 +33,6 @@ module.exports = {
   ],
   rules: {
     "no-plusplus": 0,
-    "no-console": 0,
     "disable-next-line": [0, { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
     "import/extensions": [1, { extensions: [".js", ".jsx", ".ts", ".tsx"] }], // There is no need for each import statement highlight the file's extension
     "react/jsx-filename-extension": [

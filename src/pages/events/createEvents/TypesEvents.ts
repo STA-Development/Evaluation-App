@@ -1,3 +1,5 @@
+import createEventReducerTypes from '../../../types'
+
 export interface IEvaluator {
   id: string,
   header: string,
@@ -7,6 +9,18 @@ export interface IEvaluator {
   positionValue: string,
   email: string,
   emailValue: string
+}
+
+export interface IcreateEventReducerTypes  {
+  eventTitle: string,
+  evaluators: string,
+  evaluatees: string,
+  criterias: string,
+  ratingRange: string,
+  bonusPercentage: string,
+  startDate: string,
+  endDate: string,
+  status: string
 }
 
 export interface IEvaluatee {
@@ -27,6 +41,7 @@ export interface ICriteria {
   rating: number
 }
 
+
 export interface Event {
   id: string,
   eventTitle: string,
@@ -40,17 +55,16 @@ export interface Event {
   status: string
 }
 
-
 export type Action =
-  { type: 'EVENT_TITLE', eventTitle: string }
-  | { type: 'EVALUATORS', evaluators: IEvaluator[] }
-  | { type: 'EVALUATEES', evaluatees: IEvaluatee[] }
-  | { type: 'CRITERIAS', criterias: ICriteria[] }
-  | { type: 'RATING_RANGE', ratingRange: number }
-  | { type: 'BONUS_PERCENTAGE', bonusPercentage: number }
-  | { type: 'START_DATE', startDate: object }
-  | { type: 'END_DATE', endDate: object }
-  | { type: 'STATUS', status: string }
+   { type: createEventReducerTypes.evaluators, evaluators: IEvaluator[] }
+  | { type: createEventReducerTypes.eventTitle, eventTitle: string }
+  | { type: createEventReducerTypes.evaluatees, evaluatees: IEvaluatee[] }
+  | { type: createEventReducerTypes.criterias, criterias: ICriteria[] }
+  | { type: createEventReducerTypes.ratingRange, ratingRange: number }
+  | { type: createEventReducerTypes.bonusPercentage, bonusPercentage: number }
+  | { type: createEventReducerTypes.startDate, startDate: object }
+  | { type: createEventReducerTypes.endDate, endDate: object }
+  | { type: createEventReducerTypes.status, status: string }
 
 export type Dispatch = (action: Action) => void
 export type EventProviderProps = { children: JSX.Element | JSX.Element[] }

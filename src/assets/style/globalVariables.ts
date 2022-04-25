@@ -31,7 +31,7 @@ export const color = {
   overViewBoxshadow: "rgba(0, 0, 0, 0.15)",
   overViewBoxColor: "#1F6F8B",
   tableBorderColor: "#BDBDBD",
-  redColor: "red",
+  redColor: "#ff0000",
 };
 
 export const margin = {
@@ -85,7 +85,13 @@ export const padding = {
   paddingRight0: "0px",
 };
 
+export const border = {
+  solid: "solid",
+  border2: "2px",
+}
+
 export const borderRedius = {
+  all50: "50px",
   topLeft0: "0px",
   topRight50: "50px",
   bottomRight50: "50px",

@@ -15,8 +15,9 @@ import {v4 as uuidv4} from "uuid";
 import DeleteIcon from "../../../assets/images/Icons/DeleteIcon";
 import useCreateEventStyles from "../../../assets/styleJs/events/createEvent"
 import {EventContext} from "./EventsContext";
-import HorizontalLabelPositionBelowStepper from "../createEventsPageComponenets/CreateEvetsStepper";
+import HorizontalLabelPositionBelowStepper from "../createEventsPageComponenets/CreateEventsStepper";
 import {IEvaluatee, IEvaluator, ITopManagerEmptyObjInfoType} from "./TypesEvents";
+import createEventReducerTypes from "../../../types"
 
 
 const CreateEvent: FC = () => {
@@ -73,9 +74,9 @@ const CreateEvent: FC = () => {
 
   const navigateToCriteriasAndSendDataToContext = () => {
 
-    dispatch({type: 'EVENT_TITLE', eventTitle})
-    dispatch({type: 'EVALUATORS', evaluators: evaluatorsList})
-    dispatch({type: 'EVALUATEES', evaluatees: evaluateesList})
+    dispatch({type: createEventReducerTypes.eventTitle, eventTitle})
+    dispatch({type: createEventReducerTypes.evaluators, evaluators: evaluatorsList})
+    dispatch({type: createEventReducerTypes.evaluatees, evaluatees: evaluateesList})
     navigate("criteria")
   }
 
@@ -230,7 +231,7 @@ const CreateEvent: FC = () => {
   return (
 
     <div className={classes.rootCreateEvent}>
-      <Box className={classes.classesHeaderBox}>
+      <Box >
         <Box className={classes.headerTitle}>
           <Typography className={classes.headerRegular}>
             Events /
@@ -297,7 +298,7 @@ const CreateEvent: FC = () => {
           <Checkbox style={{
             color: "#00A3FF"
           }} className={classes.checkbox} {...label} checked={isTopManagerChecked} onChange={handleChangeCheckbox}/>
-          <Typography className={classes.managerText}>Include Top Manager as Evaluator </Typography>
+          <Typography className={classes.headerRegular}>Include Top Manager as Evaluator </Typography>
         </Box>
         <Box className={classes.evaluatorsArr}>
           <Grid container>
@@ -355,7 +356,7 @@ const CreateEvent: FC = () => {
           </Grid>
         </Box>
         <Box>
-          <Box className={classes.eventInfoBoxEvaluatee}>
+          <Box className={classes.eventInfoBoxEvaluator}>
             <Typography className={classes.evaluatorText}>Evaluatees:</Typography>
             <FormGroup className={classes.addButtonBox}>
             <Box
@@ -386,9 +387,9 @@ const CreateEvent: FC = () => {
             <Grid container>
               {evaluateesList.map((item: IEvaluatee) =>
                  (
-                  <Paper key={item.id} className={classes.evaluateeCard}>
-                    <Box className={classes.evaluateeCardHeader}>
-                      <Typography className={classes.evaluateeHeaderName}
+                  <Paper key={item.id} className={classes.evaluatorCard}>
+                    <Box className={classes.evaluatorCardHeader}>
+                      <Typography className={classes.evaluatorHeaderName}
                       >
                         {item.header}
                       </Typography>
@@ -398,7 +399,7 @@ const CreateEvent: FC = () => {
                         <DeleteIcon/>
                       </IconButton>
                     </Box>
-                    <Box className={classes.evaluateeCardInputBox}>
+                    <Box className={classes.evaluatorCardInputBox}>
                       <TextField
                         className={classes.evaluateeCardInput}
                         label={item.name}
