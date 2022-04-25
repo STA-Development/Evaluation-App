@@ -10,24 +10,13 @@ import RightArrowIcon from '../../../../assets/images/Icons/RightArrowIcon'
 import submissionReadData from './submissionQuarterlyData/submissionRead'
 import submissionNotFinished from './submissionQuarterlyData/submissionNotFinished'
 import useSubmissionsStyle from '../../../../assets/styleJs/submissions/submissions'
-
-interface SubmissionItems {
-  id: string
-  item: string
-  value: number
-}
-
-interface Arrow {
-  type?: string
-  onClick?: () => void
-  isEdge?: boolean
-}
+import {IArrow, ISubmissionItems} from '../../../../types/types'
 
 const Submissions = () => {
   const classes = useSubmissionsStyle()
   const [title, setTitle] = useState<string>('')
 
-  const myArrow = ({type, onClick, isEdge}: Arrow) => {
+  const myArrow = ({type, onClick, isEdge}: IArrow) => {
     const pointer = type === 'PREV' ? <LeftArrowIcon /> : <RightArrowIcon />
     return (
       <Button onClick={onClick} disabled={isEdge}>
@@ -43,7 +32,7 @@ const Submissions = () => {
     {width: 1200, itemsToShow: 4},
     {width: 1440, itemsToShow: 5},
   ]
-  const [items] = useState<SubmissionItems[]>([
+  const [items] = useState<ISubmissionItems[]>([
     {
       id: uuidv4(),
       item: 'Some Name',
@@ -77,7 +66,7 @@ const Submissions = () => {
           label="Search by Event and/or Evaluator’s  name"
           onChange={handleChange}
         >
-          {items.map((item: SubmissionItems) => (
+          {items.map((item: ISubmissionItems) => (
             <MenuItem key={item.id} value={item.value}>
               {item.item}
             </MenuItem>

@@ -76,7 +76,6 @@ const useDashboardStyles = makeStyles({
     color: color.textGrey,
     fontWeight: font.fontWeight400,
   },
-
   sliderBoxListButton: {
     display: 'flex',
     justifyContent: 'space-around',

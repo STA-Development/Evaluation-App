@@ -9,14 +9,9 @@ import EmptyEvents from './eventsInfo/ongoingEvent/EmptyEvents'
 import EmptySubmission from './eventsInfo/submission/EmptySubmission'
 import EmptySavedSubmission from './eventsInfo/savedSubmission/EmptySavedSubmission'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
+import {ITabPanelProps} from '../../types/types'
 
-interface TabPanelProps {
-  children?: React.ReactNode
-  index: number
-  value: number
-}
-
-const TabPanel = (props: TabPanelProps) => {
+const TabPanel = (props: ITabPanelProps) => {
   const {children, value, index, ...other} = props
 
   return (
@@ -32,7 +27,7 @@ const TabPanel = (props: TabPanelProps) => {
   )
 }
 
-const a11yProps = (index: number) => ({
+const tabProps = (index: number) => ({
   id: `simple-tab-${index}`,
   'aria-controls': `simple-tabpanel-${index}`,
 })
@@ -41,6 +36,7 @@ const RootEvents = () => {
   const globalClasses = useGlobalTheme()
   const [value, setValue] = useState<number>(0)
   const [hasEvents] = useState<boolean>(true)
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue)
   }
@@ -54,9 +50,9 @@ const RootEvents = () => {
           aria-label="basic tabs"
           className={globalClasses.eventTabsBox}
         >
-          <Tab label="Events" {...a11yProps(0)} className={globalClasses.eventTabs} />
-          <Tab label="Submissions" {...a11yProps(1)} className={globalClasses.eventTabs} />
-          <Tab label="Saved Submissions" {...a11yProps(2)} className={globalClasses.eventTabs} />
+          <Tab label="Events" {...tabProps(0)} className={globalClasses.eventTabs} />
+          <Tab label="Submissions" {...tabProps(1)} className={globalClasses.eventTabs} />
+          <Tab label="Saved Submissions" {...tabProps(2)} className={globalClasses.eventTabs} />
         </Tabs>
       </Box>
       <Box className="events__info">
