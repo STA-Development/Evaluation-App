@@ -51,10 +51,10 @@ const SignUp = () => {
               user: name,
               email: user.email,
               id: user.uid,
-            })
-          );
+            }),
+          )
 
-          navigate("/dashboard");
+          navigate('/dashboard')
         })
         .catch((error) => {
           throw new Error(error)
