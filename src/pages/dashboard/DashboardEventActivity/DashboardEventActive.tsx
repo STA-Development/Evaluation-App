@@ -1,12 +1,10 @@
 import React from 'react'
 import {Box, Typography} from '@mui/material'
-import {ArcElement, Chart as ChartJS, Legend, Tooltip} from 'chart.js'
 import {v4 as uuidv4} from 'uuid'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import useDashboardStyles from '../../../assets/styleJs/dashboard/dashboard'
 
-ChartJS.register(ArcElement, Tooltip, Legend)
 
 const DashboardEventActive = () => {
   const classes = useDashboardStyles()
