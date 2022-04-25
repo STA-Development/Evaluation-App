@@ -1,7 +1,6 @@
-import {initializeApp} from "firebase/app";
-import {getAuth} from 'firebase/auth';
+import {initializeApp} from 'firebase/app'
+import {getAuth} from 'firebase/auth'
 import {getFirestore} from 'firebase/firestore'
-
 
 const {
   REACT_APP_API_KEY,
@@ -9,7 +8,7 @@ const {
   REACT_APP_PROJECT_ID,
   REACT_APP_STORAGE_BUCKET,
   REACT_APP_MESSAGING_SENDER_ID,
-  REACT_APP_APP_ID
+  REACT_APP_APP_ID,
 } = process.env
 
 const firebaseConfig = {
@@ -19,11 +18,9 @@ const firebaseConfig = {
   storageBucket: REACT_APP_STORAGE_BUCKET,
   messagingSenderId: REACT_APP_MESSAGING_SENDER_ID,
   appId: REACT_APP_APP_ID,
-};
+}
 
-
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth();
-export const db = getFirestore(app);
-export default db;
-
+const app = initializeApp(firebaseConfig)
+export const auth = getAuth()
+export const db = getFirestore(app)
+export default db

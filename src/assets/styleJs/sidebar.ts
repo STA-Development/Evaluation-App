@@ -24,11 +24,9 @@ const useSliderStyle = makeStyles({
        `,
     },
   },
-
   drawerBox: {
     width: '250px',
   },
-
   listItem: {
     padding: `${padding.paddingTopBottom15} ${padding.paddingLeftRight0}`,
     '&:hover': {

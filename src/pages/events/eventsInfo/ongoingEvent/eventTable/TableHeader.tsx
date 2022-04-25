@@ -2,7 +2,7 @@ import React from 'react'
 import {v4 as uuidv4} from 'uuid'
 import {Box, TableCell, TableHead, TableRow, TableSortLabel} from '@mui/material'
 import useEventsStyle from '../../../../../assets/styleJs/events/events'
-import UpDwonArrows from '../../../../../assets/images/Icons/UpDwonArrows'
+import UpDoNArrows from '../../../../../assets/images/Icons/UpDoвnArrows'
 import {Order, RowsInfo} from './TableContent'
 
 interface ItestInterFace {
@@ -64,7 +64,7 @@ const TableHeader = ({valueToOrderBy, orderDirection, handleRequestSort}: Asd) =
           <TableCell key={cell.id} className={classes.tableHeader}>
             {cell.name && (
               <Box component="span" className="table__icon" onClick={createSortHandler(cell.name)}>
-                <UpDwonArrows />
+                <UpDoNArrows />
               </Box>
             )}
 

@@ -41,7 +41,6 @@ const RootEvents = () => {
   const globalClasses = useGlobalTheme()
   const [value, setValue] = useState<number>(0)
   const [hasEvents] = useState<boolean>(true)
-
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue)
   }

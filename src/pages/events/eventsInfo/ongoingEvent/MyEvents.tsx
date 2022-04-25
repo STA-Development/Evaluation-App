@@ -1,24 +1,20 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
-import { useGlobalTheme } from "../../../../assets/style/globalVariables";
-import TableContent from "./eventTable/TableContent";
+import React from 'react'
+import {Box, Typography} from '@mui/material'
+import {useGlobalTheme} from '../../../../assets/style/globalVariables'
+import TableContent from './eventTable/TableContent'
 
 const MyEvents = () => {
-  const globalClasses = useGlobalTheme();
+  const globalClasses = useGlobalTheme()
   return (
     <Box>
-      <Typography
-        variant="h4"
-        component="h4"
-        className={globalClasses.contentHeader}
-      >
+      <Typography variant="h4" component="h4" className={globalClasses.contentHeader}>
         My Events
       </Typography>
       <Box>
-        <TableContent/>
+        <TableContent />
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default MyEvents;
+export default MyEvents
