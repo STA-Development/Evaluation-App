@@ -45,4 +45,4 @@ const MinusIcon = () => (
   </svg>
 )
 
-export default MinusIcon;
+export default MinusIcon

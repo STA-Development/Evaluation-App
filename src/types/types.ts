@@ -4,19 +4,19 @@ import {store} from '../redux/store'
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
-export interface IselectItems {
+export interface ISelectItems {
   id: string
   name: string
   value?: number
 }
 
-export interface Iarrow {
+export interface IArrow {
   type?: string
   onClick?: () => void
   isEdge?: boolean
 }
 
-export interface IauthPropsState {
+export interface IAuthPropsState {
   user: string
   email: string
   uid: string
@@ -24,31 +24,31 @@ export interface IauthPropsState {
   token: string
 }
 
-export interface ItabPanelProps {
+export interface ITabPanelProps {
   children?: React.ReactNode
   index: number
   value: number
 }
 
-export interface IrowsInfo {
+export interface IRowsInfo {
   [keyof: string]: string | number
 }
 
 export type Order = 'asc' | 'desc'
 
-export interface IheadCell {
+export interface IHeadCell {
   id: string
-  name: keyof IrowsInfo
+  name: keyof IRowsInfo
   label: string
 }
 
-export interface ItableHeaderCell {
+export interface ITableHeaderCell {
   valueToOrderBy: string | number
   orderDirection: Order
-  handleRequestSort: (event: React.MouseEvent, property: keyof IrowsInfo) => void
+  handleRequestSort: (event: React.MouseEvent, property: keyof IRowsInfo) => void
 }
 
-export interface IsubmissionDataTypes {
+export interface ISubmissionDataTypes {
   color: string
   status: string
   employeesName: string
@@ -59,13 +59,13 @@ export interface IsubmissionDataTypes {
   savedSubmission: boolean
 }
 
-export interface IsubmissionItems {
+export interface ISubmissionItems {
   id: string
   item: string
   value: number
 }
 
-export interface IsubData {
+export interface ISubData {
   id: string
   status: string
   employeesName: string

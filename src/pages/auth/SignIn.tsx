@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import {useGlobalTheme} from '../../assets/style/globalVariables'
+import {auth} from '../../data/firebase'
 import {signInWithEmailAndPassword} from 'firebase/auth'
 import {Link, useNavigate} from 'react-router-dom'
 import {
@@ -12,12 +14,8 @@ import {
   Typography,
 } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox'
-import {auth} from '../../data/firebase'
-
 import useStyles from '../../assets/styleJs/auth/signUp'
 import SignInImg from '../../assets/images/auth/SignInImg'
-
-import {useGlobalTheme} from '../../assets/style/globalVariables'
 
 const SignIn = () => {
   const classes = useStyles()
@@ -34,7 +32,7 @@ const SignIn = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password)
       if (auth.currentUser) {
-        navigate("/");
+        navigate('/')
       }
       setIsFetching(false)
     } catch (err) {

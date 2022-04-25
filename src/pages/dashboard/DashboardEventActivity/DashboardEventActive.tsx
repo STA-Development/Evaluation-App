@@ -104,7 +104,6 @@ const DashboardEventActive = () => {
       <Typography variant="h4" component="h4" className={classes.overviewHeader}>
         Overview
       </Typography>
-
       <Box className="canvasStyle">
         <HighchartsReact highcharts={Highcharts} options={options} />
       </Box>
@@ -112,4 +111,4 @@ const DashboardEventActive = () => {
   )
 }
 
-export default DashboardEventActive;
+export default DashboardEventActive

@@ -13,7 +13,6 @@ const useEventsStyle = makeStyles({
     alignItems: 'center',
     flexDirection: 'column',
   },
-
   eventEmptyText: {
     display: 'flex',
     flexDirection: 'column',

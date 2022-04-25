@@ -1,7 +1,7 @@
 import {v4 as uuidv4} from 'uuid'
-import {IsubData} from '../../../../../types/types'
+import {ISubData} from '../../../../../types/types'
 
-const submissionNewData: IsubData[] = [
+const submissionNewData: ISubData[] = [
   {
     id: uuidv4(),
     status: 'new',

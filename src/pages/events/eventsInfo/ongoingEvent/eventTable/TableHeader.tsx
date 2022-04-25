@@ -1,11 +1,11 @@
 import React from 'react'
 import {v4 as uuidv4} from 'uuid'
 import useEventsStyle from '../../../../../assets/styleJs/events/events'
-import {IheadCell, IrowsInfo, ItableHeaderCell} from '../../../../../types/types'
+import {IHeadCell, IRowsInfo, ITableHeaderCell} from '../../../../../types/types'
 import {Box, TableCell, TableHead, TableRow, TableSortLabel} from '@mui/material'
-import UpDwonArrows from '../../../../../assets/images/Icons/UpDwonArrows'
+import UpDownArrows from '../../../../../assets/images/Icons/UpDownArrows'
 
-const headCells: IheadCell[] = [
+const headCells: IHeadCell[] = [
   {
     id: uuidv4(),
     name: 'status',
@@ -38,9 +38,9 @@ const headCells: IheadCell[] = [
   },
 ]
 
-const TableHeader = ({valueToOrderBy, orderDirection, handleRequestSort}: ItableHeaderCell) => {
+const TableHeader = ({valueToOrderBy, orderDirection, handleRequestSort}: ITableHeaderCell) => {
   const classes = useEventsStyle()
-  const createSortHandler = (property: keyof IrowsInfo) =>
+  const createSortHandler = (property: keyof IRowsInfo) =>
     function (e: React.MouseEvent) {
       handleRequestSort(e, property)
     }
@@ -52,10 +52,9 @@ const TableHeader = ({valueToOrderBy, orderDirection, handleRequestSort}: Itable
           <TableCell key={cell.id} className={classes.tableHeader}>
             {cell.name && (
               <Box component="span" className="table__icon" onClick={createSortHandler(cell.name)}>
-                <UpDwonArrows />
+                <UpDownArrows />
               </Box>
             )}
-
             <TableSortLabel
               className={classes.sortableIcon}
               active={valueToOrderBy === cell.label}

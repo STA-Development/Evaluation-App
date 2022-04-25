@@ -1,7 +1,7 @@
 import React from 'react'
 import {Box, Button, Divider, Typography} from '@mui/material'
 import useSubmissionsStyle from '../../../../assets/styleJs/submissions/submissions'
-import {IsubmissionDataTypes} from '../../../../types/types'
+import {ISubmissionDataTypes} from '../../../../types/types'
 
 const SubmissionQuarterly = ({
   color,
@@ -12,7 +12,7 @@ const SubmissionQuarterly = ({
   employerPosition,
   savedSubmission,
   date,
-}: IsubmissionDataTypes) => {
+}: ISubmissionDataTypes) => {
   const classes = useSubmissionsStyle()
 
   return (

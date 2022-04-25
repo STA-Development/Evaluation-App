@@ -9,9 +9,9 @@ import EmptyEvents from './eventsInfo/ongoingEvent/EmptyEvents'
 import EmptySubmission from './eventsInfo/submission/EmptySubmission'
 import EmptySavedSubmission from './eventsInfo/savedSubmission/EmptySavedSubmission'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
-import {ItabPanelProps} from '../../types/types'
+import {ITabPanelProps} from '../../types/types'
 
-const TabPanel = (props: ItabPanelProps) => {
+const TabPanel = (props: ITabPanelProps) => {
   const {children, value, index, ...other} = props
 
   return (

@@ -1,7 +1,7 @@
 import {v4 as uuidv4} from 'uuid'
-import {IsubData} from '../../../../../types/types'
+import {ISubData} from '../../../../../types/types'
 
-const submissionNotFinished: IsubData[] = [
+const submissionNotFinished: ISubData[] = [
   {
     id: uuidv4(),
     status: 'not finished',
