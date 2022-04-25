@@ -27,10 +27,7 @@ const App = () => {
       dispatch(removeUser())
     }
   })
-
-  return (
-    <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>
-  );
+  return <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>
 }
 
-export default App;
+export default App

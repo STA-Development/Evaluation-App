@@ -1,18 +1,7 @@
 import {v4 as uuidv4} from 'uuid'
+import {ISubData} from '../../../../../types/types'
 
-interface SubData {
-  id: string
-  status: string
-  employeesName: string
-  employeesPosition: string
-  employerName: string
-  employerPosition: string
-  date: string
-  savedSubmission: boolean
-  color: string
-}
-
-const submissionReadData: SubData[] = [
+const submissionReadData: ISubData[] = [
   {
     id: uuidv4(),
     status: 'read',

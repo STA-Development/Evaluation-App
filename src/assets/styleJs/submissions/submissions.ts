@@ -1,5 +1,5 @@
-import { makeStyles } from "@mui/styles";
-import { color, font, margin, padding } from "../../style/globalVariables";
+import {makeStyles} from '@mui/styles'
+import {color, font, margin, padding} from '../../style/globalVariables'
 
 const useSubmissionsStyle = makeStyles({
   header: {
@@ -7,7 +7,6 @@ const useSubmissionsStyle = makeStyles({
     fontWeight: font.fontWeight700,
     color: color.navbarColor,
   },
-
   divider: {
     backgroundColor: color.lightGrey,
     margin: `${margin.marginTopBottom10} ${margin.marginLeftRight0}`,
@@ -21,7 +20,6 @@ const useSubmissionsStyle = makeStyles({
     fontSize: font.fontSize12,
     marginBottom: margin.marginBottom5,
   },
-
   submitedReview: {
     margin: `${margin.marginTopBottom10} ${margin.marginLeftRight0}`,
     fontSize: font.fontSize10,
@@ -31,28 +29,27 @@ const useSubmissionsStyle = makeStyles({
     color: color.tableBorderColor,
   },
   viewFormBox: {
-    display: "flex",
-    alignItems: "end",
+    display: 'flex',
+    alignItems: 'end',
   },
   viewFormButton: {
     padding: padding.padding0,
     fontSize: font.fontSize12,
   },
-
   statusName: {
     fontSize: font.fontSize10,
     fontWeight: font.fontWeight700,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
   },
   viewButtonDown: {
-    display: "flex",
-    alignItems: "end",
+    display: 'flex',
+    alignItems: 'end',
     marginBottom: margin.marginBottomM15,
   },
   formControl: {
-    width: "400px",
+    width: '400px',
     marginBottom: margin.marginBottom30,
   },
-});
+})
 
-export default useSubmissionsStyle;
+export default useSubmissionsStyle
