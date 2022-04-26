@@ -5,31 +5,23 @@ module.exports = {
     es2020: true,
     jest: true,
   },
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2020,
-    sourceType: "module",
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
-    project: "./tsconfig.json",
+    project: './tsconfig.json',
   },
-  plugins: [
-    "@typescript-eslint",
-    "react",
-    "react-hooks",
-    "prettier",
-    "filenames",
-    "import",
-  ],
+  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'prettier', 'filenames', 'import'],
   extends: [
-    "airbnb",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript",
-    "prettier",
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
+    'prettier',
   ],
   rules: {
     "no-plusplus": 0,
@@ -40,7 +32,7 @@ module.exports = {
       1,
       { extensions: [".js", ".jsx", ".ts", ".tsx"] },
     ], // It should allow us to write JSX in files with .tsx extension
-    "react/jsx-props-no-spreading": [1, { custom: "ignore" }], // In the root component (Myapp) we have ...pageProps which is out of reach from us to pass all the props manually, so that's why we added this rule.
+    "react/jsx-props-no-spreading":0,
     "jsx-a11y/no-static-element-interactions": 0, // The same as jsx-a11y/click-events-have-key-events
     "react/no-array-index-key": 0, // In application we have both static lists and expanding lists, neither draggable nor removing from the middle of array approach. So we can use that safely.
     "consistent-return": 0, // In application it requires to put return at the end of the arrow function which in the majority places will cause an issue.
@@ -59,28 +51,28 @@ module.exports = {
     "@typescript-eslint/naming-convention": [
       "error",
       {
-        selector: "variable",
-        format: ["camelCase", "UPPER_CASE", "strictCamelCase", "PascalCase"],
+        selector: 'variable',
+        format: ['camelCase', 'UPPER_CASE', 'strictCamelCase', 'PascalCase'],
       },
     ],
-    "import/no-unresolved": "error", // turn on errors for missing imports
-    "no-param-reassign": 0,
+    'import/no-unresolved': 'error', // turn on errors for missing imports
+    'no-param-reassign': 0,
   },
   settings: {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
-    "import/resolver": {
+    'import/resolver': {
       node: {
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
       typescript: {
         alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-        project: "packages/*/tsconfig.json",
+        project: 'packages/*/tsconfig.json',
       },
     },
     react: {
-      version: "detect", // Tells eslint-plugin-react to automatically detect the version of React to use
+      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
     },
   },
-};
+}

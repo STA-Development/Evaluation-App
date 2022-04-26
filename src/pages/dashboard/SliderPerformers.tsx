@@ -24,7 +24,14 @@ const SliderPerformers = () => {
     )
   }
 
-  const sliderItems = [
+  interface SliderItemsType {
+    id?: string
+    headerName?: string
+    position?: string
+    currency?: number
+  }
+
+  const sliderItems: SliderItemsType[] = [
     {
       id: uuidv4(),
       headerName: 'Jenny Cooper',
