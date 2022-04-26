@@ -30,25 +30,17 @@ const DashboardNotEvaluated = () => {
   return (
     <Box className={classes.overview}>
       <Box className="not__eval_employees">
-        <Typography
-          variant="h4"
-          component="h4"
-          className={classes.overviewHeader}
-        >
+        <Typography variant="h4" component="h4" className={classes.overviewHeader}>
           Not Evaluated Employees
         </Typography>
-        <Link to="/events" className="not__eval_employees_link">
-          Set Up Evaluation {">"}
+        <Link to="/events" className="not__eval_employees-link">
+          Set Up Evaluation {'>'}
         </Link>
       </Box>
       <Box>
         {evalutedEmployees.map((data) => (
-          <Box className="not__eval_employees_text" key={data.id}>
-            <Typography
-              variant="h6"
-              component="h6"
-              className={classes.notEvalEmployeesText}
-            >
+          <Box className="not__eval_employees-text" key={data.id}>
+            <Typography variant="h6" component="h6" className={classes.notEvalEmployeesText}>
               {data.name}
             </Typography>
             <Typography className={classes.textPosition}>{data.position}</Typography>

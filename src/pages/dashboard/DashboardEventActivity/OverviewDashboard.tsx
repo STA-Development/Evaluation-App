@@ -8,23 +8,19 @@ const OverviewDashboard = () => {
   const classes = useDashboardStyles()
   return (
     <Box>
-      <Typography
-        variant="h4"
-        component="h4"
-        className={classes.dashboardHeader}
-      >
+      <Typography variant="h4" component="h4" className={classes.dashboardHeader}>
         Recent Evoluation Event Activity
       </Typography>
       <Grid container spacing={2}>
         <Grid item md={6} sm={12}>
-          <DashboardEventActive/>
+          <DashboardEventActive />
         </Grid>
         <Grid item md={6} sm={12}>
-          <DashboardNotEvaluated/>
+          <DashboardNotEvaluated />
         </Grid>
       </Grid>
     </Box>
   )
 }
 
-export default OverviewDashboard;
+export default OverviewDashboard

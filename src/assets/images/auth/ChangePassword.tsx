@@ -119,4 +119,4 @@ const ChangePassword = () => (
   </svg>
 )
 
-export default ChangePassword;
+export default ChangePassword

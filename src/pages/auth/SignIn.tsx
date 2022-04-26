@@ -34,7 +34,7 @@ const SignIn = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password)
       if (auth.currentUser) {
-        navigate('/dashboard')
+        navigate('/')
       }
       setIsFetching(false)
     } catch (err) {
@@ -50,7 +50,7 @@ const SignIn = () => {
       <Grid className="auth auth__grid" container>
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Paper className="auth__title ">
-            <Box className="auth__title_text">
+            <Box className="auth__title-text">
               <Typography variant="h2" className={classes.authHeader}>
                 Sign In
               </Typography>
@@ -63,7 +63,7 @@ const SignIn = () => {
               </Box>
             </Box>
             <FormGroup>
-              <Box component="form" className="auth__input_box" onSubmit={handleSignIn}>
+              <Box component="form" className="auth__input-box" onSubmit={handleSignIn}>
                 <TextField
                   className={classes.authInput}
                   label="Email"
@@ -106,13 +106,13 @@ const SignIn = () => {
                 </Button>
               </Box>
             </FormGroup>
-            <Link to="/password-recover-email" className="auth__forgot_pass">
+            <Link to="/password-recover-email" className="auth__forgot-pass">
               Forgot Password?
             </Link>
           </Paper>
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
-          <Box className="auth__box_right ">
+          <Box className="auth__box-right ">
             <SignInImg />
           </Box>
         </Grid>

@@ -1,12 +1,12 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import SignIn from "../pages/auth/SignIn";
-import PassRecoverSent from "../pages/auth/PassRecoverSent";
-import PassRecover from "../pages/auth/PassRecover";
-import PassRecoverNewPas from "../pages/auth/PassRecoverNewPas";
-import IndexAuth from "../pages/auth/IndexAuth";
-import SignUp from "../pages/auth/SignUp";
-import PassChanged from "../pages/auth/PassChanged";
+import React from 'react'
+import {Route, Routes} from 'react-router-dom'
+import SignIn from '../pages/auth/SignIn'
+import PassRecoverSent from '../pages/auth/PassRecoverSent'
+import PassRecover from '../pages/auth/PassRecover'
+import PassRecoverNewPas from '../pages/auth/PassRecoverNewPas'
+import IndexAuth from '../pages/auth/IndexAuth'
+import SignUp from '../pages/auth/SignUp'
+import PassChanged from '../pages/auth/PassChanged'
 
 const PublicRoutes = () => (
   <Routes>
@@ -19,6 +19,6 @@ const PublicRoutes = () => (
       <Route path="password-changed" element={<PassChanged />} />
     </Route>
   </Routes>
-);
+)
 
 export default PublicRoutes

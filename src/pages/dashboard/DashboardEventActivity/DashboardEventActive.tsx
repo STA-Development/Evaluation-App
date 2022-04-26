@@ -5,7 +5,6 @@ import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import useDashboardStyles from '../../../assets/styleJs/dashboard/dashboard'
 
-
 const DashboardEventActive = () => {
   const classes = useDashboardStyles()
 

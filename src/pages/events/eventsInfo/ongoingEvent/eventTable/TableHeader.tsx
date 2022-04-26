@@ -33,7 +33,7 @@ const headCells: ItestInterFace[] = [
     label: 'Evaluators',
   },
   {
-    id: 'evaluates',
+    id: uuidv4(),
     name: 'evaluates',
     label: 'Evaluates',
   },
@@ -44,13 +44,13 @@ const headCells: ItestInterFace[] = [
   },
 ]
 
-interface Asd {
+interface ITableHeaderCell {
   valueToOrderBy: string | number
   orderDirection: Order
   handleRequestSort: (event: React.MouseEvent, property: keyof RowsInfo) => void
 }
 
-const TableHeader = ({valueToOrderBy, orderDirection, handleRequestSort}: Asd) => {
+const TableHeader = ({valueToOrderBy, orderDirection, handleRequestSort}: ITableHeaderCell) => {
   const classes = useEventsStyle()
   const createSortHandler = (property: keyof RowsInfo) =>
     function (e: React.MouseEvent) {
@@ -59,11 +59,15 @@ const TableHeader = ({valueToOrderBy, orderDirection, handleRequestSort}: Asd) =
 
   return (
     <TableHead>
-      <TableRow className="table__paper_header_cell">
+      <TableRow className="table__paper_header-cell">
         {headCells.map((cell) => (
           <TableCell key={cell.id} className={classes.tableHeader}>
             {cell.name && (
-              <Box component="span" className="table__icon" onClick={createSortHandler(cell.name)}>
+              <Box
+                component="span"
+                className="table__paper_table-icon"
+                onClick={createSortHandler(cell.name)}
+              >
                 <UpDwonArrows />
               </Box>
             )}

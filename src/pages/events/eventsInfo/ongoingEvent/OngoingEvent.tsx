@@ -24,7 +24,7 @@ const OngoingEvent = () => {
           </Button>
         </NavLink>
       </Box>
-      <Box className="ongoing__events__statistic">
+      <Box className="ongoing__events-statistic">
         {data.map((item) => (
           <Box className="ongoing__events" key={item.id}>
             <Grid container>
@@ -41,7 +41,7 @@ const OngoingEvent = () => {
                 </Box>
               </Grid>
               <Grid item md={6}>
-                <Box className="ongoing__events__percent">
+                <Box className="ongoing__events-percent">
                   <Typography variant="h4" component="h4">
                     {item.progress}%
                   </Typography>
@@ -51,9 +51,9 @@ const OngoingEvent = () => {
 
               <Divider className={eventClass.ongoingEventsDivider} />
               <Grid item md={12}>
-                <Box className="ongoing__events__quarterly">
+                <Box className="ongoing__events-quarterly">
                   <Typography component="h5">{item.header}</Typography>
-                  <Box className="ongoing__events__date">
+                  <Box className="ongoing__events-date">
                     <Grid container>
                       <Grid item md={6}>
                         <Typography> Start Date: </Typography>

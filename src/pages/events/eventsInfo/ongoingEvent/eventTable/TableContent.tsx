@@ -116,7 +116,7 @@ const TableContent = () => {
   const [orderDirection, setOrderDirection] = useState<Order>('asc')
   const [valueToOrderBy, setValueToOrderBy] = useState<keyof RowsInfo>('status')
 
-  const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof RowsInfo) => {
+  const handleRequestSort = (event: React.MouseEvent, property: keyof RowsInfo) => {
     const isAsc = valueToOrderBy === property && orderDirection === 'asc'
     setOrderDirection(isAsc ? 'desc' : 'asc')
     setValueToOrderBy(property)
