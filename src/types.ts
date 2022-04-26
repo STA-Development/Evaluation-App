@@ -1,6 +1,4 @@
-
-
- enum createEventReducerTypes {
+enum createEventReducerTypes {
   eventTitle = 'EVENT_TITLE',
   evaluators = 'EVALUATORS',
   evaluatees = 'EVALUATEES',
@@ -9,7 +7,7 @@
   bonusPercentage = 'BONUS_PERCENTAGE',
   startDate = 'START_DATE',
   endDate = 'END_DATE',
-  status = 'STATUS'
+  status = 'STATUS',
 }
 
 export default createEventReducerTypes
