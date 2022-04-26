@@ -119,8 +119,8 @@ const TableContent = () => {
   }
 
   return (
-    <Paper className="table__paper">
-      <TableContainer className="table__paper_list">
+    <Paper className="table-paper">
+      <TableContainer>
         <Table>
           <TableHeader
             valueToOrderBy={valueToOrderBy}
@@ -130,7 +130,7 @@ const TableContent = () => {
           <TableBody>
             {sortedRowInformation(rows, getComparator(orderDirection, valueToOrderBy)).map(
               (person, index) => (
-                <TableRow key={index} hover className="table__paper_row">
+                <TableRow key={index} hover className="table-paper__row">
                   <TableCell>{person.status}</TableCell>
                   <TableCell>{person.name}</TableCell>
                   <TableCell>{person.date}</TableCell>

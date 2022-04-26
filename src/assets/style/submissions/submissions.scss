@@ -50,7 +50,7 @@
 }
 
 .submission__quarterly {
-  width: 270px;
+  margin: 0 20px;
   height: 251px;
   border-top: $borderTop8 solid $transparent;
   border-radius: $borderRadius10 $borderRadius10 $borderRadius0 $borderRadius0;
@@ -100,4 +100,3 @@
 .status__color_orange {
   color: $submissionNotFinishedColor;
 }
-
