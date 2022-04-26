@@ -1,5 +1,5 @@
-import { makeStyles } from "@mui/styles";
-import { color, font, margin, position } from "../../style/globalVariables";
+import {makeStyles} from '@mui/styles'
+import {color, font, margin, position} from '../../style/globalVariables'
 
 const useStyles = makeStyles({
   authInput: {

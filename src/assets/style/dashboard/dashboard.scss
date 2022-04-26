@@ -2,46 +2,13 @@
   display: none;
 }
 
-.overViewEval {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.overViewEvalFeedback {
-  height: 160px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  p {
-    font-size: $fontSize14;
-    font-weight: $fontWeight700;
-    color: $navbarColor;
-  }
-
-  span {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    display: block;
-    margin-right: $marginRight10;
-  }
-
-  & > div {
-    display: flex;
-    align-items: center;
-  }
-
-}
 
 .not__eval_employees {
   display: flex;
   justify-content: space-between;
   margin-bottom: $marginBottom20;
 
-  &_link {
+  &-link {
     color: $blueColor;
     font-size: $fontSize14;
     font-weight: $fontWeight500;
@@ -51,7 +18,7 @@
     }
   }
 
-  &_text {
+  &-text {
     padding-bottom: $paddingBottom10;
     margin-bottom: $marginBottom16;
     border-bottom: $borderBottom solid $lightGrey;
@@ -92,7 +59,6 @@
   margin: $margin0;
 }
 
-
 .slider__box {
   width: 176px;
   height: 188px;
@@ -111,5 +77,3 @@
 .rec-carousel .rec-item-wrapper {
   height: 195px;
 }
-
-

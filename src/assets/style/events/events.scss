@@ -20,7 +20,7 @@
     align-items: center;
 
     &:before {
-      content: "";
+      content: '';
       width: 250px;
       height: 72px;
       position: absolute;
@@ -40,7 +40,7 @@
   margin-right: $marginRight16;
   margin-bottom: $marginBottom30;
 
-  &__percent {
+  &-percent {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +59,7 @@
     }
   }
 
-  &__quarterly {
+  &-quarterly {
     h5 {
       font-size: $fontSize16;
       font-weight: $fontWeight700;
@@ -68,7 +68,7 @@
     }
   }
 
-  &__date {
+  &-date {
     height: 50px;
     display: flex;
 
@@ -79,7 +79,7 @@
     }
   }
 
-  &__statistic {
+  &-statistic {
     display: flex;
     flex-wrap: wrap;
   }
@@ -94,7 +94,7 @@
     background-color: $greyColor;
   }
 
-  &_header_cell {
+  &_header-cell {
     padding-left: $marginLeft25;
 
     th {
@@ -113,7 +113,6 @@
         font-weight: $fontWeight700;
         font-size: $fontSize16;
         padding-left: $marginLeft10;
-
 
         &:hover {
           color: $navbarColor;
@@ -139,7 +138,6 @@
   }
 }
 
-
 .report__box {
   display: flex;
   justify-content: flex-start;
@@ -161,8 +159,8 @@
       text-decoration: none;
     }
   }
-}
 
-.table__icon {
-  cursor: pointer;
+  &_table-icon {
+    cursor: pointer;
+  }
 }

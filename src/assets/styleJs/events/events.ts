@@ -1,5 +1,5 @@
-import { makeStyles } from "@mui/styles";
-import { color, font, margin } from "../../style/globalVariables";
+import {makeStyles} from '@mui/styles'
+import {color, font, margin} from '../../style/globalVariables'
 
 export const useEventsStyle = makeStyles({
   ongoingEventsDivider: {
@@ -7,45 +7,44 @@ export const useEventsStyle = makeStyles({
     backgroundColor: color.lightGrey,
   },
   eventContent: {
-    height: " calc(100vh - 132px)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
+    height: ' calc(100vh - 132px)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
   },
-
   eventEmptyText: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text1: {
     marginTop: margin.marginTop25,
     fontWeight: font.fontWeight700,
-    fontFamily: "Montserrat",
+    fontFamily: 'Montserrat',
     fontSize: font.fontSize18,
   },
   text2: {
-    width: "365px",
-    textAlign: "center",
-    flexDirection: "column",
+    width: '365px',
+    textAlign: 'center',
+    flexDirection: 'column',
     fontWeight: font.fontWeight400,
-    fontFamily: "Montserrat",
+    fontFamily: 'Montserrat',
     fontSize: font.fontSize16,
     margin: margin.margin20,
   },
   tableHeader: {
     backgroundColor: color.greenColor,
-    "&: span": {
-      display: "flex",
-      justifyContent: "flex-start",
-      alignItem: "center",
+    '&: span': {
+      display: 'flex',
+      justifyContent: 'flex-start',
+      alignItem: 'center',
     },
   },
   sortableIcon: {
-    "& svg": {
-      display: "none",
+    '& svg': {
+      display: 'none',
     },
   },
-});
+})

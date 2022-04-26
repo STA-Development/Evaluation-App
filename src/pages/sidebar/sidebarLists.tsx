@@ -6,9 +6,9 @@ import ReportsNavbarIcon from '../../assets/images/Icons/ReportsNavbarIcon'
 const sidebarList = [
   {
     id: 1,
-    name: "Dashboard",
-    route: "/",
-    icon: <DashboardNavbarIcon/>
+    name: 'Dashboard',
+    route: '/',
+    icon: <DashboardNavbarIcon />,
   },
   {
     id: 2,

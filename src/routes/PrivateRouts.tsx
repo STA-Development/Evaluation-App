@@ -1,9 +1,9 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import RootEvents from "../pages/events/RootEvents";
-import Dashboard from "../pages/dashboard/Dashboard";
-import Reports from "../pages/reports/Reports";
-import Homepage from "../pages/Homepage";
+import React from 'react'
+import {Route, Routes} from 'react-router-dom'
+import RootEvents from '../pages/events/RootEvents'
+import Dashboard from '../pages/dashboard/Dashboard'
+import Reports from '../pages/reports/Reports'
+import Homepage from '../pages/Homepage'
 
 const PrivateRouts = () => (
   <Routes>
@@ -13,6 +13,6 @@ const PrivateRouts = () => (
       <Route path="reports" element={<Reports />} />
     </Route>
   </Routes>
-);
+)
 
-export default PrivateRouts;
+export default PrivateRouts

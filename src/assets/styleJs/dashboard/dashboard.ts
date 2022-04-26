@@ -6,7 +6,6 @@ const useDashboardStyles = makeStyles({
     height: '100vh',
     padding: padding.paddingTop30,
   },
-
   dashboardContent: {
     height: ' calc(100vh - 191px)',
     display: 'flex',
@@ -29,7 +28,6 @@ const useDashboardStyles = makeStyles({
     fontSize: font.fontSize16,
     margin: margin.margin20,
   },
-
   dashboardEmptyText: {
     display: 'flex',
     flexDirection: 'column',
@@ -63,7 +61,6 @@ const useDashboardStyles = makeStyles({
     fontSize: font.fontSize24,
     fontWeight: font.fontWeight700,
   },
-
   notEvalEmployeesText: {
     fontSize: font.fontSize15,
     color: color.navbarColor,
@@ -79,7 +76,6 @@ const useDashboardStyles = makeStyles({
     color: color.textGrey,
     fontWeight: font.fontWeight400,
   },
-
   sliderBoxListButton: {
     display: 'flex',
     justifyContent: 'space-around',
@@ -94,12 +90,10 @@ const useDashboardStyles = makeStyles({
     justifyContent: 'space-around',
     flexDirection: 'column',
   },
-
   sliderBoxCurrency: {
     fontSize: font.fontSize36,
     margin: margin.margin0Auto,
   },
-
   sidebarBoxHeader: {
     fontSize: font.fontSize18,
     fontWeight: font.fontWeight700,
@@ -107,7 +101,6 @@ const useDashboardStyles = makeStyles({
   sidebarBoxText: {
     fontSize: font.fontSize13,
   },
-
   sliderRockStars: {
     marginBottom: margin.marginBottom35,
     color: color.textGrey,
