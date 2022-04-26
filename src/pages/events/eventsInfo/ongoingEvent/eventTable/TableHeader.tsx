@@ -27,7 +27,7 @@ const headCells: IHeadCell[] = [
     label: 'Evaluators',
   },
   {
-    id: 'evaluates',
+    id: uuidv4(),
     name: 'evaluates',
     label: 'Evaluates',
   },
