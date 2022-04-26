@@ -1,0 +1,30 @@
+.view-form {
+  padding: $padding30;
+
+  &__link {
+    font-size: $fontSize16;
+    color: $navbarColor;
+    font-weight: $fontWeight500;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+}
+
+.view-form__active {
+  font-weight: $fontWeight700;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.eval-box {
+  margin-bottom: $marginBottom10;
+}

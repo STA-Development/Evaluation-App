@@ -1,6 +1,7 @@
 import {makeStyles} from '@mui/styles'
 
 export const font = {
+  fontWeight300: 300,
   fontWeight400: 400,
   fontWeight500: 500,
   fontWeight600: 600,
@@ -27,6 +28,7 @@ export const color = {
   darkGray: '#333',
   textGrey: '#4f4f4f',
   lightGrey: '#ececec',
+  percentGrey: '#979797',
   navbarColor: '#131924',
   activeLink: '#262f3f',
   whiteColor: '#fff',
@@ -34,6 +36,7 @@ export const color = {
   overViewBoxColor: '#1f6f8b',
   greenColor: '#b2e4d5',
   tableBorderColor: '#bdbdbd',
+  blackColor: '#000',
 }
 
 export const margin = {
@@ -57,6 +60,7 @@ export const margin = {
   marginTop10: '10px',
   marginRight18: '18px',
   marginRight20: '20px',
+  marginRight50: '50px',
   margin20: '20px',
   marginOverViewBox: '0px 4px 4px',
   marginLeft30: '30px',
