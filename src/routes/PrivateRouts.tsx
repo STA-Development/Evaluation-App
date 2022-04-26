@@ -4,12 +4,14 @@ import Dashboard from '../pages/dashboard/Dashboard'
 import Reports from '../pages/reports/Reports'
 import Homepage from '../pages/Homepage'
 import RootEvents from '../pages/events/RootEvents'
+import ViewForm from '../pages/events/eventsInfo/submission/viewForm/ViewForm'
 
 const PrivateRouts = () => (
   <Routes>
     <Route path="/" element={<Homepage />}>
       <Route index element={<Dashboard />} />
       <Route path="events" element={<RootEvents />} />
+      <Route path="events/view-form" element={<ViewForm />} />
       <Route path="reports" element={<Reports />} />
     </Route>
   </Routes>
