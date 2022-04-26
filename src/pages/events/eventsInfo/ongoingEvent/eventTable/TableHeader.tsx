@@ -47,7 +47,7 @@ const TableHeader = ({valueToOrderBy, orderDirection, handleRequestSort}: ITable
 
   return (
     <TableHead>
-      <TableRow className="table__paper_header_cell">
+      <TableRow className="table-paper__header-cell">
         {headCells.map((cell) => (
           <TableCell key={cell.id} className={classes.tableHeader}>
             {cell.name && (

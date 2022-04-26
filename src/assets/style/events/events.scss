@@ -20,7 +20,7 @@
     align-items: center;
 
     &:before {
-      content: "";
+      content: '';
       width: 250px;
       height: 72px;
       position: absolute;
@@ -85,16 +85,12 @@
   }
 }
 
-.table__paper {
+.table-paper {
   width: 100%;
   overflow: hidden;
   filter: drop-shadow($filterTop $filterRight $filterBottom $tablePaperColor);
 
-  &_header {
-    background-color: $greyColor;
-  }
-
-  &_header_cell {
+  &__header-cell {
     padding-left: $marginLeft25;
 
     th {
@@ -114,7 +110,6 @@
         font-size: $fontSize16;
         padding-left: $marginLeft10;
 
-
         &:hover {
           color: $navbarColor;
         }
@@ -126,7 +121,7 @@
     }
   }
 
-  &_row {
+  &__row {
     td {
       font-size: $fontSize14;
       font-weight: $fontWeight400;
@@ -138,7 +133,6 @@
     }
   }
 }
-
 
 .report__box {
   display: flex;
