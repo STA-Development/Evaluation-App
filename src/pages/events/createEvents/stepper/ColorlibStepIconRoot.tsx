@@ -1,11 +1,10 @@
-import {styled} from "@mui/material/styles";
-import {border, color, borderRedius} from "../../../../assets/style/globalVariables"
-
+import {styled} from '@mui/material/styles'
+import {border, borderRedius, color} from '../../../../assets/style/globalVariables'
 
 const ColorlibStepIconRoot = styled('div')<{
-  ownerState: { completed?: boolean; active?: boolean };
-}>(({ ownerState }) => ({
-  backgroundColor:  '',
+  ownerState: {completed?: boolean; active?: boolean}
+}>(({ownerState}) => ({
+  backgroundColor: '',
   border: `${border.border2} ${border.solid} ${color.blueColor}`,
   zIndex: 1,
   color: color.blueColor,
@@ -16,12 +15,12 @@ const ColorlibStepIconRoot = styled('div')<{
   justifyContent: 'center',
   alignItems: 'center',
   ...(ownerState.active && {
-    backgroundColor:'transparent',
+    backgroundColor: 'transparent',
   }),
   ...(ownerState.completed && {
     backgroundColor: color.blueColor,
-    color: color.whiteColor
+    color: color.whiteColor,
   }),
-}));
+}))
 
-export default  ColorlibStepIconRoot
+export default ColorlibStepIconRoot

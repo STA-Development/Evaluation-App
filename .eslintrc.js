@@ -24,32 +24,26 @@ module.exports = {
     'prettier',
   ],
   rules: {
-    "no-plusplus": 0,
-    "no-multiple-empty-lines": [2, {"max": 3, "maxEOF": 1}],
-    "disable-next-line": [0, { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
-    "import/extensions": [1, { extensions: [".js", ".jsx", ".ts", ".tsx"] }], // There is no need for each import statement highlight the file's extension
-    "react/jsx-filename-extension": [
-      1,
-      { extensions: [".js", ".jsx", ".ts", ".tsx"] },
-    ], // It should allow us to write JSX in files with .tsx extension
-    "react/jsx-props-no-spreading":0,
-    "jsx-a11y/no-static-element-interactions": 0, // The same as jsx-a11y/click-events-have-key-events
-    "react/no-array-index-key": 0, // In application we have both static lists and expanding lists, neither draggable nor removing from the middle of array approach. So we can use that safely.
-    "consistent-return": 0, // In application it requires to put return at the end of the arrow function which in the majority places will cause an issue.
-    "react/function-component-definition": [
-      1,
-      { namedComponents: "arrow-function" },
-    ], // We need to have only one type of functions here we are choosing arrow-function
-    "jsx-a11y/click-events-have-key-events": 0, // There are no need to give role attribute to each element - there are divs, spans etc... which are asking for a role
-    "jsx-a11y/media-has-caption": 0, // We don't need this kind of feature it is asking not required attributes which is not given by quickblox and can't affect to anything
-    "no-use-before-define": "off", // While using JSX in our component we have to import React (that's what linter suggests), in contrast we are getting error if we don't use this rule.
-    "no-throw-literal": 0, // No Need for this kind of thing because you can easily throw and Error As object - For example we are getting that kind of responses from BE
-    "no-shadow": "off", // This One is disabled because rule have no support for ts, but at the bottom we have enabled @typescript-eslint/no-shadow instead of
-    "@typescript-eslint/no-shadow": "error",
-    "filenames/match-regex": 0,
-    "@typescript-eslint/no-unused-vars": ["error"],
-    "@typescript-eslint/naming-convention": [
-      "error",
+    'no-plusplus': 0,
+    'no-multiple-empty-lines': [2, {max: 3, maxEOF: 1}],
+    'disable-next-line': [0, {extensions: ['.js', '.jsx', '.ts', '.tsx']}],
+    'import/extensions': [1, {extensions: ['.js', '.jsx', '.ts', '.tsx']}], // There is no need for each import statement highlight the file's extension
+    'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx', '.ts', '.tsx']}], // It should allow us to write JSX in files with .tsx extension
+    'react/jsx-props-no-spreading': 0,
+    'jsx-a11y/no-static-element-interactions': 0, // The same as jsx-a11y/click-events-have-key-events
+    'react/no-array-index-key': 0, // In application we have both static lists and expanding lists, neither draggable nor removing from the middle of array approach. So we can use that safely.
+    'consistent-return': 0, // In application it requires to put return at the end of the arrow function which in the majority places will cause an issue.
+    'react/function-component-definition': [1, {namedComponents: 'arrow-function'}], // We need to have only one type of functions here we are choosing arrow-function
+    'jsx-a11y/click-events-have-key-events': 0, // There are no need to give role attribute to each element - there are divs, spans etc... which are asking for a role
+    'jsx-a11y/media-has-caption': 0, // We don't need this kind of feature it is asking not required attributes which is not given by quickblox and can't affect to anything
+    'no-use-before-define': 'off', // While using JSX in our component we have to import React (that's what linter suggests), in contrast we are getting error if we don't use this rule.
+    'no-throw-literal': 0, // No Need for this kind of thing because you can easily throw and Error As object - For example we are getting that kind of responses from BE
+    'no-shadow': 'off', // This One is disabled because rule have no support for ts, but at the bottom we have enabled @typescript-eslint/no-shadow instead of
+    '@typescript-eslint/no-shadow': 'error',
+    'filenames/match-regex': 0,
+    '@typescript-eslint/no-unused-vars': ['error'],
+    '@typescript-eslint/naming-convention': [
+      'error',
       {
         selector: 'variable',
         format: ['camelCase', 'UPPER_CASE', 'strictCamelCase', 'PascalCase'],

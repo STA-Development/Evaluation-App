@@ -1,11 +1,11 @@
-import React, {useReducer} from "react";
-import {v4 as uuidv4} from "uuid";
-import {Action, Event, EventProviderProps} from "./TypesEvents";
-import createEventReducerTypes from "../../../types"
+import React, {useReducer} from 'react'
+import {v4 as uuidv4} from 'uuid'
+import {Action, Event, EventProviderProps} from './TypesEvents'
+import createEventReducerTypes from '../../../types'
 
 const initialState: Event = {
   id: uuidv4(),
-  eventTitle: "",
+  eventTitle: '',
   evaluators: [],
   evaluatees: [],
   criterias: [],
@@ -13,25 +13,25 @@ const initialState: Event = {
   bonusPercentage: 0,
   startDate: {},
   endDate: {},
-  status: ""
+  status: '',
 }
 
 const initialEventContext: {
-  state: Event,
+  state: Event
   dispatch: React.Dispatch<Action>
 } = {
   state: initialState,
-  dispatch: () => ({})
+  dispatch: () => ({}),
 }
 
 export const EventContext = React.createContext(initialEventContext)
 
-function eventReducer (state: Event, action: Action): Event {
+function eventReducer(state: Event, action: Action): Event {
   switch (action.type) {
-    case createEventReducerTypes.eventTitle : {
+    case createEventReducerTypes.eventTitle: {
       return {...state, id: uuidv4(), eventTitle: action.eventTitle}
     }
-    case (createEventReducerTypes.evaluators): {
+    case createEventReducerTypes.evaluators: {
       return {...state, evaluators: action.evaluators}
     }
     case createEventReducerTypes.evaluatees: {
@@ -63,9 +63,13 @@ function eventReducer (state: Event, action: Action): Event {
 
 export const EventContextProvider = ({children}: EventProviderProps) => {
   const [state, dispatch] = useReducer(eventReducer, initialState)
-  const value = React.useMemo(() => ({
-    state, dispatch
-  }), []);
+  const value = React.useMemo(
+    () => ({
+      state,
+      dispatch,
+    }),
+    [],
+  )
 
   return <EventContext.Provider value={value}>{children}</EventContext.Provider>
 }
