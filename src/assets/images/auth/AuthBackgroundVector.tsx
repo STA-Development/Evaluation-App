@@ -10,6 +10,7 @@ const AuthBackgroundVector = () => (
     xmlns="http://www.w3.org/2000/svg"
     x="100"
   >
+    no-named-as-default
     <path
       width="100vw"
       className="Imjusttesting"

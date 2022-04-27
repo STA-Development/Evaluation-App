@@ -4,7 +4,7 @@
   height: 100vh;
 }
 
-.childThing {
+.auth-right-bg {
   position: absolute;
   right: $posRight0;
   top: $posTop0;
@@ -44,14 +44,14 @@
     position: relative;
   }
 
-  &__input_box {
+  &__input-box {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     margin-bottom: $marginBottom15;
   }
 
-  &__title_text {
+  &__title-text {
     height: 122px;
     display: flex;
     flex-direction: column;
@@ -59,7 +59,7 @@
     margin-bottom: $marginBottom30;
   }
 
-  &__forgot_pass {
+  &__forgot-pass {
     color: $blueColor;
     font-size: $fontSize14;
     font-weight: $fontWeight400;
@@ -72,7 +72,7 @@
   }
 }
 
-.auth__box_right {
+.auth__box-right {
   max-width: 100%;
   z-index: $zIndex3;
 
@@ -82,15 +82,11 @@
   }
 }
 
-.auth__pass_rec {
-  margin: $marginTop50 $marginLeft0 $marginBottom30 $marginLeft0;
-  height: 90px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.auth__pass_rec-cheng {
+  margin-bottom: $marginBottom30;
 }
 
-.btnGroup {
+.auth__btn-group {
   display: flex;
 
   button {
@@ -100,7 +96,7 @@
   }
 }
 
-.auth__change_pass {
+.auth__change-pass {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,7 +106,7 @@
   flex-direction: column;
 }
 
-.auth__pass_resend {
+.auth__pass-resend {
   margin: $margin0;
   height: 175px;
   display: flex;

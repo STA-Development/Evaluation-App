@@ -22,7 +22,7 @@ const PassRecover = () => {
       <Grid className="auth auth__grid" container>
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Box className="auth__title ">
-            <Box component="div" className="auth__pass_resend">
+            <Box component="div" className="auth__pass-resend">
               <Typography variant="h2" className={classes.authHeader}>
                 Password Recovery
               </Typography>
@@ -31,7 +31,7 @@ const PassRecover = () => {
                   Write your email , we will send you recovery link{' '}
                 </Typography>
               </Box>
-              <Box className="btnGroup">
+              <Box className="auth__btn-group">
                 <Button variant="outlined" size="large" onClick={handleResend}>
                   Resend
                 </Button>
@@ -49,7 +49,7 @@ const PassRecover = () => {
         </Grid>
 
         <Grid className={classes.passRecGrid} item lg={4} md={5} sm={12} xs={12}>
-          <Box className="auth__box_right ">
+          <Box className="auth__box-right ">
             <PasswordRecovery />
           </Box>
         </Grid>

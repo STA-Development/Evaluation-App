@@ -15,7 +15,6 @@ html {
 body {
   font-size: $paragraph;
   line-height: $line-height;
-
 }
 
 h1,
@@ -54,7 +53,6 @@ strong {
   display: block;
 }
 
-
 .button {
   background-color: $blueColor;
 }
@@ -63,7 +61,6 @@ strong {
   width: calc(100% - 250px);
   background-color: $authBg;
 }
-
 
 .text-decoration-none {
   &:hover {
