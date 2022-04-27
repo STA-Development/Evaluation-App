@@ -8,6 +8,7 @@ enum createEventReducerTypes {
   startDate = 'START_DATE',
   endDate = 'END_DATE',
   status = 'STATUS',
+  updateActivePageToCriterias = 'UPDATE_ACTIVE_PAGE_TO_CRITERIAS',
 }
 
 export default createEventReducerTypes

@@ -1,4 +1,4 @@
-import createEventReducerTypes from '../../../types'
+import createEventReducerTypes from '../../../types/createEventTypes'
 
 export interface IEvaluator {
   id: string
@@ -33,7 +33,7 @@ export interface IEvaluatee {
   date: string
   dateValue: unknown
   salary: string
-  salaryValue: number | string | null
+  salaryValue: number | string
 }
 
 export interface ICriteria {
@@ -42,6 +42,7 @@ export interface ICriteria {
 }
 
 export interface Event {
+  activePage: string
   id: string
   eventTitle: string
   evaluators: IEvaluator[]
@@ -64,6 +65,7 @@ export type Action =
   | {type: createEventReducerTypes.startDate; startDate: object}
   | {type: createEventReducerTypes.endDate; endDate: object}
   | {type: createEventReducerTypes.status; status: string}
+  | {type: createEventReducerTypes.updateActivePageToCriterias; activePage: string}
 
 export type Dispatch = (action: Action) => void
 export type EventProviderProps = {children: JSX.Element | JSX.Element[]}
