@@ -1,14 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
+import {IAuthPropsState} from '../../types/storeTypes'
 
-export interface AuthPropsState {
-  user: string
-  email: string
-  uid: string
-  isAuth: boolean
-  token: string
-}
-
-const initialState: AuthPropsState = {
+const initialState: IAuthPropsState = {
   user: '',
   email: '',
   uid: '',

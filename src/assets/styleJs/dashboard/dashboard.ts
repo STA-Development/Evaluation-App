@@ -2,12 +2,12 @@ import {makeStyles} from '@mui/styles'
 import {borderRedius, color, font, margin, padding} from '../../style/globalVariables'
 
 const useDashboardStyles = makeStyles({
-  emptyDashboard: {
-    height: 'calc(100vh - 66px)',
+  dashboardPage: {
+    height: '100vh',
+    padding: padding.paddingTop30,
   },
-
   dashboardContent: {
-    height: ' calc(100% - 91px)',
+    height: ' calc(100vh - 191px)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -28,7 +28,6 @@ const useDashboardStyles = makeStyles({
     fontSize: font.fontSize16,
     margin: margin.margin20,
   },
-
   dashboardEmptyText: {
     display: 'flex',
     flexDirection: 'column',
@@ -43,7 +42,7 @@ const useDashboardStyles = makeStyles({
     backgroundColor: color.whiteColor,
     boxShadow: `${margin.marginOverViewBox} ${color.overViewBoxshadow}`,
     borderRadius: borderRedius.overViewBox,
-    height: '100%',
+    height: '340px',
   },
   overViewTitle: {
     height: '100%',
@@ -59,12 +58,10 @@ const useDashboardStyles = makeStyles({
     marginBottom: margin.marginBottom25,
   },
   overviewHeader: {
-    fontSize: font.fontSize18,
+    fontSize: font.fontSize24,
     fontWeight: font.fontWeight700,
-    marginBottom: margin.marginBottom10,
   },
-
-  notEvalEmployiesText: {
+  notEvalEmployeesText: {
     fontSize: font.fontSize15,
     color: color.navbarColor,
     fontWeight: font.fontWeight700,
@@ -79,7 +76,6 @@ const useDashboardStyles = makeStyles({
     color: color.textGrey,
     fontWeight: font.fontWeight400,
   },
-
   sliderBoxListButton: {
     display: 'flex',
     justifyContent: 'space-around',
@@ -94,12 +90,10 @@ const useDashboardStyles = makeStyles({
     justifyContent: 'space-around',
     flexDirection: 'column',
   },
-
   sliderBoxCurrency: {
     fontSize: font.fontSize36,
     margin: margin.margin0Auto,
   },
-
   sidebarBoxHeader: {
     fontSize: font.fontSize18,
     fontWeight: font.fontWeight700,
@@ -107,7 +101,6 @@ const useDashboardStyles = makeStyles({
   sidebarBoxText: {
     fontSize: font.fontSize13,
   },
-
   sliderRockStars: {
     marginBottom: margin.marginBottom35,
     color: color.textGrey,

@@ -24,7 +24,6 @@ const Sidebar = () => {
   const userId = useAppSelector(selectUserId)
   const navigate = useNavigate()
 
-
   const handleLogOut = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     if (userId) {
@@ -41,7 +40,7 @@ const Sidebar = () => {
             <AvatarIcon />
           </Avatar>
           <Typography className={classes.nameSurname}>Name Surname</Typography>
-          <NavLink style={{textDecoration: 'none'}} to="events-create">
+          <NavLink className="text-decoration-none" to="events-create">
             <Button variant="contained" size="large" className={globalClasses.button}>
               CREATE EVENT
             </Button>
@@ -53,18 +52,12 @@ const Sidebar = () => {
               <NavLink
                 to={item.route}
                 key={item.id}
-                className={({isActive}) => (isActive ? 'link_active' : 'nav-link')}
+                className={({isActive}) => (isActive ? 'link-active' : 'nav-link')}
               >
                 <ListItem className={classes.listItem} button>
                   <Box className={classes.listItemContent}>
-                    <ListItemIcon className={classes.itemIcon}>
-                      {item.icon}
-                    </ListItemIcon>
-                    <ListItemText
-                      className={classes.itemText}
-
-                      primary={item.name}
-                    />
+                    <ListItemIcon className={classes.itemIcon}>{item.icon}</ListItemIcon>
+                    <ListItemText className={classes.itemText} primary={item.name} />
                   </Box>
                 </ListItem>
               </NavLink>

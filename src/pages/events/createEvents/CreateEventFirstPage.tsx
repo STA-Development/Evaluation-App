@@ -331,7 +331,7 @@ const CreateEventFirstPage = () => {
         <Box className={classes.evaluateesArr}>
           <Grid container>
             {evaluateesList.map((item: IEvaluatee) => (
-              <Paper key={item.id} className={classes.evaluatorCard}>
+              <Paper key={item.id} className={`${classes.evaluatorCard} ${classes.evaluateeCard}`}>
                 <Box className={classes.evaluatorCardHeader}>
                   <Typography className={classes.evaluatorHeaderName}>{item.header}</Typography>
                   <IconButton

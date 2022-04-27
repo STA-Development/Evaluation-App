@@ -6,7 +6,7 @@ import AuthBackgroundVector from '../../assets/images/auth/AuthBackgroundVector'
 const IndexAuth = () => (
   <Box>
     <Outlet />
-    <Box component="div" className="childThing">
+    <Box component="div" className="auth-right-bg">
       <AuthBackgroundVector />
     </Box>
   </Box>

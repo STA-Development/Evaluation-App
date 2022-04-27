@@ -21,7 +21,7 @@ const PassChanged = () => {
       <Grid className="auth auth__grid" container>
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Paper className="auth__title">
-            <Box className="auth__change_pass">
+            <Box className="auth__change-pass">
               <Button variant="text" className={classes.changedButton} onClick={handleClose}>
                 <CloseIcon />
               </Button>
@@ -38,7 +38,7 @@ const PassChanged = () => {
           </Paper>
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
-          <Box className="auth__box_right ">
+          <Box className="auth__box-right ">
             <ChangePassword />
           </Box>
         </Grid>

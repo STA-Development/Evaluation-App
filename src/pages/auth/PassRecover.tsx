@@ -35,7 +35,7 @@ const PassRecover = () => {
       <Grid className="auth auth__grid" container>
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Paper className="auth__title ">
-            <Box className="auth__pass_rec_cheng">
+            <Box className="auth__pass_rec-cheng">
               <Typography variant="h2" className={classes.authHeader}>
                 Password Recovery
               </Typography>
@@ -46,7 +46,7 @@ const PassRecover = () => {
               </Box>
             </Box>
             <FormGroup>
-              <Box component="form" className="auth__input_box" onSubmit={handleRecoverPass}>
+              <Box component="form" className="auth__input-box" onSubmit={handleRecoverPass}>
                 <TextField
                   className={classes.authInput}
                   label="Email"
@@ -73,7 +73,7 @@ const PassRecover = () => {
           </Paper>
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
-          <Box className="auth__box_right ">
+          <Box className="auth__box-right ">
             <PasswordRecovery />
           </Box>
         </Grid>
