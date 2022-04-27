@@ -5,7 +5,7 @@ import Carousel from 'react-elastic-carousel'
 import useDashboardStyles from '../../assets/styleJs/dashboard/dashboard'
 import RightArrowIcon from '../../assets/images/Icons/RightArrowIcon'
 import LeftArrowIcon from '../../assets/images/Icons/LeftArrowIcon'
-import {IArrow} from '../../types/types'
+import {IArrow} from '../../types/submissionsType'
 
 const SliderPerformers = () => {
   const classes = useDashboardStyles()

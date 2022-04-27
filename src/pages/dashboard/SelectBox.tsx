@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select, {SelectChangeEvent} from '@mui/material/Select'
 import useSelectBox from '../../assets/styleJs/dashboard/selectBox'
-import {ISelectItems} from '../../types/types'
+import {ISelectItems} from '../../types/dashboardTypes'
 
 const SelectBox = () => {
   const classes = useSelectBox()

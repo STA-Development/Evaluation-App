@@ -1,4 +1,4 @@
-import {IRowsInfo, Order} from '../types/types'
+import {IRowsInfo, Order} from '../types/ongoingEventsType'
 
 const colors = () => Math.floor(Math.random() * 255)
 export const randomColor = () => `rgb(${colors()} ${colors()}  ${colors()})`

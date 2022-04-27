@@ -36,12 +36,12 @@
 
 }
 
-.not__eval_employees {
+.not-eval-employees {
   display: flex;
   justify-content: space-between;
   margin-bottom: $marginBottom20;
 
-  &_link {
+  &__link {
     color: $blueColor;
     font-size: $fontSize14;
     font-weight: $fontWeight500;
@@ -51,7 +51,7 @@
     }
   }
 
-  &_text {
+  &__text {
     padding-bottom: $paddingBottom10;
     margin-bottom: $marginBottom16;
     border-bottom: $borderBottom solid $lightGrey;
