@@ -31,7 +31,7 @@
   }
 }
 
-.ongoing__events {
+.ongoing-events {
   width: 272px;
   background: $whiteColor;
   box-shadow: $boxShadow0 $boxShadow4 $boxShadow4 $eventBox;
@@ -110,6 +110,11 @@
         font-size: $fontSize16;
         padding-left: $marginLeft10;
 
+        &:first-child {
+          vertical-align: middle;
+          display: inline-flex;
+        }
+
         &:hover {
           color: $navbarColor;
         }
@@ -155,8 +160,8 @@
       text-decoration: none;
     }
   }
-}
 
-.table__icon {
-  cursor: pointer;
+  &__table-icon {
+    cursor: pointer;
+  }
 }

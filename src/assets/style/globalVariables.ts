@@ -111,7 +111,6 @@ export const useGlobalTheme = makeStyles({
       backgroundColor: color.darkBlue,
     },
   },
-
   titleHeader: {
     fontWeight: font.fontWeight700,
     fontFamily: 'Montserrat',

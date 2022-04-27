@@ -15,7 +15,6 @@ html {
 body {
   font-size: $paragraph;
   line-height: $line-height;
-
 }
 
 h1,
@@ -54,7 +53,6 @@ strong {
   display: block;
 }
 
-
 .button {
   background-color: $blueColor;
 }
@@ -64,12 +62,12 @@ strong {
   background-color: $authBg;
 }
 
-
-.text-decoration__none {
+.text-decoration-none {
   &:hover {
     text-decoration: none;
   }
 }
+
 
 .display-flex__align-center {
   display: flex;

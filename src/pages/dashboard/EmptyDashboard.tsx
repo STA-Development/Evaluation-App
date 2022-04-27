@@ -18,7 +18,7 @@ const EmptyDashboard = () => {
         <Typography className={classes.dashText2}>
           To see dashboard information you need to set up evaluation event first.
         </Typography>
-        <Link to="/" className="text-decoration__none">
+        <Link to={'/events-create'} className="text-decoration-none">
           <Button variant="contained">CREATE EVENT</Button>
         </Link>
       </Box>

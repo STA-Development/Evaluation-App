@@ -1,7 +1,7 @@
 import React from 'react'
+import {v4 as uuidv4} from 'uuid'
 import {Box, Typography} from '@mui/material'
 import {Link} from 'react-router-dom'
-import {v4 as uuidv4} from 'uuid'
 import useDashboardStyles from '../../../assets/styleJs/dashboard/dashboard'
 
 const DashboardNotEvaluated = () => {
@@ -29,17 +29,17 @@ const DashboardNotEvaluated = () => {
 
   return (
     <Box className={classes.overview}>
-      <Box className="notEvalEmployes">
+      <Box className="not-eval-employees">
         <Typography variant="h4" component="h4" className={classes.overviewHeader}>
           Not Evaluated Employees
         </Typography>
-        <Link to="/events" className="not__eval_employees_link">
+        <Link to="/events" className="not-eval-employees__link">
           Set Up Evaluation {'>'}
         </Link>
       </Box>
       <Box>
         {evalutedEmployees.map((data) => (
-          <Box className="not__eval_employees_text" key={data.id}>
+          <Box className="not-eval-employees__text" key={data.id}>
             <Typography variant="h6" component="h6" className={classes.notEvalEmployeesText}>
               {data.name}
             </Typography>
