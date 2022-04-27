@@ -15,7 +15,7 @@ const EmptySubmission = () => {
           No one submitted their evaluation form yet.
         </Typography>
         <Typography className={classes.text2}>
-          As soon as evaluator submits the form , you will be able to review it here.{' '}
+          As soon as evaluator submits the form , you will be able to review it here.
         </Typography>
       </Box>
     </Box>

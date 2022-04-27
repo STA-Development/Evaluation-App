@@ -18,7 +18,7 @@ const EmptyEvents = () => {
         <Typography className={classes.text2}>
           To see dashboard information you need to set up evaluation event first.
         </Typography>
-        <Link className=".text-decoration-none" to="/">
+        <Link className="text-decoration-none" to="/">
           <Button variant="contained">CREATE EVENT</Button>
         </Link>
       </Box>
