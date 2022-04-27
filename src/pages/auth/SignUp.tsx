@@ -46,7 +46,14 @@ const SignUp = () => {
 
       await createUserWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
-          dispatch(setUser(user))
+          dispatch(
+            setUser({
+              user: name,
+              email: user.email,
+              id: user.uid,
+            }),
+          )
+
           navigate('/dashboard')
         })
         .catch((error) => {

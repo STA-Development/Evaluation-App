@@ -42,7 +42,7 @@ const useDashboardStyles = makeStyles({
     backgroundColor: color.whiteColor,
     boxShadow: `${margin.marginOverViewBox} ${color.overViewBoxshadow}`,
     borderRadius: borderRedius.overViewBox,
-    height: '100%',
+    height: '340px',
   },
   overViewTitle: {
     height: '100%',

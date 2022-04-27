@@ -1,6 +1,6 @@
 import {randomColor, randomNumber} from '../../../../utils/utils'
 
-export const data = [
+const data = [
   {
     header: 'Quarterly Development Team Evoluation',
     progress: randomNumber(),
@@ -26,3 +26,5 @@ export const data = [
     id: Math.random(),
   },
 ]
+
+export default data

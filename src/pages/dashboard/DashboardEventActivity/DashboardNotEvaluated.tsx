@@ -29,17 +29,17 @@ const DashboardNotEvaluated = () => {
 
   return (
     <Box className={classes.overview}>
-      <Box className="not__eval_employees">
+      <Box className="not-eval-employees">
         <Typography variant="h4" component="h4" className={classes.overviewHeader}>
           Not Evaluated Employees
         </Typography>
-        <Link to="/events" className="not__eval_employees-link">
+        <Link to="/events" className="not-eval-employees__link">
           Set Up Evaluation {'>'}
         </Link>
       </Box>
       <Box>
         {evalutedEmployees.map((data) => (
-          <Box className="not__eval_employees-text" key={data.id}>
+          <Box className="not-eval-employees__text" key={data.id}>
             <Typography variant="h6" component="h6" className={classes.notEvalEmployeesText}>
               {data.name}
             </Typography>

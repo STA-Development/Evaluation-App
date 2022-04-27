@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
+import {Box, Typography} from '@mui/material'
 import EmptyDashboard from './EmptyDashboard'
 import FullDashboard from './FullDashboard'
-import {Box, Typography} from '@mui/material'
 import useDashboardStyles from '../../assets/styleJs/dashboard/dashboard'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 
@@ -13,15 +13,7 @@ const Dashboard = () => {
   return (
     <Box className={classes.dashboardPage}>
       <Typography className={globalClasses.titleHeader}>Dashboard</Typography>
-      {hasInfo ? (
-        <Box>
-          <EmptyDashboard />
-        </Box>
-      ) : (
-        <Box>
-          <FullDashboard />
-        </Box>
-      )}
+      {hasInfo ? <EmptyDashboard /> : <FullDashboard />}
     </Box>
   )
 }

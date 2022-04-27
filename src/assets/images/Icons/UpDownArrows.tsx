@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UpDwonArrows = () => (
+const UpDownArrows = () => (
   <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
@@ -11,4 +11,4 @@ const UpDwonArrows = () => (
   </svg>
 )
 
-export default UpDwonArrows
+export default UpDownArrows

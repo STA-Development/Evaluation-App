@@ -85,7 +85,7 @@
   }
 }
 
-.table__paper {
+.table-paper {
   width: 100%;
   overflow: hidden;
   filter: drop-shadow($filterTop $filterRight $filterBottom $tablePaperColor);
@@ -94,7 +94,7 @@
     background-color: $greyColor;
   }
 
-  &_header-cell {
+  &__header-cell {
     padding-left: $marginLeft25;
 
     th {
@@ -114,6 +114,11 @@
         font-size: $fontSize16;
         padding-left: $marginLeft10;
 
+        &:first-child {
+          vertical-align: middle;
+          display: inline-flex;
+        }
+
         &:hover {
           color: $navbarColor;
         }
@@ -125,7 +130,7 @@
     }
   }
 
-  &_row {
+  &__row {
     td {
       font-size: $fontSize14;
       font-weight: $fontWeight400;
@@ -160,7 +165,7 @@
     }
   }
 
-  &_table-icon {
+  &__table-icon {
     cursor: pointer;
   }
 }

@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {ITabPanelProps} from '../../types/eventsTypes'
 import {Box} from '@mui/material'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
@@ -10,30 +11,26 @@ import EmptySubmission from './eventsInfo/submission/EmptySubmission'
 import EmptySavedSubmission from './eventsInfo/savedSubmission/EmptySavedSubmission'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 
-interface TabPanelProps {
-  children?: React.ReactNode
-  index?: number
-  value?: number
+const TabPanel = (props: ITabPanelProps) => {
+  const {children, value, index, ...other} = props
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box>{children}</Box>}
+    </div>
+  )
 }
 
-const TabPanel = ({children, value, index, ...other}: TabPanelProps) => (
-  <div
-    role="tabpanel"
-    hidden={value !== index}
-    id={`simple-tabpanel-${index}`}
-    aria-labelledby={`simple-tab-${index}`}
-    {...other}
-  >
-    {value === index && <Box>{children}</Box>}
-  </div>
-)
-
-const a11yProps = (index: number) => {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  }
-}
+const tabProps = (index: number) => ({
+  id: `simple-tab-${index}`,
+  'aria-controls': `simple-tabpanel-${index}`,
+})
 
 const RootEvents = () => {
   const globalClasses = useGlobalTheme()
@@ -53,9 +50,9 @@ const RootEvents = () => {
           aria-label="basic tabs"
           className={globalClasses.eventTabsBox}
         >
-          <Tab label="Events" {...a11yProps(0)} className={globalClasses.eventTabs} />
-          <Tab label="Submissions" {...a11yProps(1)} className={globalClasses.eventTabs} />
-          <Tab label="Saved Submissions" {...a11yProps(2)} className={globalClasses.eventTabs} />
+          <Tab label="Events" {...tabProps(0)} className={globalClasses.eventTabs} />
+          <Tab label="Submissions" {...tabProps(1)} className={globalClasses.eventTabs} />
+          <Tab label="Saved Submissions" {...tabProps(2)} className={globalClasses.eventTabs} />
         </Tabs>
       </Box>
       <Box className="events__info">
