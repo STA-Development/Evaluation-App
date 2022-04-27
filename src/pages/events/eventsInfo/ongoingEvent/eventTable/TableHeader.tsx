@@ -1,7 +1,7 @@
 import React from 'react'
 import {v4 as uuidv4} from 'uuid'
 import useEventsStyle from '../../../../../assets/styleJs/events/events'
-import {IHeadCell, IRowsInfo, ITableHeaderCell} from '../../../../../types/types'
+import {IHeadCell, IRowsInfo, ITableHeaderCell} from '../../../../../types/ongoingEventsType'
 import {Box, TableCell, TableHead, TableRow, TableSortLabel} from '@mui/material'
 import UpDownArrows from '../../../../../assets/images/Icons/UpDownArrows'
 

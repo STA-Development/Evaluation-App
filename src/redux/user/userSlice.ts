@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
-import {IAuthPropsState} from '../../types/types'
+import {IAuthPropsState} from '../../types/storeTypes'
 
 const initialState: IAuthPropsState = {
   user: '',

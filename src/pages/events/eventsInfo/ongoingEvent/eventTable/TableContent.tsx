@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Report from './Report'
 import TableHeader from './TableHeader'
-import {IRowsInfo, Order} from '../../../../../types/types'
+import {IRowsInfo, Order} from '../../../../../types/ongoingEventsType'
 import {getComparator, sortedRowInformation} from '../../../../../utils/utils'
 import {Paper, Table, TableBody, TableCell, TableContainer, TableRow} from '@mui/material'
 
