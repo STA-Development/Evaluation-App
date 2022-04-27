@@ -8,7 +8,11 @@ const OverviewDashboard = () => {
   const classes = useDashboardStyles()
   return (
     <Box>
-      <Typography variant="h5" component="h4" className={classes.dashboardHeader}>
+      <Typography
+        variant="h4"
+        component="h4"
+        className={classes.dashboardHeader}
+      >
         Recent Evoluation Event Activity
       </Typography>
       <Grid container spacing={2}>

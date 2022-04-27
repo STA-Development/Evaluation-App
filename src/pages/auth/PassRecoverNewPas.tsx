@@ -43,7 +43,7 @@ const PassRecoverNewPas = () => {
 
   return (
     <Box>
-      <Grid className="auth auth__Grid" container>
+      <Grid className="auth auth__grid" container>
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Paper className="auth__title ">
             <Box className="auth__pass_rec_cheng">

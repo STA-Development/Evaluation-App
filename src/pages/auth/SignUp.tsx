@@ -53,6 +53,7 @@ const SignUp = () => {
               id: user.uid,
             }),
           )
+
           navigate('/dashboard')
         })
         .catch((error) => {
