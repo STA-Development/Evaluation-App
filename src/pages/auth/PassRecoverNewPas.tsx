@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import {confirmPasswordReset} from 'firebase/auth'
-import {useLocation, useNavigate} from 'react-router-dom'
 import {Box, Button, FormGroup, Grid, Paper, TextField, Typography} from '@mui/material'
-import {auth} from '../../data/firebase'
 import useStyles from '../../assets/styleJs/auth/signUp'
 import ChangePassword from '../../assets/images/auth/ChangePassword'
+import {confirmPasswordReset} from 'firebase/auth'
+import {auth} from '../../data/firebase'
+import {useLocation, useNavigate} from 'react-router-dom'
 
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 
@@ -46,7 +46,7 @@ const PassRecoverNewPas = () => {
       <Grid className="auth auth__grid" container>
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Paper className="auth__title ">
-            <Box className="auth__pass_rec_cheng">
+            <Box className="auth__pass_rec-cheng">
               <Typography variant="h2" className={classes.authHeader}>
                 Password Recovery
               </Typography>
@@ -55,7 +55,7 @@ const PassRecoverNewPas = () => {
               </Box>
             </Box>
             <FormGroup>
-              <Box component="form" className="auth__input_box" onSubmit={handleResetPassword}>
+              <Box component="form" className="auth__input-box" onSubmit={handleResetPassword}>
                 <TextField
                   className={classes.authInput}
                   label="New Password"
@@ -100,7 +100,7 @@ const PassRecoverNewPas = () => {
           </Paper>
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>
-          <Box className="auth__box_right ">
+          <Box className="auth__box-right ">
             <ChangePassword />
           </Box>
         </Grid>

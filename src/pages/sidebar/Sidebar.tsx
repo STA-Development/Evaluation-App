@@ -52,7 +52,7 @@ const Sidebar = () => {
               <NavLink
                 to={item.route}
                 key={item.id}
-                className={({isActive}) => (isActive ? 'link_active' : 'nav-link')}
+                className={({isActive}) => (isActive ? 'link-active' : 'nav-link')}
               >
                 <ListItem className={classes.listItem} button>
                   <Box className={classes.listItemContent}>

@@ -1,7 +1,7 @@
 import React from 'react'
+import {v4 as uuidv4} from 'uuid'
 import {Box, Typography} from '@mui/material'
 import {Link} from 'react-router-dom'
-import {v4 as uuidv4} from 'uuid'
 import useDashboardStyles from '../../../assets/styleJs/dashboard/dashboard'
 
 const DashboardNotEvaluated = () => {

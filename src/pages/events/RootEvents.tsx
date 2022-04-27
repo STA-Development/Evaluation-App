@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {ITabPanelProps} from '../../types/eventsTypes'
 import {Box} from '@mui/material'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
@@ -9,7 +10,6 @@ import EmptyEvents from './eventsInfo/ongoingEvent/EmptyEvents'
 import EmptySubmission from './eventsInfo/submission/EmptySubmission'
 import EmptySavedSubmission from './eventsInfo/savedSubmission/EmptySavedSubmission'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
-import {ITabPanelProps} from '../../types/eventsTypes'
 
 const TabPanel = (props: ITabPanelProps) => {
   const {children, value, index, ...other} = props
