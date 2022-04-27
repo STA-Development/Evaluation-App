@@ -31,7 +31,7 @@
   }
 }
 
-.ongoing__events {
+.ongoing-events {
   width: 272px;
   background: $whiteColor;
   box-shadow: $boxShadow0 $boxShadow4 $boxShadow4 $eventBox;
@@ -40,7 +40,7 @@
   margin-right: $marginRight16;
   margin-bottom: $marginBottom30;
 
-  &-percent {
+  &__percent {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +59,7 @@
     }
   }
 
-  &-quarterly {
+  &__quarterly {
     h5 {
       font-size: $fontSize16;
       font-weight: $fontWeight700;
@@ -68,7 +68,7 @@
     }
   }
 
-  &-date {
+  &__date {
     height: 50px;
     display: flex;
 
@@ -79,7 +79,7 @@
     }
   }
 
-  &-statistic {
+  &__statistic {
     display: flex;
     flex-wrap: wrap;
   }
@@ -89,10 +89,6 @@
   width: 100%;
   overflow: hidden;
   filter: drop-shadow($filterTop $filterRight $filterBottom $tablePaperColor);
-
-  &_header {
-    background-color: $greyColor;
-  }
 
   &__header-cell {
     padding-left: $marginLeft25;
