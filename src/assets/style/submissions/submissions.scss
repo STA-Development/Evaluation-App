@@ -1,0 +1,102 @@
+.submission {
+  .rec.rec-carousel-wrapper {
+    position: relative;
+  }
+
+  .rec.rec-carousel > button:first-child {
+    position: absolute;
+    left: $posLeft0;
+    top: $posTop0;
+  }
+
+  .rec.rec-carousel > button:last-child {
+    position: absolute;
+    right: $posRight0;
+    top: $posTop0;
+  }
+
+  .rec.rec-carousel > button:disabled {
+    visibility: hidden;
+    margin-bottom: $marginBottom30;
+  }
+
+  .rec .rec-arrow-left {
+    position: absolute;
+    top: $posTopM20;
+    left: $posLeft0;
+    border: none;
+    border-radius: $borderRadius0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .rec.rec-slider-container {
+    margin: $margin0;
+  }
+
+  .rec.rec-carousel-item > div {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .rec-carousel .rec-item-wrapper {
+    height: 260px;
+  }
+
+  .rec.rec-carousel {
+    margin-top: $marginTop30;
+    margin-bottom: $marginBottom10;
+  }
+}
+
+.submission__quarterly {
+  margin: $marginTopBottom0 $marginLeftRight20;
+  height: 251px;
+  border-top: $borderTop8 solid $transparent;
+  border-radius: $borderRadius10 $borderRadius10 $borderRadius0 $borderRadius0;
+  background-color: $whiteColor;
+  box-shadow: $boxShadow0 $boxShadow4 $boxShadow4 $tablePaperColor;
+  padding: $paddingTop10 $paddingRight12 $paddingBottom10 $paddingLeft15;
+
+  &_categories {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $marginBottom5;
+
+    p {
+      font-size: $fontSize8;
+      color: $tableBorderColor;
+    }
+  }
+
+  &_evaluators {
+    display: flex;
+    justify-content: space-between;
+    color: $greyColor;
+  }
+}
+
+.border__color_red {
+  border-top-color: $submissionNewColor;
+}
+
+.border__color_green {
+  border-top-color: $submissionReadColor;
+}
+
+.border__color_orange {
+  border-top-color: $submissionNotFinishedColor;
+}
+
+.status__color_red {
+  color: $submissionNewColor;
+}
+
+.status__color_green {
+  color: $submissionReadColor;
+}
+
+.status__color_orange {
+  color: $submissionNotFinishedColor;
+}

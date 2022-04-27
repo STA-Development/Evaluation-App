@@ -40,7 +40,7 @@ const Sidebar = () => {
             <AvatarIcon />
           </Avatar>
           <Typography className={classes.nameSurname}>Name Surname</Typography>
-          <NavLink style={{textDecoration: 'none'}} to="/">
+          <NavLink className="text-decoration-none" to="/">
             <Button variant="contained" size="large" className={globalClasses.button}>
               CREATE EVENT
             </Button>

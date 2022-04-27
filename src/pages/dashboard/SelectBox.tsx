@@ -6,16 +6,12 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select, {SelectChangeEvent} from '@mui/material/Select'
 import useSelectBox from '../../assets/styleJs/dashboard/selectBox'
-
-interface SelectItems {
-  id: string
-  name: string
-}
+import {ISelectItems} from '../../types/dashboardTypes'
 
 const SelectBox = () => {
   const classes = useSelectBox()
   const [title, setTitle] = useState<string>('')
-  const [selectItems] = useState<SelectItems[]>([
+  const [selectItems] = useState<ISelectItems[]>([
     {
       id: uuidv4(),
       name: 'Event Title',
@@ -34,7 +30,7 @@ const SelectBox = () => {
     setTitle(event.target.value as string)
   }
   return (
-    <Box className={classes.useSelectBox}>
+    <Box className={classes.selectBox}>
       <FormControl fullWidth size="small">
         <InputLabel id="demo-simple-select-label">Search by Event title</InputLabel>
         <Select
@@ -43,7 +39,7 @@ const SelectBox = () => {
           label="Search by event title"
           onChange={handleChange}
         >
-          {selectItems.map((item: SelectItems) => (
+          {selectItems.map((item: ISelectItems) => (
             <MenuItem value={item.id} key={item.id}>
               {item.name}
             </MenuItem>

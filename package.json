@@ -14,11 +14,11 @@
     "eslint": "eslint --ignore-pattern '.eslintrc.js' --ext .js,.ts,.tsx ."
   },
   "dependencies": {
-    "@emotion/react": "^11.8.2",
+    "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.5.1",
-    "@mui/material": "^5.5.1",
-    "@mui/styled-engine-sc": "^5.4.2",
+    "@mui/material": "^5.6.1",
+    "@mui/styled-engine-sc": "^5.6.1",
     "@mui/styles": "^5.5.1",
     "@reduxjs/toolkit": "^1.8.0",
     "@testing-library/jest-dom": "^5.16.2",
@@ -42,6 +42,7 @@
     "package-lock.json": "^1.0.0",
     "prettier-eslint": "^13.0.0",
     "react": "^17.0.2",
+    "react-customizable-progressbar": "^1.0.3",
     "react-dom": "^17.0.2",
     "react-elastic-carousel": "^0.11.5",
     "react-redux": "^7.2.6",
@@ -54,7 +55,8 @@
     "typescript": "^4.6.2",
     "uuid": "^8.3.2",
     "uuidv4": "^6.2.13",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yarn": "^1.22.18"
   },
   "eslintConfig": {
     "extends": [

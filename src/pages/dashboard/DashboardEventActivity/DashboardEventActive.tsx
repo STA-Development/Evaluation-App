@@ -5,7 +5,6 @@ import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import useDashboardStyles from '../../../assets/styleJs/dashboard/dashboard'
 
-
 const DashboardEventActive = () => {
   const classes = useDashboardStyles()
 
@@ -102,7 +101,6 @@ const DashboardEventActive = () => {
       <Typography variant="h4" component="h4" className={classes.overviewHeader}>
         Overview
       </Typography>
-
       <Box className="canvasStyle">
         <HighchartsReact highcharts={Highcharts} options={options} />
       </Box>
