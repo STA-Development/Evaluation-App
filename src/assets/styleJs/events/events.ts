@@ -1,7 +1,7 @@
 import {makeStyles} from '@mui/styles'
 import {color, font, margin} from '../../style/globalVariables'
 
-export const useEventsStyle = makeStyles({
+const useEventsStyle = makeStyles({
   ongoingEventsDivider: {
     margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
     backgroundColor: color.lightGrey,
@@ -48,3 +48,5 @@ export const useEventsStyle = makeStyles({
     },
   },
 })
+
+export default useEventsStyle

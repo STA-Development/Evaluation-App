@@ -1,4 +1,4 @@
-import {RootState} from './store'
+import {RootState} from '../types/storeTypes'
 
 export const selectUser = (state: RootState) => state.user
 export const selectUserId = (state: RootState) => state.user.uid

@@ -1,11 +1,11 @@
 import React from 'react'
-import {Box, Button, Divider, Grid, Typography} from '@mui/material'
 import {NavLink} from 'react-router-dom'
+import data from './ongoindEventData'
+import ProgressBar from 'react-customizable-progressbar'
 import {useGlobalTheme} from '../../../../assets/style/globalVariables'
 import useDashboardStyles from '../../../../assets/styleJs/dashboard/dashboard'
-import {useEventsStyle} from '../../../../assets/styleJs/events/events'
-import ProgressBar from 'react-customizable-progressbar'
-import {data} from './ongoindEventData'
+import useEventsStyle from '../../../../assets/styleJs/events/events'
+import {Box, Button, Divider, Grid, Typography} from '@mui/material'
 
 const OngoingEvent = () => {
   const eventClass = useEventsStyle()
@@ -18,7 +18,7 @@ const OngoingEvent = () => {
         <Typography variant="h4" component="h4" className={classes.overviewHeader}>
           Ongoing Events
         </Typography>
-        <NavLink className="text-decoration-none" to={'/'}>
+        <NavLink className="text-decoration-none" to="/">
           <Button variant="contained" size="large" className={globalClasses.button}>
             CREATE EVENT
           </Button>

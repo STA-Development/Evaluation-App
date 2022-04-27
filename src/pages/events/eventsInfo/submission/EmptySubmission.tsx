@@ -1,6 +1,6 @@
 import React from 'react'
 import {Box, Typography} from '@mui/material'
-import {useEventsStyle} from '../../../../assets/styleJs/events/events'
+import useEventsStyle from '../../../../assets/styleJs/events/events'
 import EventEmptySubmission from '../../../../assets/images/Icons/EventEmptySubmission'
 
 const EmptySubmission = () => {

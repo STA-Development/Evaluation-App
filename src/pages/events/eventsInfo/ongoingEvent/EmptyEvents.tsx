@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {Box, Button, Typography} from '@mui/material'
 import EventsNoEventIcon from '../../../../assets/images/Icons/EventsNoEventIcon'
-import {useEventsStyle} from '../../../../assets/styleJs/events/events'
+import useEventsStyle from '../../../../assets/styleJs/events/events'
 
 const EmptyEvents = () => {
   const classes = useEventsStyle()
@@ -18,7 +18,7 @@ const EmptyEvents = () => {
         <Typography className={classes.text2}>
           To see dashboard information you need to set up evaluation event first.
         </Typography>
-        <Link className="text-decoration-none" to={'/'}>
+        <Link className="text-decoration-none" to="/">
           <Button variant="contained">CREATE EVENT</Button>
         </Link>
       </Box>
