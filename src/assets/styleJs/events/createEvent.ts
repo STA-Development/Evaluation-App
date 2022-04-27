@@ -119,7 +119,7 @@ const useCreateEventStyles = makeStyles({
     alignItems: 'center',
   },
   checkbox: {
-    color: '#00e676',
+    color: color.blueColor,
     padding: 0,
     marginRight: margin.marginRight8,
     '& .MuiSvgIcon-root': {
