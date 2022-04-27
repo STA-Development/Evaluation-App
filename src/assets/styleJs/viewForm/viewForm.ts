@@ -1,5 +1,5 @@
 import {makeStyles} from '@mui/styles'
-import {color, font, margin} from '../../style/globalVariables'
+import {borderRedius, color, font, margin} from '../../style/globalVariables'
 
 const useViewForm = makeStyles({
   progressTitle: {
@@ -25,6 +25,26 @@ const useViewForm = makeStyles({
     fontWeight: font.fontWeight400,
     color: color.blackColor,
     opacity: 0.6,
+  },
+  stepperStep: {
+    width: '40px',
+    height: '40px',
+    borderRadius: borderRedius.borderP50,
+    backgroundColor: color.blueColor,
+    color: color.whiteColor,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: font.fontSize18,
+    fontWeight: font.fontWeight500,
+  },
+  stepper: {
+    width: '70%',
+    margin: `${margin.marginTop100} ${margin.marginRightAuto} ${margin.marginBottom30} ${margin.marginLeftAuto} `,
+  },
+  stepperConnector: {
+    height: '2px',
+    backgroundColor: color.blueColor,
   },
 })
 export default useViewForm

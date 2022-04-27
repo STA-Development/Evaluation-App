@@ -44,7 +44,10 @@ export const margin = {
   marginTopBottom20: '20px',
   marginTopBottom10: '10px',
   marginTopBottom5: '5px',
+  marginTopBottom0: '0px',
   marginLeftRight0: '0px',
+  marginRightAuto: 'auto',
+  marginLeftAuto: 'auto',
   marginBottom50: '50px',
   marginBottom35: '35px',
   marginBottom30: '30px',
@@ -54,6 +57,7 @@ export const margin = {
   marginBottom10: '10px',
   marginBottom5: '5px',
   marginBottomM15: '-15px',
+  marginTop100: '100px',
   marginTop50: '50px',
   marginTop25: '25px',
   marginTop20: '20px',
@@ -87,6 +91,7 @@ export const borderRedius = {
   bottomRight50: '50px',
   bottomLeft0: '0px',
   overViewBox: '10px',
+  borderP50: '50%',
 }
 
 export const position = {
