@@ -4,6 +4,7 @@ import {borderRedius, color, font, margin, padding} from '../../style/globalVari
 const useCreateEventStyles = makeStyles({
   rootCreateEvent: {
     height: '100%',
+    padding: padding.padding30,
   },
 
   eventTitleBox: {
@@ -25,6 +26,9 @@ const useCreateEventStyles = makeStyles({
     marginRight: margin.marginRight16,
     marginBottom: margin.marginBottom16,
     boxShadow: 'none',
+  },
+  evaluateeCard: {
+    height: '305px',
   },
   evaluatorCardInputBox: {
     display: 'flex',

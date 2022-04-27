@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import {Box, Typography} from '@mui/material'
-import {useGlobalTheme} from '../../assets/style/globalVariables'
-import useDashboardStyles from '../../assets/styleJs/dashboard/dashboard'
 import EmptyDashboard from './EmptyDashboard'
 import FullDashboard from './FullDashboard'
+import useDashboardStyles from '../../assets/styleJs/dashboard/dashboard'
+import {useGlobalTheme} from '../../assets/style/globalVariables'
 
 const Dashboard = () => {
   const classes = useDashboardStyles()
@@ -11,15 +11,9 @@ const Dashboard = () => {
   const [hasInfo] = useState<boolean>(false)
 
   return (
-    <Box>
+    <Box className={classes.dashboardPage}>
       <Typography className={globalClasses.titleHeader}>Dashboard</Typography>
-      {hasInfo ? (
-        <Box className={classes.emptyDashboard}>
-          <EmptyDashboard />
-        </Box>
-      ) : (
-        <FullDashboard />
-      )}
+      {hasInfo ? <EmptyDashboard /> : <FullDashboard />}
     </Box>
   )
 }

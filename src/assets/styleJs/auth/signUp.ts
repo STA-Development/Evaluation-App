@@ -58,7 +58,7 @@ const useStyles = makeStyles({
     right: position.right20,
     top: position.top25,
     fontSize: font.fontSize18,
-    color: color.closeButton,
+    color: color.textGrey,
   },
 })
 

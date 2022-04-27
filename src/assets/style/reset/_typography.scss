@@ -15,7 +15,6 @@ html {
 body {
   font-size: $paragraph;
   line-height: $line-height;
-
 }
 
 h1,
@@ -25,17 +24,7 @@ h3 {
   font-weight: 600;
 }
 
-
-html,
-button,
-input,
-select,
-textarea {
-  //color: $text-color;
-}
-
 a {
-  //color: $text-color;
   text-decoration: none;
 
   &:visited {
@@ -64,14 +53,17 @@ strong {
   display: block;
 }
 
-
 .button {
   background-color: $blueColor;
 }
 
 .outlet {
   width: calc(100% - 250px);
-  padding: $paddingTopBottom30;
   background-color: $authBg;
+}
 
+.text-decoration-none {
+  &:hover {
+    text-decoration: none;
+  }
 }
