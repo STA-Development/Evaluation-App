@@ -46,5 +46,11 @@ const useViewForm = makeStyles({
     height: '2px',
     backgroundColor: color.blueColor,
   },
+  checkboxEmpty: {
+    // color: 'red',
+    // '& svg': {
+    //   color: 'green',
+    // },
+  },
 })
 export default useViewForm

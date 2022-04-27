@@ -4,13 +4,10 @@ import {SelectChangeEvent} from '@mui/material/Select'
 import {v4 as uuidv4} from 'uuid'
 import Carousel from 'react-elastic-carousel'
 import SubmissionQuarterly from './SubmissionQuarterly'
-import submissionNewData from './submissionQuarterlyData/submissionNew'
 import LeftArrowIcon from '../../../../assets/images/Icons/LeftArrowIcon'
 import RightArrowIcon from '../../../../assets/images/Icons/RightArrowIcon'
-import submissionReadData from './submissionQuarterlyData/submissionRead'
-import submissionNotFinished from './submissionQuarterlyData/submissionNotFinished'
 import useSubmissionsStyle from '../../../../assets/styleJs/submissions/submissions'
-import {IArrow, ISubmissionItems} from '../../../../types/types'
+import {IArrow, ISubData, ISubmissionItems} from '../../../../types/submissionsType'
 
 const Submissions = () => {
   const classes = useSubmissionsStyle()
@@ -52,6 +49,178 @@ const Submissions = () => {
   const handleChange = (event: SelectChangeEvent) => {
     setTitle(event.target.value as string)
   }
+
+  const submissionNewData: ISubData[] = [
+    {
+      id: uuidv4(),
+      status: 'new',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+      color: 'red',
+    },
+    {
+      id: uuidv4(),
+      status: 'new',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+      color: 'red',
+    },
+    {
+      id: uuidv4(),
+      status: 'new',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+      color: 'red',
+    },
+    {
+      id: uuidv4(),
+      status: 'new',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+      color: 'red',
+    },
+    {
+      id: uuidv4(),
+      status: 'new',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+      color: 'red',
+    },
+    {
+      id: uuidv4(),
+      status: 'new',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+      color: 'red',
+    },
+    {
+      id: uuidv4(),
+      status: 'new',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+      color: 'red',
+    },
+    {
+      id: uuidv4(),
+      status: 'new',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+      color: 'red',
+    },
+  ]
+  const submissionNotFinished: ISubData[] = [
+    {
+      id: uuidv4(),
+      status: 'not finished',
+      color: 'orange',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+    },
+  ]
+  const submissionReadData: ISubData[] = [
+    {
+      id: uuidv4(),
+      status: 'read',
+      color: 'green',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+    },
+    {
+      id: uuidv4(),
+      status: 'read',
+      color: 'green',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+    },
+    {
+      id: uuidv4(),
+      status: 'read',
+      color: 'green',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+    },
+    {
+      id: uuidv4(),
+      status: 'read',
+      color: 'green',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+    },
+    {
+      id: uuidv4(),
+      status: 'read',
+      color: 'green',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+    },
+    {
+      id: uuidv4(),
+      status: 'read',
+      color: 'green',
+      employeesName: 'Jenny Cooper',
+      employeesPosition: 'UI UX Desinger',
+      employerName: 'Anna Adams',
+      employerPosition: 'Project Manager',
+      date: 'Nov 9',
+      savedSubmission: false,
+    },
+  ]
 
   return (
     <Box className="submission">

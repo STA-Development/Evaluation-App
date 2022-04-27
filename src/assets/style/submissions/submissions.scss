@@ -50,7 +50,7 @@
 }
 
 .submission__quarterly {
-  margin: 0 20px;
+  margin: $marginTopBottom0 $marginLeftRight20;
   height: 251px;
   border-top: $borderTop8 solid $transparent;
   border-radius: $borderRadius10 $borderRadius10 $borderRadius0 $borderRadius0;

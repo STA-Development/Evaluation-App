@@ -40,7 +40,7 @@ const Sidebar = () => {
             <AvatarIcon />
           </Avatar>
           <Typography className={classes.nameSurname}>Name Surname</Typography>
-          <NavLink className="text-decoration__none" to="/">
+          <NavLink className="text-decoration-none" to="/">
             <Button variant="contained" size="large" className={globalClasses.button}>
               CREATE EVENT
             </Button>
@@ -52,7 +52,7 @@ const Sidebar = () => {
               <NavLink
                 to={item.route}
                 key={item.id}
-                className={({isActive}) => (isActive ? 'link_active' : 'nav-link')}
+                className={({isActive}) => (isActive ? 'link-active' : 'nav-link')}
               >
                 <ListItem className={classes.listItem} button>
                   <Box className={classes.listItemContent}>
