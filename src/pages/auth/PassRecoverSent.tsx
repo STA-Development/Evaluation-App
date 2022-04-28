@@ -1,37 +1,37 @@
-import React from "react";
-import {Box, Button, Grid, Typography} from "@mui/material";
-import {useStyles} from "../../assets/styleJs/auth/signUp";
-import PasswordRecovery from "../../assets/images/auth/PasswordRecovery";
-import {useNavigate} from "react-router-dom";
-import {useGlobalTheme} from "../../assets/style/globalVariables";
+import React from 'react'
+import {useNavigate} from 'react-router-dom'
+import {Box, Button, Grid, Typography} from '@mui/material'
+import useStyles from '../../assets/styleJs/auth/signUp'
+import PasswordRecovery from '../../assets/images/auth/PasswordRecovery'
+import {useGlobalTheme} from '../../assets/style/globalVariables'
 
 const PassRecover = () => {
-  const classes = useStyles();
-  const navigate = useNavigate();
-  const globalClasses = useGlobalTheme();
+  const classes = useStyles()
+  const navigate = useNavigate()
+  const globalClasses = useGlobalTheme()
   const handleResend = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    navigate("/password-recover-email");
-  };
+    e.preventDefault()
+    navigate('/password-recover-email')
+  }
   const handleSignIn = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    navigate("/sign-in");
-  };
+    e.preventDefault()
+    navigate('/sign-in')
+  }
   return (
     <Box>
       <Grid className="auth auth__grid" container>
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Box className="auth__title ">
-            <Box component="div" className="auth__pass_resend">
+            <Box component="div" className="auth__pass-resend">
               <Typography variant="h2" className={classes.authHeader}>
                 Password Recovery
               </Typography>
               <Box>
                 <Typography className={classes.authText}>
-                  Write your email , we will send you recovery link{" "}
+                  Write your email , we will send you recovery link{' '}
                 </Typography>
               </Box>
-              <Box className="btnGroup">
+              <Box className="auth__btn-group">
                 <Button variant="outlined" size="large" onClick={handleResend}>
                   Resend
                 </Button>
@@ -48,21 +48,14 @@ const PassRecover = () => {
           </Box>
         </Grid>
 
-        <Grid
-          className={classes.passRecGrid}
-          item
-          lg={4}
-          md={5}
-          sm={12}
-          xs={12}
-        >
-          <Box className="auth__box_right ">
-            <PasswordRecovery/>
+        <Grid className={classes.passRecGrid} item lg={4} md={5} sm={12} xs={12}>
+          <Box className="auth__box-right ">
+            <PasswordRecovery />
           </Box>
         </Grid>
       </Grid>
     </Box>
-  );
-};
+  )
+}
 
-export default PassRecover;
+export default PassRecover
