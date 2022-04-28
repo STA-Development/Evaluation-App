@@ -3,41 +3,7 @@
 }
 
 
-.overViewEval {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.overViewEvalFeedback {
-  height: 160px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  p {
-    font-size: $fontSize14;
-    font-weight: $fontWeight700;
-    color: $navbarColor;
-  }
-
-  span {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    display: block;
-    margin-right: $marginRight10;
-  }
-
-  & > div {
-    display: flex;
-    align-items: center;
-  }
-
-}
-
-.notEvalEmployes {
+.not-eval-employees {
   display: flex;
   justify-content: space-between;
   margin-bottom: $marginBottom20;
@@ -63,19 +29,19 @@
   position: relative;
 }
 
-.rec.rec-carousel button:first-child {
+.rec.rec-carousel > button:first-child {
   position: absolute;
   left: $posLeft0;
   top: $posTopM30;
 }
 
-.rec.rec-carousel button:last-child {
+.rec.rec-carousel > button:last-child {
   position: absolute;
   right: $posRight0;
   top: $posTopM30;
 }
 
-.rec.rec-carousel button:disabled {
+.rec.rec-carousel > button:disabled {
   visibility: hidden;
 }
 
@@ -93,13 +59,12 @@
   margin: $margin0;
 }
 
-
-.sliderBox {
+.slider__box {
   width: 176px;
   height: 188px;
   background: $whiteColor;
   box-shadow: $boxShadow0 $boxShadow4 $boxShadow4 $sliderBox;
-  border-radius: $boderRadius10;
+  border-radius: $borderRadius10;
   border-top: $borderTop6 solid $greenColor;
   text-align: center;
 }
@@ -107,4 +72,8 @@
 .rec.rec-carousel-item > div {
   display: flex;
   justify-content: flex-start;
+}
+
+.rec-carousel .rec-item-wrapper {
+  height: 195px;
 }

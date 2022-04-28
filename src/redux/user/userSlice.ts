@@ -1,42 +1,34 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {createSlice} from '@reduxjs/toolkit'
+import {IAuthPropsState} from '../../types/storeTypes'
 
-export interface AuthPropsState {
-  user: string;
-  email: string;
-  uid: string;
-  isAuth: boolean;
-  token: string;
+const initialState: IAuthPropsState = {
+  user: '',
+  email: '',
+  uid: '',
+  token: '',
+  isAuth: true,
 }
 
-const initialState: AuthPropsState = {
-  user: "",
-  email: "",
-  uid: "",
-  token: "",
-  isAuth: true,
-};
-
-export const userSlice = createSlice({
-  name: "user",
+const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {
-    setUser(state, action: PayloadAction<any>) {
-      state.user = action.payload.user;
-      state.email = action.payload.email;
-      state.uid = action.payload.uid;
-      state.token = action.payload.token;
-      state.isAuth = false;
+    setUser(state, action) {
+      state.user = action.payload.user
+      state.email = action.payload.email
+      state.uid = action.payload.uid
+      state.token = action.payload.token
+      state.isAuth = false
     },
     removeUser(state) {
-      state.user = "";
-      state.email = "";
-      state.uid = "";
-      state.isAuth = false;
+      state.user = ''
+      state.email = ''
+      state.uid = ''
+      state.isAuth = false
     },
   },
-});
+})
 
-// Action creators are generated for each case reducer function
-export const { setUser, removeUser } = userSlice.actions;
+export const {setUser, removeUser} = userSlice.actions
 
-export default userSlice.reducer;
+export default userSlice.reducer
