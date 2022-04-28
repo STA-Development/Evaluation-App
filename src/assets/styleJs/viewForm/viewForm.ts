@@ -1,5 +1,5 @@
 import {makeStyles} from '@mui/styles'
-import {borderRedius, color, font, margin} from '../../style/globalVariables'
+import {border, borderRedius, color, font, margin, padding} from '../../style/globalVariables'
 
 const useViewForm = makeStyles({
   progressTitle: {
@@ -46,11 +46,59 @@ const useViewForm = makeStyles({
     height: '2px',
     backgroundColor: color.blueColor,
   },
-  checkboxEmpty: {
-    // color: 'red',
-    // '& svg': {
-    //   color: 'green',
-    // },
+  paperReportLabel: {
+    fontSize: font.fontSize14,
+    color: color.blackColor,
+    fontWeight: font.fontWeight300,
+    fontStyle: 'italic',
+  },
+  checkSkills: {
+    fontSize: font.fontSize18,
+    fontWeight: font.fontWeight600,
+    color: color.navbarColor,
+    marginBottom: margin.marginBottom15,
+    '& :last-child': {
+      fontSize: 'inherit',
+      fontWeight: 'inherit',
+    },
+  },
+  formGroupLabel: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginLeft: margin.marginLeft30,
+  },
+  skillsDivider: {
+    margin: `${margin.marginTopBottom15} ${margin.marginLeftRight0}`,
+    backgroundColor: color.dividerColor,
+  },
+  labelLeft: {
+    marginLeft: margin.marginLeftM36,
+  },
+  pagnition: {
+    '& ul': {
+      display: 'flex',
+      justifyContent: 'space-between',
+    },
+    '& li': {
+      borderRadius: borderRedius.borderP50,
+      width: '40px',
+      height: '40px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    '& button': {
+      color: color.tableBorderColor,
+      border: `${border.border2} solid ${color.tableBorderColor}`,
+      padding: padding.padding20,
+      borderRadius: borderRedius.borderP50,
+      fontSize: font.fontSize18,
+      fontWeight: font.fontWeight500,
+      '&:selected': {
+        bacgroundColor: 'blue',
+        color: '#fff',
+      },
+    },
   },
 })
 export default useViewForm

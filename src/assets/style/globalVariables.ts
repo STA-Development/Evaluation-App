@@ -33,6 +33,7 @@ export const color = {
   activeLink: '#262f3f',
   whiteColor: '#fff',
   overViewBoxshadow: 'rgba(0, 0, 0, 0.15)',
+  dividerColor: 'rgba(0, 0, 0, 0.1)',
   overViewBoxColor: '#1f6f8b',
   greenColor: '#b2e4d5',
   tableBorderColor: '#bdbdbd',
@@ -42,6 +43,7 @@ export const color = {
 export const margin = {
   margin0Auto: '0 auto',
   marginTopBottom20: '20px',
+  marginTopBottom15: '15px',
   marginTopBottom10: '10px',
   marginTopBottom5: '5px',
   marginTopBottom0: '0px',
@@ -68,6 +70,7 @@ export const margin = {
   margin20: '20px',
   marginOverViewBox: '0px 4px 4px',
   marginLeft30: '30px',
+  marginLeftM36: '-36px',
 }
 
 export const padding = {
@@ -81,6 +84,7 @@ export const padding = {
   paddingTop16: '16px',
   paddingLeft25: '25px',
   padding0: '0px',
+  padding20: '20px',
   paddingLeft0: '0px',
   paddingRight0: '0px',
 }
@@ -92,6 +96,10 @@ export const borderRedius = {
   bottomLeft0: '0px',
   overViewBox: '10px',
   borderP50: '50%',
+}
+
+export const border = {
+  border2: '2px',
 }
 
 export const position = {
