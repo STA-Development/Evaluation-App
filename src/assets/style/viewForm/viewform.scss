@@ -10,7 +10,6 @@
       text-decoration: none;
     }
   }
-
 }
 
 .view-form__active {
@@ -28,3 +27,46 @@
 .eval-box {
   margin-bottom: $marginBottom10;
 }
+
+.paper {
+  max-height: 690px;
+  border-radius: $borderRadius10;
+  padding: $paddingTop20 $paddingRight50 $paddingBottom70 $paddingLeft60;
+  margin: $marginTopBottom0 $marginLeftRight30;
+
+
+  &__subcriteria {
+    text-align: right;
+    margin-right: $marginRight100;
+  }
+
+  &__label {
+    font-size: $fontSize12;
+    font-weight: $fontWeight300;
+    font-style: italic;
+    color: $blackColor;
+  }
+
+  &__skills-label-box {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.stack-box {
+  max-width: 560px;
+
+  &__status {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: $marginTop5;
+
+    span {
+      font-style: italic;
+      font-size: $fontSize12;
+      color: $blackColor
+    }
+  }
+}
+
