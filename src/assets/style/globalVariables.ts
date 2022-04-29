@@ -74,6 +74,7 @@ export const margin = {
 }
 
 export const padding = {
+  paddingTopBottom0: '0',
   paddingTopBottom15: '15px',
   paddingTopBottom20: '20px',
   paddingLeftRight30: '30px',

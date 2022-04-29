@@ -74,7 +74,10 @@ const useViewForm = makeStyles({
   labelLeft: {
     marginLeft: margin.marginLeftM36,
   },
-  pagnition: {
+  pagination: {
+    '& .Mui-selected': {
+      border: `${border.border2} solid ${color.blueColor}`,
+    },
     '& ul': {
       display: 'flex',
       justifyContent: 'space-between',
@@ -94,11 +97,28 @@ const useViewForm = makeStyles({
       borderRadius: borderRedius.borderP50,
       fontSize: font.fontSize18,
       fontWeight: font.fontWeight500,
-      '&:selected': {
-        bacgroundColor: 'blue',
+
+      '&:hover': {
+        backgroundColor: color.blueColor,
         color: '#fff',
+        borderColor: color.blueColor,
       },
     },
   },
+  paperButton: {
+    width: '146px',
+    height: '40px',
+    fontSize: font.fontSize14,
+    fontWeight: font.fontWeight500,
+    textTransform: 'uppercase',
+  },
+  dialogBoxText: {
+    textAlign: 'center',
+    fontSiz: font.fontSize16,
+    fontWeight: font.fontWeight700,
+    color: color.blackColor,
+    padding: `${padding.paddingTopBottom0} ${padding.paddingLeft25}`,
+  },
 })
+
 export default useViewForm
