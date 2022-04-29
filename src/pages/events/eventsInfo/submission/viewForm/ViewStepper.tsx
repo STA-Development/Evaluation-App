@@ -4,7 +4,20 @@ import useViewForm from '../../../../../assets/styleJs/viewForm/viewForm'
 
 const ViewStepper = () => {
   const classes = useViewForm()
-
+  const steps = [
+    {
+      id: 1,
+    },
+    {
+      id: 2,
+    },
+    {
+      id: 3,
+    },
+    {
+      id: 4,
+    },
+  ]
   return (
     <Box>
       <Stepper
@@ -12,10 +25,11 @@ const ViewStepper = () => {
         className={classes.stepper}
         connector={<StepConnector className={classes.stepperConnector} />}
       >
-        <Step className={classes.stepperStep}>1</Step>
-        <Step className={classes.stepperStep}>2</Step>
-        <Step className={classes.stepperStep}>3</Step>
-        <Step className={classes.stepperStep}>4</Step>
+        {steps.map((step) => (
+          <Step key={step.id} className={classes.stepperStep}>
+            {step.id}
+          </Step>
+        ))}
       </Stepper>
     </Box>
   )
