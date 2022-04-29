@@ -29,7 +29,6 @@
 }
 
 .paper {
-  max-height: 690px;
   border-radius: $borderRadius10;
   padding: $paddingTop20 $paddingRight50 $paddingBottom70 $paddingLeft60;
   margin: $marginTopBottom0 $marginLeftRight30;
@@ -51,10 +50,18 @@
     display: flex;
     align-items: center;
   }
+
+  &__buttons {
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .stack-box {
   max-width: 560px;
+  margin-bottom: $marginBottom40;
+
 
   &__status {
     display: flex;
@@ -68,5 +75,15 @@
       color: $blackColor
     }
   }
+}
+
+.dialog-box {
+  width: 330px;
+  height: 230px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding: $paddingTopBottom20 $paddingLeftRight20;
 }
 
