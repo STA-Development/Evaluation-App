@@ -10,14 +10,13 @@ const CreateEvent: FC = () => {
   const classes = useCreateEventStyles()
   const UseEventContext = () => useContext(EventContext)
   const {state} = UseEventContext()
-  const activePage = state.activePage
 
   return (
     <div className={classes.rootCreateEvent}>
       <Box className={classes.infoRootBox}>
         <CreateEventHeader />
-        {activePage === 'firstPage' && <CreateEventFirstPage />}
-        {activePage === 'criteriasPage' && <CreateEventCriteria />}
+        {state.activePage === 'firstPage' && <CreateEventFirstPage />}
+        {state.activePage === 'criteriasPage' && <CreateEventCriteria />}
       </Box>
     </div>
   )

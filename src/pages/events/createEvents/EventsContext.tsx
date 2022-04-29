@@ -29,51 +29,42 @@ export const EventContext = React.createContext(initialEventContext)
 
 function eventReducer(state: Event, action: Action): Event {
   switch (action.type) {
-    case createEventReducerTypes.eventTitle: {
+    case createEventReducerTypes.eventTitle:
       return {...state, id: uuidv4(), eventTitle: action.eventTitle}
-    }
-    case createEventReducerTypes.evaluators: {
+    case createEventReducerTypes.evaluators:
       return {...state, evaluators: action.evaluators}
-    }
-    case createEventReducerTypes.evaluatees: {
+    case createEventReducerTypes.evaluatees:
       return {...state, evaluatees: action.evaluatees}
-    }
-    case createEventReducerTypes.criterias: {
+    case createEventReducerTypes.criterias:
       return {...state, criterias: action.criterias}
-    }
-    case createEventReducerTypes.ratingRange: {
+    case createEventReducerTypes.ratingRange:
       return {...state, ratingRange: action.ratingRange}
-    }
-    case createEventReducerTypes.bonusPercentage: {
+    case createEventReducerTypes.bonusPercentage:
       return {...state, bonusPercentage: action.bonusPercentage}
-    }
-    case createEventReducerTypes.startDate: {
+    case createEventReducerTypes.startDate:
       return {...state, startDate: action.startDate}
-    }
-    case createEventReducerTypes.endDate: {
+    case createEventReducerTypes.endDate:
       return {...state, endDate: action.endDate}
-    }
-    case createEventReducerTypes.status: {
+    case createEventReducerTypes.status:
       return {...state, status: action.status}
-    }
-    case createEventReducerTypes.updateActivePageToCriterias: {
+    case createEventReducerTypes.updateActivePageToCriterias:
       return {...state, activePage: action.activePage}
-    }
-    default: {
+    default:
       return state
-    }
   }
 }
 
 export const EventContextProvider = ({children}: EventProviderProps) => {
   const [state, dispatch] = useReducer(eventReducer, initialState)
-  const value = React.useMemo(
-    () => ({
-      state,
-      dispatch,
-    }),
-    [],
-  )
 
-  return <EventContext.Provider value={value}>{children}</EventContext.Provider>
+  return (
+    <EventContext.Provider
+      value={{
+        state,
+        dispatch,
+      }}
+    >
+      {children}
+    </EventContext.Provider>
+  )
 }
