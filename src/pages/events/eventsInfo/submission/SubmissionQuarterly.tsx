@@ -52,7 +52,7 @@ const SubmissionQuarterly = ({
           </Typography>
         </Box>
         <Box className={savedSubmission ? classes.viewFormBox : classes.viewButtonDown}>
-          <NavLink to="view-form" className="text-decoration-none">
+          <NavLink to="submissions/view-form" className="text-decoration-none">
             <Button variant="text" className={classes.viewFormButton}>
               View form
             </Button>
