@@ -13,14 +13,13 @@ import {
 import {IEvaluatee, IEvaluator, ITopManagerEmptyObjInfoType} from './TypesEvents'
 import DeleteIcon from '../../../assets/images/Icons/DeleteIcon'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
-import {useNavigate} from 'react-router-dom'
 import {EventContext} from './EventsContext'
 import {v4 as uuidv4} from 'uuid'
 import createEventReducerTypes from '../../../types/createEventTypes'
 
 const CreateEventFirstPage = () => {
   const classes = useCreateEventStyles()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const UseEventContext = () => useContext(EventContext)
   const {dispatch} = UseEventContext()
 
@@ -75,7 +74,6 @@ const CreateEventFirstPage = () => {
       type: createEventReducerTypes.updateActivePageToCriterias,
       activePage: 'criteriasPage',
     })
-    navigate('criteria')
   }
 
   const label = {inputProps: {'aria-label': 'Checkbox demo'}}
