@@ -5,8 +5,6 @@ import CriteriasPapers from './CriteriasPaper'
 
 const CreateEventCriteria = () => {
   const classes = useCreateEventStyles()
-  // const navigate = useNavigate()
-  // const UseEventContext = () => useContext(EventContext)
 
   return (
     <Box>

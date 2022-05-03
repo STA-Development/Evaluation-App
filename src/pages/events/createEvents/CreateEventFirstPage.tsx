@@ -19,7 +19,6 @@ import createEventReducerTypes from '../../../types/createEventTypes'
 
 const CreateEventFirstPage = () => {
   const classes = useCreateEventStyles()
-  // const navigate = useNavigate()
   const UseEventContext = () => useContext(EventContext)
   const {dispatch} = UseEventContext()
 
