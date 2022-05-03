@@ -31,6 +31,7 @@
     "@types/react-redux": "^7.1.23",
     "@types/react-router-dom": "^5.3.3",
     "airbnb": "^0.0.2",
+    "axios": "^0.27.2",
     "eslint": "^8.11.0",
     "eslint-cli": "^1.1.1",
     "eslint-plugin-react-hooks": "^4.4.0",
