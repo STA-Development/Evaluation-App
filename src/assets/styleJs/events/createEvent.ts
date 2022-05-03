@@ -1,5 +1,5 @@
 import {makeStyles} from '@mui/styles'
-import {borderRedius, color, font, margin, padding} from '../../style/globalVariables'
+import {border, borderRedius, color, font, margin, padding} from '../../style/globalVariables'
 
 const useCreateEventStyles = makeStyles({
   rootCreateEvent: {
@@ -95,6 +95,10 @@ const useCreateEventStyles = makeStyles({
   infoRootBox: {
     width: '100%',
   },
+  infoRootBoxCriteria: {
+    width: '100%',
+    marginTop: '-60px',
+  },
   headerTitleBold: {
     fontWeight: font.fontWeight700,
     fontSize: font.fontSize16,
@@ -144,6 +148,13 @@ const useCreateEventStyles = makeStyles({
     borderRadius: `${borderRedius.top0} ${borderRedius.right4} ${borderRedius.bottom4} ${borderRedius.left0}`,
     boxShadow: 'none',
   },
+  addButtonCriteria: {
+    width: '128px',
+    height: '40px',
+    backgroundColor: color.blueColor,
+    borderRadius: borderRedius.all4,
+    boxShadow: 'none',
+  },
   addButtonBox: {
     display: 'flex',
     width: '100%',
@@ -151,7 +162,7 @@ const useCreateEventStyles = makeStyles({
   evaluatorNumberErrorText: {
     marginBottom: margin.marginBottom25,
     color: color.redColor,
-    ontWeight: font.fontWeight500,
+    fontWeight: font.fontWeight500,
     fontSize: font.fontSize18,
   },
   stepperStepLabel: {
@@ -165,6 +176,63 @@ const useCreateEventStyles = makeStyles({
   },
   stepperRoot: {
     padding: 0,
+  },
+  criteriaHeaderBox: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  criteriasPapersBox: {
+    width: '100%',
+    flexGrow: 1,
+    marginTop: margin.marginTop15,
+  },
+  criteriasPapersGrid: {},
+  criteriaHeaderText: {
+    fontWeight: font.fontWeight500,
+    fontSize: font.fontSize18,
+  },
+  criteriasPaper: {
+    borderRadius: borderRedius.all4,
+    width: '45%',
+  },
+  criteriaPaperBackground: {
+    backgroundColor: color.whiteColor,
+  },
+  criteriasPaperHeaderText: {
+    fontWeight: font.fontWeight500,
+    fontSize: font.fontSize16,
+  },
+  criteriasPaperEachCriteriaText: {
+    fontWeight: font.fontWeight400,
+    fontSize: font.fontSize14,
+  },
+  criteriasPaperHeaderBox: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    padding: `${padding.paddingTopBottom15} ${padding.paddingLeftRight30}`,
+    borderBottom: `${border.border1} ${border.solid} ${color.overViewBoxshadow}`,
+  },
+  criteriaAddButton: {
+    textTransform: 'none',
+    color: color.blueColor,
+    '&:hover': {
+      backgroundColor: color.whiteColor,
+    },
+    '&:active': {
+      backgroundColor: 'transparent',
+    },
+  },
+  criteriasAddButtonText: {
+    fontWeight: font.fontWeight500,
+    fontSize: font.fontSize14,
+  },
+  eachCriteria: {
+    display: 'flex',
+    paddingBottom: padding.paddingBottom10,
+  },
+  criteriasPaperInfo: {
+    display: 'block',
+    padding: `${padding.paddingTopBottom15} ${padding.paddingLeftRight30}`,
   },
 })
 

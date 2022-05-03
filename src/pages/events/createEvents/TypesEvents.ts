@@ -77,3 +77,8 @@ export interface ITopManagerEmptyObjInfoType {
   position: string
   email: string
 }
+
+export interface ICriteriaPaperInfo {
+  header: string
+  criterias: string[]
+}

@@ -84,12 +84,14 @@ export const padding = {
   paddingLeftRight30: '30px',
   paddingLeftRight14: '14px',
   paddingLeftRight0: '0px',
+  paddingBottom10: '10px',
   paddingBottom26: '26px',
   paddingTop72: '72px',
   paddingTop30: '30px',
   paddingTop16: '16px',
   paddingLeft25: '25px',
   padding0: '0px',
+  padding16: '16px',
   padding30: '30px',
   paddingLeft0: '0px',
   paddingRight0: '0px',
@@ -98,10 +100,12 @@ export const padding = {
 export const border = {
   solid: 'solid',
   border2: '2px',
+  border1: '1px',
 }
 
 export const borderRedius = {
   all50: '50px',
+  all4: '4px',
   topLeft0: '0px',
   topRight50: '50px',
   bottomRight50: '50px',
