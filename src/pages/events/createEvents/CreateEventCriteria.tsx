@@ -10,10 +10,7 @@ const CreateEventCriteria = () => {
     <Box>
       <Box className={classes.infoRootBoxCriteria}>
         <Box className={classes.criteriaHeaderBox}>
-          <Typography className={classes.criteriaHeaderText}>
-            {' '}
-            Choose Evaluation Criteria{' '}
-          </Typography>
+          <Typography className={classes.criteriaHeaderText}>Choose Evaluation Criteria</Typography>
           <Button
             className={classes.addButtonCriteria}
             type="submit"

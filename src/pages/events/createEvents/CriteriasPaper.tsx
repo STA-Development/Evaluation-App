@@ -5,8 +5,6 @@ import {ICriteriaPaperInfo} from './TypesEvents'
 
 const CriteriasPapers = () => {
   const classes = useCreateEventStyles()
-  // const navigate = useNavigate()
-  // const UseEventContext = () => useContext(EventContext)
 
   const [criteriaPaperInfo] = useState<ICriteriaPaperInfo[]>([
     {
