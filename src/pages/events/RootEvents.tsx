@@ -13,17 +13,17 @@ import EmptySavedSubmission from './eventsInfo/savedSubmission/EmptySavedSubmiss
 import SavedSubmissions from './eventsInfo/savedSubmission/SavedSubmissions'
 
 const TabPanel = (props: ITabPanelProps) => {
-  const {children, value, index, ...other} = props
+  const {children, pageList, index, ...other} = props
 
   return (
     <div
       role="tabpanel"
-      hidden={value !== index}
+      hidden={pageList !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box>{children}</Box>}
+      {pageList === index && <Box>{children}</Box>}
     </div>
   )
 }
@@ -82,13 +82,13 @@ const RootEvents = () => {
         </Tabs>
       </Box>
       <Box className="events__info">
-        <TabPanel value={value} index={0}>
+        <TabPanel pageList={value} index={0}>
           {hasEvents ? <Events /> : <EmptyEvents />}
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        <TabPanel pageList={value} index={1}>
           {hasEvents ? <Submissions /> : <EmptySubmission />}
         </TabPanel>
-        <TabPanel value={value} index={2}>
+        <TabPanel pageList={value} index={2}>
           {hasEvents ? <SavedSubmissions /> : <EmptySavedSubmission />}
         </TabPanel>
       </Box>

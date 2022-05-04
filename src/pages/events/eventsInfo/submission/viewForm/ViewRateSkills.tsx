@@ -20,7 +20,6 @@ import ModalSubmission from './ModalSubmission'
 const ViewRateSkills = () => {
   const classes = useViewForm()
   const [savedSubmissions, setSavedSubmissions] = useState<boolean>(false)
-  //const handleOpen = () => setSavedSubmissions(true)
   const handleClose = () => setSavedSubmissions(false)
 
   const handleSaveSubmission = () => {
@@ -121,13 +120,7 @@ const ViewRateSkills = () => {
           </Button>
         </Box>
       </Paper>
-      {savedSubmissions && (
-        <ModalSubmission
-          open={savedSubmissions}
-          //handleOpen={handleOpen}
-          handleClose={handleClose}
-        />
-      )}
+      {savedSubmissions && <ModalSubmission open={savedSubmissions} handleClose={handleClose} />}
     </>
   )
 }
