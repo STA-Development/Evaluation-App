@@ -141,6 +141,12 @@ const useCreateEventStyles = makeStyles({
     backgroundColor: color.blueColor,
     boxShadow: 'none',
   },
+  backButton: {
+    width: '146px',
+    height: '36px',
+    marginTop: margin.marginTop15,
+    boxShadow: 'none',
+  },
   addButton: {
     width: '33%',
     height: '40px',
@@ -291,6 +297,39 @@ const useCreateEventStyles = makeStyles({
     '&:active': {
       backgroundColor: 'transparent',
     },
+  },
+  criteriaPagePercentField: {
+    display: 'flex',
+    alignItems: 'center',
+    minHeight: '120px',
+    paddingLeft: padding.paddingLeft32,
+  },
+
+  inputFieldPercent: {
+    width: '90px',
+    display: 'flex',
+    alignItems: 'center',
+    boxShadow: 'none',
+    background: color.whiteColor,
+    border: `${border.border1} solid ${color.percentageInputColor}`,
+    borderRadius: borderRedius.all2,
+  },
+  inputBase: {
+    '& input': {
+      textAlign: 'center',
+    },
+    marginLeft: margin.marginLeft6,
+  },
+  percentageIconButton: {
+    cursor: 'default',
+    backgroundColor: color.percentageInputColor,
+    borderRadius: borderRedius.all0,
+  },
+  bottomButtonsBox: {
+    marginTop: '30px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '340px',
   },
 })
 
