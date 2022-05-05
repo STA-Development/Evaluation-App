@@ -1,6 +1,7 @@
 $font-family: 'Montserrat', sans-serif;
 $font-family-title: 'Montserrat', sans-serif;
 $body-font: $font-family;
+$fontWeight300: 300;
 $fontWeight400: 400;
 $fontWeight500: 500;
 $fontWeight700: 700;
@@ -32,6 +33,7 @@ $tablePaperColor: rgba(0, 0, 0, 0.25);
 $sliderBox: rgba(0, 0, 0, 0.15);
 $eventBox: rgba(0, 0, 0, 0.25);
 $transparent: transparent;
+$blackColor: #000;
 
 $paddingTopBottom30: 30px;
 $paddingLeftRight0: 0px;
@@ -93,6 +95,7 @@ $paddingRight50: 50px;
 
 $marginTopBottom0: 0px;
 $marginLeftRight20: 20px;
+$marginLeftRight30: 30px;
 $margin0: 0px;
 $margin0Auto: 0 auto;
 $marginTop5: 5px;
@@ -110,6 +113,7 @@ $marginLeft15: 15px;
 $marginLeft20: 20px;
 $marginLeft25: 25px;
 $marginLeft30: 30px;
+$paddingLeft60: 60px;
 
 $marginBottom0: 0px;
 $marginBottom5: 5px;
@@ -120,6 +124,7 @@ $marginBottom20: 20px;
 $marginBottom25: 25px;
 $marginBottom30: 30px;
 $marginBottom40: 40px;
+$paddingBottom70: 70px;
 
 $marginRight0: 0px;
 $marginRight5: 5px;
@@ -130,6 +135,7 @@ $marginRight20: 20px;
 $marginRight25: 25px;
 $marginRight30: 30px;
 $marginRight40: 40px;
+$marginRight100: 100px;
 
 $zIndex1: 1;
 $zIndex2: 2;

@@ -1,7 +1,8 @@
 import React from 'react'
-import {Box, Button, Divider, Typography} from '@mui/material'
-import useSubmissionsStyle from '../../../../assets/styleJs/submissions/submissions'
+import {NavLink} from 'react-router-dom'
 import {ISubmissionDataTypes} from '../../../../types/submissionsType'
+import useSubmissionsStyle from '../../../../assets/styleJs/submissions/submissions'
+import {Box, Button, Divider, Typography} from '@mui/material'
 
 const SubmissionQuarterly = ({
   color,
@@ -51,9 +52,11 @@ const SubmissionQuarterly = ({
           </Typography>
         </Box>
         <Box className={savedSubmission ? classes.viewFormBox : classes.viewButtonDown}>
-          <Button variant="text" className={classes.viewFormButton}>
-            View form
-          </Button>
+          <NavLink to="/events/submissions/view-form" className="text-decoration-none">
+            <Button variant="text" className={classes.viewFormButton}>
+              View form
+            </Button>
+          </NavLink>
         </Box>
       </Box>
     </Box>
