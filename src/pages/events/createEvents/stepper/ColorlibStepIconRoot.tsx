@@ -5,7 +5,7 @@ const ColorlibStepIconRoot = styled('div')<{
   ownerState: {completed?: boolean; active?: boolean}
 }>(({ownerState}) => ({
   backgroundColor: '',
-  border: `${border.border2} ${border.solid} ${color.blueColor}`,
+  border: `${border.border2} solid ${color.blueColor}`,
   zIndex: 1,
   color: color.blueColor,
   width: 40,
