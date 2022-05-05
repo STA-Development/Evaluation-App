@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {ITabPanelProps} from '../../types/eventsTypes'
 import {Box} from '@mui/material'
 import Tabs from '@mui/material/Tabs'
@@ -36,14 +36,8 @@ const tabProps = (index: number) => ({
 const RootEvents = () => {
   const globalClasses = useGlobalTheme()
   const location = useLocation()
-  const [value, setValue] = useState<number>(0)
+  const [value, setValue] = useState<number>(location.state ? 1 : 0)
   const [hasEvents] = useState<boolean>(true)
-
-  useEffect(() => {
-    if (location.state) {
-      setValue(1)
-    }
-  }, [location])
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue)
