@@ -1,6 +1,7 @@
 import {makeStyles} from '@mui/styles'
 
 export const font = {
+  fontWeight300: 300,
   fontWeight400: 400,
   fontWeight500: 500,
   fontWeight600: 600,
@@ -17,6 +18,7 @@ export const font = {
   fontSize12: '12px',
   fontSize10: '10px',
   fontSize8: '8px',
+  fontStyleItalic: 'italic',
 }
 
 export const color = {
@@ -62,6 +64,7 @@ export const margin = {
   marginTop20: '20px',
   marginTop15: '15px',
   marginTop10: '10px',
+  marginTop8: '8px',
   marginRight8: '8px',
   marginRight15: '15px',
   marginRight16: '16px',
@@ -90,6 +93,7 @@ export const padding = {
   paddingTop30: '30px',
   paddingTop16: '16px',
   paddingLeft25: '25px',
+  paddingLeft10: '10px',
   padding0: '0px',
   padding16: '16px',
   padding30: '30px',

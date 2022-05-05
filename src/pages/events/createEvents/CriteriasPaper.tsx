@@ -1,10 +1,27 @@
 import React, {useState} from 'react'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
-import {Box, Button, Checkbox, Grid, Typography} from '@mui/material'
+import {Box, Button, Checkbox, Grid, RadioProps, Typography} from '@mui/material'
 import {ICriteriaPaperInfo} from './TypesEvents'
+import Radio from '@mui/material/Radio'
+import RadioGroup from '@mui/material/RadioGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import FormControl from '@mui/material/FormControl'
+import RadioIconChecked from '../../../assets/images/Icons/RadioIconChecked'
+import RadioIcon from '../../../assets/images/Icons/RadioIcon'
 
 const CriteriasPapers = () => {
   const classes = useCreateEventStyles()
+  const BpRadio = (props: RadioProps) => {
+    return (
+      <Radio
+        disableRipple
+        color="default"
+        checkedIcon={<RadioIconChecked />}
+        icon={<RadioIcon />}
+        {...props}
+      />
+    )
+  }
 
   const [criteriaPaperInfo] = useState<ICriteriaPaperInfo[]>([
     {
@@ -59,7 +76,7 @@ const CriteriasPapers = () => {
                     {item.header}
                   </Typography>
                 </Box>
-                <Button className={classes.criteriaAddButton} variant="text">
+                <Button className={classes.criteriaAddButton} variant="text" disableRipple>
                   <Typography className={classes.criteriasAddButtonText}>Add</Typography>
                 </Button>
               </Box>
@@ -75,6 +92,108 @@ const CriteriasPapers = () => {
           </Grid>
         ))}
       </Grid>
+      <Box className={classes.criteriaPaperBottomBox}>
+        <Box className={classes.criteriaPaperRatingRoot}>
+          <Box className={classes.criteriaRatingTexts}>
+            <Typography className={classes.criteriaHeaderText}>Select The Rating Range</Typography>
+            <Typography className={classes.criteriaItalicText}>
+              The rating is from lowest score to the highest
+            </Typography>
+          </Box>
+          <Box className={classes.criteriasRatingPaper}>
+            <Box className={classes.criteriaPaperBackground}>
+              <Box className={classes.criteriasPaperHeaderBox}>
+                <Box className={classes.checkboxManagerBox}>
+                  <Typography className={classes.criteriasPaperHeaderText}>
+                    Rating Score Range
+                  </Typography>
+                </Box>
+                <Button className={classes.criteriaAddButton} variant="text">
+                  <Typography className={classes.criteriasAddButtonText}>Add</Typography>
+                </Button>
+              </Box>
+              <Box className={classes.criteriasPaperInfo}>
+                <FormControl className={classes.scoreRangeBox}>
+                  <RadioGroup
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    defaultValue="female"
+                    name="radio-buttons-group"
+                  >
+                    <FormControlLabel
+                      className={classes.ratingScoreLabel}
+                      value={5}
+                      control={<BpRadio />}
+                      label="From 1 point - to 5 points"
+                    />
+                    <FormControlLabel
+                      className={classes.ratingScoreLabel}
+                      value={10}
+                      control={<BpRadio />}
+                      label="From 1 point - to 10 points"
+                    />
+                    <FormControlLabel
+                      className={classes.ratingScoreLabel}
+                      value={20}
+                      control={<BpRadio />}
+                      label="From 1 point - to 20 points"
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+        <Box className={classes.criteriaPaperBonusPercentage}>
+          <Box className={classes.criteriaRatingTexts}>
+            <Typography className={classes.criteriaHeaderText}>Select Bonus Percentage</Typography>
+            <Typography className={classes.criteriaItalicText}>
+              Percentage from monthly salary applies to the highest score
+            </Typography>
+          </Box>
+          <Box className={classes.criteriasRatingPaper}>
+            <Box className={classes.criteriaPaperBackground}>
+              <Box className={classes.criteriasPaperHeaderBox}>
+                <Box className={classes.checkboxManagerBox}>
+                  <Typography className={classes.criteriasPaperHeaderText}>
+                    Bonus Percentage
+                  </Typography>
+                </Box>
+                <Button className={classes.criteriaCalculateButton} variant="text">
+                  <Typography className={classes.evaluatorHeaderName}>Calculate</Typography>
+                </Button>
+              </Box>
+              <Box className={classes.criteriasPaperInfo}>
+                <FormControl className={classes.scoreRangeBox}>
+                  <RadioGroup
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    defaultValue="female"
+                    name="radio-buttons-group"
+                  >
+                    <FormControlLabel
+                      className={classes.ratingScoreLabel}
+                      value={5}
+                      control={<BpRadio />}
+                      label="From 1 point - to 5 points"
+                    />
+                    <FormControlLabel
+                      className={classes.ratingScoreLabel}
+                      value={10}
+                      control={<BpRadio />}
+                      label="From 1 point - to 10 points"
+                    />
+                    <FormControlLabel
+                      className={classes.ratingScoreLabel}
+                      value={20}
+                      control={<BpRadio />}
+                      label="From 1 point - to 20 points"
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
     </Box>
   )
 }

@@ -193,7 +193,7 @@ const useCreateEventStyles = makeStyles({
   },
   criteriasPaper: {
     borderRadius: borderRedius.all4,
-    width: '45%',
+    width: '50%',
   },
   criteriaPaperBackground: {
     backgroundColor: color.whiteColor,
@@ -233,6 +233,64 @@ const useCreateEventStyles = makeStyles({
   criteriasPaperInfo: {
     display: 'block',
     padding: `${padding.paddingTopBottom15} ${padding.paddingLeftRight30}`,
+  },
+  criteriaPaperBottomBox: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginTop: margin.marginTop30,
+  },
+  criteriaPaperRatingRoot: {
+    width: '50%',
+    marginRight: margin.marginRight15,
+  },
+  criteriaItalicText: {
+    fontWeight: font.fontWeight300,
+    fontSize: font.fontSize12,
+    fontStyle: font.fontStyleItalic,
+  },
+  criteriaRatingTexts: {
+    marginBottom: margin.marginBottom10,
+  },
+  scoreRangeBox: {
+    paddingLeft: padding.paddingLeft10,
+  },
+  ratingScoreLabel: {
+    marginBottom: margin.marginBottom10,
+    '& span:first-child': {
+      backgroundColor: 'transparent',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'relative',
+      '& svg': {
+        position: 'absolute',
+        marginTop: margin.marginTop8,
+      },
+    },
+    '& span:last-child': {
+      marginLeft: margin.marginLeft15,
+      fontWeight: font.fontWeight400,
+      fontSize: font.fontSize14,
+    },
+  },
+  criteriaPaperBonusPercentage: {
+    width: '50%',
+  },
+  criteriasRatingPaper: {
+    borderRadius: borderRedius.all4,
+    width: '100%',
+  },
+
+  criteriaCalculateButton: {
+    textTransform: 'none',
+    color: color.blueColor,
+    opacity: '50%',
+    '&:hover': {
+      backgroundColor: color.whiteColor,
+    },
+    '&:active': {
+      backgroundColor: 'transparent',
+    },
   },
 })
 
