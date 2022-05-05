@@ -14,7 +14,7 @@ const ViewForm = () => (
       <Link state={{fromViewForm: 1}} to="/events/submissions" className="view-form__link">
         Submissions {`/ `}
       </Link>
-      <Link to="/events/saved-submissions" className="view-form__link view-form__active">
+      <Link to="/events/submissions/view-form" className="view-form__link view-form__active">
         View Form
       </Link>
     </Box>
