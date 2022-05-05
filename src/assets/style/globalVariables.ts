@@ -29,23 +29,30 @@ export const color = {
   darkGray: '#333',
   textGrey: '#4f4f4f',
   lightGrey: '#ececec',
+  percentGrey: '#979797',
   navbarColor: '#131924',
   activeLink: '#262f3f',
   whiteColor: '#fff',
   overViewBoxshadow: 'rgba(0, 0, 0, 0.15)',
+  dividerColor: 'rgba(0, 0, 0, 0.1)',
   overViewBoxColor: '#1f6f8b',
   greenColor: '#b2e4d5',
   tableBorderColor: '#bdbdbd',
   closeButton: '#4f4f4f',
   redColor: '#ff0000',
+  blackColor: '#000',
 }
 
 export const margin = {
   margin0Auto: '0 auto',
   marginTopBottom20: '20px',
+  marginTopBottom15: '15px',
   marginTopBottom10: '10px',
   marginTopBottom5: '5px',
+  marginTopBottom0: '0px',
   marginLeftRight0: '0px',
+  marginRightAuto: 'auto',
+  marginLeftAuto: 'auto',
   marginBottom85: '85px',
   marginBottom50: '50px',
   marginBottom40: '40px',
@@ -58,6 +65,7 @@ export const margin = {
   marginBottom10: '10px',
   marginBottom5: '5px',
   marginBottomM15: '-15px',
+  marginTop100: '100px',
   marginTop50: '50px',
   marginTop30: '30px',
   marginTop25: '25px',
@@ -70,6 +78,7 @@ export const margin = {
   marginRight16: '16px',
   marginRight18: '18px',
   marginRight20: '20px',
+  marginRight50: '50px',
   marginRight35: '35px',
   marginRight40: '40px',
   margin20: '20px',
@@ -78,9 +87,11 @@ export const margin = {
   marginLeft3: '3px',
   marginLeft15: '15px',
   marginLeft30: '30px',
+  marginLeftM36: '-36px',
 }
 
 export const padding = {
+  paddingTopBottom0: '0',
   paddingTopBottom10: '10px',
   paddingTopBottom15: '15px',
   paddingTopBottom20: '20px',
@@ -95,19 +106,22 @@ export const padding = {
   paddingLeft25: '25px',
   paddingLeft10: '10px',
   padding0: '0px',
+  padding20: '20px',
   padding16: '16px',
   padding30: '30px',
   paddingLeft0: '0px',
   paddingRight0: '0px',
 }
 
-export const border = {
-  solid: 'solid',
-  border2: '2px',
-  border1: '1px',
-}
-
 export const borderRedius = {
+  top0: '0px',
+  left0: '0px',
+  top4: '4px',
+  right0: '0px',
+  bottom0: '0px',
+  left4: '4px',
+  bottom4: '4px',
+  right4: '4px',
   all50: '50px',
   all4: '4px',
   topLeft0: '0px',
@@ -115,6 +129,13 @@ export const borderRedius = {
   bottomRight50: '50px',
   bottomLeft0: '0px',
   overViewBox: '10px',
+  borderP50: '50%',
+}
+
+export const border = {
+  solid: 'solid',
+  border2: '2px',
+  border1: '1px',
   top4: '4px',
   right0: '0px',
   bottom0: '0px',
@@ -166,5 +187,11 @@ export const useGlobalTheme = makeStyles({
     fontSize: font.fontSize18,
     fontWeight: font.fontWeight400,
     color: color.navbarColor,
+    '&:hover': {
+      textDecoration: 'none',
+    },
+    '&:focus': {
+      textDecoration: 'none',
+    },
   },
 })

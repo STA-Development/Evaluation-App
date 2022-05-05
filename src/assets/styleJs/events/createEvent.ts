@@ -210,7 +210,7 @@ const useCreateEventStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     padding: `${padding.paddingTopBottom15} ${padding.paddingLeftRight30}`,
-    borderBottom: `${border.border1} ${border.solid} ${color.overViewBoxshadow}`,
+    borderBottom: `${border.border1} solid ${color.overViewBoxshadow}`,
   },
   criteriaAddButton: {
     textTransform: 'none',
