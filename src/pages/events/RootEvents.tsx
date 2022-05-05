@@ -4,25 +4,26 @@ import {Box} from '@mui/material'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Events from './eventsInfo/ongoingEvent/Events'
-import SavedSubmissions from './eventsInfo/savedSubmission/SavedSubmissions'
-import Submissions from './eventsInfo/submission/Submissions'
 import EmptyEvents from './eventsInfo/ongoingEvent/EmptyEvents'
-import EmptySubmission from './eventsInfo/submission/EmptySubmission'
-import EmptySavedSubmission from './eventsInfo/savedSubmission/EmptySavedSubmission'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
+import {Link, useLocation} from 'react-router-dom'
+import EmptySubmission from './eventsInfo/submission/EmptySubmission'
+import Submissions from './eventsInfo/submission/Submissions'
+import EmptySavedSubmission from './eventsInfo/savedSubmission/EmptySavedSubmission'
+import SavedSubmissions from './eventsInfo/savedSubmission/SavedSubmissions'
 
 const TabPanel = (props: ITabPanelProps) => {
-  const {children, value, index, ...other} = props
+  const {children, pageList, index, ...other} = props
 
   return (
     <div
       role="tabpanel"
-      hidden={value !== index}
+      hidden={pageList !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box>{children}</Box>}
+      {pageList === index && <Box>{children}</Box>}
     </div>
   )
 }
@@ -34,7 +35,8 @@ const tabProps = (index: number) => ({
 
 const RootEvents = () => {
   const globalClasses = useGlobalTheme()
-  const [value, setValue] = useState<number>(0)
+  const location = useLocation()
+  const [value, setValue] = useState<number>(location.state ? 1 : 0)
   const [hasEvents] = useState<boolean>(true)
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -45,24 +47,42 @@ const RootEvents = () => {
     <Box className="events">
       <Box className="events__sidebar">
         <Tabs
-          value={value}
-          onChange={handleChange}
           aria-label="basic tabs"
           className={globalClasses.eventTabsBox}
+          value={value}
+          onChange={handleChange}
         >
-          <Tab label="Events" {...tabProps(0)} className={globalClasses.eventTabs} />
-          <Tab label="Submissions" {...tabProps(1)} className={globalClasses.eventTabs} />
-          <Tab label="Saved Submissions" {...tabProps(2)} className={globalClasses.eventTabs} />
+          <Tab
+            label="Events"
+            {...tabProps(0)}
+            className={globalClasses.eventTabs}
+            component={Link}
+            to="/events"
+          />
+          <Tab
+            label="Submissions"
+            {...tabProps(1)}
+            className={globalClasses.eventTabs}
+            component={Link}
+            to="submissions"
+          />
+          <Tab
+            label="Saved Submissions"
+            {...tabProps(3)}
+            className={globalClasses.eventTabs}
+            component={Link}
+            to="saved-submissions"
+          />
         </Tabs>
       </Box>
       <Box className="events__info">
-        <TabPanel value={value} index={0}>
+        <TabPanel pageList={value} index={0}>
           {hasEvents ? <Events /> : <EmptyEvents />}
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        <TabPanel pageList={value} index={1}>
           {hasEvents ? <Submissions /> : <EmptySubmission />}
         </TabPanel>
-        <TabPanel value={value} index={2}>
+        <TabPanel pageList={value} index={2}>
           {hasEvents ? <SavedSubmissions /> : <EmptySavedSubmission />}
         </TabPanel>
       </Box>
