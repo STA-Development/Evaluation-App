@@ -6,7 +6,7 @@ export type AppDispatch = typeof store.dispatch
 export interface IAuthPropsState {
   user: string
   email: string
-  uid: string
+  uid: string | number
   isAuth: boolean
   token: string
 }

@@ -13,14 +13,15 @@ const App = () => {
   const dispatch = useAppDispatch()
   const userId = useAppSelector(selectUserId)
 
-  onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, async (user) => {
     if (user) {
+      //console.log(user.accessToken)
       dispatch(
         setUser({
           user: user.displayName,
           uid: user.uid,
           email: user.email,
-          token: user.refreshToken,
+          token: await user.getIdToken(),
         }),
       )
     } else {

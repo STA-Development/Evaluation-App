@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import {createUserWithEmailAndPassword} from 'firebase/auth'
 import {Link, useNavigate} from 'react-router-dom'
 import {
   Box,
@@ -14,14 +13,11 @@ import {
 import Checkbox from '@mui/material/Checkbox'
 import useStyles from '../../assets/styleJs/auth/signUp'
 import SignUpImg from '../../assets/images/auth/SignUpImg'
-import {auth} from '../../data/firebase'
-
-import {useAppDispatch} from '../../redux/hooks'
-import {setUser} from '../../redux/user/userSlice'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
+import axiosInstance from '../../axiosInstance'
 
 const SignUp = () => {
-  const dispatch = useAppDispatch()
+  //const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const classes = useStyles()
   const globalClasses = useGlobalTheme()
@@ -31,6 +27,12 @@ const SignUp = () => {
   const [nameError, setNameError] = useState<boolean>(false)
   const [emailError, setEmailError] = useState<boolean>(false)
   const [paswordError, setPasswordError] = useState<boolean>(false)
+
+  const regName = name.trim().split(' ')
+  const firstName = regName[0]
+  const lastName = regName[1]
+  console.log(firstName)
+  console.log(lastName)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -44,20 +46,39 @@ const SignUp = () => {
       setEmailError(false)
       setPasswordError(false)
 
-      await createUserWithEmailAndPassword(auth, email, password)
-        .then(({user}) => {
-          dispatch(
-            setUser({
-              user: name,
-              email: user.email,
-              id: user.uid,
-            }),
-          )
+      // await createUserWithEmailAndPassword(auth, email, password)
+      //   .then(({user}) => {
+      //     dispatch(
+      //       setUser({
+      //         user: name,
+      //         email: user.email,
+      //         id: user.uid,
+      //       }),
+      //     )
+      //
+      //     navigate('/dashboard')
+      //   })
+      //   .catch((error) => {
+      //     throw new Error(error)
+      //   })
 
-          navigate('/dashboard')
+      await axiosInstance
+        .post('/users/create', {
+          firstName,
+          password,
+          lastName,
+          email,
         })
-        .catch((error) => {
-          throw new Error(error)
+        .then((user) => {
+          console.log(user)
+          // dispatch(
+          //   setUser({
+          //     user: name,
+          //     email: user.email,
+          //     id: user.uid,
+          //   }),
+          // )
+          navigate('/sign-in')
         })
 
       setEmail('')
