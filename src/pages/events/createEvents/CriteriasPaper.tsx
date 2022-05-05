@@ -8,6 +8,8 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import FormControl from '@mui/material/FormControl'
 import RadioIconChecked from '../../../assets/images/Icons/RadioIconChecked'
 import RadioIcon from '../../../assets/images/Icons/RadioIcon'
+import UnCheckedIcon from '../../../assets/images/Icons/UnCheckedIcon'
+import CheckedIcon from '../../../assets/images/Icons/CheckedIcon'
 
 const CriteriasPapers = () => {
   const classes = useCreateEventStyles()
@@ -71,7 +73,12 @@ const CriteriasPapers = () => {
             <Box className={classes.criteriaPaperBackground}>
               <Box className={classes.criteriasPaperHeaderBox}>
                 <Box className={classes.checkboxManagerBox}>
-                  <Checkbox className={classes.checkbox} defaultChecked />
+                  <Checkbox
+                    className={classes.checkbox}
+                    defaultChecked
+                    icon={<UnCheckedIcon />}
+                    checkedIcon={<CheckedIcon />}
+                  />
                   <Typography className={classes.criteriasPaperHeaderText}>
                     {item.header}
                   </Typography>
@@ -83,7 +90,12 @@ const CriteriasPapers = () => {
               <Box className={classes.criteriasPaperInfo}>
                 {item.criterias.map((el: string, index1: number) => (
                   <Box className={classes.eachCriteria} key={index1}>
-                    <Checkbox className={classes.checkbox} defaultChecked />
+                    <Checkbox
+                      className={classes.checkbox}
+                      defaultChecked
+                      icon={<UnCheckedIcon />}
+                      checkedIcon={<CheckedIcon />}
+                    />
                     <Typography className={classes.criteriasPaperEachCriteriaText}>{el}</Typography>
                   </Box>
                 ))}
