@@ -21,7 +21,7 @@ import RadioIcon from '../../../assets/images/Icons/RadioIcon'
 import UnCheckedIcon from '../../../assets/images/Icons/UnCheckedIcon'
 import CheckedIcon from '../../../assets/images/Icons/CheckedIcon'
 import PercentIcon from '../../../assets/images/Icons/PercentIcon'
-import createEventReducerTypes from '../../../types/createEventTypes'
+import {createEventReducerTypes} from '../../../types/createEventTypes'
 import {EventContext} from './EventsContext'
 
 const CriteriasPapers = () => {
