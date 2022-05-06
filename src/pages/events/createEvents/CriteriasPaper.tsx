@@ -23,6 +23,7 @@ import CheckedIcon from '../../../assets/images/Icons/CheckedIcon'
 import PercentIcon from '../../../assets/images/Icons/PercentIcon'
 import createEventReducerTypes from '../../../types/createEventTypes'
 import {EventContext} from './EventsContext'
+import EvaluateeBonusCalculationCard from './EvaluateeBonusCalculationCard'
 
 const CriteriasPapers = () => {
   const UseEventContext = () => useContext(EventContext)
@@ -218,6 +219,7 @@ const CriteriasPapers = () => {
           </Box>
         </Box>
       </Box>
+      <EvaluateeBonusCalculationCard />
       <Box className={classes.bottomButtonsBox}>
         <Button
           className={classes.backButton}
