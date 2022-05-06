@@ -5,6 +5,7 @@ import CreateEventFirstPage from './CreateEventFirstPage'
 import {Box} from '@mui/material'
 import {EventContext} from './EventsContext'
 import CreateEventCriteria from './CreateEventCriteria'
+import {createEventPages} from '../../../types/createEventTypes'
 
 const CreateEvent: FC = () => {
   const classes = useCreateEventStyles()
@@ -15,8 +16,8 @@ const CreateEvent: FC = () => {
     <div className={classes.rootCreateEvent}>
       <Box className={classes.infoRootBox}>
         <CreateEventHeader />
-        {state.activePage === 'firstPage' && <CreateEventFirstPage />}
-        {state.activePage === 'criteriasPage' && <CreateEventCriteria />}
+        {state.activePage === createEventPages.first && <CreateEventFirstPage />}
+        {state.activePage === createEventPages.criterias && <CreateEventCriteria />}
       </Box>
     </div>
   )
