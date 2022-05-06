@@ -2,6 +2,8 @@ import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import Dashboard from '../pages/dashboard/Dashboard'
 import Reports from '../pages/reports/Reports'
+import CreateEvent from '../pages/events/createEvents/CreateEvent'
+import CreateEventCriteria from '../pages/events/createEvents/CreateEventCriteria'
 import Homepage from '../pages/Homepage'
 import RootEvents from '../pages/events/RootEvents'
 import ViewForm from '../pages/events/eventsInfo/submission/viewForm/ViewForm'
@@ -18,9 +20,10 @@ const PrivateRouts = () => (
         <Route path="submissions" element={<Submissions />} />
         <Route path="saved-submissions" element={<SavedSubmissions />} />
       </Route>
-
       <Route path="events/submissions/view-form" element={<ViewForm />} />
       <Route path="reports" element={<Reports />} />
+      <Route path="events-create" element={<CreateEvent />} />
+      <Route path="events-create/criteria" element={<CreateEventCriteria />} />
     </Route>
   </Routes>
 )

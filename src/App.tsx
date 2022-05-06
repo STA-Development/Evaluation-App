@@ -1,13 +1,14 @@
-import React from 'react'
-import './App.css'
-import {auth} from './data/firebase'
-import PublicRoutes from './routes/PublicRoutes'
-import PrivateRouts from './routes/PrivateRouts'
-import {onAuthStateChanged} from 'firebase/auth'
-import {Box} from '@mui/material'
-import {useAppDispatch, useAppSelector} from './redux/hooks'
-import {removeUser, setUser} from './redux/user/userSlice'
-import {selectUserId} from './redux/selectors'
+import React  from "react";
+import "./App.css";
+import { Box } from "@mui/material";
+import { onAuthStateChanged } from "firebase/auth";
+import PublicRoutes from "./routes/PublicRoutes";
+import PrivateRouts from "./routes/PrivateRouts";
+import { auth } from "./data/firebase";
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import { removeUser, setUser } from "./redux/user/userSlice";
+import { selectUserId } from "./redux/selectors";
+import {EventContextProvider} from "./pages/events/createEvents/EventsContext";
 
 const App = () => {
   const dispatch = useAppDispatch()
@@ -28,7 +29,12 @@ const App = () => {
     }
   })
 
-  return <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>
+  return (
+    <EventContextProvider>
+      <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>
+    </EventContextProvider>
+
+  );
 }
 
 export default App
