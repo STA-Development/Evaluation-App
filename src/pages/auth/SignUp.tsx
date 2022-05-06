@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 // import {createUserWithEmailAndPassword} from 'firebase/auth'
 // import {auth} from '../../data/firebase'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {
   Box,
   Button,
@@ -19,10 +19,12 @@ import {useGlobalTheme} from '../../assets/style/globalVariables'
 import axiosInstance from '../../axiosInstance'
 import {setUser} from '../../redux/user/userSlice'
 import {useAppDispatch} from '../../redux/hooks'
+import {signInWithEmailAndPassword} from 'firebase/auth'
+import {auth} from '../../data/firebase'
 
 const SignUp = () => {
   const dispatch = useAppDispatch()
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const classes = useStyles()
   const globalClasses = useGlobalTheme()
   const [name, setName] = useState<string>('')
@@ -55,22 +57,6 @@ const SignUp = () => {
       setEmailError(false)
       setPasswordError(false)
 
-      // await createUserWithEmailAndPassword(auth, email, password)
-      //   .then(({user}) => {
-      //     console.log('firebase', user)
-      //     dispatch(
-      //       setUser({
-      //         email: user.email,
-      //         uid: user.uid,
-      //         token: user.getIdToken(),
-      //       }),
-      //     )
-      //     navigate('/')
-      //   })
-      //   .catch((error) => {
-      //     throw new Error(error)
-      //   })
-
       await axiosInstance
         .post('/users/create', {
           firstName,
@@ -90,6 +76,10 @@ const SignUp = () => {
         .catch((err) => {
           console.log(err)
         })
+      await signInWithEmailAndPassword(auth, email, password)
+      if (auth.currentUser) {
+        navigate('/')
+      }
 
       setEmail('')
       setName('')
@@ -102,6 +92,10 @@ const SignUp = () => {
       setPasswordError(true)
     }
   }
+
+  useEffect(() => {
+    handleSubmit
+  }, [])
 
   return (
     <Box>
