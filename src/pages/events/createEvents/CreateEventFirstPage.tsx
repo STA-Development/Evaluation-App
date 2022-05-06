@@ -15,7 +15,7 @@ import DeleteIcon from '../../../assets/images/Icons/DeleteIcon'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
 import {EventContext} from './EventsContext'
 import {v4 as uuidv4} from 'uuid'
-import createEventReducerTypes from '../../../types/createEventTypes'
+import {createEventReducerTypes} from '../../../types/createEventTypes'
 
 const CreateEventFirstPage = () => {
   const classes = useCreateEventStyles()

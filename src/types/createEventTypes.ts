@@ -1,4 +1,4 @@
-enum createEventReducerTypes {
+export enum createEventReducerTypes {
   eventTitle = 'EVENT_TITLE',
   evaluators = 'EVALUATORS',
   evaluatees = 'EVALUATEES',
@@ -11,4 +11,7 @@ enum createEventReducerTypes {
   updateActivePageToCriterias = 'UPDATE_ACTIVE_PAGE_TO_CRITERIAS',
 }
 
-export default createEventReducerTypes
+export enum createEventPages {
+  first = 'firstPage',
+  criterias = 'criteriasPage',
+}

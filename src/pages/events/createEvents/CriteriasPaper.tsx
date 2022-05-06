@@ -1,6 +1,16 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
-import {Box, Button, Checkbox, Grid, RadioProps, Typography} from '@mui/material'
+import {
+  Box,
+  Button,
+  Checkbox,
+  Grid,
+  IconButton,
+  InputBase,
+  Paper,
+  RadioProps,
+  Typography,
+} from '@mui/material'
 import {ICriteriaPaperInfo} from './TypesEvents'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
@@ -10,8 +20,21 @@ import RadioIconChecked from '../../../assets/images/Icons/RadioIconChecked'
 import RadioIcon from '../../../assets/images/Icons/RadioIcon'
 import UnCheckedIcon from '../../../assets/images/Icons/UnCheckedIcon'
 import CheckedIcon from '../../../assets/images/Icons/CheckedIcon'
+import PercentIcon from '../../../assets/images/Icons/PercentIcon'
+import {createEventReducerTypes} from '../../../types/createEventTypes'
+import {EventContext} from './EventsContext'
 
 const CriteriasPapers = () => {
+  const UseEventContext = () => useContext(EventContext)
+  const {dispatch} = UseEventContext()
+
+  const onBackButtonClick = () => {
+    dispatch({
+      type: createEventReducerTypes.updateActivePageToCriterias,
+      activePage: 'firstPage',
+    })
+  }
+
   const classes = useCreateEventStyles()
   const BpRadio = (props: RadioProps) => {
     return (
@@ -120,7 +143,7 @@ const CriteriasPapers = () => {
                     Rating Score Range
                   </Typography>
                 </Box>
-                <Button className={classes.criteriaAddButton} variant="text">
+                <Button className={classes.criteriaAddButton} variant="text" disableRipple>
                   <Typography className={classes.criteriasAddButtonText}>Add</Typography>
                 </Button>
               </Box>
@@ -170,41 +193,44 @@ const CriteriasPapers = () => {
                     Bonus Percentage
                   </Typography>
                 </Box>
-                <Button className={classes.criteriaCalculateButton} variant="text">
+                <Button className={classes.criteriaCalculateButton} variant="text" disableRipple>
                   <Typography className={classes.evaluatorHeaderName}>Calculate</Typography>
                 </Button>
               </Box>
-              <Box className={classes.criteriasPaperInfo}>
-                <FormControl className={classes.scoreRangeBox}>
-                  <RadioGroup
-                    aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue="female"
-                    name="radio-buttons-group"
+              <Box className={classes.criteriaPagePercentField}>
+                <Paper component="form" className={classes.inputFieldPercent}>
+                  <InputBase
+                    type="number"
+                    className={classes.inputBase}
+                    placeholder="0"
+                    inputProps={{'aria-label': '0'}}
+                  />
+                  <IconButton
+                    disableRipple
+                    className={classes.percentageIconButton}
+                    aria-label="directions"
                   >
-                    <FormControlLabel
-                      className={classes.ratingScoreLabel}
-                      value={5}
-                      control={<BpRadio />}
-                      label="From 1 point - to 5 points"
-                    />
-                    <FormControlLabel
-                      className={classes.ratingScoreLabel}
-                      value={10}
-                      control={<BpRadio />}
-                      label="From 1 point - to 10 points"
-                    />
-                    <FormControlLabel
-                      className={classes.ratingScoreLabel}
-                      value={20}
-                      control={<BpRadio />}
-                      label="From 1 point - to 20 points"
-                    />
-                  </RadioGroup>
-                </FormControl>
+                    <PercentIcon />
+                  </IconButton>
+                </Paper>
               </Box>
             </Box>
           </Box>
         </Box>
+      </Box>
+      <Box className={classes.bottomButtonsBox}>
+        <Button
+          className={classes.backButton}
+          type="submit"
+          variant="outlined"
+          size="medium"
+          onClick={onBackButtonClick}
+        >
+          BACK
+        </Button>
+        <Button className={classes.nextButton} type="submit" variant="contained" size="medium">
+          NEXT
+        </Button>
       </Box>
     </Box>
   )
