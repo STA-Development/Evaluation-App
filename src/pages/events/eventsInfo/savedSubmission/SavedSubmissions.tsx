@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import {Button, TextField} from '@mui/material'
+import axiosInstance from '../../../../axiosInstance'
 
 const SavedSubmissions = () => {
+  //const token = useAppSelector(selectToken)
   const [name, setName] = useState('')
   //const [asd, setAsd] = useState('')
 
@@ -9,8 +11,9 @@ const SavedSubmissions = () => {
   //   axiosInstance.post('users/create', {})
   // }
   const texChange = () => {
-    const asd = name.trim().split(' ')
-    console.log(asd[0])
+    axiosInstance.delete('/users/5').then((res) => {
+      console.log('axios', res)
+    })
   }
   return (
     <div>

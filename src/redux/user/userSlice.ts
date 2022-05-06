@@ -25,6 +25,7 @@ const userSlice = createSlice({
       state.email = ''
       state.uid = ''
       state.isAuth = false
+      state.token = ''
     },
   },
 })

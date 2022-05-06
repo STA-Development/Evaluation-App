@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+// import {createUserWithEmailAndPassword} from 'firebase/auth'
+// import {auth} from '../../data/firebase'
+import {Link} from 'react-router-dom'
 import {
   Box,
   Button,
@@ -15,10 +17,12 @@ import useStyles from '../../assets/styleJs/auth/signUp'
 import SignUpImg from '../../assets/images/auth/SignUpImg'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 import axiosInstance from '../../axiosInstance'
+import {setUser} from '../../redux/user/userSlice'
+import {useAppDispatch} from '../../redux/hooks'
 
 const SignUp = () => {
-  //const dispatch = useAppDispatch()
-  const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  // const navigate = useNavigate()
   const classes = useStyles()
   const globalClasses = useGlobalTheme()
   const [name, setName] = useState<string>('')
@@ -31,8 +35,13 @@ const SignUp = () => {
   const regName = name.trim().split(' ')
   const firstName = regName[0]
   const lastName = regName[1]
-  console.log(firstName)
-  console.log(lastName)
+
+  // interface Iusers {
+  //   user?: string
+  //   email?: string
+  //   uid?: number
+  //   token?: string
+  // }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -48,15 +57,15 @@ const SignUp = () => {
 
       // await createUserWithEmailAndPassword(auth, email, password)
       //   .then(({user}) => {
+      //     console.log('firebase', user)
       //     dispatch(
       //       setUser({
-      //         user: name,
       //         email: user.email,
-      //         id: user.uid,
+      //         uid: user.uid,
+      //         token: user.getIdToken(),
       //       }),
       //     )
-      //
-      //     navigate('/dashboard')
+      //     navigate('/')
       //   })
       //   .catch((error) => {
       //     throw new Error(error)
@@ -69,16 +78,17 @@ const SignUp = () => {
           lastName,
           email,
         })
-        .then((user) => {
-          console.log(user)
-          // dispatch(
-          //   setUser({
-          //     user: name,
-          //     email: user.email,
-          //     id: user.uid,
-          //   }),
-          // )
-          navigate('/sign-in')
+        .then((u) => {
+          console.log('axios', u)
+          const displayName = `${firstName}  ${lastName}`
+          dispatch(
+            setUser({
+              user: displayName,
+            }),
+          )
+        })
+        .catch((err) => {
+          console.log(err)
         })
 
       setEmail('')
