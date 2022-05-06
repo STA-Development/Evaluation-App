@@ -24,6 +24,8 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    'no-plusplus': 0,
+    'no-multiple-empty-lines': [2, {max: 3, maxEOF: 1}],
     'disable-next-line': [0, {extensions: ['.js', '.jsx', '.ts', '.tsx']}],
     'import/extensions': [1, {extensions: ['.js', '.jsx', '.ts', '.tsx']}], // There is no need for each import statement highlight the file's extension
     'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx', '.ts', '.tsx']}], // It should allow us to write JSX in files with .tsx extension

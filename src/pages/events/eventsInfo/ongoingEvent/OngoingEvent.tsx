@@ -18,7 +18,7 @@ const OngoingEvent = () => {
         <Typography variant="h4" component="h4" className={classes.overviewHeader}>
           Ongoing Events
         </Typography>
-        <NavLink className="text-decoration-none" to="/">
+        <NavLink className="text-decoration-none" to="/events-create">
           <Button variant="contained" size="large" className={globalClasses.button}>
             CREATE EVENT
           </Button>
