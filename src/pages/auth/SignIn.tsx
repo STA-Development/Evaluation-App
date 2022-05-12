@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
-import {auth} from '../../data/firebase'
-import {signInWithEmailAndPassword} from 'firebase/auth'
 import {Link, useNavigate} from 'react-router-dom'
 import {
   Box,
@@ -16,8 +14,12 @@ import {
 import Checkbox from '@mui/material/Checkbox'
 import useStyles from '../../assets/styleJs/auth/signUp'
 import SignInImg from '../../assets/images/auth/SignInImg'
+import axiosInstance from '../../axiosInstance'
+import {useAppDispatch} from '../../redux/hooks'
+import {setUser} from '../../redux/user/userSlice'
 
 const SignIn = () => {
+  const dispatch = useAppDispatch()
   const classes = useStyles()
   const globalClasses = useGlobalTheme()
   const navigate = useNavigate()
@@ -30,10 +32,21 @@ const SignIn = () => {
     e.preventDefault()
     setIsFetching(true)
     try {
-      await signInWithEmailAndPassword(auth, email, password)
-      if (auth.currentUser) {
-        navigate('/')
-      }
+      await axiosInstance
+        .post('/users/signIn', {
+          email,
+          password,
+        })
+        .then((user) => {
+          console.log(user)
+          dispatch(
+            setUser({
+              token: user.data,
+            }),
+          )
+          navigate('/')
+        })
+
       setIsFetching(false)
     } catch (err) {
       setPassword('')

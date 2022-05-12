@@ -17,10 +17,8 @@ import useStyles from '../../assets/styleJs/auth/signUp'
 import SignUpImg from '../../assets/images/auth/SignUpImg'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 import axiosInstance from '../../axiosInstance'
-import {setUser} from '../../redux/user/userSlice'
 import {useAppDispatch} from '../../redux/hooks'
-import {signInWithEmailAndPassword} from 'firebase/auth'
-import {auth} from '../../data/firebase'
+import {setUser} from '../../redux/user/userSlice'
 
 const SignUp = () => {
   const dispatch = useAppDispatch()
@@ -66,20 +64,21 @@ const SignUp = () => {
         })
         .then((u) => {
           console.log('axios', u)
+          console.log(u.data)
           const displayName = `${firstName}  ${lastName}`
           dispatch(
             setUser({
               user: displayName,
+              token: u.data,
             }),
           )
+          if (u.data) {
+            navigate('/')
+          }
         })
         .catch((err) => {
           console.log(err)
         })
-      await signInWithEmailAndPassword(auth, email, password)
-      if (auth.currentUser) {
-        navigate('/')
-      }
 
       setEmail('')
       setName('')

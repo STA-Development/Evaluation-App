@@ -3,6 +3,8 @@ import {IAuthPropsState} from '../../types/storeTypes'
 
 const initialState: IAuthPropsState = {
   user: '',
+  firstName: '',
+  lastName: '',
   email: '',
   uid: '',
   token: '',
@@ -15,13 +17,16 @@ const userSlice = createSlice({
   reducers: {
     setUser(state, action) {
       state.user = action.payload.user
-      state.email = action.payload.email
+      state.firstName = action.payload.firstName
+      state.lastName = action.payload.lastName
       state.uid = action.payload.uid
+      state.email = action.payload.email
       state.token = action.payload.token
       state.isAuth = false
     },
     removeUser(state) {
-      state.user = ''
+      state.firstName = ''
+      state.lastName = ''
       state.email = ''
       state.uid = ''
       state.isAuth = false

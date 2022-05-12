@@ -1,35 +1,41 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './App.css'
-import {auth} from './data/firebase'
 import PublicRoutes from './routes/PublicRoutes'
 import PrivateRouts from './routes/PrivateRouts'
-import {onAuthStateChanged} from 'firebase/auth'
 import {Box} from '@mui/material'
+import axiosInstance from './axiosInstance'
+//import {setUser} from './redux/user/userSlice'
+import {selectToken} from './redux/selectors'
 import {useAppDispatch, useAppSelector} from './redux/hooks'
-import {removeUser, setUser} from './redux/user/userSlice'
-import {selectUserId} from './redux/selectors'
+import {setUser} from './redux/user/userSlice'
 
 const App = () => {
   const dispatch = useAppDispatch()
-  const userId = useAppSelector(selectUserId)
+  const token = useAppSelector(selectToken)
 
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      //console.log(user.accessToken)
-      dispatch(
-        setUser({
-          user: user.displayName,
-          uid: user.uid,
-          email: user.email,
-          token: await user.getIdToken(),
-        }),
-      )
-    } else {
-      dispatch(removeUser())
-    }
-  })
+  useEffect(() => {
+    axiosInstance
+      .get('/users/me', {
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer ' + token,
+        },
+      })
+      .then((user) => {
+        console.log(user)
+        dispatch(
+          setUser({
+            firstName: user.data.firstName,
+            lastName: user.data.lastName,
+            uid: user.data.authUid,
+            email: user.data.email,
+            token: user.data.data,
+          }),
+        )
+      })
+  }, [])
 
-  return <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>
+  return <Box className="bg">{token ? <PrivateRouts /> : <PublicRoutes />}</Box>
 }
 
 export default App
