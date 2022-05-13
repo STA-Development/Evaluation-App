@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
-import {auth} from '../../data/firebase'
-import {signInWithEmailAndPassword} from 'firebase/auth'
 import {Link, useNavigate} from 'react-router-dom'
 import {
   Box,
@@ -16,11 +14,15 @@ import {
 import Checkbox from '@mui/material/Checkbox'
 import useStyles from '../../assets/styleJs/auth/signUp'
 import SignInImg from '../../assets/images/auth/SignInImg'
+import axiosInstance from '../../axiosInstance'
+import {useAppDispatch} from '../../redux/hooks'
+import {setUser} from '../../redux/user/userSlice'
 
 const SignIn = () => {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const classes = useStyles()
   const globalClasses = useGlobalTheme()
-  const navigate = useNavigate()
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
@@ -29,18 +31,27 @@ const SignIn = () => {
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsFetching(true)
-    try {
-      await signInWithEmailAndPassword(auth, email, password)
-      if (auth.currentUser) {
+
+    await axiosInstance
+      .post('/users/signIn', {
+        email,
+        password,
+      })
+      .then((auth) => {
+        console.log('signin', auth)
+        dispatch(
+          setUser({
+            token: auth.data,
+          }),
+        )
         navigate('/')
-      }
-      setIsFetching(false)
-    } catch (err) {
-      setPassword('')
-      setEmail('')
-      setError(true)
-      setIsFetching(false)
-    }
+      })
+      .catch(() => {
+        setPassword('')
+        setEmail('')
+        setError(true)
+        setIsFetching(false)
+      })
   }
 
   return (

@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import {createUserWithEmailAndPassword} from 'firebase/auth'
 import {Link, useNavigate} from 'react-router-dom'
 import {
   Box,
@@ -14,11 +13,11 @@ import {
 import Checkbox from '@mui/material/Checkbox'
 import useStyles from '../../assets/styleJs/auth/signUp'
 import SignUpImg from '../../assets/images/auth/SignUpImg'
-import {auth} from '../../data/firebase'
 
 import {useAppDispatch} from '../../redux/hooks'
-import {setUser} from '../../redux/user/userSlice'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
+import axiosInstance from '../../axiosInstance'
+import {setUser} from '../../redux/user/userSlice'
 
 const SignUp = () => {
   const dispatch = useAppDispatch()
@@ -32,6 +31,10 @@ const SignUp = () => {
   const [emailError, setEmailError] = useState<boolean>(false)
   const [paswordError, setPasswordError] = useState<boolean>(false)
 
+  const regName = name.trim().split(' ')
+  const firstName = regName[0]
+  const lastName = regName[1]
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -44,20 +47,24 @@ const SignUp = () => {
       setEmailError(false)
       setPasswordError(false)
 
-      await createUserWithEmailAndPassword(auth, email, password)
-        .then(({user}) => {
+      await axiosInstance
+        .post('/users/create', {
+          firstName,
+          password,
+          lastName,
+          email,
+        })
+        .then((auth) => {
+          console.log('signup', auth)
           dispatch(
             setUser({
-              user: name,
-              email: user.email,
-              id: user.uid,
+              token: auth.data,
             }),
           )
-
-          navigate('/dashboard')
+          navigate('/')
         })
-        .catch((error) => {
-          throw new Error(error)
+        .catch((err) => {
+          throw new Error(err)
         })
 
       setEmail('')

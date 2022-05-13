@@ -8,17 +8,17 @@ import ListItemText from '@mui/material/ListItemText'
 import Avatar from '@mui/material/Avatar'
 import {Button, Typography} from '@mui/material'
 import {NavLink, useNavigate} from 'react-router-dom'
-import {signOut} from 'firebase/auth'
-import {auth} from '../../data/firebase'
 import useSliderStyle from '../../assets/styleJs/sidebar'
 import AvatarIcon from '../../assets/images/navbar/AvatarIcon'
 import LogOutIcon from '../../assets/images/Icons/LogOutIcon'
 import sidebarList from './sidebarLists'
-import {useAppSelector} from '../../redux/hooks'
+import {useAppDispatch, useAppSelector} from '../../redux/hooks'
 import {selectUserId} from '../../redux/selectors'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
+import {removeUser} from '../../redux/user/userSlice'
 
 const Sidebar = () => {
+  const dispatch = useAppDispatch()
   const classes = useSliderStyle()
   const globalClasses = useGlobalTheme()
   const userId = useAppSelector(selectUserId)
@@ -27,7 +27,7 @@ const Sidebar = () => {
   const handleLogOut = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     if (userId) {
-      signOut(auth)
+      dispatch(removeUser())
       navigate('/')
     }
   }
