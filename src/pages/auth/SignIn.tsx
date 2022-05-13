@@ -39,6 +39,7 @@ const SignIn = () => {
       })
       .then((auth) => {
         console.log('signin', auth)
+        console.log(token)
         dispatch(
           setUser({
             token: auth.data,
