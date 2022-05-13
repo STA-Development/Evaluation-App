@@ -49,7 +49,7 @@ const App = () => {
 
   return (
     <EventContextProvider>
-      <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>
+      <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>a
     </EventContextProvider>
   )
 }
