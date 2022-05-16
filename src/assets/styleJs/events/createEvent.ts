@@ -192,7 +192,6 @@ const useCreateEventStyles = makeStyles({
     flexGrow: 1,
     marginTop: margin.marginTop15,
   },
-  criteriasPapersGrid: {},
   criteriaHeaderText: {
     fontWeight: font.fontWeight500,
     fontSize: font.fontSize18,

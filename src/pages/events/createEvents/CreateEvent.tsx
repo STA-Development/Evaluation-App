@@ -13,13 +13,13 @@ const CreateEvent: FC = () => {
   const {state} = UseEventContext()
 
   return (
-    <div className={classes.rootCreateEvent}>
+    <Box className={classes.rootCreateEvent}>
       <Box className={classes.infoRootBox}>
         <CreateEventHeader />
         {state.activePage === createEventPages.first && <CreateEventFirstPage />}
         {state.activePage === createEventPages.criterias && <CreateEventCriteria />}
       </Box>
-    </div>
+    </Box>
   )
 }
 
