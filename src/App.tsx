@@ -4,7 +4,7 @@ import {Box, CircularProgress} from '@mui/material'
 import PublicRoutes from './routes/PublicRoutes'
 import PrivateRouts from './routes/PrivateRouts'
 import {useAppDispatch, useAppSelector} from './redux/hooks'
-import {selectAuthId} from './redux/selectors'
+import {selectAuth} from './redux/selectors'
 import {EventContextProvider} from './pages/events/createEvents/EventsContext'
 import {setUser} from './redux/user/userSlice'
 import {afterSelf} from './utils/authUtils'
@@ -12,7 +12,7 @@ import {afterSelf} from './utils/authUtils'
 const App = () => {
   const dispatch = useAppDispatch()
   const [isLoading, setIsLoading] = useState(false)
-  const userId = useAppSelector(selectAuthId)
+  const isAuth = useAppSelector(selectAuth)
 
   const data = async () => {
     try {
@@ -48,7 +48,7 @@ const App = () => {
     <EventContextProvider>
       {!isLoading ? (
         <Box className="bg">
-          {localStorage.token || userId ? <PrivateRouts /> : <PublicRoutes />}
+          {localStorage.token || isAuth ? <PrivateRouts /> : <PublicRoutes />}
         </Box>
       ) : (
         <CircularProgress />

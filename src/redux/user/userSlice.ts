@@ -38,6 +38,7 @@ const userSlice = createSlice({
       state.isAuth = false
       state.userId = 0
       state.salary = 0
+      state.avatar = ''
     },
   },
 })
