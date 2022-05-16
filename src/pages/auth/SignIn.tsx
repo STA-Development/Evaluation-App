@@ -39,6 +39,7 @@ const SignIn = () => {
       localStorage.setItem('token', auth.data)
       try {
         const user = await afterSelf(auth.data)
+
         dispatch(
           setUser({
             firstName: user.firstName,

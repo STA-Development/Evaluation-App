@@ -7,12 +7,9 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
-import {useAppSelector} from '../redux/hooks'
-import {selectToken} from '../redux/selectors'
 import axiosInstance from '../axiosInstance'
 import useUsersStyle from './user'
 import {Box, Button} from '@mui/material'
-import UserChange from './UserChange'
 
 interface IUsers {
   firstName: string
@@ -21,61 +18,28 @@ interface IUsers {
   id: number
 }
 
-interface Info {
-  firstName?: string
-  lastName?: string
-  email?: string
-  id?: number
-}
-
 const Users = () => {
-  const token = useAppSelector(selectToken)
   const classes = useUsersStyle()
   const [users, setUsers] = useState<IUsers[]>([])
-  const [isAdmin, setIsAdmin] = useState<boolean>(false)
-  const [userChange, setUserChange] = useState<boolean>(false)
-  const [userInfo, setUserInfo] = useState<Info>({})
 
   const headerConfig = {
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer ' + token,
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
     },
   }
-  const handleClose = () => setUserChange(false)
+  console.log('old', users)
 
   const handleDelete = async (id: number) => {
-    await axiosInstance
-      .delete(`users/${id}`, {
-        headers: {
-          accept: '*/*',
-          Authorization: 'Bearer ' + token,
-        },
-      })
-      .then(() => {
-        const del = users.filter((user) => id !== user.id)
-        setUsers(del)
-      })
-  }
-  const handleChange = async (id: number) => {
-    setUserChange(true)
-    await axiosInstance.get(`users/${id}`, headerConfig).then((res) => {
-      setUserInfo(res.data)
-    })
-    console.log('asdas', userChange)
+    await axiosInstance.delete(`users/${id}`, headerConfig)
   }
 
   useEffect(() => {
-    axiosInstance.get('/users/me', headerConfig).then((res) => {
-      setIsAdmin(res.data.isAdmin)
-    })
-  }, [])
-
-  useEffect(() => {
-    axiosInstance.get('/users', headerConfig).then((res) => {
-      setUsers(res.data.data)
-      console.log(res.data.data)
-    })
+    ;(async () => {
+      const dataUsers = await axiosInstance.get('/users', headerConfig)
+      setUsers(dataUsers.data.userList)
+      console.log(dataUsers)
+    })()
   }, [])
   return (
     <>
@@ -97,10 +61,7 @@ const Users = () => {
                   <TableCell>{row.lastName}</TableCell>
                   <TableCell>{row.email}</TableCell>
                   <TableCell>
-                    {isAdmin && <Button onClick={() => handleDelete(row.id)}>Delete</Button>}
-                  </TableCell>
-                  <TableCell>
-                    {isAdmin && <Button onClick={() => handleChange(row.id)}>Change</Button>}
+                    <Button onClick={() => handleDelete(row.id)}>Delete</Button>
                   </TableCell>
                 </TableRow>
               ))}
@@ -108,7 +69,6 @@ const Users = () => {
           </Table>
         </TableContainer>
       </Box>
-      {userChange && <UserChange open={userChange} handleClose={handleClose} info={userInfo} />}
     </>
   )
 }
