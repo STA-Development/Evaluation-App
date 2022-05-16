@@ -1,6 +1,4 @@
-import React, {useEffect, useState} from 'react'
-// import {createUserWithEmailAndPassword} from 'firebase/auth'
-// import {auth} from '../../data/firebase'
+import React, {useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {
   Box,
@@ -15,8 +13,10 @@ import {
 import Checkbox from '@mui/material/Checkbox'
 import useStyles from '../../assets/styleJs/auth/signUp'
 import SignUpImg from '../../assets/images/auth/SignUpImg'
+
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 import axiosInstance from '../../axiosInstance'
+import {afterSelf} from '../../utils/authUtils'
 import {useAppDispatch} from '../../redux/hooks'
 import {setUser} from '../../redux/user/userSlice'
 
@@ -36,13 +36,6 @@ const SignUp = () => {
   const firstName = regName[0]
   const lastName = regName[1]
 
-  // interface Iusers {
-  //   user?: string
-  //   email?: string
-  //   uid?: number
-  //   token?: string
-  // }
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -55,30 +48,36 @@ const SignUp = () => {
       setEmailError(false)
       setPasswordError(false)
 
-      await axiosInstance
-        .post('/users/create', {
+      try {
+        const auth = await axiosInstance.post('/users/create', {
           firstName,
           password,
           lastName,
           email,
         })
-        .then((u) => {
-          console.log('axios', u)
-          console.log(u.data)
-          const displayName = `${firstName}  ${lastName}`
+        localStorage.setItem('token', auth.data)
+        try {
+          const user = await afterSelf(auth.data)
           dispatch(
             setUser({
-              user: displayName,
-              token: u.data,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              authUid: user.authUid,
+              email: user.email,
+              salary: user.salary,
+              userId: user.id,
             }),
           )
-          if (u.data) {
-            navigate('/')
-          }
-        })
-        .catch((err) => {
+        } catch (err) {
           console.log(err)
-        })
+        }
+
+        if (auth.data) {
+          navigate('/')
+        }
+      } catch (err) {
+        console.log(err)
+      }
 
       setEmail('')
       setName('')

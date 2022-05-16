@@ -1,41 +1,60 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import './App.css'
+import {Box, CircularProgress} from '@mui/material'
 import PublicRoutes from './routes/PublicRoutes'
 import PrivateRouts from './routes/PrivateRouts'
-import {Box} from '@mui/material'
-import axiosInstance from './axiosInstance'
-//import {setUser} from './redux/user/userSlice'
-import {selectToken} from './redux/selectors'
 import {useAppDispatch, useAppSelector} from './redux/hooks'
+import {selectAuth} from './redux/selectors'
+import {EventContextProvider} from './pages/events/createEvents/EventsContext'
 import {setUser} from './redux/user/userSlice'
+import {afterSelf} from './utils/authUtils'
 
 const App = () => {
   const dispatch = useAppDispatch()
-  const token = useAppSelector(selectToken)
+  const [isLoading, setIsLoading] = useState(false)
+  const isAuth = useAppSelector(selectAuth)
+
+  const data = async () => {
+    try {
+      setIsLoading(true)
+      const user = await afterSelf(localStorage.token)
+      console.log('app user', user)
+      dispatch(
+        setUser({
+          firstName: user.firstName,
+          lastName: user.lastName,
+          authUid: user.authUid,
+          email: user.email,
+          salary: user.salary,
+          userId: user.id,
+        }),
+      )
+      setIsLoading(false)
+    } catch (err) {
+      setIsLoading(false)
+      console.log(err)
+    }
+  }
 
   useEffect(() => {
-    axiosInstance
-      .get('/users/me', {
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer ' + token,
-        },
-      })
-      .then((user) => {
-        console.log(user)
-        dispatch(
-          setUser({
-            firstName: user.data.firstName,
-            lastName: user.data.lastName,
-            uid: user.data.authUid,
-            email: user.data.email,
-            token: user.data.data,
-          }),
-        )
-      })
+    ;(async () => {
+      if (localStorage.getItem('token')) {
+        await data()
+      }
+    })()
   }, [])
 
-  return <Box className="bg">{token ? <PrivateRouts /> : <PublicRoutes />}</Box>
+  return (
+    <EventContextProvider>
+      {!isLoading ? (
+        <Box className="bg">
+          {localStorage.token || isAuth ? <PrivateRouts /> : <PublicRoutes />}
+        </Box>
+      ) : (
+        <CircularProgress />
+      )}
+    </EventContextProvider>
+  )
 }
 
 export default App
