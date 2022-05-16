@@ -13,7 +13,7 @@ import AvatarIcon from '../../assets/images/navbar/AvatarIcon'
 import LogOutIcon from '../../assets/images/Icons/LogOutIcon'
 import sidebarList from './sidebarLists'
 import {useAppDispatch, useAppSelector} from '../../redux/hooks'
-import {selectUserId} from '../../redux/selectors'
+import {selectAuthId} from '../../redux/selectors'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 import {removeUser} from '../../redux/user/userSlice'
 
@@ -21,14 +21,15 @@ const Sidebar = () => {
   const dispatch = useAppDispatch()
   const classes = useSliderStyle()
   const globalClasses = useGlobalTheme()
-  const userId = useAppSelector(selectUserId)
+  const userId = useAppSelector(selectAuthId)
   const navigate = useNavigate()
 
   const handleLogOut = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     if (userId) {
+      localStorage.removeItem('token')
       dispatch(removeUser())
-      navigate('/')
+      navigate('/sign-in')
     }
   }
 
