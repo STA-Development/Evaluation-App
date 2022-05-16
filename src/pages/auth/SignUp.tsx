@@ -14,9 +14,10 @@ import Checkbox from '@mui/material/Checkbox'
 import useStyles from '../../assets/styleJs/auth/signUp'
 import SignUpImg from '../../assets/images/auth/SignUpImg'
 
-import {useAppDispatch} from '../../redux/hooks'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 import axiosInstance from '../../axiosInstance'
+import {afterSelf} from '../../utils/authUtils'
+import {useAppDispatch} from '../../redux/hooks'
 import {setUser} from '../../redux/user/userSlice'
 
 const SignUp = () => {
@@ -47,25 +48,36 @@ const SignUp = () => {
       setEmailError(false)
       setPasswordError(false)
 
-      await axiosInstance
-        .post('/users/create', {
+      try {
+        const auth = await axiosInstance.post('/users/create', {
           firstName,
           password,
           lastName,
           email,
         })
-        .then((auth) => {
-          console.log('signup', auth)
+        localStorage.setItem('token', auth.data)
+        try {
+          const user = await afterSelf(auth.data)
           dispatch(
             setUser({
-              token: auth.data,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              authUid: user.authUid,
+              email: user.email,
+              salary: user.salary,
+              userId: user.id,
             }),
           )
+        } catch (err) {
+          console.log(err)
+        }
+
+        if (auth.data) {
           navigate('/')
-        })
-        .catch((err) => {
-          throw new Error(err)
-        })
+        }
+      } catch (err) {
+        console.log(err)
+      }
 
       setEmail('')
       setName('')
