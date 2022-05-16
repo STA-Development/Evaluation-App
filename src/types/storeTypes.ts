@@ -8,7 +8,10 @@ export interface IAuthPropsState {
   lastName: string
   user: string
   email: string
-  uid: string
   isAuth: boolean
+  userId: number
+  salary: number
+  avatar: string
+  authUid: string
   token: string
 }

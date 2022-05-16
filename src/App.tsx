@@ -1,55 +1,58 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import './App.css'
-import {Box} from '@mui/material'
+import {Box, CircularProgress} from '@mui/material'
 import PublicRoutes from './routes/PublicRoutes'
 import PrivateRouts from './routes/PrivateRouts'
-import {useAppSelector} from './redux/hooks'
-import {selectToken, selectUserId} from './redux/selectors'
+import {useAppDispatch, useAppSelector} from './redux/hooks'
+import {selectAuthId} from './redux/selectors'
 import {EventContextProvider} from './pages/events/createEvents/EventsContext'
-import axiosInstance from './axiosInstance'
+import {setUser} from './redux/user/userSlice'
+import {afterSelf} from './utils/authUtils'
 
 const App = () => {
-  // const dispatch = useAppDispatch()
-  const token = useAppSelector(selectToken)
-  const userId = useAppSelector(selectUserId)
-  //const [user, setUser] = useState()
-  const headerConfig = {
-    headers: {
-      accept: 'application/json',
-      Authorization: `Bearer ${token}`,
-    },
-  }
+  const dispatch = useAppDispatch()
+  const [isLoading, setIsLoading] = useState(false)
+  const userId = useAppSelector(selectAuthId)
+
   const data = async () => {
-    const asd = await axiosInstance
-      .get('/users/me', headerConfig)
-      .then((authData: any) => {
-        console.log('app', authData)
-        const user = authData.data
-        console.log('app user', user)
-        // dispatch(
-        //   setUser({
-        //     firstName: user.firstName,
-        //     lastName: user.lastName,
-        //     uid: user.authUid,
-        //     email: user.email,
-        //     token,
-        //   }),
-        // )
-        window.location.reload()
-      })
-      .catch((err) => {
-        console.log('handlesubmit error for blog ', err)
-      })
-    console.log(asd)
+    try {
+      setIsLoading(true)
+      const user = await afterSelf(localStorage.token)
+      console.log('app user', user)
+      dispatch(
+        setUser({
+          firstName: user.firstName,
+          lastName: user.lastName,
+          authUid: user.authUid,
+          email: user.email,
+          salary: user.salary,
+          userId: user.id,
+        }),
+      )
+      setIsLoading(false)
+    } catch (err) {
+      setIsLoading(false)
+      console.log(err)
+    }
   }
 
   useEffect(() => {
-    data()
-  }, [token])
+    ;(async () => {
+      if (localStorage.getItem('token')) {
+        await data()
+      }
+    })()
+  }, [])
 
   return (
     <EventContextProvider>
-      <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>a
+      {!isLoading ? (
+        <Box className="bg">
+          {localStorage.token || userId ? <PrivateRouts /> : <PublicRoutes />}
+        </Box>
+      ) : (
+        <CircularProgress />
+      )}
     </EventContextProvider>
   )
 }
