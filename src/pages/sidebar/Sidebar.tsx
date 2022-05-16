@@ -8,27 +8,30 @@ import ListItemText from '@mui/material/ListItemText'
 import Avatar from '@mui/material/Avatar'
 import {Button, Typography} from '@mui/material'
 import {NavLink, useNavigate} from 'react-router-dom'
-import {signOut} from 'firebase/auth'
-import {auth} from '../../data/firebase'
 import useSliderStyle from '../../assets/styleJs/sidebar'
 import AvatarIcon from '../../assets/images/navbar/AvatarIcon'
 import LogOutIcon from '../../assets/images/Icons/LogOutIcon'
 import sidebarList from './sidebarLists'
-import {useAppSelector} from '../../redux/hooks'
-import {selectUserId} from '../../redux/selectors'
+import {useAppDispatch, useAppSelector} from '../../redux/hooks'
+import {selectAuthId, selectFirstName, selectLastName} from '../../redux/selectors'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
+import {removeUser} from '../../redux/user/userSlice'
 
 const Sidebar = () => {
+  const dispatch = useAppDispatch()
+  const userId = useAppSelector(selectAuthId)
+  const firstName = useAppSelector(selectFirstName)
+  const lastName = useAppSelector(selectLastName)
   const classes = useSliderStyle()
   const globalClasses = useGlobalTheme()
-  const userId = useAppSelector(selectUserId)
   const navigate = useNavigate()
 
   const handleLogOut = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     if (userId) {
-      signOut(auth)
-      navigate('/')
+      localStorage.removeItem('token')
+      dispatch(removeUser())
+      navigate('/sign-in')
     }
   }
 
@@ -39,7 +42,7 @@ const Sidebar = () => {
           <Avatar className={classes.avatar}>
             <AvatarIcon />
           </Avatar>
-          <Typography className={classes.nameSurname}>Name Surname</Typography>
+          <Typography className={classes.nameSurname}>{`${firstName} ${lastName}`}</Typography>
           <NavLink className="text-decoration-none" to="events-create">
             <Button variant="contained" size="large" className={globalClasses.button}>
               CREATE EVENT

@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-import {createUserWithEmailAndPassword} from 'firebase/auth'
+import React, {useEffect, useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {
   Box,
@@ -14,11 +13,12 @@ import {
 import Checkbox from '@mui/material/Checkbox'
 import useStyles from '../../assets/styleJs/auth/signUp'
 import SignUpImg from '../../assets/images/auth/SignUpImg'
-import {auth} from '../../data/firebase'
 
+import {useGlobalTheme} from '../../assets/style/globalVariables'
+import axiosInstance from '../../axiosInstance'
+import {afterSelf} from '../../utils/authUtils'
 import {useAppDispatch} from '../../redux/hooks'
 import {setUser} from '../../redux/user/userSlice'
-import {useGlobalTheme} from '../../assets/style/globalVariables'
 
 const SignUp = () => {
   const dispatch = useAppDispatch()
@@ -32,6 +32,10 @@ const SignUp = () => {
   const [emailError, setEmailError] = useState<boolean>(false)
   const [paswordError, setPasswordError] = useState<boolean>(false)
 
+  const regName = name.trim().split(' ')
+  const firstName = regName[0]
+  const lastName = regName[1]
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -44,21 +48,36 @@ const SignUp = () => {
       setEmailError(false)
       setPasswordError(false)
 
-      await createUserWithEmailAndPassword(auth, email, password)
-        .then(({user}) => {
+      try {
+        const auth = await axiosInstance.post('/users/create', {
+          firstName,
+          password,
+          lastName,
+          email,
+        })
+        localStorage.setItem('token', auth.data)
+        try {
+          const user = await afterSelf(auth.data)
           dispatch(
             setUser({
-              user: name,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              authUid: user.authUid,
               email: user.email,
-              id: user.uid,
+              salary: user.salary,
+              userId: user.id,
             }),
           )
+        } catch (err) {
+          console.log(err)
+        }
 
-          navigate('/dashboard')
-        })
-        .catch((error) => {
-          throw new Error(error)
-        })
+        if (auth.data) {
+          navigate('/')
+        }
+      } catch (err) {
+        console.log(err)
+      }
 
       setEmail('')
       setName('')
@@ -71,6 +90,10 @@ const SignUp = () => {
       setPasswordError(true)
     }
   }
+
+  useEffect(() => {
+    handleSubmit
+  }, [])
 
   return (
     <Box>

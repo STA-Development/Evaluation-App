@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
-import {auth} from '../../data/firebase'
-import {signInWithEmailAndPassword} from 'firebase/auth'
 import {Link, useNavigate} from 'react-router-dom'
 import {
   Box,
@@ -16,30 +14,53 @@ import {
 import Checkbox from '@mui/material/Checkbox'
 import useStyles from '../../assets/styleJs/auth/signUp'
 import SignInImg from '../../assets/images/auth/SignInImg'
+import axiosInstance from '../../axiosInstance'
+import {afterSelf} from '../../utils/authUtils'
+import {setUser} from '../../redux/user/userSlice'
+import {useAppDispatch} from '../../redux/hooks'
 
 const SignIn = () => {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const classes = useStyles()
   const globalClasses = useGlobalTheme()
-  const navigate = useNavigate()
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
-  const [, setIsFetching] = useState<boolean>(false)
 
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsFetching(true)
+
     try {
-      await signInWithEmailAndPassword(auth, email, password)
-      if (auth.currentUser) {
+      const auth = await axiosInstance.post('/users/signIn', {
+        email,
+        password,
+      })
+      localStorage.setItem('token', auth.data)
+      try {
+        const user = await afterSelf(auth.data)
+
+        dispatch(
+          setUser({
+            firstName: user.firstName,
+            lastName: user.lastName,
+            authUid: user.authUid,
+            email: user.email,
+            salary: user.salary,
+            userId: user.id,
+          }),
+        )
+      } catch (err) {
+        console.log(err)
+      }
+
+      if (auth.data) {
         navigate('/')
       }
-      setIsFetching(false)
     } catch (err) {
       setPassword('')
       setEmail('')
       setError(true)
-      setIsFetching(false)
     }
   }
 

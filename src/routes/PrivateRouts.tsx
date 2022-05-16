@@ -10,6 +10,7 @@ import ViewForm from '../pages/events/eventsInfo/submission/viewForm/ViewForm'
 import Submissions from '../pages/events/eventsInfo/submission/Submissions'
 import SavedSubmissions from '../pages/events/eventsInfo/savedSubmission/SavedSubmissions'
 import Events from '../pages/events/eventsInfo/ongoingEvent/Events'
+import Users from '../test/Users'
 
 const PrivateRouts = () => (
   <Routes>
@@ -24,6 +25,7 @@ const PrivateRouts = () => (
       <Route path="reports" element={<Reports />} />
       <Route path="events-create" element={<CreateEvent />} />
       <Route path="events-create/criteria" element={<CreateEventCriteria />} />
+      <Route path="users" element={<Users />} />
     </Route>
   </Routes>
 )
