@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import './App.css'
 import {Box, CircularProgress} from '@mui/material'
 import PublicRoutes from './routes/PublicRoutes'
 import PrivateRouts from './routes/PrivateRouts'
@@ -18,7 +17,6 @@ const App = () => {
     try {
       setIsLoading(true)
       const user = await afterSelf(localStorage.token)
-      console.log('app user', user)
       dispatch(
         setUser({
           firstName: user.firstName,
@@ -51,7 +49,9 @@ const App = () => {
           {localStorage.token || isAuth ? <PrivateRouts /> : <PublicRoutes />}
         </Box>
       ) : (
-        <CircularProgress />
+        <Box className="circle">
+          <CircularProgress />
+        </Box>
       )}
     </EventContextProvider>
   )
