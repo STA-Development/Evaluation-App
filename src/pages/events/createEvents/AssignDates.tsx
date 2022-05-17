@@ -1,9 +1,9 @@
 import React from 'react'
 import {
   Box,
+  Button,
   FormControl,
   FormControlLabel,
-  FormLabel,
   Radio,
   RadioGroup,
   TextField,
@@ -24,37 +24,44 @@ const AssignDates = () => {
       <CreateEventHeader />
       <Typography className={classes.criteriaHeaderText}>Assign Dates</Typography>
 
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <DatePicker
-          label="Basic example"
-          value={value}
-          onChange={(newValue) => {
-            setValue(newValue)
-          }}
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </LocalizationProvider>
+      <Box className={classes.dataPicker}>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <DatePicker
+            label="Basic example"
+            value={value}
+            onChange={(newValue) => {
+              setValue(newValue)
+            }}
+            renderInput={(params) => <TextField {...params} />}
+          />
+        </LocalizationProvider>
+      </Box>
 
       <Box>
-        <FormControl style={{display: 'flex', flexDirection: 'column'}}>
-          <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
-          <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="quarterly"
-            name="radio-buttons-group"
-            style={{
-              display: 'flex',
-              width: '37%',
-              flexDirection: 'row',
-              marginLeft: '30px',
-            }}
-          >
-            <FormControlLabel value="never" control={<Radio />} label="Never" />
-            <FormControlLabel value="monthly" control={<Radio />} label="Monthly" />
-            <FormControlLabel value="quarterly" control={<Radio />} label="Quarterly" />
-            <FormControlLabel value="everySixMonths" control={<Radio />} label="Every 6 Months" />
-            <FormControlLabel value="annually" control={<Radio />} label="Annually" />
-          </RadioGroup>
+        <FormControl>
+          <Box className={classes.formBox}>
+            <label style={{paddingTop: '8px'}}>REPEAT:</label>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="quarterly"
+              name="radio-buttons-group"
+              className={classes.radioGroup}
+            >
+              <FormControlLabel value="never" control={<Radio />} label="Never" />
+              <FormControlLabel value="monthly" control={<Radio />} label="Monthly" />
+              <FormControlLabel value="quarterly" control={<Radio />} label="Quarterly" />
+              <FormControlLabel value="everySixMonths" control={<Radio />} label="Every 6 Months" />
+              <FormControlLabel value="annually" control={<Radio />} label="Annually" />
+            </RadioGroup>
+          </Box>
+          <Box className={classes.assignBtnGroup}>
+            <Button variant="outlined" color="primary" className={classes.assignButton}>
+              Back
+            </Button>
+            <Button variant="contained" color="primary" className={classes.assignButton}>
+              Publish
+            </Button>
+          </Box>
         </FormControl>
       </Box>
     </Box>

@@ -195,6 +195,7 @@ const useCreateEventStyles = makeStyles({
   criteriaHeaderText: {
     fontWeight: font.fontWeight500,
     fontSize: font.fontSize18,
+    alignItems: 'center',
   },
   criteriasPaper: {
     borderRadius: borderRedius.all4,
@@ -329,6 +330,30 @@ const useCreateEventStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     width: '340px',
+  },
+
+  dataPicker: {
+    margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
+  },
+  formBox: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  radioGroup: {
+    display: 'flex',
+    width: '360px',
+    flexDirection: 'row',
+    marginLeft: margin.marginLeft30,
+    marginBottom: margin.marginBottom30,
+  },
+
+  assignBtnGroup: {
+    display: 'flex',
+  },
+  assignButton: {
+    marginRight: margin.marginRight40,
+    width: '145px',
+    height: '40px',
   },
 })
 
