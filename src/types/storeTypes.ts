@@ -11,7 +11,6 @@ export interface IAuthPropsState {
   isAuth: boolean
   userId: number
   salary: number
-  avatar: string
   authUid: string
   token: string
 }
