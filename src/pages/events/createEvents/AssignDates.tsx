@@ -6,18 +6,14 @@ import {
   FormControlLabel,
   Radio,
   RadioGroup,
-  TextField,
   Typography,
 } from '@mui/material'
 import CreateEventHeader from './CreateEventHeader'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
-import {DatePicker} from '@mui/lab'
-import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider'
-import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns'
+import Calendar from './Calendar'
 
 const AssignDates = () => {
   const classes = useCreateEventStyles()
-  const [value, setValue] = React.useState<Date | null>(null)
 
   return (
     <Box className={classes.rootCreateEvent}>
@@ -25,16 +21,7 @@ const AssignDates = () => {
       <Typography className={classes.criteriaHeaderText}>Assign Dates</Typography>
 
       <Box className={classes.dataPicker}>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <DatePicker
-            label="Basic example"
-            value={value}
-            onChange={(newValue) => {
-              setValue(newValue)
-            }}
-            renderInput={(params) => <TextField {...params} />}
-          />
-        </LocalizationProvider>
+        <Calendar />
       </Box>
 
       <Box>

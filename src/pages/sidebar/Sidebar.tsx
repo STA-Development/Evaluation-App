@@ -19,12 +19,12 @@ import {removeUser} from '../../redux/user/userSlice'
 
 const Sidebar = () => {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const userId = useAppSelector(selectAuthId)
   const firstName = useAppSelector(selectFirstName)
   const lastName = useAppSelector(selectLastName)
   const classes = useSliderStyle()
   const globalClasses = useGlobalTheme()
-  const navigate = useNavigate()
 
   const handleLogOut = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
