@@ -7,6 +7,8 @@ import {selectAuth} from './redux/selectors'
 import {EventContextProvider} from './pages/events/createEvents/EventsContext'
 import {setUser} from './redux/user/userSlice'
 import {afterSelf} from './utils/authUtils'
+import axiosError from './utils/axiosError'
+import {AxiosError} from 'axios'
 
 const App = () => {
   const dispatch = useAppDispatch()
@@ -30,7 +32,7 @@ const App = () => {
       setIsLoading(false)
     } catch (err) {
       setIsLoading(false)
-      console.log(err)
+      axiosError(err as AxiosError)
     }
   }
 
@@ -45,9 +47,7 @@ const App = () => {
   return (
     <EventContextProvider>
       {!isLoading ? (
-        <Box className="bg">
-          {localStorage.token || isAuth ? <PrivateRouts /> : <PublicRoutes />}
-        </Box>
+        <Box className="bg">{isAuth ? <PrivateRouts /> : <PublicRoutes />}</Box>
       ) : (
         <Box className="circle">
           <CircularProgress />
