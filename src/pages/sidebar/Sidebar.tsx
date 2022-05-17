@@ -28,10 +28,14 @@ const Sidebar = () => {
 
   const handleLogOut = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
-    if (userId) {
-      localStorage.removeItem('token')
-      dispatch(removeUser())
-      navigate('/sign-in')
+    try {
+      if (userId) {
+        localStorage.removeItem('token')
+        dispatch(removeUser())
+        navigate('/sign-in')
+      }
+    } catch (err) {
+      console.log(err)
     }
   }
 

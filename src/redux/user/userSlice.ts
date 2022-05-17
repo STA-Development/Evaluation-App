@@ -11,7 +11,6 @@ const initialState: IAuthPropsState = {
   salary: 0,
   isAuth: false,
   token: '',
-  avatar: 'http://res.cloudinary.com/avoo/image/upload/v1652271069/v35k9wpyszjbxhyl8xn0.jpg',
 }
 
 const userSlice = createSlice({
@@ -27,7 +26,6 @@ const userSlice = createSlice({
       state.userId = action.payload.userId
       state.isAuth = true
       state.salary = action.payload.salary
-      state.avatar = action.payload.avatar
       state.token = action.payload.token
     },
     removeUser(state) {
@@ -38,7 +36,6 @@ const userSlice = createSlice({
       state.isAuth = false
       state.userId = 0
       state.salary = 0
-      state.avatar = ''
     },
   },
 })
