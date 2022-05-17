@@ -19,6 +19,8 @@ import axiosInstance from '../../axiosInstance'
 import {afterSelf} from '../../utils/authUtils'
 import {useAppDispatch} from '../../redux/hooks'
 import {setUser} from '../../redux/user/userSlice'
+import axiosError from '../../utils/axiosError'
+import {AxiosError} from 'axios'
 
 const SignUp = () => {
   const dispatch = useAppDispatch()
@@ -61,7 +63,12 @@ const SignUp = () => {
         const user = await afterSelf(auth.data)
         dispatch(
           setUser({
+            firstName: user.firstName,
+            lastName: user.lastName,
             authUid: user.authUid,
+            email: user.email,
+            salary: user.salary,
+            userId: user.id,
           }),
         )
 
@@ -71,7 +78,7 @@ const SignUp = () => {
         setIsAuth(false)
       } catch (err) {
         setIsAuth(false)
-        console.log(err)
+        axiosError(err as AxiosError)
       }
 
       setEmail('')
