@@ -4,7 +4,6 @@ import {IAuthPropsState} from '../../types/storeTypes'
 const initialState: IAuthPropsState = {
   firstName: '',
   lastName: '',
-  user: '',
   email: '',
   userId: 0,
   authUid: '',
@@ -20,7 +19,6 @@ const userSlice = createSlice({
     setUser(state, action) {
       state.firstName = action.payload.firstName
       state.lastName = action.payload.lastName
-      state.user = action.payload.user
       state.email = action.payload.email
       state.authUid = action.payload.authUid
       state.userId = action.payload.userId
