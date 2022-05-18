@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import {createUserWithEmailAndPassword} from 'firebase/auth'
 import {Link, useNavigate} from 'react-router-dom'
 import {
   Box,
   Button,
+  CircularProgress,
   FormControlLabel,
   FormGroup,
   Grid,
@@ -14,18 +14,22 @@ import {
 import Checkbox from '@mui/material/Checkbox'
 import useStyles from '../../assets/styleJs/auth/signUp'
 import SignUpImg from '../../assets/images/auth/SignUpImg'
-import {auth} from '../../data/firebase'
-
+import {useGlobalTheme} from '../../assets/style/globalVariables'
+import axiosInstance from '../../axiosInstance'
+import {afterSelf} from '../../utils/authUtils'
 import {useAppDispatch} from '../../redux/hooks'
 import {setUser} from '../../redux/user/userSlice'
-import {useGlobalTheme} from '../../assets/style/globalVariables'
+import axiosError from '../../utils/axiosError'
+import {AxiosError} from 'axios'
 
 const SignUp = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const classes = useStyles()
   const globalClasses = useGlobalTheme()
-  const [name, setName] = useState<string>('')
+  const [isAuth, setIsAuth] = useState<boolean>(false)
+  const [firstName, setFirstName] = useState<string>('')
+  const [lastName, setLastName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [nameError, setNameError] = useState<boolean>(false)
@@ -39,31 +43,48 @@ const SignUp = () => {
     setEmailError(false)
     setPasswordError(false)
 
-    if (name && email && password) {
+    if (firstName && lastName && email && password) {
       setNameError(false)
       setEmailError(false)
       setPasswordError(false)
 
-      await createUserWithEmailAndPassword(auth, email, password)
-        .then(({user}) => {
-          dispatch(
-            setUser({
-              user: name,
-              email: user.email,
-              id: user.uid,
-            }),
-          )
+      try {
+        setIsAuth(true)
+        const auth = await axiosInstance.post('/users/create', {
+          firstName,
+          password,
+          lastName,
+          email,
+        })
+        localStorage.setItem('token', auth.data)
+        const user = await afterSelf(auth.data)
+        dispatch(
+          setUser({
+            firstName: user.firstName,
+            lastName: user.lastName,
+            authUid: user.authUid,
+            email: user.email,
+            salary: user.salary,
+            userId: user.id,
+          }),
+        )
 
-          navigate('/dashboard')
-        })
-        .catch((error) => {
-          throw new Error(error)
-        })
+        if (auth.data) {
+          navigate('/')
+        }
+        setIsAuth(false)
+      } catch (err) {
+        setIsAuth(false)
+        axiosError(err as AxiosError)
+      }
 
       setEmail('')
-      setName('')
+      setFirstName('')
+      setLastName('')
       setPassword('')
-    } else if (!name) {
+    } else if (!firstName) {
+      setNameError(true)
+    } else if (!lastName) {
       setNameError(true)
     } else if (!email) {
       setEmailError(true)
@@ -77,81 +98,107 @@ const SignUp = () => {
       <Grid container className="auth auth__grid">
         <Grid item lg={4} md={6} sm={12} xs={12} alignItems="center">
           <Paper className="auth__title ">
-            <Box className="auth__title-text">
-              <Typography variant="h2" className={classes.authHeader} gutterBottom>
-                Sign up
-              </Typography>
-              <Box>
-                <Typography className={classes.authText}>Already have an account?</Typography>
+            {!isAuth ? (
+              <>
+                <Box className="auth__title-text">
+                  <Typography variant="h2" className={classes.authHeader} gutterBottom>
+                    Sign up
+                  </Typography>
+                  <Box>
+                    <Typography className={classes.authText}>Already have an account?</Typography>
+                    <Link to="/sign-in" className={classes.link}>
+                      Sign in
+                    </Link>
+                  </Box>
+                </Box>
+                <FormGroup>
+                  <Box
+                    component="form"
+                    noValidate
+                    className="auth__input-box"
+                    onSubmit={handleSubmit}
+                  >
+                    <TextField
+                      className={classes.authInput}
+                      label="Name"
+                      variant="outlined"
+                      size="small"
+                      fullWidth
+                      required
+                      autoComplete="family-name"
+                      value={firstName}
+                      error={nameError}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setFirstName(e.target.value)
+                      }}
+                    />
+                    <TextField
+                      className={classes.authInput}
+                      label="Surname"
+                      variant="outlined"
+                      size="small"
+                      fullWidth
+                      required
+                      autoComplete="family-name"
+                      value={lastName}
+                      error={nameError}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setLastName(e.target.value)
+                      }}
+                    />
+                    <TextField
+                      className={classes.authInput}
+                      label="Email"
+                      variant="outlined"
+                      type="email"
+                      fullWidth
+                      error={emailError}
+                      value={email}
+                      required
+                      size="small"
+                      autoComplete="email"
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setEmail(e.target.value)
+                      }}
+                    />
+                    <TextField
+                      className={classes.authInput}
+                      label="Password (6+ charachter , 1 capital letter, 1 number)"
+                      type="password"
+                      variant="outlined"
+                      fullWidth
+                      required
+                      error={paswordError}
+                      value={password}
+                      size="small"
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setPassword(e.target.value)
+                      }}
+                      autoComplete="new-password"
+                    />
 
-                <Link to="/sign-in" className={classes.link}>
-                  Sign in
-                </Link>
+                    <FormControlLabel
+                      control={<Checkbox />}
+                      label="Keep me signed in"
+                      value="checkbox"
+                      className={classes.authCheck}
+                    />
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      size="large"
+                      className={globalClasses.button}
+                    >
+                      Sign Up
+                    </Button>
+                  </Box>
+                </FormGroup>
+              </>
+            ) : (
+              <Box className="circle">
+                <CircularProgress />
               </Box>
-            </Box>
-            <FormGroup>
-              <Box component="form" noValidate className="auth__input-box" onSubmit={handleSubmit}>
-                <TextField
-                  className={classes.authInput}
-                  label="Name / Surname"
-                  variant="outlined"
-                  size="small"
-                  fullWidth
-                  required
-                  autoComplete="family-name"
-                  value={name}
-                  error={nameError}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setName(e.target.value)
-                  }}
-                />
-                <TextField
-                  className={classes.authInput}
-                  label="Email"
-                  variant="outlined"
-                  type="email"
-                  fullWidth
-                  error={emailError}
-                  value={email}
-                  required
-                  size="small"
-                  autoComplete="email"
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setEmail(e.target.value)
-                  }}
-                />
-                <TextField
-                  className={classes.authInput}
-                  label="Password (6+ charachter , 1 capital letter, 1 number)"
-                  type="password"
-                  variant="outlined"
-                  fullWidth
-                  required
-                  error={paswordError}
-                  value={password}
-                  size="small"
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setPassword(e.target.value)
-                  }}
-                  autoComplete="new-password"
-                />
-
-                <FormControlLabel
-                  control={<Checkbox />}
-                  label="Keep me signed in"
-                  value="checkbox"
-                  className={classes.authCheck}
-                />
-                <Button
-                  type="submit"
-                  variant="contained"
-                  size="large"
-                  className={globalClasses.button}
-                >
-                  Sign Up
-                </Button>
-              </Box>
-            </FormGroup>
+            )}
           </Paper>
         </Grid>
         <Grid item lg={4} md={5} sm={12} xs={12}>

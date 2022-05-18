@@ -1,4 +1,4 @@
-import createEventReducerTypes from '../../../types/createEventTypes'
+import {createEventReducerTypes} from '../../../types/createEventTypes'
 
 export interface IEvaluator {
   id: string

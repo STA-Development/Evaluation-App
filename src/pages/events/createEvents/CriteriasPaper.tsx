@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   Checkbox,
+  CircularProgress,
   Grid,
   IconButton,
   InputBase,
@@ -29,21 +30,24 @@ import RadioIcon from '../../../assets/images/Icons/RadioIcon'
 import UnCheckedIcon from '../../../assets/images/Icons/UnCheckedIcon'
 import CheckedIcon from '../../../assets/images/Icons/CheckedIcon'
 import PercentIcon from '../../../assets/images/Icons/PercentIcon'
-import createEventReducerTypes from '../../../types/createEventTypes'
+import {createEventReducerTypes} from '../../../types/createEventTypes'
 import {EventContext} from './EventsContext'
-import EvaluateeBonusCalculationCard from './EvaluateeBonusCalculationCard'
 import Popover from '@mui/material/Popover'
 import PlusIconBlue from '../../../assets/images/Icons/PlusIconBlue'
 import axiosData from '../../../axiosData'
-import {AxiosResponse} from 'axios'
+import {AxiosError, AxiosResponse} from 'axios'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
+import axiosError from '../../../utils/axiosError'
+import EditIconCalculationCard from '../../../assets/images/Icons/EditIconCalculationCard'
+import DollarIcon from '../../../assets/images/Icons/DollarIcon'
 
 const CriteriasPapers = () => {
   const UseEventContext = () => useContext(EventContext)
   const {state, dispatch} = UseEventContext()
   const classes = useCreateEventStyles()
 
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [criteriaData, setCriteriaData] = useState<ICriteriaPaperInfo[]>([])
   const [evaluateesList, setEvaluateesList] = useState<IEvaluatee[]>([])
   const [bonusPercentage, setBonusPercentage] = useState<number | string>('')
@@ -95,8 +99,15 @@ const CriteriasPapers = () => {
   useEffect(() => {
     setEvaluateesList(state.evaluatees)
     const getCriterias = async () => {
-      const response: AxiosResponse = await axiosData.get('/criteria')
-      await setCriteriaData(response.data)
+      try {
+        setIsLoading(true)
+        const response: AxiosResponse = await axiosData.get('/criteria')
+        await setCriteriaData(response.data)
+        setIsLoading(false)
+      } catch (err) {
+        setIsLoading(false)
+        axiosError(err as AxiosError)
+      }
     }
     getCriterias()
   }, [])
@@ -162,6 +173,8 @@ const CriteriasPapers = () => {
   }
   const saveCriteraDataInGlobal = () => {
     dispatch({type: createEventReducerTypes.ratingRange, ratingRange: ratingFinalValue})
+    dispatch({type: createEventReducerTypes.criterias, criterias: criteriaData})
+    dispatch({type: createEventReducerTypes.evaluatees, evaluatees: evaluateesList})
   }
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
   const [anchorElCriteria, setAnchorElCriteria] = React.useState<HTMLButtonElement | null>(null)
@@ -253,6 +266,26 @@ const CriteriasPapers = () => {
     setOpenDialog(false)
   }
 
+  const changeEditable = (id: string) => {
+    const newArray = evaluateesList.map((item: IEvaluatee) => {
+      if (item.id === id) {
+        return {...item, isEditable: true}
+      }
+      return item
+    })
+    setEvaluateesList(newArray)
+  }
+
+  const onChangeEvaluateeData = (id: string, value: string, changingValue: string) => {
+    const newArray = evaluateesList.map((item: IEvaluatee) => {
+      if (item.id === id) {
+        return {...item, [changingValue]: value}
+      }
+      return item
+    })
+    setEvaluateesList(newArray)
+  }
+
   const open = Boolean(anchorEl)
   const openCriteria = Boolean(anchorElCriteria)
 
@@ -335,293 +368,444 @@ const CriteriasPapers = () => {
           </Dialog>
         </Box>
       </Box>
-      <Box className={classes.criteriasPapersBox}>
-        <Grid columnSpacing={2} rowSpacing={2} container>
-          {criteriaData?.map((item: ICriteriaPaperInfo, index: number) => (
-            <Grid key={index} columns={2} item xs={6} className={classes.criteriasPaper}>
-              <Box className={classes.criteriaPaperBackground}>
-                <Box className={classes.criteriasPaperHeaderBox}>
-                  <Box className={classes.checkboxManagerBox}>
-                    <Checkbox
-                      checked={item.criteria}
-                      onChange={(e) => {
-                        const newObj = {...item, criteria: e.target.checked}
-                        const newArr = criteriaData.map((newItem: ICriteriaPaperInfo) => {
-                          if (newItem.id === newObj.id) {
-                            return newObj
-                          } else {
-                            return newItem
-                          }
-                        })
-                        setCriteriaData(newArr)
-                      }}
-                      className={classes.checkbox}
-                      defaultChecked
-                      icon={<UnCheckedIcon />}
-                      checkedIcon={<CheckedIcon />}
-                    />
-                    <Typography className={classes.criteriasPaperHeaderText}>
-                      {item.name}
-                    </Typography>
-                  </Box>
-                  <Button
-                    className={classes.criteriaAddButton}
-                    onClick={(e) => handleClickCriteria(e, item.id)}
-                    variant="text"
-                    disableRipple
-                  >
-                    <Typography className={classes.criteriasAddButtonText}>Add</Typography>
-                  </Button>
-                </Box>
-                <Box className={classes.criteriasPaperInfo}>
-                  {item.subCriteria.map((el: ISubCriteria, index1: number) => (
-                    <Box className={classes.eachCriteria} key={index1}>
+      {!isLoading ? (
+        <Box className={classes.criteriasPapersBox}>
+          <Grid columnSpacing={2} rowSpacing={2} container>
+            {criteriaData?.map((item: ICriteriaPaperInfo, index: number) => (
+              <Grid key={index} columns={2} item xs={6} className={classes.criteriasPaper}>
+                <Box className={classes.criteriaPaperBackground}>
+                  <Box className={classes.criteriasPaperHeaderBox}>
+                    <Box className={classes.checkboxManagerBox}>
                       <Checkbox
-                        checked={el.result}
+                        checked={item.criteria}
                         onChange={(e) => {
-                          const newObj = {...el, result: e.target.checked}
-                          const newArrSubcriteria = item.subCriteria.map(
-                            (newItem: ISubCriteria) => {
-                              if (newItem.id === newObj.id) {
-                                return newObj
-                              } else {
-                                return newItem
-                              }
-                            },
-                          )
-                          const bigObj = {...item, subCriteria: newArrSubcriteria}
-                          const newBigArr = criteriaData.map((a) => {
-                            if (bigObj.id === a.id) {
-                              return bigObj
+                          const newObj = {...item, criteria: e.target.checked}
+                          const newArr = criteriaData.map((newItem: ICriteriaPaperInfo) => {
+                            if (newItem.id === newObj.id) {
+                              return newObj
                             } else {
-                              return a
+                              return newItem
                             }
                           })
-                          setCriteriaData(newBigArr)
+                          setCriteriaData(newArr)
                         }}
                         className={classes.checkbox}
                         defaultChecked
                         icon={<UnCheckedIcon />}
                         checkedIcon={<CheckedIcon />}
                       />
-                      <Typography className={classes.criteriasPaperEachCriteriaText}>
-                        {el.name}
+                      <Typography className={classes.criteriasPaperHeaderText}>
+                        {item.name}
                       </Typography>
                     </Box>
-                  ))}
-                </Box>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-        <Box className={classes.criteriaPaperBottomBox}>
-          <Box className={classes.criteriaPaperRatingRoot}>
-            <Box className={classes.criteriaRatingTexts}>
-              <Typography className={classes.criteriaHeaderText}>
-                Select The Rating Range
-              </Typography>
-              <Typography className={classes.criteriaItalicText}>
-                The rating is from lowest score to the highest
-              </Typography>
-            </Box>
-            <Box className={classes.criteriasRatingPaper}>
-              <Box className={classes.criteriaPaperBackground}>
-                <Box className={classes.criteriasPaperHeaderBox}>
-                  <Box className={classes.checkboxManagerBox}>
-                    <Typography className={classes.criteriasPaperHeaderText}>
-                      Rating Score Range
-                    </Typography>
+                    <Button
+                      className={classes.criteriaAddButton}
+                      onClick={(e) => handleClickCriteria(e, item.id)}
+                      variant="text"
+                      disableRipple
+                    >
+                      <Typography className={classes.criteriasAddButtonText}>Add</Typography>
+                    </Button>
                   </Box>
-                  <Button
-                    className={classes.criteriaAddButton}
-                    onClick={handleClick}
-                    variant="text"
-                    disableRipple
-                  >
-                    <Typography className={classes.criteriasAddButtonText}>Add</Typography>
-                  </Button>
-                  <Popover
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                      vertical: 'bottom',
-                      horizontal: 'left',
-                    }}
-                  >
-                    <Box className={classes.criteriasRatingPaper}>
-                      <Box className={classes.criteriaPaperBackground}>
-                        <Box className={classes.criteriasPaperHeaderBox}>
-                          <Box className={classes.addRatingTextBox}>
-                            <Typography className={classes.textW500S14}>
-                              Add New Rating Score Range
-                            </Typography>
-                          </Box>
-                        </Box>
-                        <Box className={classes.criteriasPaperInfo}>
-                          <Box className={classes.addRatingInfoBox}>
-                            <BpRadio disabled={true} />
+                  <Box className={classes.criteriasPaperInfo}>
+                    {item.subCriteria.map((el: ISubCriteria, index1: number) => (
+                      <Box className={classes.eachCriteria} key={index1}>
+                        <Checkbox
+                          checked={el.result}
+                          onChange={(e) => {
+                            const newObj = {...el, result: e.target.checked}
+                            const newArrSubcriteria = item.subCriteria.map(
+                              (newItem: ISubCriteria) => {
+                                if (newItem.id === newObj.id) {
+                                  return newObj
+                                } else {
+                                  return newItem
+                                }
+                              },
+                            )
+                            const bigObj = {...item, subCriteria: newArrSubcriteria}
+                            const newBigArr = criteriaData.map((a) => {
+                              if (bigObj.id === a.id) {
+                                return bigObj
+                              } else {
+                                return a
+                              }
+                            })
+                            setCriteriaData(newBigArr)
+                          }}
+                          className={classes.checkbox}
+                          defaultChecked
+                          icon={<UnCheckedIcon />}
+                          checkedIcon={<CheckedIcon />}
+                        />
+                        <Typography className={classes.criteriasPaperEachCriteriaText}>
+                          {el.name}
+                        </Typography>
+                      </Box>
+                    ))}
+                  </Box>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+          <Box className={classes.criteriaPaperBottomBox}>
+            <Box className={classes.criteriaPaperRatingRoot}>
+              <Box className={classes.criteriaRatingTexts}>
+                <Typography className={classes.criteriaHeaderText}>
+                  Select The Rating Range
+                </Typography>
+                <Typography className={classes.criteriaItalicText}>
+                  The rating is from lowest score to the highest
+                </Typography>
+              </Box>
+              <Box className={classes.criteriasRatingPaper}>
+                <Box className={classes.criteriaPaperBackground}>
+                  <Box className={classes.criteriasPaperHeaderBox}>
+                    <Box className={classes.checkboxManagerBox}>
+                      <Typography className={classes.criteriasPaperHeaderText}>
+                        Rating Score Range
+                      </Typography>
+                    </Box>
+                    <Button
+                      className={classes.criteriaAddButton}
+                      onClick={handleClick}
+                      variant="text"
+                      disableRipple
+                    >
+                      <Typography className={classes.criteriasAddButtonText}>Add</Typography>
+                    </Button>
+                    <Popover
+                      id={id}
+                      open={open}
+                      anchorEl={anchorEl}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                      }}
+                    >
+                      <Box className={classes.criteriasRatingPaper}>
+                        <Box className={classes.criteriaPaperBackground}>
+                          <Box className={classes.criteriasPaperHeaderBox}>
                             <Box className={classes.addRatingTextBox}>
-                              <Typography className={classes.textW400S12}>From</Typography>
-                              <TextField
-                                onChange={(e) => {
-                                  setRatingFirstValue(parseInt(e.target.value, 10))
-                                }}
-                                value={ratingFirstValue}
-                                className={classes.textField30px}
-                                id="standard-number"
-                                type="number"
-                                InputLabelProps={{
-                                  shrink: true,
-                                }}
-                                variant="standard"
-                              />
-                              <Typography className={classes.textW400S12}>point - to</Typography>
-                              <TextField
-                                onChange={(e) => {
-                                  setRatingLastValue(parseInt(e.target.value, 10))
-                                }}
-                                value={ratingLastValue}
-                                className={classes.textField30px}
-                                id="standard-number"
-                                type="number"
-                                InputLabelProps={{
-                                  shrink: true,
-                                }}
-                                variant="standard"
-                              />
-                              <Typography className={classes.textW400S12}> points</Typography>
+                              <Typography className={classes.textW500S14}>
+                                Add New Rating Score Range
+                              </Typography>
                             </Box>
                           </Box>
-                          <Box className={classes.addRatingPopUpButtonsBox}>
-                            <Button
-                              onClick={handleClose}
-                              className={classes.criteriaAddButton}
-                              variant="text"
-                              disableRipple
-                            >
-                              <Typography className={classes.criteriasAddButtonText}>
-                                Cancel
-                              </Typography>
-                            </Button>
-                            <Button
-                              onClick={() => addRatingFunc(ratingFirstValue, ratingLastValue)}
-                              className={classes.criteriaAddButton}
-                              variant="text"
-                              disableRipple
-                            >
-                              <Typography className={classes.criteriasAddButtonText}>
-                                Apply
-                              </Typography>
-                            </Button>
+                          <Box className={classes.criteriasPaperInfo}>
+                            <Box className={classes.addRatingInfoBox}>
+                              <BpRadio disabled={true} />
+                              <Box className={classes.addRatingTextBox}>
+                                <Typography className={classes.textW400S12}>From</Typography>
+                                <TextField
+                                  onChange={(e) => {
+                                    setRatingFirstValue(parseInt(e.target.value, 10))
+                                  }}
+                                  value={ratingFirstValue}
+                                  className={classes.textField30px}
+                                  id="standard-number"
+                                  type="number"
+                                  InputLabelProps={{
+                                    shrink: true,
+                                  }}
+                                  variant="standard"
+                                />
+                                <Typography className={classes.textW400S12}>point - to</Typography>
+                                <TextField
+                                  onChange={(e) => {
+                                    setRatingLastValue(parseInt(e.target.value, 10))
+                                  }}
+                                  value={ratingLastValue}
+                                  className={classes.textField30px}
+                                  id="standard-number"
+                                  type="number"
+                                  InputLabelProps={{
+                                    shrink: true,
+                                  }}
+                                  variant="standard"
+                                />
+                                <Typography className={classes.textW400S12}> points</Typography>
+                              </Box>
+                            </Box>
+                            <Box className={classes.addRatingPopUpButtonsBox}>
+                              <Button
+                                onClick={handleClose}
+                                className={classes.criteriaAddButton}
+                                variant="text"
+                                disableRipple
+                              >
+                                <Typography className={classes.criteriasAddButtonText}>
+                                  Cancel
+                                </Typography>
+                              </Button>
+                              <Button
+                                onClick={() => addRatingFunc(ratingFirstValue, ratingLastValue)}
+                                className={classes.criteriaAddButton}
+                                variant="text"
+                                disableRipple
+                              >
+                                <Typography className={classes.criteriasAddButtonText}>
+                                  Apply
+                                </Typography>
+                              </Button>
+                            </Box>
                           </Box>
                         </Box>
                       </Box>
-                    </Box>
-                  </Popover>
-                </Box>
-                <Box className={classes.criteriasPaperInfo}>
-                  <FormControl className={classes.scoreRangeBox}>
-                    <RadioGroup
-                      onChange={(e, value) => {
-                        const idRating = value
-                        const option = ratingScoreArr.find((item) => item.id === idRating)
-                        if (option !== undefined) {
-                          setRatingFinalValue(option.values)
-                        }
-                      }}
-                      aria-labelledby="demo-radio-buttons-group-label"
-                      defaultValue="female"
-                      name="radio-buttons-group"
-                    >
-                      {ratingScoreArr.map((item: IratingScoreObj, index) => (
-                        <FormControlLabel
-                          key={index}
-                          className={classes.ratingScoreLabel}
-                          value={item.id}
-                          control={<BpRadio />}
-                          label={item.text}
-                        />
-                      ))}
-                    </RadioGroup>
-                  </FormControl>
-                </Box>
-              </Box>
-            </Box>
-          </Box>
-          <Box className={classes.criteriaPaperBonusPercentage}>
-            <Box className={classes.criteriaRatingTexts}>
-              <Typography className={classes.criteriaHeaderText}>
-                Select Bonus Percentage
-              </Typography>
-              <Typography className={classes.criteriaItalicText}>
-                Percentage from monthly salary applies to the highest score
-              </Typography>
-            </Box>
-            <Box className={classes.criteriasRatingPaper}>
-              <Box className={classes.criteriaPaperBackground}>
-                <Box className={classes.criteriasPaperHeaderBox}>
-                  <Box className={classes.checkboxManagerBox}>
-                    <Typography className={classes.criteriasPaperHeaderText}>
-                      Bonus Percentage
-                    </Typography>
+                    </Popover>
                   </Box>
-                  <Button
-                    className={classes.criteriaCalculateButton}
-                    onClick={renderCalculationCards}
-                    variant="text"
-                    disableRipple
-                  >
-                    <Typography className={classes.evaluatorHeaderName}>Calculate</Typography>
-                  </Button>
+                  <Box className={classes.criteriasPaperInfo}>
+                    <FormControl className={classes.scoreRangeBox}>
+                      <RadioGroup
+                        onChange={(e, value) => {
+                          const idRating = value
+                          const option = ratingScoreArr.find((item) => item.id === idRating)
+                          if (option !== undefined) {
+                            setRatingFinalValue(option.values)
+                          }
+                        }}
+                        aria-labelledby="demo-radio-buttons-group-label"
+                        defaultValue="female"
+                        name="radio-buttons-group"
+                      >
+                        {ratingScoreArr.map((item: IratingScoreObj, index) => (
+                          <FormControlLabel
+                            key={index}
+                            className={classes.ratingScoreLabel}
+                            value={item.id}
+                            control={<BpRadio />}
+                            label={item.text}
+                          />
+                        ))}
+                      </RadioGroup>
+                    </FormControl>
+                  </Box>
                 </Box>
-                <Box className={classes.criteriaPagePercentField}>
-                  <Paper component="div" className={classes.inputFieldPercent}>
-                    <InputBase
-                      type="number"
-                      className={`${classes.inputBase} ${classes.criteriaPagePercentFieldHeight}`}
-                      placeholder="0"
-                      value={bonusPercentage}
-                      inputProps={{className: classes.inputText}}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                        passBonusPercentage(parseInt(e.target.value, 10))
-                      }}
-                    />
-                    <IconButton
+              </Box>
+            </Box>
+            <Box className={classes.criteriaPaperBonusPercentage}>
+              <Box className={classes.criteriaRatingTexts}>
+                <Typography className={classes.criteriaHeaderText}>
+                  Select Bonus Percentage
+                </Typography>
+                <Typography className={classes.criteriaItalicText}>
+                  Percentage from monthly salary applies to the highest score
+                </Typography>
+              </Box>
+              <Box className={classes.criteriasRatingPaper}>
+                <Box className={classes.criteriaPaperBackground}>
+                  <Box className={classes.criteriasPaperHeaderBox}>
+                    <Box className={classes.checkboxManagerBox}>
+                      <Typography className={classes.criteriasPaperHeaderText}>
+                        Bonus Percentage
+                      </Typography>
+                    </Box>
+                    <Button
+                      className={classes.criteriaCalculateButton}
+                      onClick={renderCalculationCards}
+                      variant="text"
                       disableRipple
-                      className={classes.dollarIconButton}
-                      aria-label="directions"
                     >
-                      <PercentIcon />
-                    </IconButton>
-                  </Paper>
+                      <Typography className={classes.evaluatorHeaderName}>Calculate</Typography>
+                    </Button>
+                  </Box>
+                  <Box className={classes.criteriaPagePercentField}>
+                    <Paper component="div" className={classes.inputFieldPercent}>
+                      <InputBase
+                        type="number"
+                        className={`${classes.inputBase} ${classes.criteriaPagePercentFieldHeight}`}
+                        placeholder="0"
+                        value={bonusPercentage}
+                        inputProps={{className: classes.inputText}}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                          passBonusPercentage(parseInt(e.target.value, 10))
+                        }}
+                      />
+                      <IconButton
+                        disableRipple
+                        className={classes.dollarIconButton}
+                        aria-label="directions"
+                      >
+                        <PercentIcon />
+                      </IconButton>
+                    </Paper>
+                  </Box>
                 </Box>
               </Box>
             </Box>
           </Box>
+          {percentageIsSet && (
+            <Box className={`${classes.criteriasPapersBox} ${classes.marginTop40}`}>
+              <Grid columnSpacing={2} rowSpacing={2} container>
+                {evaluateesList.map((item: IEvaluatee, index: number) => (
+                  <Grid
+                    key={index}
+                    columns={3}
+                    item
+                    xs={4}
+                    className={classes.criteriasCalculationCard}
+                  >
+                    <Paper
+                      key={item.id}
+                      className={`${classes.evaluatorCard} ${classes.evaluateeCalculationCard}`}
+                    >
+                      <Box className={classes.evaluatorCardHeader}>
+                        <Typography className={classes.evaluatorHeaderName}>
+                          {item.header}
+                        </Typography>
+                        <IconButton
+                          onClick={() => {
+                            changeEditable(item.id)
+                          }}
+                        >
+                          <EditIconCalculationCard />
+                        </IconButton>
+                      </Box>
+                      <Box className={classes.evaluatorCardInputBox}>
+                        <Box className={classes.calculationPercentField}>
+                          <Paper component="div" className={classes.inputFieldPercentWide}>
+                            <InputBase
+                              disabled={!item.isEditable}
+                              inputProps={{className: classes.inputText}}
+                              name={'nameValue'}
+                              className={classes.inputBase}
+                              value={item.nameValue}
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                onChangeEvaluateeData(item.id, e.target.value, e.target.name)
+                              }}
+                            />
+                          </Paper>
+                        </Box>
+                        <Box className={classes.calculationPercentField}>
+                          <Paper component="div" className={classes.inputFieldPercentWide}>
+                            <InputBase
+                              disabled={!item.isEditable}
+                              inputProps={{className: classes.inputText}}
+                              name={'positionValue'}
+                              className={classes.inputBase}
+                              value={item.positionValue}
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                onChangeEvaluateeData(item.id, e.target.value, e.target.name)
+                              }}
+                            />
+                          </Paper>
+                        </Box>
+                        <Box className={classes.calculationPercentField}>
+                          <Paper component="div" className={classes.inputFieldPercentWide}>
+                            <InputBase
+                              disabled={!item.isEditable}
+                              inputProps={{className: classes.inputText}}
+                              name={'dateValue'}
+                              className={classes.inputBase}
+                              value={item.dateValue}
+                              type="date"
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                onChangeEvaluateeData(item.id, e.target.value, e.target.name)
+                              }}
+                            />
+                          </Paper>
+                        </Box>
+                        <Box className={classes.calculationPercentField}>
+                          <Paper component="div" className={classes.inputFieldPercentWide}>
+                            <InputBase
+                              disabled={!item.isEditable}
+                              name={'salaryValue'}
+                              type="number"
+                              className={classes.inputBase}
+                              placeholder="0"
+                              inputProps={{className: classes.inputText}}
+                              value={item.salaryValue}
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                onChangeEvaluateeData(item.id, e.target.value, e.target.name)
+                              }}
+                            />
+                            <IconButton
+                              disableRipple
+                              className={classes.dollarIconButton}
+                              aria-label="directions"
+                            >
+                              <DollarIcon />
+                            </IconButton>
+                          </Paper>
+                        </Box>
+                        <Box className={classes.percentAndResultInputBox}>
+                          <Box className={classes.percentInputBox}>
+                            <Paper
+                              component="div"
+                              className={`${classes.inputFieldPercent} ${classes.width100}`}
+                            >
+                              <InputBase
+                                disabled={true}
+                                type="number"
+                                className={classes.inputBase}
+                                placeholder="0"
+                                inputProps={{className: classes.inputText}}
+                                value={state.bonusPercentage}
+                              />
+                              <IconButton
+                                disableRipple
+                                className={classes.dollarIconButton}
+                                aria-label="directions"
+                              >
+                                <PercentIcon />
+                              </IconButton>
+                            </Paper>
+                          </Box>
+                          <Typography className={classes.equalText}>=</Typography>
+                          <Box className={classes.calculationResultInputBox}>
+                            <Paper component="div" className={classes.inputFieldPercentWide}>
+                              <InputBase
+                                disabled={true}
+                                type="number"
+                                className={classes.inputBase}
+                                placeholder="0"
+                                inputProps={{className: classes.inputText}}
+                                value={(Number(item.salaryValue) * state.bonusPercentage) / 100}
+                              />
+                              <IconButton
+                                disableRipple
+                                className={classes.dollarIconButton}
+                                aria-label="directions"
+                              >
+                                <DollarIcon />
+                              </IconButton>
+                            </Paper>
+                          </Box>
+                        </Box>
+                      </Box>
+                    </Paper>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+          )}
+          <Box className={classes.bottomButtonsBox}>
+            <Button
+              className={classes.backButton}
+              type="submit"
+              variant="outlined"
+              size="medium"
+              onClick={onBackButtonClick}
+            >
+              BACK
+            </Button>
+            <Button
+              className={classes.nextButton}
+              type="submit"
+              variant="contained"
+              size="medium"
+              onClick={saveCriteraDataInGlobal}
+            >
+              NEXT
+            </Button>
+          </Box>
         </Box>
-        {percentageIsSet && <EvaluateeBonusCalculationCard />}
-        <Box className={classes.bottomButtonsBox}>
-          <Button
-            className={classes.backButton}
-            type="submit"
-            variant="outlined"
-            size="medium"
-            onClick={onBackButtonClick}
-          >
-            BACK
-          </Button>
-          <Button
-            className={classes.nextButton}
-            type="submit"
-            variant="contained"
-            size="medium"
-            onClick={saveCriteraDataInGlobal}
-          >
-            NEXT
-          </Button>
+      ) : (
+        <Box className="circle">
+          <CircularProgress />
         </Box>
-      </Box>
+      )}
+
       <Popover
         id={idCriteria}
         open={openCriteria}

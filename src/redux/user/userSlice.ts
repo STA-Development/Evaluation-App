@@ -2,11 +2,14 @@ import {createSlice} from '@reduxjs/toolkit'
 import {IAuthPropsState} from '../../types/storeTypes'
 
 const initialState: IAuthPropsState = {
-  user: '',
+  firstName: '',
+  lastName: '',
   email: '',
-  uid: '',
+  userId: 0,
+  authUid: '',
+  salary: 0,
+  isAuth: false,
   token: '',
-  isAuth: true,
 }
 
 const userSlice = createSlice({
@@ -14,17 +17,23 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, action) {
-      state.user = action.payload.user
+      state.firstName = action.payload.firstName
+      state.lastName = action.payload.lastName
       state.email = action.payload.email
-      state.uid = action.payload.uid
+      state.authUid = action.payload.authUid
+      state.userId = action.payload.userId
+      state.isAuth = true
+      state.salary = action.payload.salary
       state.token = action.payload.token
-      state.isAuth = false
     },
     removeUser(state) {
-      state.user = ''
+      state.firstName = ''
+      state.lastName = ''
       state.email = ''
-      state.uid = ''
+      state.authUid = ''
       state.isAuth = false
+      state.userId = 0
+      state.salary = 0
     },
   },
 })
