@@ -42,9 +42,7 @@ const SignIn = () => {
         password,
       })
       localStorage.setItem('token', auth.data)
-
       const user = await afterSelf(auth.data)
-      console.log(user)
       dispatch(
         setUser({
           firstName: user.firstName,
@@ -81,7 +79,6 @@ const SignIn = () => {
                   </Typography>
                   <Box>
                     <Typography className={classes.authText}>Already have an account?</Typography>
-
                     <Link to="/" className={classes.link}>
                       Sign up now
                     </Link>
