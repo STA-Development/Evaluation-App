@@ -4,9 +4,12 @@ export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
 export interface IAuthPropsState {
-  user: string
+  firstName: string
+  lastName: string
   email: string
-  uid: string
   isAuth: boolean
+  userId: number
+  salary: number
+  authUid: string
   token: string
 }
