@@ -16,6 +16,8 @@ import {useAppDispatch, useAppSelector} from '../../redux/hooks'
 import {selectAuthId, selectFirstName, selectLastName} from '../../redux/selectors'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 import {removeUser} from '../../redux/user/userSlice'
+import axiosError from '../../utils/axiosError'
+import {AxiosError} from 'axios'
 
 const Sidebar = () => {
   const dispatch = useAppDispatch()
@@ -28,10 +30,14 @@ const Sidebar = () => {
 
   const handleLogOut = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
-    if (userId) {
-      localStorage.removeItem('token')
-      dispatch(removeUser())
-      navigate('/sign-in')
+    try {
+      if (userId) {
+        localStorage.removeItem('token')
+        dispatch(removeUser())
+        navigate('/sign-in')
+      }
+    } catch (err) {
+      axiosError(err as AxiosError)
     }
   }
 

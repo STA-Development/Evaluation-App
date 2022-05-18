@@ -19,6 +19,8 @@ import axiosInstance from '../../axiosInstance'
 import {afterSelf} from '../../utils/authUtils'
 import {useAppDispatch} from '../../redux/hooks'
 import {setUser} from '../../redux/user/userSlice'
+import axiosError from '../../utils/axiosError'
+import {AxiosError} from 'axios'
 
 const SignUp = () => {
   const dispatch = useAppDispatch()
@@ -26,16 +28,13 @@ const SignUp = () => {
   const classes = useStyles()
   const globalClasses = useGlobalTheme()
   const [isAuth, setIsAuth] = useState<boolean>(false)
-  const [name, setName] = useState<string>('')
+  const [firstName, setFirstName] = useState<string>('')
+  const [lastName, setLastName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [nameError, setNameError] = useState<boolean>(false)
   const [emailError, setEmailError] = useState<boolean>(false)
   const [paswordError, setPasswordError] = useState<boolean>(false)
-
-  const regName = name.trim().split(' ')
-  const firstName = regName[0]
-  const lastName = regName[1]
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -44,7 +43,7 @@ const SignUp = () => {
     setEmailError(false)
     setPasswordError(false)
 
-    if (name && email && password) {
+    if (firstName && lastName && email && password) {
       setNameError(false)
       setEmailError(false)
       setPasswordError(false)
@@ -61,7 +60,12 @@ const SignUp = () => {
         const user = await afterSelf(auth.data)
         dispatch(
           setUser({
+            firstName: user.firstName,
+            lastName: user.lastName,
             authUid: user.authUid,
+            email: user.email,
+            salary: user.salary,
+            userId: user.id,
           }),
         )
 
@@ -71,13 +75,16 @@ const SignUp = () => {
         setIsAuth(false)
       } catch (err) {
         setIsAuth(false)
-        console.log(err)
+        axiosError(err as AxiosError)
       }
 
       setEmail('')
-      setName('')
+      setFirstName('')
+      setLastName('')
       setPassword('')
-    } else if (!name) {
+    } else if (!firstName) {
+      setNameError(true)
+    } else if (!lastName) {
       setNameError(true)
     } else if (!email) {
       setEmailError(true)
@@ -113,16 +120,30 @@ const SignUp = () => {
                   >
                     <TextField
                       className={classes.authInput}
-                      label="Name / Surname"
+                      label="Name"
                       variant="outlined"
                       size="small"
                       fullWidth
                       required
                       autoComplete="family-name"
-                      value={name}
+                      value={firstName}
                       error={nameError}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                        setName(e.target.value)
+                        setFirstName(e.target.value)
+                      }}
+                    />
+                    <TextField
+                      className={classes.authInput}
+                      label="Surname"
+                      variant="outlined"
+                      size="small"
+                      fullWidth
+                      required
+                      autoComplete="family-name"
+                      value={lastName}
+                      error={nameError}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setLastName(e.target.value)
                       }}
                     />
                     <TextField

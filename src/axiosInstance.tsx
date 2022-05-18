@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const axiosInstance = axios.create({
-  baseURL: 'http://161.35.144.15:3000/',
+  baseURL: process.env.REACT_APP_USER_SERVICE_ENDPOINT,
 })
 
 export default axiosInstance

@@ -19,11 +19,13 @@ import {afterSelf} from '../../utils/authUtils'
 import {setUser} from '../../redux/user/userSlice'
 import {useAppDispatch} from '../../redux/hooks'
 import SignInImg from '../../assets/images/auth/SignInImg'
+import axiosError from '../../utils/axiosError'
+import {AxiosError} from 'axios'
 
 const SignIn = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const [isAuth, setIsAuth] = useState<boolean>(false)
+  const [isAuthLoading, setIsAuthLoading] = useState<boolean>(false)
   const classes = useStyles()
   const globalClasses = useGlobalTheme()
   const [email, setEmail] = useState<string>('')
@@ -34,37 +36,33 @@ const SignIn = () => {
     e.preventDefault()
 
     try {
-      setIsAuth(true)
+      setIsAuthLoading(true)
       const auth = await axiosInstance.post('/users/signIn', {
         email,
         password,
       })
       localStorage.setItem('token', auth.data)
-      try {
-        const user = await afterSelf(auth.data)
-        dispatch(
-          setUser({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            authUid: user.authUid,
-            email: user.email,
-            salary: user.salary,
-            userId: user.id,
-          }),
-        )
-      } catch (err) {
-        console.log(err)
-      }
-
+      const user = await afterSelf(auth.data)
+      dispatch(
+        setUser({
+          firstName: user.firstName,
+          lastName: user.lastName,
+          authUid: user.authUid,
+          email: user.email,
+          salary: user.salary,
+          userId: user.id,
+        }),
+      )
       if (auth.data) {
         navigate('/')
       }
-      setIsAuth(false)
+      setIsAuthLoading(false)
     } catch (err) {
-      setIsAuth(false)
+      setIsAuthLoading(false)
       setPassword('')
       setEmail('')
       setError(true)
+      axiosError(err as AxiosError)
     }
   }
 
@@ -73,7 +71,7 @@ const SignIn = () => {
       <Grid className="auth auth__grid" container>
         <Grid item lg={4} md={6} sm={12} xs={12}>
           <Paper className="auth__title ">
-            {!isAuth ? (
+            {!isAuthLoading ? (
               <>
                 <Box className="auth__title-text">
                   <Typography variant="h2" className={classes.authHeader}>
@@ -81,7 +79,6 @@ const SignIn = () => {
                   </Typography>
                   <Box>
                     <Typography className={classes.authText}>Already have an account?</Typography>
-
                     <Link to="/" className={classes.link}>
                       Sign up now
                     </Link>
