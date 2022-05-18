@@ -1,40 +1,60 @@
-import React  from "react";
-import "./App.css";
-import { Box } from "@mui/material";
-import { onAuthStateChanged } from "firebase/auth";
-import PublicRoutes from "./routes/PublicRoutes";
-import PrivateRouts from "./routes/PrivateRouts";
-import { auth } from "./data/firebase";
-import { useAppDispatch, useAppSelector } from "./redux/hooks";
-import { removeUser, setUser } from "./redux/user/userSlice";
-import { selectUserId } from "./redux/selectors";
-import {EventContextProvider} from "./pages/events/createEvents/EventsContext";
+import React, {useEffect, useState} from 'react'
+import {Box, CircularProgress} from '@mui/material'
+import PublicRoutes from './routes/PublicRoutes'
+import PrivateRouts from './routes/PrivateRouts'
+import {useAppDispatch, useAppSelector} from './redux/hooks'
+import {selectAuth} from './redux/selectors'
+import {EventContextProvider} from './pages/events/createEvents/EventsContext'
+import {setUser} from './redux/user/userSlice'
+import {afterSelf} from './utils/authUtils'
+import axiosError from './utils/axiosError'
+import {AxiosError} from 'axios'
 
 const App = () => {
   const dispatch = useAppDispatch()
-  const userId = useAppSelector(selectUserId)
+  const [isLoading, setIsLoading] = useState(false)
+  const isAuth = useAppSelector(selectAuth)
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
+  const data = async () => {
+    try {
+      setIsLoading(true)
+      const user = await afterSelf(localStorage.token)
       dispatch(
         setUser({
-          user: user.displayName,
-          uid: user.uid,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          authUid: user.authUid,
           email: user.email,
-          token: user.refreshToken,
+          salary: user.salary,
+          userId: user.id,
         }),
       )
-    } else {
-      dispatch(removeUser())
+      setIsLoading(false)
+    } catch (err) {
+      setIsLoading(false)
+      axiosError(err as AxiosError)
     }
-  })
+  }
+
+  useEffect(() => {
+    ;(async () => {
+      if (localStorage.getItem('token')) {
+        await data()
+      }
+    })()
+  }, [])
 
   return (
     <EventContextProvider>
-      <Box className="bg">{userId ? <PrivateRouts /> : <PublicRoutes />}</Box>
+      {!isLoading ? (
+        <Box className="bg">{isAuth ? <PrivateRouts /> : <PublicRoutes />}</Box>
+      ) : (
+        <Box className="circle">
+          <CircularProgress />
+        </Box>
+      )}
     </EventContextProvider>
-
-  );
+  )
 }
 
 export default App
