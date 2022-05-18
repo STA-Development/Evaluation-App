@@ -1,77 +1,62 @@
 import React, {useState} from 'react'
-import {DatePicker, LocalizationProvider} from '@mui/lab'
+import {DateRange, DateRangePicker, LocalizationProvider} from '@mui/lab'
+import {Box, TextField} from '@mui/material'
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
-import {Stack, TextField} from '@mui/material'
 
 const Calendar = () => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+  const [value, setValue] = useState<DateRange<Date>>([null, null])
+  console.log('value', value)
   return (
-    <div>
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <Stack spacing={4} sx={{width: '250px'}}>
-          <DatePicker
-            label={'Date Picker'}
-            renderInput={(params) => <TextField {...params} />}
-            value={selectedDate}
-            onChange={(newValue) => {
-              setSelectedDate(newValue)
-            }}
-          />
-        </Stack>
-      </LocalizationProvider>
-
-      {/*<Box style={{width: '500px'}}>*/}
-      {/*  <DateRangePicker*/}
-      {/*    startText={'Check-in'}*/}
-      {/*    endText={'Check-out'}*/}
-      {/*    value={value}*/}
-      {/*    onChange={(newValue: any) => {*/}
-      {/*      setValue(newValue)*/}
-      {/*    }}*/}
-      {/*    renderInput={(startProps: any, endProps: any) => (*/}
-      {/*      <>*/}
-      {/*        <TextField {...startProps} />*/}
-      {/*        <Box sx={{mx: 2}}>to</Box>*/}
-      {/*        <TextField {...endProps} />*/}
-      {/*      </>*/}
-      {/*    )}*/}
-      {/*  />*/}
-      {/*</Box>*/}
-
-      {/*<Box>*/}
-      {/*  <div>*/}
-      {/*    <div>*/}
-      {/*      <div>Start Date</div>*/}
-      {/*      <div>End Date</div>*/}
-      {/*    </div>*/}
-      {/*    <div>chose date 2022</div>*/}
-      {/*  </div>*/}
-      {/*  <div>*/}
-      {/*    <div>*/}
-      {/*      <Button>Hunvar</Button>*/}
-      {/*      <Button>Petrvar</Button>*/}
-      {/*    </div>*/}
-      {/*    <div>*/}
-      {/*      <TextField*/}
-      {/*        name="someDate"*/}
-      {/*        label="Some Date"*/}
-      {/*        InputLabelProps={{shrink: true, required: false}}*/}
-      {/*        type="datetime-local"*/}
-      {/*        defaultValue={values.someDate}*/}
-      {/*        autoFocus*/}
-      {/*      />*/}
-      {/*      <TextField*/}
-      {/*        name="someDate"*/}
-      {/*        label="Some Date"*/}
-      {/*        InputLabelProps={{shrink: true, required: true}}*/}
-      {/*        type="date"*/}
-      {/*        defaultValue={values.someDate}*/}
-      {/*      />*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</Box>*/}
-    </div>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <Box width="500px">
+        <DateRangePicker
+          startText="Check-in"
+          endText="Check-out"
+          value={value}
+          onChange={(newValue: any) => {
+            setValue(newValue)
+          }}
+          renderInput={(startProps: any, endProps: any) => (
+            <>
+              <TextField {...startProps} />
+              <Box sx={{mx: 2}}> to </Box>
+              <TextField {...endProps} />
+            </>
+          )}
+        />
+      </Box>
+    </LocalizationProvider>
   )
+
+  // <div>
+  //   <LocalizationProvider dateAdapter={AdapterDateFns}>
+  //     <Grid container spacing={3}>
+  //       <Grid item xs={12} md={6}>
+  //         <Box width="500px">
+  //           <DateRangePicker
+  //             startText="Check-in"
+  //             endText="Check-out"
+  //             value={value}
+  //             onChange={(newValue: any) => {
+  //               setValue(newValue)
+  //             }}
+  //             renderInput={(startProps: any, endProps: any) => (
+  //               <>
+  //                 <TextField {...startProps} />
+  //                 <Box sx={{mx: 2}}> to </Box>
+  //                 <TextField {...endProps} />
+  //               </>
+  //             )}
+  //           />
+  //         </Box>
+  //       </Grid>
+  //       <Grid item xs={12} md={6}></Grid>
+  //
+  //       <Grid item xs={12} md={6}></Grid>
+  //     </Grid>
+  //   </LocalizationProvider>
+  // </div>
+  //)
 }
 
 export default Calendar
