@@ -22,8 +22,8 @@ const CreateEventFirstPage = () => {
   const UseEventContext = () => useContext(EventContext)
   const {dispatch} = UseEventContext()
 
-  const [evaluatorsCount, setEvaluatorsCount] = useState<number>(0)
-  const [evaluateesCount, setEvaluateesCount] = useState<number>(0)
+  const [evaluatorsCount, setEvaluatorsCount] = useState<number | string>('')
+  const [evaluateesCount, setEvaluateesCount] = useState<number | string>('')
   const [eventTitle, setEventTitle] = useState<string>('')
   const [evaluatorsList, setEvaluatorsList] = useState<IEvaluator[]>([])
   const [evaluateesList, setEvaluateesList] = useState<IEvaluatee[]>([])
@@ -60,9 +60,10 @@ const CreateEventFirstPage = () => {
     position: 'Position',
     positionValue: '',
     date: 'Hire date',
-    dateValue: undefined,
+    dateValue: '2022-01-01',
     salary: 'Monthly Salary',
     salaryValue: '',
+    isEditable: false,
   })
 
   const navigateToCriteriasAndSendDataToContext = () => {
@@ -113,7 +114,7 @@ const CreateEventFirstPage = () => {
     renderEvaluatees(evaluateesCount)
   }
 
-  const renderEvaluators = (count: number) => {
+  const renderEvaluators = (count: number | string) => {
     evaluatorsList.forEach((el: IEvaluator) => {
       if (el.id === topManagerId) {
         setFoundTopManager(true)
@@ -144,7 +145,7 @@ const CreateEventFirstPage = () => {
     }
   }
 
-  const renderEvaluatees = (count: number) => {
+  const renderEvaluatees = (count: number | string) => {
     if (count > 0) {
       let tempArr: IEvaluatee[] = []
       for (let evaluatee = 1; evaluatee <= count; evaluatee++) {
@@ -185,6 +186,7 @@ const CreateEventFirstPage = () => {
         <TextField
           InputLabelProps={{style: {fontSize: 14}}}
           className={`${classes.eventTitleInput} textField-remove-border`}
+          InputProps={{inputProps: {min: 0, max: 10, className: classes.inputText}}}
           label="Event Title"
           variant="outlined"
           type="input"
@@ -206,6 +208,7 @@ const CreateEventFirstPage = () => {
                   fontSize: 14,
                 },
               }}
+              inputProps={{className: classes.inputText}}
               className={`${classes.evaluatorInput} textField-remove-border`}
               label="Number of evaluators"
               variant="outlined"
@@ -213,8 +216,16 @@ const CreateEventFirstPage = () => {
               type="number"
               fullWidth
               size="small"
+              value={evaluatorsCount}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setEvaluatorsCount(parseInt(e.target.value, 10))
+                let value: number = parseInt(e.target.value, 10)
+                if (value > 20) {
+                  value = 20
+                }
+                if (value < 1) {
+                  value = 1
+                }
+                setEvaluatorsCount(value)
               }}
             />
             <Button className={classes.addButton} type="submit" variant="contained" size="medium">
@@ -255,6 +266,7 @@ const CreateEventFirstPage = () => {
               </Box>
               <Box className={classes.evaluatorCardInputBox}>
                 <TextField
+                  inputProps={{className: classes.inputText}}
                   name={'nameValue'}
                   className={classes.evaluateeCardInput}
                   label={item.name}
@@ -267,6 +279,7 @@ const CreateEventFirstPage = () => {
                   }}
                 />
                 <TextField
+                  inputProps={{className: classes.inputText}}
                   name={'positionValue'}
                   className={classes.evaluateeCardInput}
                   label={item.position}
@@ -279,6 +292,7 @@ const CreateEventFirstPage = () => {
                   }}
                 />
                 <TextField
+                  inputProps={{className: classes.inputText}}
                   name={'emailValue'}
                   className={classes.evaluateeCardInput}
                   label={item.email}
@@ -302,6 +316,7 @@ const CreateEventFirstPage = () => {
           <FormGroup className={classes.addButtonBox}>
             <Box component="form" onSubmit={handleEvaluateesSubmit}>
               <TextField
+                inputProps={{className: classes.inputText}}
                 InputLabelProps={{style: {fontSize: 14}}}
                 className={`${classes.evaluatorInput} textField-remove-border`}
                 label="Number of evaluatees"
@@ -310,8 +325,16 @@ const CreateEventFirstPage = () => {
                 type="number"
                 fullWidth
                 size="small"
+                value={evaluateesCount}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setEvaluateesCount(parseInt(e.target.value, 10))
+                  let value: number = parseInt(e.target.value, 10)
+                  if (value > 20) {
+                    value = 20
+                  }
+                  if (value < 1) {
+                    value = 1
+                  }
+                  setEvaluateesCount(value)
                 }}
               />
               <Button className={classes.addButton} type="submit" variant="contained" size="medium">
@@ -342,6 +365,7 @@ const CreateEventFirstPage = () => {
                 </Box>
                 <Box className={classes.evaluatorCardInputBox}>
                   <TextField
+                    inputProps={{className: classes.inputText}}
                     name={'nameValue'}
                     className={classes.evaluateeCardInput}
                     label={item.name}
@@ -354,6 +378,7 @@ const CreateEventFirstPage = () => {
                     }}
                   />
                   <TextField
+                    inputProps={{className: classes.inputText}}
                     name={'positionValue'}
                     className={classes.evaluateeCardInput}
                     label={item.position}
@@ -366,10 +391,11 @@ const CreateEventFirstPage = () => {
                     }}
                   />
                   <TextField
+                    inputProps={{className: classes.inputText}}
                     name={'dateValue'}
                     label={item.date}
                     type="date"
-                    defaultValue="2022-04-21"
+                    // defaultValue="2022-04-21"
                     value={item.dateValue}
                     className={classes.evaluateeCardDateInput}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -377,6 +403,7 @@ const CreateEventFirstPage = () => {
                     }}
                   />
                   <TextField
+                    inputProps={{className: classes.inputText}}
                     name="salaryValue"
                     className={classes.evaluateeCardInput}
                     label={item.salary}

@@ -1,9 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react'
-import {Box, Grid, IconButton, InputBase, Paper, TextField, Typography} from '@mui/material'
+import {Box, Grid, IconButton, InputBase, Paper, Typography} from '@mui/material'
 import {IEvaluatee} from './TypesEvents'
-import DeleteIcon from '../../../assets/images/Icons/DeleteIcon'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
 import {EventContext} from './EventsContext'
+import DollarIcon from '../../../assets/images/Icons/DollarIcon'
+import EditIconCalculationCard from '../../../assets/images/Icons/EditIconCalculationCard'
 import PercentIcon from '../../../assets/images/Icons/PercentIcon'
 
 const EvaluateeBonusCalculationCard = () => {
@@ -17,6 +18,16 @@ const EvaluateeBonusCalculationCard = () => {
     setEvaluateesList(state.evaluatees)
   }, [])
 
+  const changeEditable = (id: string) => {
+    const newArray = evaluateesList.map((item: IEvaluatee) => {
+      if (item.id === id) {
+        return {...item, isEditable: true}
+      }
+      return item
+    })
+    setEvaluateesList(newArray)
+  }
+
   const onChangeEvaluateeData = (id: string, value: string, changingValue: string) => {
     const newArray = evaluateesList.map((item: IEvaluatee) => {
       if (item.id === id) {
@@ -28,73 +39,138 @@ const EvaluateeBonusCalculationCard = () => {
   }
 
   return (
-    <Box className={classes.evaluateesArr}>
-      <Grid container>
-        {evaluateesList.map((item: IEvaluatee) => (
-          <Paper key={item.id} className={`${classes.evaluatorCard} ${classes.evaluateeCard}`}>
-            <Box className={classes.evaluatorCardHeader}>
-              <Typography className={classes.evaluatorHeaderName}>{item.header}</Typography>
-              <IconButton
-                onClick={() => {
-                  // handleRemoveEvaluatee(item)
-                }}
-                aria-label="delete"
-              >
-                <DeleteIcon />
-              </IconButton>
-            </Box>
-            <Box className={classes.evaluatorCardInputBox}>
-              <TextField
-                name={'nameValue'}
-                className={classes.evaluateeCardInput}
-                value={item.nameValue}
-                variant="outlined"
-                size="small"
-                fullWidth
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  onChangeEvaluateeData(item.id, e.target.value, e.target.name)
-                }}
-              />
-              <TextField
-                name={'positionValue'}
-                className={classes.evaluateeCardInput}
-                value={item.positionValue}
-                variant="outlined"
-                size="small"
-                fullWidth
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  onChangeEvaluateeData(item.id, e.target.value, e.target.name)
-                }}
-              />
-              <TextField
-                name={'dateValue'}
-                type="date"
-                defaultValue="2022-04-21"
-                value={item.dateValue}
-                className={classes.evaluateeCardDateInput}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  onChangeEvaluateeData(item.id, e.target.value, e.target.name)
-                }}
-              />
-              <Box className={classes.criteriaPagePercentField}>
-                <Paper component="form" className={classes.evaluateeCardInput}>
-                  <InputBase
-                    type="number"
-                    className={classes.inputBase}
-                    placeholder="0"
-                    inputProps={{'aria-label': '0'}}
-                  />
-                  <IconButton
-                    disableRipple
-                    className={classes.percentageIconButton}
-                    aria-label="directions"
-                  >
-                    <PercentIcon />
-                  </IconButton>
-                </Paper>
+    <Box className={`${classes.criteriasPapersBox} ${classes.marginTop40}`}>
+      <Grid columnSpacing={2} rowSpacing={2} container>
+        {evaluateesList.map((item: IEvaluatee, index: number) => (
+          <Grid key={index} columns={3} item xs={4} className={classes.criteriasCalculationCard}>
+            <Paper
+              key={item.id}
+              className={`${classes.evaluatorCard} ${classes.evaluateeCalculationCard}`}
+            >
+              <Box className={classes.evaluatorCardHeader}>
+                <Typography className={classes.evaluatorHeaderName}>{item.header}</Typography>
+                <IconButton
+                  onClick={() => {
+                    changeEditable(item.id)
+                  }}
+                >
+                  <EditIconCalculationCard />
+                </IconButton>
               </Box>
-            </Box>
-          </Paper>
+              <Box className={classes.evaluatorCardInputBox}>
+                <Box className={classes.calculationPercentField}>
+                  <Paper component="div" className={classes.inputFieldPercentWide}>
+                    <InputBase
+                      disabled={!item.isEditable}
+                      inputProps={{className: classes.inputText}}
+                      name={'nameValue'}
+                      className={classes.inputBase}
+                      value={item.nameValue}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        onChangeEvaluateeData(item.id, e.target.value, e.target.name)
+                      }}
+                    />
+                  </Paper>
+                </Box>
+                <Box className={classes.calculationPercentField}>
+                  <Paper component="div" className={classes.inputFieldPercentWide}>
+                    <InputBase
+                      disabled={!item.isEditable}
+                      inputProps={{className: classes.inputText}}
+                      name={'positionValue'}
+                      className={classes.inputBase}
+                      value={item.positionValue}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        onChangeEvaluateeData(item.id, e.target.value, e.target.name)
+                      }}
+                    />
+                  </Paper>
+                </Box>
+                <Box className={classes.calculationPercentField}>
+                  <Paper component="div" className={classes.inputFieldPercentWide}>
+                    <InputBase
+                      disabled={!item.isEditable}
+                      inputProps={{className: classes.inputText}}
+                      name={'dateValue'}
+                      className={classes.inputBase}
+                      value={item.dateValue}
+                      type="date"
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        onChangeEvaluateeData(item.id, e.target.value, e.target.name)
+                      }}
+                    />
+                  </Paper>
+                </Box>
+                <Box className={classes.calculationPercentField}>
+                  <Paper component="div" className={classes.inputFieldPercentWide}>
+                    <InputBase
+                      disabled={!item.isEditable}
+                      name={'salaryValue'}
+                      type="number"
+                      className={classes.inputBase}
+                      placeholder="0"
+                      inputProps={{className: classes.inputText}}
+                      value={item.salaryValue}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        onChangeEvaluateeData(item.id, e.target.value, e.target.name)
+                      }}
+                    />
+                    <IconButton
+                      disableRipple
+                      className={classes.dollarIconButton}
+                      aria-label="directions"
+                    >
+                      <DollarIcon />
+                    </IconButton>
+                  </Paper>
+                </Box>
+                <Box className={classes.percentAndResultInputBox}>
+                  <Box className={classes.percentInputBox}>
+                    <Paper
+                      component="div"
+                      className={`${classes.inputFieldPercent} ${classes.width100}`}
+                    >
+                      <InputBase
+                        disabled={true}
+                        type="number"
+                        className={classes.inputBase}
+                        placeholder="0"
+                        inputProps={{className: classes.inputText}}
+                        value={state.bonusPercentage}
+                      />
+                      <IconButton
+                        disableRipple
+                        className={classes.dollarIconButton}
+                        aria-label="directions"
+                      >
+                        <PercentIcon />
+                      </IconButton>
+                    </Paper>
+                  </Box>
+                  <Typography className={classes.equalText}>=</Typography>
+                  <Box className={classes.calculationResultInputBox}>
+                    <Paper component="div" className={classes.inputFieldPercentWide}>
+                      <InputBase
+                        disabled={true}
+                        type="number"
+                        className={classes.inputBase}
+                        placeholder="0"
+                        inputProps={{className: classes.inputText}}
+                        value={(Number(item.salaryValue) * state.bonusPercentage) / 100}
+                      />
+                      <IconButton
+                        disableRipple
+                        className={classes.dollarIconButton}
+                        aria-label="directions"
+                      >
+                        <DollarIcon />
+                      </IconButton>
+                    </Paper>
+                  </Box>
+                </Box>
+              </Box>
+            </Paper>
+          </Grid>
         ))}
       </Grid>
     </Box>
