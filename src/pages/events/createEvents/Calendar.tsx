@@ -1,62 +1,28 @@
-import React, {useState} from 'react'
-import {DateRange, DateRangePicker, LocalizationProvider} from '@mui/lab'
-import {Box, TextField} from '@mui/material'
-import AdapterDateFns from '@mui/lab/AdapterDateFns'
+import * as React from 'react'
+import {DateRange} from '@mui/x-date-pickers-pro/DateRangePicker'
+import 'react-date-range/dist/styles.css' // main css file
+import {addDays} from 'date-fns'
 
-const Calendar = () => {
-  const [value, setValue] = useState<DateRange<Date>>([null, null])
-  console.log('value', value)
+import 'react-date-range/dist/theme/default.css' // theme css file
+import {DateRangePicker} from 'react-date-range'
+import {useState} from 'react'
+
+export default function StaticDateRangePickerDemo() {
+  const [value, setValue] = React.useState<DateRange<Date>>([null, null])
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: addDays(new Date(), 7),
+      key: 'selection',
+    },
+  ])
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Box width="500px">
-        <DateRangePicker
-          startText="Check-in"
-          endText="Check-out"
-          value={value}
-          onChange={(newValue: any) => {
-            setValue(newValue)
-          }}
-          renderInput={(startProps: any, endProps: any) => (
-            <>
-              <TextField {...startProps} />
-              <Box sx={{mx: 2}}> to </Box>
-              <TextField {...endProps} />
-            </>
-          )}
-        />
-      </Box>
-    </LocalizationProvider>
+    <DateRangePicker
+      onChange={(item) => setState([item.selection])}
+      moveRangeOnFirstSelection={false}
+      months={2}
+      ranges={state}
+      direction="horizontal"
+    />
   )
-
-  // <div>
-  //   <LocalizationProvider dateAdapter={AdapterDateFns}>
-  //     <Grid container spacing={3}>
-  //       <Grid item xs={12} md={6}>
-  //         <Box width="500px">
-  //           <DateRangePicker
-  //             startText="Check-in"
-  //             endText="Check-out"
-  //             value={value}
-  //             onChange={(newValue: any) => {
-  //               setValue(newValue)
-  //             }}
-  //             renderInput={(startProps: any, endProps: any) => (
-  //               <>
-  //                 <TextField {...startProps} />
-  //                 <Box sx={{mx: 2}}> to </Box>
-  //                 <TextField {...endProps} />
-  //               </>
-  //             )}
-  //           />
-  //         </Box>
-  //       </Grid>
-  //       <Grid item xs={12} md={6}></Grid>
-  //
-  //       <Grid item xs={12} md={6}></Grid>
-  //     </Grid>
-  //   </LocalizationProvider>
-  // </div>
-  //)
 }
-
-export default Calendar
