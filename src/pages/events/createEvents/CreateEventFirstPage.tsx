@@ -21,7 +21,7 @@ import moment from 'moment'
 const CreateEventFirstPage = () => {
   const classes = useCreateEventStyles()
   const UseEventContext = () => useContext(EventContext)
-  const {dispatch} = UseEventContext()
+  const {dispatchContext} = UseEventContext()
 
   const [evaluatorsCount, setEvaluatorsCount] = useState<number | string>('')
   const [evaluateesCount, setEvaluateesCount] = useState<number | string>('')
@@ -70,10 +70,10 @@ const CreateEventFirstPage = () => {
   })
 
   const navigateToCriteriasAndSendDataToContext = () => {
-    dispatch({type: createEventReducerTypes.eventTitle, eventTitle})
-    dispatch({type: createEventReducerTypes.evaluators, evaluators: evaluatorsList})
-    dispatch({type: createEventReducerTypes.evaluatees, evaluatees: evaluateesList})
-    dispatch({
+    dispatchContext({type: createEventReducerTypes.eventTitle, eventTitle})
+    dispatchContext({type: createEventReducerTypes.evaluators, evaluators: evaluatorsList})
+    dispatchContext({type: createEventReducerTypes.evaluatees, evaluatees: evaluateesList})
+    dispatchContext({
       type: createEventReducerTypes.updateActivePageToCriterias,
       activePage: 'criteriasPage',
     })
