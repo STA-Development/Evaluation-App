@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 import CreateEventHeader from './CreateEventHeader'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
-import Calendar from './Calendar'
+import Calendar from './Calendar.jsx'
 
 const AssignDates = () => {
   const classes = useCreateEventStyles()
