@@ -165,3 +165,9 @@
     cursor: pointer;
   }
 }
+
+.date-picker{
+  display: flex;
+  flex-direction: column;
+  width: 555px;
+}

@@ -693,3 +693,18 @@ summary {
 template {
   display: none;
 }
+
+.rdrDateDisplayWrapper{
+  background-color: #fff !important;
+  position: absolute;
+  left: 0;
+  right: 60%;
+  padding: 10px 0;
+}
+.rdrDefinedRangesWrapper{
+  margin-top: 70px;
+}
+
+.rdrDateRangePickerWrapper{
+  position: relative;
+}
