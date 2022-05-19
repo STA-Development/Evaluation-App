@@ -16,6 +16,7 @@ import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
 import {EventContext} from './EventsContext'
 import {v4 as uuidv4} from 'uuid'
 import {createEventReducerTypes} from '../../../types/createEventTypes'
+import moment from 'moment'
 
 const CreateEventFirstPage = () => {
   const classes = useCreateEventStyles()
@@ -52,6 +53,8 @@ const CreateEventFirstPage = () => {
     emailValue: '',
   })
 
+  const [todayDate] = useState<string>(moment().format('YYYY-MM-DD'))
+
   const [evaluateeObjInfo] = useState<IEvaluatee>({
     id: uuidv4(),
     header: '',
@@ -60,7 +63,7 @@ const CreateEventFirstPage = () => {
     position: 'Position',
     positionValue: '',
     date: 'Hire date',
-    dateValue: '2022-01-01',
+    dateValue: todayDate,
     salary: 'Monthly Salary',
     salaryValue: '',
     isEditable: false,
@@ -395,7 +398,6 @@ const CreateEventFirstPage = () => {
                     name={'dateValue'}
                     label={item.date}
                     type="date"
-                    // defaultValue="2022-04-21"
                     value={item.dateValue}
                     className={classes.evaluateeCardDateInput}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

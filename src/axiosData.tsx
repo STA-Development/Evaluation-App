@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const axiosData = axios.create({
-  baseURL: 'http://161.35.144.15:3030',
+  baseURL: process.env.REACT_APP_DATA_ENDPOINT,
 })
 
 export default axiosData
