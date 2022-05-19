@@ -44,7 +44,7 @@ import DollarIcon from '../../../assets/images/Icons/DollarIcon'
 
 const CriteriasPapers = () => {
   const UseEventContext = () => useContext(EventContext)
-  const {state, dispatch} = UseEventContext()
+  const {state, dispatchContext} = UseEventContext()
   const classes = useCreateEventStyles()
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -113,7 +113,7 @@ const CriteriasPapers = () => {
   }, [])
 
   const onBackButtonClick = () => {
-    dispatch({
+    dispatchContext({
       type: createEventReducerTypes.updateActivePageToCriterias,
       activePage: 'firstPage',
     })
@@ -166,15 +166,15 @@ const CriteriasPapers = () => {
   }
   const passBonusPercentage = (percentage: number) => {
     setBonusPercentage(percentage)
-    dispatch({
+    dispatchContext({
       type: createEventReducerTypes.bonusPercentage,
       bonusPercentage: percentage,
     })
   }
   const saveCriteraDataInGlobal = () => {
-    dispatch({type: createEventReducerTypes.ratingRange, ratingRange: ratingFinalValue})
-    dispatch({type: createEventReducerTypes.criterias, criterias: criteriaData})
-    dispatch({type: createEventReducerTypes.evaluatees, evaluatees: evaluateesList})
+    dispatchContext({type: createEventReducerTypes.ratingRange, ratingRange: ratingFinalValue})
+    dispatchContext({type: createEventReducerTypes.criterias, criterias: criteriaData})
+    dispatchContext({type: createEventReducerTypes.evaluatees, evaluatees: evaluateesList})
   }
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
   const [anchorElCriteria, setAnchorElCriteria] = React.useState<HTMLButtonElement | null>(null)
