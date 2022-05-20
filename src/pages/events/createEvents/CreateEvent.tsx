@@ -6,6 +6,7 @@ import {Box} from '@mui/material'
 import {EventContext} from './EventsContext'
 import CreateEventCriteria from './CreateEventCriteria'
 import {createEventPages} from '../../../types/createEventTypes'
+import AssignDates from './AssignDates'
 
 const CreateEvent: FC = () => {
   const classes = useCreateEventStyles()
@@ -18,6 +19,7 @@ const CreateEvent: FC = () => {
         <CreateEventHeader />
         {state.activePage === createEventPages.first && <CreateEventFirstPage />}
         {state.activePage === createEventPages.criterias && <CreateEventCriteria />}
+        {state.activePage === createEventPages.assignDate && <AssignDates />}
       </Box>
     </Box>
   )
