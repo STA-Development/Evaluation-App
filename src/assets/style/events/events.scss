@@ -170,4 +170,14 @@
   display: flex;
   flex-direction: column;
   width: 555px;
+  padding:$padding10  ;
+}
+.data-picker__days-and-buttons{
+  display: flex;
+  align-items: center;
+  background-color: $whiteColor;
+  padding: $paddingTopBottom10 $paddingLeftRight0 ;
+  border: $borderRight1 solid $lightGreyFrame;
+  border-radius: $borderRadius4;
+  margin-top:$marginTop5;
 }

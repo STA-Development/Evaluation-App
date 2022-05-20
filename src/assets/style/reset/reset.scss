@@ -695,16 +695,26 @@ template {
 }
 
 .rdrDateDisplayWrapper{
-  background-color: #fff !important;
+  background-color: $whiteColor !important;
   position: absolute;
-  left: 0;
-  right: 60%;
-  padding: 10px 0;
+  left: $posLeft0;
+  right: $posRightP64;
+  border: $borderRight1 solid #E0E4EA;
+  border-radius: $borderRadius4;
 }
 .rdrDefinedRangesWrapper{
-  margin-top: 70px;
+  margin-top: $marginTop60;
+  border: $borderRight1 solid #E0E4EA;
+  border-radius: $borderRadius4;
 }
 
 .rdrDateRangePickerWrapper{
   position: relative;
+}
+.rdrCalendarWrapper {
+  color: $blackColor;
+  font-size: $fontSize12;
+  border: $borderRight1 solid #E0E4EA;
+  border-radius: $borderRadius4;
+  margin-left: $marginLeft5;
 }

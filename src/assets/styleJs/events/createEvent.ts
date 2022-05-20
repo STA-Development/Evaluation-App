@@ -355,6 +355,19 @@ const useCreateEventStyles = makeStyles({
     width: '145px',
     height: '40px',
   },
+  selectDate: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: `${padding.paddingTopBottom10} ${padding.paddingLeftRight14}`,
+    width: '100%',
+    borderRadius: borderRedius.all4,
+    backgroundColor: color.whiteColor,
+  },
+  calendarDays: {
+    fontSize: font.fontSize16,
+    fontWeight: font.fontWeight400,
+  },
 })
 
 export default useCreateEventStyles
