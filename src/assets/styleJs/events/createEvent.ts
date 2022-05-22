@@ -368,6 +368,9 @@ const useCreateEventStyles = makeStyles({
     fontSize: font.fontSize16,
     fontWeight: font.fontWeight400,
   },
+  assignDatesFormLabel: {
+    paddingTop: padding.paddingTop8
+  }
 })
 
 export default useCreateEventStyles

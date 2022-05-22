@@ -12,7 +12,7 @@ import {
 } from '@mui/material'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
 import CalendarIcon from '../../../assets/images/Icons/CalendarIcon'
-import {DateRangePicker, DateRangeProps, DefinedRangeProps, Preview, Range} from 'react-date-range'
+import {DateRangePicker, DateRangeProps, DefinedRangeProps} from 'react-date-range'
 import {addDays} from 'date-fns'
 import moment from 'moment'
 import 'react-date-range/dist/styles.css' // main css file
@@ -21,16 +21,9 @@ import {createEventReducerTypes} from '../../../types/createEventTypes'
 import {EventContext} from './EventsContext'
 import assignDateInvitation from '../../../utils/assignDateInvitation'
 import {useNavigate} from 'react-router-dom'
+import {ISelectedDay} from "../../../types/selectedDays";
 
-interface ISelectedDay {
-  startDate: Date | undefined
-  endDate: Date | undefined
-  key: string
-  range?: (props?: DefinedRangeProps) => Preview
-  isSelected?: (range: Range) => boolean
-  label?: string | undefined
-  hasCustomRendering?: boolean | undefined
-}
+
 const AssignDates = () => {
   const classes = useCreateEventStyles()
   const UseEventContext = () => useContext(EventContext)
@@ -59,7 +52,7 @@ const AssignDates = () => {
     setIsApply(true)
     setAnchorEl(null)
   }
-  const handelCancle = () => {
+  const handelCancel = () => {
     setSelectedDay([
       {
         startDate: new Date(),
@@ -96,7 +89,7 @@ const AssignDates = () => {
           {isApply && diffInDays > 1 ? moment(startDay).format('MM-DD-yyyy') : 'Select Start '} /{' '}
           {isApply && diffInDays > 1 ? moment(endDay).format('MM-DD-yyyy') : ' End Date'}
           <IconButton color="primary" aria-label="upload picture" component="span">
-            <CalendarIcon />
+            <CalendarIcon/>
           </IconButton>
         </Typography>
 
@@ -117,22 +110,24 @@ const AssignDates = () => {
           <Box className="date-picker">
             <DateRangePicker
               onChange={(item: DateRangeProps | DefinedRangeProps | any) => {
-                setSelectedDay([item?.selection])
+                setSelectedDay([item.selection])
               }}
               moveRangeOnFirstSelection={false}
               months={2}
               ranges={selectedDay}
               direction="vertical"
+              preventSnapRefocus={true}
+              calendarFocus="backwards"
             />
 
-            <Box className="data-picker__days-and-buttons">
-              <Box style={{display: 'flex', justifyContent: 'center', width: '220px'}}>
+            <Box className="date-picker__days-and-buttons">
+              <Box className='date-picker__chose-days'>
                 <Typography component={'span'} className={classes.calendarDays}>
                   {diffInDays} days
                 </Typography>
               </Box>
-              <Box style={{width: '330px', display: 'flex', justifyContent: 'space-evenly'}}>
-                <Button variant={'outlined'} onClick={handelCancle}>
+              <Box className='date-picker__buttons'>
+                <Button variant={'outlined'} onClick={handelCancel}>
                   Clear dates
                 </Button>
                 <Button variant={'outlined'} onClick={handleApply}>
@@ -146,18 +141,18 @@ const AssignDates = () => {
       <Box>
         <FormControl>
           <Box className={classes.formBox}>
-            <label style={{paddingTop: '8px'}}>REPEAT:</label>
+            <label className={classes.assignDatesFormLabel}>REPEAT:</label>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="quarterly"
               name="radio-buttons-group"
               className={classes.radioGroup}
             >
-              <FormControlLabel value="never" control={<Radio />} label="Never" />
-              <FormControlLabel value="monthly" control={<Radio />} label="Monthly" />
-              <FormControlLabel value="quarterly" control={<Radio />} label="Quarterly" />
-              <FormControlLabel value="everySixMonths" control={<Radio />} label="Every 6 Months" />
-              <FormControlLabel value="annually" control={<Radio />} label="Annually" />
+              <FormControlLabel value="never" control={<Radio/>} label="Never"/>
+              <FormControlLabel value="monthly" control={<Radio/>} label="Monthly"/>
+              <FormControlLabel value="quarterly" control={<Radio/>} label="Quarterly"/>
+              <FormControlLabel value="everySixMonths" control={<Radio/>} label="Every 6 Months"/>
+              <FormControlLabel value="annually" control={<Radio/>} label="Annually"/>
             </RadioGroup>
           </Box>
           <Box className={classes.assignBtnGroup}>
