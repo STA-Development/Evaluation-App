@@ -12,7 +12,7 @@ import {
 } from '@mui/material'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
 import CalendarIcon from '../../../assets/images/Icons/CalendarIcon'
-import {DateRangePicker, DateRangeProps, DefinedRangeProps} from 'react-date-range'
+import {DateRangePicker} from 'react-date-range'
 import {addDays} from 'date-fns'
 import moment from 'moment'
 import 'react-date-range/dist/styles.css' // main css file
@@ -109,7 +109,7 @@ const AssignDates = () => {
         >
           <Box className="date-picker">
             <DateRangePicker
-              onChange={(item: DateRangeProps | DefinedRangeProps | any) => {
+              onChange={(item) => {
                 setSelectedDay([item.selection])
               }}
               moveRangeOnFirstSelection={false}
@@ -117,9 +117,7 @@ const AssignDates = () => {
               ranges={selectedDay}
               direction="vertical"
               preventSnapRefocus={true}
-              calendarFocus="backwards"
             />
-
             <Box className="date-picker__days-and-buttons">
               <Box className='date-picker__chose-days'>
                 <Typography component={'span'} className={classes.calendarDays}>
