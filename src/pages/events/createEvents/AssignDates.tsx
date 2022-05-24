@@ -83,9 +83,6 @@ const AssignDates = () => {
     }
   }
 
-  console.log(selectedRadio)
-  console.log(selectedDay)
-
   return (
     <Box className={classes.rootCreateEvent}>
       <Typography className={classes.criteriaHeaderText}>Assign Dates</Typography>
