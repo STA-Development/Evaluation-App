@@ -50,6 +50,64 @@ const useSubmissionsStyle = makeStyles({
     width: '400px',
     marginBottom: margin.marginBottom30,
   },
+  formControl200PX: {
+    width: '200px',
+    backgroundColor: color.whiteColor,
+  },
+  savedSubmissionRootBox: {
+
+  },
+
+  eachSelectText: {
+    fontSize: font.fontSize16,
+    fontWeight: font.fontWeight500,
+    marginBottom: margin.marginBottom5
+  },
+  savedSubmissionHeaderFirstRowBox: {
+    display: "flex",
+    justifyContent: 'space-between',
+    marginBottom: margin.marginBottom25
+  },
+  savedSubmissionHeaderSecondRowBox: {
+    display: "flex",
+    justifyContent: 'space-between',
+    width: '71%',
+    alignItems: 'flex-end',
+    marginBottom: margin.marginBottom50
+  },
+  nextButton: {
+    width: '146px',
+    height: '40px',
+    marginTop: margin.marginTop15,
+    backgroundColor: color.blueColor,
+    boxShadow: 'none',
+  },
+  backButton: {
+    width: '146px',
+    height: '40px',
+    marginTop: margin.marginTop15,
+    boxShadow: 'none',
+  },
+  getCertificateButton: {
+    width: '177px',
+    height: '40px',
+    boxShadow: 'none',
+    marginRight: margin.marginRight15
+  },
+  exportReportButton: {
+    width: '160px',
+    height: '40px',
+    boxShadow: 'none',
+  },
+  buttonText: {
+    fontWeight: font.fontWeight500,
+    fontSize: font.fontSize14,
+    color: color.closeButton
+  },
+  savedSubmissionsButtonBox: {
+
+  }
+
 })
 
 export default useSubmissionsStyle
