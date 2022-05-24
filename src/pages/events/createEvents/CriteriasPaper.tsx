@@ -35,6 +35,13 @@ const CriteriasPapers = () => {
     })
   }
 
+  const onNextButtonClick = () => {
+    dispatch({
+      type: createEventReducerTypes.updateActivePageToCriterias,
+      activePage: 'assignDatePage',
+    })
+  }
+
   const classes = useCreateEventStyles()
   const BpRadio = (props: RadioProps) => {
     return (
@@ -228,7 +235,13 @@ const CriteriasPapers = () => {
         >
           BACK
         </Button>
-        <Button className={classes.nextButton} type="submit" variant="contained" size="medium">
+        <Button
+          className={classes.nextButton}
+          type="submit"
+          variant="contained"
+          size="medium"
+          onClick={onNextButtonClick}
+        >
           NEXT
         </Button>
       </Box>

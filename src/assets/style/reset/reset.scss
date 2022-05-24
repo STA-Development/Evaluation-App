@@ -693,3 +693,28 @@ summary {
 template {
   display: none;
 }
+
+.rdrDateDisplayWrapper{
+  background-color: $whiteColor !important;
+  position: absolute;
+  left: $posLeft0;
+  right: $posRightP64;
+  border: $borderRight1 solid #E0E4EA;
+  border-radius: $borderRadius4;
+}
+.rdrDefinedRangesWrapper{
+  margin-top: $marginTop60;
+  border: $borderRight1 solid #E0E4EA;
+  border-radius: $borderRadius4;
+}
+
+.rdrDateRangePickerWrapper{
+  position: relative;
+}
+.rdrCalendarWrapper {
+  color: $blackColor;
+  font-size: $fontSize12;
+  border: $borderRight1 solid #E0E4EA;
+  border-radius: $borderRadius4;
+  margin-left: $marginLeft5;
+}

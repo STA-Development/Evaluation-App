@@ -107,6 +107,7 @@ export const padding = {
   paddingTop72: '72px',
   paddingTop30: '30px',
   paddingTop16: '16px',
+  paddingTop8: '8px',
   paddingLeft32: '32px',
   paddingLeft25: '25px',
   paddingLeft10: '10px',
