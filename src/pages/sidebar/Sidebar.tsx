@@ -37,6 +37,7 @@ const Sidebar = () => {
         navigate('/sign-in')
       }
     } catch (err) {
+      console.log(err, 'sidbar')
       axiosError(err as AxiosError)
     }
   }
