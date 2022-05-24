@@ -6,6 +6,11 @@ const useCreateEventStyles = makeStyles({
     height: '100%',
     padding: padding.padding30,
   },
+  outlinedBasic: {
+    '& input': {
+      padding: `${padding.padding0} ${padding.paddingLeftRight14}`,
+    },
+  },
 
   eventTitleBox: {
     display: 'flex',
@@ -30,6 +35,10 @@ const useCreateEventStyles = makeStyles({
   evaluateeCard: {
     height: '305px',
   },
+  evaluateeCalculationCard: {
+    height: '365px',
+    width: '100%',
+  },
   evaluatorCardInputBox: {
     display: 'flex',
     justifyContent: 'space-evenly',
@@ -44,6 +53,14 @@ const useCreateEventStyles = makeStyles({
     },
     width: '336px',
     height: '40px',
+  },
+  bonusCalculationInput: {
+    '& > div > input': {
+      padding: `${padding.paddingTopBottom10} ${padding.paddingLeftRight14}`,
+    },
+    width: '336px',
+    height: '40px',
+    border: 'none',
   },
 
   evaluatorCardHeader: {
@@ -126,6 +143,11 @@ const useCreateEventStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
   },
+  addRatingTextBox: {
+    width: '300px',
+    display: 'flex',
+    alignItems: 'center',
+  },
   checkbox: {
     color: color.blueColor,
     padding: 0,
@@ -201,6 +223,10 @@ const useCreateEventStyles = makeStyles({
     borderRadius: borderRedius.all4,
     width: '50%',
   },
+  criteriasCalculationCard: {
+    borderRadius: borderRedius.all4,
+    width: '50%',
+  },
   criteriaPaperBackground: {
     backgroundColor: color.whiteColor,
   },
@@ -208,9 +234,25 @@ const useCreateEventStyles = makeStyles({
     fontWeight: font.fontWeight500,
     fontSize: font.fontSize16,
   },
+  textW500S14: {
+    fontWeight: font.fontWeight500,
+    fontSize: font.fontSize14,
+  },
+  textW400S12: {
+    fontWeight: font.fontWeight400,
+    fontSize: font.fontSize12,
+  },
+
   criteriasPaperEachCriteriaText: {
     fontWeight: font.fontWeight400,
     fontSize: font.fontSize14,
+  },
+
+  subCriteriaPaperHeaderBox: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    padding: `${padding.paddingTopBottom5} ${padding.paddingLeftRight10}`,
+    borderBottom: `${border.border1} solid ${color.overViewBoxshadow}`,
   },
   criteriasPaperHeaderBox: {
     display: 'flex',
@@ -239,6 +281,10 @@ const useCreateEventStyles = makeStyles({
   criteriasPaperInfo: {
     display: 'block',
     padding: `${padding.paddingTopBottom15} ${padding.paddingLeftRight30}`,
+  },
+  subfilterPaperInfo: {
+    display: 'block',
+    padding: `${padding.padding0} ${padding.paddingLeftRight24}`,
   },
   criteriaPaperBottomBox: {
     display: 'flex',
@@ -286,7 +332,20 @@ const useCreateEventStyles = makeStyles({
     borderRadius: borderRedius.all4,
     width: '100%',
   },
-
+  subCriteriaPaper: {
+    borderRadius: borderRedius.all4,
+    width: '270px',
+  },
+  bluePlusIconBox: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    marginTop: margin.marginTop4,
+    marginRight: margin.marginRight25,
+    '& svg': {
+      width: '15px',
+      height: '15px',
+    },
+  },
   criteriaCalculateButton: {
     textTransform: 'none',
     color: color.blueColor,
@@ -304,9 +363,21 @@ const useCreateEventStyles = makeStyles({
     minHeight: '120px',
     paddingLeft: padding.paddingLeft32,
   },
-
+  percentInputBox: {
+    display: 'flex',
+    width: '27%',
+  },
+  calculationResultInputBox: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '64%',
+  },
+  calculationPercentField: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
   inputFieldPercent: {
-    width: '90px',
+    width: '100px',
     display: 'flex',
     alignItems: 'center',
     boxShadow: 'none',
@@ -314,9 +385,23 @@ const useCreateEventStyles = makeStyles({
     border: `${border.border1} solid ${color.percentageInputColor}`,
     borderRadius: borderRedius.all2,
   },
+  criteriaPagePercentFieldHeight: {
+    height: '34px',
+  },
+  inputFieldPercentWide: {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    boxShadow: 'none',
+    background: color.whiteColor,
+    border: `${border.border1} solid ${color.percentageInputColor}`,
+    borderRadius: borderRedius.all2,
+  },
   inputBase: {
+    width: '100%',
     '& input': {
-      textAlign: 'center',
+      padding: `${padding.paddingTopBottom10} ${padding.paddingLeftRight14}`,
     },
     marginLeft: margin.marginLeft6,
   },
@@ -324,6 +409,15 @@ const useCreateEventStyles = makeStyles({
     cursor: 'default',
     backgroundColor: color.percentageInputColor,
     borderRadius: borderRedius.all0,
+    width: '35px',
+    height: '100%',
+  },
+  dollarIconButton: {
+    cursor: 'default',
+    backgroundColor: color.percentageInputColor,
+    borderRadius: borderRedius.all0,
+    width: '35px',
+    height: '100%',
   },
   bottomButtonsBox: {
     marginTop: '30px',
@@ -331,7 +425,101 @@ const useCreateEventStyles = makeStyles({
     justifyContent: 'space-between',
     width: '340px',
   },
+  inputText: {
+    color: color.grayColor,
+    fontWeight: font.fontWeight400,
+    fontSize: font.fontSize14,
+  },
+  percentAndResultInputBox: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  equalText: {
+    paddingTop: padding.paddingTop5,
+    fontSize: font.fontSize24,
+    fontWeight: font.fontWeight400,
+    color: color.grayColor,
+  },
+  marginTop40: {
+    marginTop: margin.marginTop40,
+  },
+  width100: {
+    width: '100%',
+  },
+  noBorder: {
+    border: 'none',
+  },
+  addRatingInfoBox: {
+    marginBottom: margin.marginBottom10,
+    display: 'flex',
+    textAlign: 'center',
+    '& span:first-child': {
+      backgroundColor: 'transparent',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'relative',
+      marginRight: margin.marginRight15,
+      '& svg': {
+        position: 'absolute',
+        marginTop: margin.marginTop8,
+      },
+    },
+  },
+  addSubfilterBox: {
+    marginBottom: margin.marginBottom10,
+    display: 'block',
+    textAlign: 'center',
+    '& span:first-child': {
+      backgroundColor: 'transparent',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'relative',
+    },
+  },
+  addRatingPopUpButtonsBox: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+  addCriteriaPopUpButtonsBox: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
 
+  textField30px: {
+    display: 'inline-block',
+    width: '30px',
+    margin: `${margin.marginTop0} ${margin.marginLeftRight3}`,
+    '& input': {
+      textAlign: 'center',
+      padding: padding.padding0,
+      fontWeight: font.fontWeight400,
+      fontSize: font.fontSize12,
+    },
+  },
+  textFieldBold: {
+    display: 'inline-block',
+    width: '100%',
+    margin: `${margin.marginTop0} ${margin.marginLeftRight3}`,
+    '& input': {
+      fontWeight: font.fontWeight500,
+      fontSize: font.fontSize16,
+    },
+  },
+  displayFlex: {
+    display: 'flex',
+  },
+  addSubCriteriaPopUpButtonsBox: {
+    display: 'flex',
+    justifyContent: 'center',
+    paddingBottom: padding.paddingBottom10,
+  },
+  eachSubCriteria: {
+    display: 'flex',
+    maxHeight: '25px',
+    alignItems: 'center',
+  },
   dataPicker: {
     margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
   },
@@ -369,8 +557,8 @@ const useCreateEventStyles = makeStyles({
     fontWeight: font.fontWeight400,
   },
   assignDatesFormLabel: {
-    paddingTop: padding.paddingTop8
-  }
+    paddingTop: padding.paddingTop8,
+  },
 })
 
 export default useCreateEventStyles

@@ -10,7 +10,10 @@ const initialState: Event = {
   evaluators: [],
   evaluatees: [],
   criterias: [],
-  ratingRange: 0,
+  ratingRange: {
+    firstValue: 1,
+    lastValue: 10,
+  },
   bonusPercentage: 0,
   startDate: {},
   endDate: {},
@@ -19,10 +22,10 @@ const initialState: Event = {
 
 const initialEventContext: {
   state: Event
-  dispatch: React.Dispatch<Action>
+  dispatchContext: React.Dispatch<Action>
 } = {
   state: initialState,
-  dispatch: () => ({}),
+  dispatchContext: () => ({}),
 }
 
 export const EventContext = React.createContext(initialEventContext)
@@ -55,13 +58,13 @@ function eventReducer(state: Event, action: Action): Event {
 }
 
 export const EventContextProvider = ({children}: EventProviderProps) => {
-  const [state, dispatch] = useReducer(eventReducer, initialState)
+  const [state, dispatchContext] = useReducer(eventReducer, initialState)
 
   return (
     <EventContext.Provider
       value={{
         state,
-        dispatch,
+        dispatchContext,
       }}
     >
       {children}

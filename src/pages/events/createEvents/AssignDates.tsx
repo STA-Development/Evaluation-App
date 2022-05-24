@@ -26,7 +26,7 @@ const AssignDates = () => {
   const classes = useCreateEventStyles()
   const UseEventContext = () => useContext(EventContext)
   const navigate = useNavigate()
-  const {dispatch} = UseEventContext()
+  const {dispatchContext} = UseEventContext()
   const [isPublish] = useState<boolean>(true)
   const [isApply, setIsApply] = useState<boolean>(false)
   const [selectedRadio, setSelectedRadio] = useState<string>('')
@@ -69,7 +69,7 @@ const AssignDates = () => {
     setAnchorEl(null)
   }
   const onBackButtonClick = () => {
-    dispatch({
+    dispatchContext({
       type: createEventReducerTypes.updateActivePageToCriterias,
       activePage: 'criteriasPage',
     })
