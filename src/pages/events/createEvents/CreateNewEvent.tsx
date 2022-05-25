@@ -17,7 +17,7 @@ const CreateNewEvent = () => {
       type: createEventReducerTypes.updateActivePageToCriterias,
       activePage: 'firstPage',
     })
-    navigate('/events-create')
+    navigate('/events/create')
   }
   return (
     <Box className={classes.eventContent}>

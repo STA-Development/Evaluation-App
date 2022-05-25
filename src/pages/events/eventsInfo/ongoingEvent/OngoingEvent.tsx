@@ -1,16 +1,31 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom'
-import data from './ongoindEventData'
 import ProgressBar from 'react-customizable-progressbar'
 import {useGlobalTheme} from '../../../../assets/style/globalVariables'
 import useDashboardStyles from '../../../../assets/styleJs/dashboard/dashboard'
 import useEventsStyle from '../../../../assets/styleJs/events/events'
 import {Box, Button, Divider, Grid, Typography} from '@mui/material'
+import axiosData from '../../../../axiosData'
+import moment from 'moment'
+import {randomColor} from '../../../../utils/utils'
+import {IOngoingEvents} from '../../../../types/ongoingEvents'
 
 const OngoingEvent = () => {
   const eventClass = useEventsStyle()
   const globalClasses = useGlobalTheme()
   const classes = useDashboardStyles()
+  const [ongoingEvents, setOngoingEvents] = useState([])
+
+  useEffect(() => {
+    ;(async () => {
+      const ongoing = await axiosData.get('/events/ongoing', {
+        headers: {
+          accept: 'application/json',
+        },
+      })
+      setOngoingEvents(ongoing.data)
+    })()
+  }, [])
 
   return (
     <Box>
@@ -25,16 +40,16 @@ const OngoingEvent = () => {
         </NavLink>
       </Box>
       <Box className="ongoing-events__statistic">
-        {data.map((item) => (
+        {ongoingEvents.map((item: IOngoingEvents) => (
           <Box className="ongoing-events" key={item.id}>
             <Grid container>
               <Grid item md={6}>
                 <Box>
                   <ProgressBar
                     radius={40}
-                    progress={item.progress}
+                    progress={item.bonus}
                     strokeWidth={18}
-                    strokeColor={item.color}
+                    strokeColor={randomColor()}
                     strokeLinecap="square"
                     trackStrokeWidth={18}
                   />
@@ -43,7 +58,7 @@ const OngoingEvent = () => {
               <Grid item md={6}>
                 <Box className="ongoing-events__percent">
                   <Typography variant="h4" component="h4">
-                    {item.progress}%
+                    {item.bonus}%
                   </Typography>
                   <Typography>In Progress</Typography>
                 </Box>
@@ -52,20 +67,21 @@ const OngoingEvent = () => {
               <Divider className={eventClass.ongoingEventsDivider} />
               <Grid item md={12}>
                 <Box className="ongoing-events__quarterly">
-                  <Typography component="h5">{item.header}</Typography>
+                  <Typography component="h5">{item.title}</Typography>
+                  <Typography component="h5">{item.timePeriod}</Typography>
                   <Box className="ongoing-events__date">
                     <Grid container>
                       <Grid item md={6}>
                         <Typography> Start Date: </Typography>
                       </Grid>
                       <Grid item md={6}>
-                        <Typography> {item.dataStart}</Typography>
+                        <Typography> {moment(item.createdAt).format('MMM DD yyyy')}</Typography>
                       </Grid>
                       <Grid item md={6}>
                         <Typography> End Date: </Typography>
                       </Grid>
                       <Grid item md={6}>
-                        <Typography> {item.dataEnd}</Typography>
+                        <Typography> {moment(item.endsAt).format('MMM DD yyyy')}</Typography>
                       </Grid>
                     </Grid>
                   </Box>

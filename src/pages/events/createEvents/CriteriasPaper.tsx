@@ -175,6 +175,10 @@ const CriteriasPapers = () => {
     dispatchContext({type: createEventReducerTypes.ratingRange, ratingRange: ratingFinalValue})
     dispatchContext({type: createEventReducerTypes.criterias, criterias: criteriaData})
     dispatchContext({type: createEventReducerTypes.evaluatees, evaluatees: evaluateesList})
+    dispatchContext({
+      type: createEventReducerTypes.updateActivePageToCriterias,
+      activePage: 'criteriasPage',
+    })
   }
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
   const [anchorElCriteria, setAnchorElCriteria] = React.useState<HTMLButtonElement | null>(null)
