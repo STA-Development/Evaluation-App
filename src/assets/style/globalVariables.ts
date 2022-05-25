@@ -206,6 +206,8 @@ export const useGlobalTheme = makeStyles({
     fontSize: font.fontSize18,
     fontWeight: font.fontWeight400,
     color: color.navbarColor,
+    maxWidth: '425px',
+    minWidth: '120px',
     '&:hover': {
       textDecoration: 'none',
     },

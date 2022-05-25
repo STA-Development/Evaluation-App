@@ -28,7 +28,6 @@ const Sidebar = () => {
   const classes = useSliderStyle()
   const globalClasses = useGlobalTheme()
 
-
   const handleLogOut = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     try {
@@ -38,7 +37,6 @@ const Sidebar = () => {
         navigate('/sign-in')
       }
     } catch (err) {
-      console.log(err, 'sidbar')
       axiosError(err as AxiosError)
     }
   }
@@ -52,11 +50,7 @@ const Sidebar = () => {
           </Avatar>
           <Typography className={classes.nameSurname}>{`${firstName} ${lastName}`}</Typography>
           <NavLink className="text-decoration-none" to="events/create">
-            <Button
-              variant="contained"
-              size="large"
-              className={globalClasses.button}
-            >
+            <Button variant="contained" size="large" className={globalClasses.button}>
               CREATE EVENT
             </Button>
           </NavLink>
@@ -67,10 +61,7 @@ const Sidebar = () => {
               <NavLink
                 to={item.route}
                 key={item.id}
-                className={({isActive}) => (
-
-                    isActive ? 'link-active' : 'nav-link'
-                )}
+                className={({isActive}) => (isActive ? 'link-active' : 'nav-link')}
               >
                 <ListItem className={classes.listItem} button>
                   <Box className={classes.listItemContent}>
