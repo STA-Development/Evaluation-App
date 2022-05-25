@@ -10,14 +10,14 @@ const CreateNewEvent = () => {
   const classes = useEventsStyle()
   const navigate = useNavigate()
   const UseEventContext = () => useContext(EventContext)
-  const {dispatch} = UseEventContext()
+  const {dispatchContext} = UseEventContext()
 
   const onToCreatEventPage = () => {
-    dispatch({
+    dispatchContext({
       type: createEventReducerTypes.updateActivePageToCriterias,
       activePage: 'firstPage',
     })
-    navigate('/events-create')
+    navigate('/events/create')
   }
   return (
     <Box className={classes.eventContent}>
