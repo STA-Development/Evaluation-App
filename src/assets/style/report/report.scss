@@ -1,0 +1,17 @@
+.search-event {
+  margin-bottom: $marginBottom30;
+}
+
+.search-report {
+
+
+  &__select-Box {
+    width: 200px;
+    margin-bottom: $marginBottom20;
+  }
+}
+
+.report-btn {
+  display: flex;
+  justify-content: flex-end;
+}

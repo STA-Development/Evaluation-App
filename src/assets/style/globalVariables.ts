@@ -96,6 +96,7 @@ export const margin = {
   marginLeft6: '6px',
   marginLeft15: '15px',
   marginLeft30: '30px',
+  marginLeft40: '40px',
   marginLeftM36: '-36px',
 }
 
