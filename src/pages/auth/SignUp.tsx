@@ -18,9 +18,9 @@ import {useGlobalTheme} from '../../assets/style/globalVariables'
 import axiosInstance from '../../axiosInstance'
 import {afterSelf} from '../../utils/authUtils'
 import {useAppDispatch} from '../../redux/hooks'
-import {setUser} from '../../redux/user/userSlice'
 import axiosError from '../../utils/axiosError'
 import {AxiosError} from 'axios'
+import {setUser} from '../../redux/user/userSlice'
 
 const SignUp = () => {
   const dispatch = useAppDispatch()
@@ -68,7 +68,6 @@ const SignUp = () => {
             userId: user.id,
           }),
         )
-
         if (auth.data.accessToken) {
           navigate('/')
         }

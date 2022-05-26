@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import SearchByDataEvent from './SearchByDataEvent'
 import {Box} from '@mui/material'
+import PerformanceReportTable from './PerformanceReportTable'
 
 const PerformanceReport = () => {
   const [value, setValue] = useState<string>('')
@@ -29,6 +30,8 @@ const PerformanceReport = () => {
         evaluatorsPosition={evaluatorsPosition}
         setEvaluatorsPosition={setEvaluatorsPosition}
       />
+
+      <PerformanceReportTable />
     </Box>
   )
 }
