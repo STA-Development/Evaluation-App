@@ -56,8 +56,8 @@ const SignUp = () => {
           lastName,
           email,
         })
-        localStorage.setItem('token', auth.data)
-        const user = await afterSelf(auth.data)
+        localStorage.setItem('token', auth.data.accessToken)
+        const user = await afterSelf(auth.data.accessToken)
         dispatch(
           setUser({
             firstName: user.firstName,
@@ -69,7 +69,7 @@ const SignUp = () => {
           }),
         )
 
-        if (auth.data) {
+        if (auth.data.accessToken) {
           navigate('/')
         }
         setIsAuth(false)
