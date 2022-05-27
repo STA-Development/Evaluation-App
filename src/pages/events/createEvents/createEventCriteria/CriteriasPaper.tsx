@@ -4,10 +4,6 @@ import {
   Box,
   Button,
   CircularProgress,
-  Grid,
-  IconButton,
-  InputBase,
-  Paper,
   TextField,
   Typography,
 } from '@mui/material'
@@ -17,8 +13,6 @@ import {
   IratingScoreObj,
 } from '../TypesEvents'
 import {v4 as uuidv4} from 'uuid'
-
-import PercentIcon from '../../../../assets/images/Icons/PercentIcon'
 import {createEventReducerTypes} from '../../../../types/createEventTypes'
 import {EventContext} from '../EventsContext'
 import axiosData from '../../../../axiosData'
@@ -26,8 +20,6 @@ import {AxiosError, AxiosResponse} from 'axios'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
 import axiosError from '../../../../utils/axiosError'
-import EditIconCalculationCard from '../../../../assets/images/Icons/EditIconCalculationCard'
-import DollarIcon from '../../../../assets/images/Icons/DollarIcon'
 import CriteriaCard from "./CriteriaCard";
 import RatingScore from "./RatingScore";
 import BonusPercentage from "./BonusPercentage";
@@ -79,7 +71,6 @@ const CriteriasPapers = () => {
     getRatings()
   }, [])
 
-
   const onBackButtonClick = () => {
     dispatchContext({
       type: createEventReducerTypes.updateActivePageToCriterias,
@@ -91,6 +82,10 @@ const CriteriasPapers = () => {
     dispatchContext({type: createEventReducerTypes.ratingRange, ratingRange: ratingFinalValue})
     dispatchContext({type: createEventReducerTypes.criterias, criterias: criteriaData})
     dispatchContext({type: createEventReducerTypes.evaluatees, evaluatees: evaluateesList})
+    dispatchContext({
+      type: createEventReducerTypes.updateActivePageToCriterias,
+      activePage: 'assignDatePage',
+    })
   }
 
   const [openDialog, setOpenDialog] = React.useState(false)

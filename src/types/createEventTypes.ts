@@ -14,4 +14,5 @@ export enum createEventReducerTypes {
 export enum createEventPages {
   first = 'firstPage',
   criterias = 'criteriasPage',
+  assignDate = 'assignDatePage',
 }

@@ -21,12 +21,12 @@ import {AxiosError} from 'axios'
 
 const Sidebar = () => {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const userId = useAppSelector(selectAuthId)
   const firstName = useAppSelector(selectFirstName)
   const lastName = useAppSelector(selectLastName)
   const classes = useSliderStyle()
   const globalClasses = useGlobalTheme()
-  const navigate = useNavigate()
 
 
   const handleLogOut = (e: React.MouseEvent<HTMLElement>) => {
@@ -38,6 +38,7 @@ const Sidebar = () => {
         navigate('/sign-in')
       }
     } catch (err) {
+      console.log(err, 'sidbar')
       axiosError(err as AxiosError)
     }
   }
