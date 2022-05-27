@@ -1,7 +1,7 @@
 import React from 'react'
-import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
+import useCreateEventStyles from '../../../../assets/styleJs/events/createEvent'
 import {Box} from '@mui/material'
-import CriteriasPapers from './CriteriasPaper'
+import CriteriasPapers from '../createEventCriteria/CriteriasPaper'
 
 const CreateEventCriteria = () => {
   const classes = useCreateEventStyles()
@@ -9,7 +9,7 @@ const CreateEventCriteria = () => {
   return (
     <Box>
       <Box className={classes.infoRootBoxCriteria}>
-        <CriteriasPapers />
+        <CriteriasPapers/>
       </Box>
     </Box>
   )

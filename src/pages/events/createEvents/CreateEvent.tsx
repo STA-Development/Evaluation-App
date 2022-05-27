@@ -4,7 +4,7 @@ import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
 import CreateEventFirstPage from './CreateEventFirstPage'
 import {Box} from '@mui/material'
 import {EventContext} from './EventsContext'
-import CreateEventCriteria from './CreateEventCriteria'
+import CreateEventCriteria from '../createEvents/createEventCriteria/CreateEventCriteria'
 import {createEventPages} from '../../../types/createEventTypes'
 
 const CreateEvent: FC = () => {

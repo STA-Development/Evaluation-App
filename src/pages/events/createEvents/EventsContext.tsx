@@ -11,8 +11,10 @@ const initialState: Event = {
   evaluatees: [],
   criterias: [],
   ratingRange: {
-    firstValue: 1,
-    lastValue: 10,
+    from: 1,
+    to: 10,
+    isSelected: true,
+    id: Math.random()
   },
   bonusPercentage: 0,
   startDate: {},

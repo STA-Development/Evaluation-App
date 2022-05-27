@@ -23,15 +23,35 @@ export interface IcreateEventReducerTypes {
   status: string
 }
 
+export interface ICriteriaCardParams {
+  criteriaData: ICriteriaPaperInfo[]
+  setCriteriaData: (value: ICriteriaPaperInfo[]) => void
+}
+
+export interface IRatingScoreParams {
+  evaluateesList: IEvaluatee[]
+  ratingScoreArr: IratingScoreObj[]
+  setPercentageIsSet: (value: boolean) => void
+  setRatingFinalValue: (value: IratingScoreObj) => void
+  setRatingScoreArr: (value: IratingScoreObj[]) => void
+}
+
+export interface IBonusPercentageParams {
+  evaluateesList: IEvaluatee[]
+  percentageIsSet: boolean
+  setEvaluateesList: (value: IEvaluatee[]) => void
+}
+
 export interface IratingScoreObj {
-  values: RatingValues
-  text: string
-  id: string
+  from: number
+  to: number
+  id: number
+  isSelected: boolean
 }
 
 export interface RatingValues {
-  firstValue: number
-  lastValue: number
+  from: number
+  to: number
 }
 
 export interface IEvaluatee {
@@ -55,7 +75,7 @@ export interface Event {
   evaluators: IEvaluator[]
   evaluatees: IEvaluatee[]
   criterias: ICriteriaPaperInfo[]
-  ratingRange: RatingValues
+  ratingRange: IratingScoreObj
   bonusPercentage: number
   startDate: object
   endDate: object
@@ -67,7 +87,7 @@ export type Action =
   | {type: createEventReducerTypes.eventTitle; eventTitle: string}
   | {type: createEventReducerTypes.evaluatees; evaluatees: IEvaluatee[]}
   | {type: createEventReducerTypes.criterias; criterias: ICriteriaPaperInfo[]}
-  | {type: createEventReducerTypes.ratingRange; ratingRange: RatingValues}
+  | {type: createEventReducerTypes.ratingRange; ratingRange: IratingScoreObj}
   | {type: createEventReducerTypes.bonusPercentage; bonusPercentage: number}
   | {type: createEventReducerTypes.startDate; startDate: object}
   | {type: createEventReducerTypes.endDate; endDate: object}
