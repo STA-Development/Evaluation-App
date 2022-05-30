@@ -133,7 +133,7 @@ const SearchByDataEvent = ({
       </Box>
       <Box className="search-report">
         <FormGroup className={classes.searchSelect}>
-          <Box className="search-report__select-Box">
+          <Box className="search-report__select-box">
             <FormControl fullWidth>
               <InputLabel>Evoluation Criteria</InputLabel>
               <Select
@@ -148,7 +148,7 @@ const SearchByDataEvent = ({
               </Select>
             </FormControl>
           </Box>
-          <Box className="search-report__select-Box">
+          <Box className="search-report__select-box">
             {' '}
             <FormControl fullWidth>
               <InputLabel>Performer Type</InputLabel>
@@ -165,7 +165,7 @@ const SearchByDataEvent = ({
             </FormControl>
           </Box>
 
-          <Box className="search-report__select-Box">
+          <Box className="search-report__select-box">
             {' '}
             <FormControl fullWidth>
               <InputLabel>Evaluatee/s</InputLabel>
@@ -182,7 +182,7 @@ const SearchByDataEvent = ({
             </FormControl>
           </Box>
 
-          <Box className="search-report__select-Box">
+          <Box className="search-report__select-box">
             {' '}
             <FormControl fullWidth>
               <InputLabel>Evaluatee’s Position</InputLabel>
@@ -199,7 +199,7 @@ const SearchByDataEvent = ({
             </FormControl>
           </Box>
 
-          <Box className="search-report__select-Box">
+          <Box className="search-report__select-box">
             {' '}
             <FormControl fullWidth>
               <InputLabel>Evaluator/s</InputLabel>
@@ -216,7 +216,7 @@ const SearchByDataEvent = ({
             </FormControl>
           </Box>
 
-          <Box className="search-report__select-Box">
+          <Box className="search-report__select-box">
             {' '}
             <FormControl fullWidth>
               <InputLabel>Evaluator’s Position</InputLabel>

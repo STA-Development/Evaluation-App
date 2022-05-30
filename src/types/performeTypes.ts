@@ -5,7 +5,7 @@ export interface Data {
   eventTitle: string
   eventStartsAt: string
   criteria: string
-  criteriaScore: 0
+  criteriaScore: number
   performerType: string
   evaluatorFirstName: string
   evaluatorLastName: string

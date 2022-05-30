@@ -14,6 +14,7 @@ import {Data} from '../../../types/performeTypes'
 import {Order} from '../../../types/ongoingEventsType'
 import {getComparator} from '../../../utils/performUtils'
 import EnhancedTableHead from './EnhancedTableHead'
+import {Button} from '@mui/material'
 
 const rows = [
   {
@@ -43,10 +44,36 @@ const rows = [
     evaluateePosition: 'string',
   },
   {
-    eventTitle: 'bbstring',
+    eventTitle: 'bbs456tring',
     eventStartsAt: '2012-05-27T16:42:45.838Z',
     criteria: 'string',
-    criteriaScore: 12,
+    criteriaScore: 19,
+    performerType: 'Rock Star',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'string',
+    evaluateePosition: 'sdfsdfsdf ',
+  },
+  {
+    eventTitle: 'bbstrhgjghing',
+    eventStartsAt: '2012-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 17,
+    performerType: 'Rock Star',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'string',
+    evaluateePosition: 'sdfsdfsdf ',
+  },
+  {
+    eventTitle: 'bbsasdtring',
+    eventStartsAt: '2012-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 67,
     performerType: 'Rock Star',
     evaluatorFirstName: 'string',
     evaluatorLastName: 'string',
@@ -56,18 +83,6 @@ const rows = [
     evaluateePosition: 'sdfsdfsdf ',
   },
 ]
-
-// function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) {
-//   const stabilizedThis = array.map((el, index) => [el, index] as [T, number])
-//   stabilizedThis.sort((a, b) => {
-//     const order = comparator(a[0], b[0])
-//     if (order !== 0) {
-//       return order
-//     }
-//     return a[1] - b[1]
-//   })
-//   return stabilizedThis.map((el) => el[0])
-// }
 
 const PerformanceReportTable = () => {
   const [order, setOrder] = React.useState<Order>('asc')
@@ -84,7 +99,7 @@ const PerformanceReportTable = () => {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.eventTitle)
+      const newSelecteds = rows.map((n) => n.evaluatorLastName)
       setSelected(newSelecteds)
       return
     }
@@ -123,74 +138,85 @@ const PerformanceReportTable = () => {
   const isSelected = (name: string) => selected.indexOf(name) !== -1
 
   return (
-    <Box sx={{width: '100%'}}>
-      <Paper sx={{width: '100%', mb: 2}}>
-        <TableContainer>
-          <Table sx={{minWidth: 750}} aria-labelledby="tableTitle">
-            <EnhancedTableHead
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
-              onRequestSort={handleRequestSort}
-              rowCount={rows.length}
-            />
-            <TableBody>
-              {sortedRowInformation(rows, getComparator(order, orderBy))
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
-                  const isItemSelected = isSelected(row.eventTitle)
-                  const labelId = `enhanced-table-checkbox-${index}`
+    <Box>
+      <Box className="report-export-btn">
+        <Button variant="outlined" color="primary">
+          GET CERTIFICATE
+        </Button>
+        <Button variant="outlined" color="primary">
+          EXPORT REPORT
+        </Button>
+      </Box>
+      <Box className="report-table">
+        <Paper className="report-paper">
+          <TableContainer>
+            <Table aria-labelledby="tableTitle">
+              <EnhancedTableHead
+                numSelected={selected.length}
+                order={order}
+                orderBy={orderBy}
+                onSelectAllClick={handleSelectAllClick}
+                onRequestSort={handleRequestSort}
+                rowCount={rows.length}
+              />
+              <TableBody>
+                {sortedRowInformation(rows, getComparator(order, orderBy))
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => {
+                    const isItemSelected = isSelected(row.eventTitle)
+                    const labelId = `enhanced-table-checkbox-${index}`
 
-                  return (
-                    <TableRow
-                      hover
-                      onClick={(event) => handleClick(event, row.eventTitle)}
-                      role="checkbox"
-                      aria-checked={isItemSelected}
-                      tabIndex={-1}
-                      key={row.eventTitle}
-                      selected={isItemSelected}
-                    >
-                      <TableCell padding="checkbox">
-                        <Checkbox
-                          color="primary"
-                          checked={isItemSelected}
-                          inputProps={{
-                            'aria-labelledby': labelId,
-                          }}
-                        />
-                      </TableCell>
-                      <TableCell component="th" id={labelId} scope="row" padding="none">
-                        {row.eventTitle}
-                      </TableCell>
-                      <TableCell>{moment(row.eventStartsAt).format('MMM DD yyyy')}</TableCell>
-                      <TableCell>Work Performance - {row.criteriaScore}</TableCell>
-                      <TableCell>{row.performerType}</TableCell>
-                      <TableCell>
-                        {row.evaluatorFirstName} {row.evaluatorLastName}
-                      </TableCell>
-                      <TableCell>{row.evaluatorPosition}</TableCell>
-                      <TableCell>
-                        {row.evaluateeFirstName} {row.evaluateeLastName}
-                      </TableCell>
-                      <TableCell>{row.evaluateePosition}</TableCell>
-                    </TableRow>
-                  )
-                })}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Paper>
-      <TablePagination
-        rowsPerPageOptions={[5, 10, 25]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
+                    return (
+                      <TableRow
+                        hover
+                        onClick={(event) => handleClick(event, row.eventTitle)}
+                        role="checkbox"
+                        aria-checked={isItemSelected}
+                        tabIndex={-1}
+                        key={row.eventTitle}
+                        selected={isItemSelected}
+                        className="report-table-head__rows"
+                      >
+                        <TableCell padding="checkbox">
+                          <Checkbox
+                            color="primary"
+                            checked={isItemSelected}
+                            inputProps={{
+                              'aria-labelledby': labelId,
+                            }}
+                          />
+                        </TableCell>
+                        <TableCell component="th" id={labelId} scope="row" padding="none">
+                          {row.eventTitle}
+                        </TableCell>
+                        <TableCell>{moment(row.eventStartsAt).format('MMM DD yyyy')}</TableCell>
+                        <TableCell>Work Performance - {row.criteriaScore}</TableCell>
+                        <TableCell>{row.performerType}</TableCell>
+                        <TableCell>
+                          {row.evaluatorFirstName} {row.evaluatorLastName}
+                        </TableCell>
+                        <TableCell>{row.evaluatorPosition}</TableCell>
+                        <TableCell>
+                          {row.evaluateeFirstName} {row.evaluateeLastName}
+                        </TableCell>
+                        <TableCell>{row.evaluateePosition}</TableCell>
+                      </TableRow>
+                    )
+                  })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Box>
     </Box>
   )
 }

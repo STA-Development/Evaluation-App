@@ -29,6 +29,11 @@ const useReportsStyle = makeStyles({
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
+  sortableIcon: {
+    '& svg': {
+      display: 'none',
+    },
+  },
 })
 
 export default useReportsStyle
