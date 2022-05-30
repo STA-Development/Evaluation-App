@@ -16,10 +16,9 @@ import {v4 as uuidv4} from 'uuid'
 import {createEventReducerTypes} from '../../../../types/createEventTypes'
 import {EventContext} from '../EventsContext'
 import axiosData from '../../../../axiosData'
-import {AxiosError, AxiosResponse} from 'axios'
+import {AxiosResponse} from 'axios'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
-import axiosError from '../../../../utils/axiosError'
 import CriteriaCard from "./CriteriaCard";
 import RatingScore from "./RatingScore";
 import BonusPercentage from "./BonusPercentage";
@@ -53,7 +52,6 @@ const CriteriasPapers = () => {
         setIsLoading(false)
       } catch (err) {
         setIsLoading(false)
-        axiosError(err as AxiosError)
       }
     }
     const getRatings = async () => {
@@ -64,7 +62,6 @@ const CriteriasPapers = () => {
         setIsLoading(false)
       } catch (err) {
         setIsLoading(false)
-        axiosError(err as AxiosError)
       }
     }
     getCriterias()

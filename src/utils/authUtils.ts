@@ -10,6 +10,5 @@ const getHeaderConfig = (token: string) => {
 }
 
 export const afterSelf = async (token: string) => {
-  const authData = await axiosInstance.get('/users/me', getHeaderConfig(token))
-  return authData.data
+  return await axiosInstance.get('/users/me', getHeaderConfig(token))
 }

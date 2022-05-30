@@ -16,8 +16,6 @@ import {useAppDispatch, useAppSelector} from '../../redux/hooks'
 import {selectAuthId, selectFirstName, selectLastName} from '../../redux/selectors'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 import {removeUser} from '../../redux/user/userSlice'
-import axiosError from '../../utils/axiosError'
-import {AxiosError} from 'axios'
 
 const Sidebar = () => {
   const dispatch = useAppDispatch()
@@ -27,7 +25,6 @@ const Sidebar = () => {
   const lastName = useAppSelector(selectLastName)
   const classes = useSliderStyle()
   const globalClasses = useGlobalTheme()
-
 
   const handleLogOut = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
@@ -39,7 +36,6 @@ const Sidebar = () => {
       }
     } catch (err) {
       console.log(err, 'sidbar')
-      axiosError(err as AxiosError)
     }
   }
 
