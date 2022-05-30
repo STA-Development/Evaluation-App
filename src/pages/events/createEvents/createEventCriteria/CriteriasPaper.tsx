@@ -13,7 +13,7 @@ import {
   IratingScoreObj,
 } from '../TypesEvents'
 import {v4 as uuidv4} from 'uuid'
-import {createEventReducerTypes} from '../../../../types/createEventTypes'
+import {createEventPages, createEventReducerTypes} from '../../../../types/createEventTypes'
 import {EventContext} from '../EventsContext'
 import axiosData from '../../../../axiosData'
 import {AxiosResponse} from 'axios'
@@ -43,35 +43,25 @@ const CriteriasPapers = () => {
   const [ratingScoreArr, setRatingScoreArr] = useState<IratingScoreObj[]>([])
 
   useEffect(() => {
-    setEvaluateesList(state.evaluatees)
-    const getCriterias = async () => {
+    (async () => {
       try {
+        setEvaluateesList(state.evaluatees)
         setIsLoading(true)
-        const response: AxiosResponse = await axiosData.get('/criteria')
-        await setCriteriaData(response.data)
+        const responseCriteria: AxiosResponse = await axiosData.get('/criteria')
+        await setCriteriaData(responseCriteria.data)
+        const responseRating: AxiosResponse = await axiosData.get('/rating')
+        await setRatingScoreArr(responseRating.data)
         setIsLoading(false)
       } catch (err) {
         setIsLoading(false)
       }
-    }
-    const getRatings = async () => {
-      try {
-        setIsLoading(true)
-        const response: AxiosResponse = await axiosData.get('/rating')
-        await setRatingScoreArr(response.data)
-        setIsLoading(false)
-      } catch (err) {
-        setIsLoading(false)
-      }
-    }
-    getCriterias()
-    getRatings()
+    })()
   }, [])
 
   const onBackButtonClick = () => {
     dispatchContext({
       type: createEventReducerTypes.updateActivePageToCriterias,
-      activePage: 'firstPage',
+      activePage: createEventPages.first,
     })
   }
 
@@ -81,7 +71,7 @@ const CriteriasPapers = () => {
     dispatchContext({type: createEventReducerTypes.evaluatees, evaluatees: evaluateesList})
     dispatchContext({
       type: createEventReducerTypes.updateActivePageToCriterias,
-      activePage: 'assignDatePage',
+      activePage: createEventPages.assignDate,
     })
   }
 

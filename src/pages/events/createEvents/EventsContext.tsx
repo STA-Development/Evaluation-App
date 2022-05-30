@@ -1,10 +1,10 @@
 import React, {useReducer} from 'react'
 import {v4 as uuidv4} from 'uuid'
 import {Action, Event, EventProviderProps} from './TypesEvents'
-import {createEventReducerTypes} from '../../../types/createEventTypes'
+import {createEventPages, createEventReducerTypes} from '../../../types/createEventTypes'
 
 const initialState: Event = {
-  activePage: 'firstPage',
+  activePage: createEventPages.first,
   id: uuidv4(),
   eventTitle: '',
   evaluators: [],

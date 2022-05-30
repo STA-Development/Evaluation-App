@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import {Box, Button, Typography} from '@mui/material'
 import useEventsStyle from '../../../assets/styleJs/events/events'
 import EventsPageIcon from '../../../assets/images/Icons/EventsPageIcon'
-import {createEventReducerTypes} from '../../../types/createEventTypes'
+import {createEventPages, createEventReducerTypes} from '../../../types/createEventTypes'
 import {EventContext} from './EventsContext'
 import {useNavigate} from 'react-router-dom'
 
@@ -15,7 +15,7 @@ const CreateNewEvent = () => {
   const onToCreatEventPage = () => {
     dispatchContext({
       type: createEventReducerTypes.updateActivePageToCriterias,
-      activePage: 'firstPage',
+      activePage: createEventPages.first,
     })
     navigate('/events/create')
   }

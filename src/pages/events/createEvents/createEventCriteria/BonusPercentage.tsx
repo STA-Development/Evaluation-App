@@ -13,17 +13,7 @@ const BonusPercentage = (params: IBonusPercentageParams) => {
   const classes = useCreateEventStyles()
   const {state} = UseEventContext()
 
-  const changeEditable = (id: string) => {
-    const newArray = params.evaluateesList.map((item: IEvaluatee) => {
-      if (item.id === id) {
-        return {...item, isEditable: true}
-      }
-      return item
-    })
-    params.setEvaluateesList(newArray)
-  }
-
-  const onChangeEvaluateeData = (id: string, value: string, changingValue: string) => {
+  const onChangeEvaluateeData = (id: string, value: string | boolean, changingValue: string) => {
     const newArray = params.evaluateesList.map((item: IEvaluatee) => {
       if (item.id === id) {
         return {...item, [changingValue]: value}
@@ -56,7 +46,7 @@ const BonusPercentage = (params: IBonusPercentageParams) => {
                   </Typography>
                   <IconButton
                     onClick={() => {
-                      changeEditable(item.id)
+                      onChangeEvaluateeData(item.id, true, 'isEditable')
                     }}
                   >
                     <EditIconCalculationCard />

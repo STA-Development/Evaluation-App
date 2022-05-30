@@ -16,7 +16,7 @@ import {DateRangePicker} from 'react-date-range'
 import moment from 'moment'
 import 'react-date-range/dist/styles.css' // main css file
 import 'react-date-range/dist/theme/default.css'
-import {createEventReducerTypes} from '../../../types/createEventTypes'
+import {createEventPages, createEventReducerTypes} from '../../../types/createEventTypes'
 import {EventContext} from './EventsContext'
 import assignDateInvitation from '../../../utils/assignDateInvitation'
 import {useNavigate} from 'react-router-dom'
@@ -71,7 +71,7 @@ const AssignDates = () => {
   const onBackButtonClick = () => {
     dispatchContext({
       type: createEventReducerTypes.updateActivePageToCriterias,
-      activePage: 'criteriasPage',
+      activePage: createEventPages.criterias,
     })
   }
   const handlePublish = () => {

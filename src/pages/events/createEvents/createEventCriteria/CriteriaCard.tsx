@@ -45,9 +45,7 @@ const CriteriaCard = (params: ICriteriaCardParams) => {
         const newCriteriaObj = {...oneCriteria, subCriteria: [...newArr]}
         if (id === oneCriteria.id) {
           return newCriteriaObj
-        } else {
-          return oneCriteria
-        }
+        } return oneCriteria
       })
       params.setCriteriaData(newArrRoot)
       setOpenedSubCriterias([])
@@ -72,7 +70,7 @@ const CriteriaCard = (params: ICriteriaCardParams) => {
       let data: ISubCriteria[] = []
       if (foundCriteria !== undefined && foundCriteria.subCriteria.length) {
         data = foundCriteria.subCriteria
-        await setOpenedSubCriterias(data)
+        setOpenedSubCriterias(data)
       }
     }
     setOpenedCriteriaId(id)
@@ -105,7 +103,7 @@ const CriteriaCard = (params: ICriteriaCardParams) => {
 
 
   return (
-<Box>
+  <Box>
     <Grid columnSpacing={2} rowSpacing={2} container>
       {params.criteriaData?.map((item: ICriteriaPaperInfo, index: number) => (
         <Grid key={index} columns={2} item xs={6} className={classes.criteriasPaper}>
@@ -119,9 +117,7 @@ const CriteriaCard = (params: ICriteriaCardParams) => {
                     const newArr = params.criteriaData.map((newItem: ICriteriaPaperInfo) => {
                       if (newItem.id === newObj.id) {
                         return newObj
-                      } else {
-                        return newItem
-                      }
+                      } return newItem
                     })
                     params.setCriteriaData(newArr)
                   }}
@@ -154,18 +150,14 @@ const CriteriaCard = (params: ICriteriaCardParams) => {
                         (newItem: ISubCriteria) => {
                           if (newItem.id === newObj.id) {
                             return newObj
-                          } else {
-                            return newItem
-                          }
+                          } return newItem
                         },
                       )
                       const bigObj = {...item, subCriteria: newArrSubcriteria}
-                      const newBigArr = params.criteriaData.map((a: ICriteriaPaperInfo) => {
-                        if (bigObj.id === a.id) {
+                      const newBigArr = params.criteriaData.map((bigItem: ICriteriaPaperInfo) => {
+                        if (bigObj.id === bigItem.id) {
                           return bigObj
-                        } else {
-                          return a
-                        }
+                        } return bigItem
                       })
                       params.setCriteriaData(newBigArr)
                     }}
@@ -184,126 +176,122 @@ const CriteriaCard = (params: ICriteriaCardParams) => {
         </Grid>
       ))}
     </Grid>
-  <Popover
-    id={idCriteria}
-    open={openCriteria}
-    anchorEl={anchorElCriteria}
-    anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'left',
-    }}
-  >
-    <Box className={classes.subCriteriaPaper}>
-      <Box className={classes.criteriaPaperBackground}>
-        <Box className={classes.subCriteriaPaperHeaderBox}>
-          <Box className={classes.addRatingTextBox}>
-            <Typography className={classes.textW500S14}>Add New Subfilter</Typography>
+    <Popover
+      id={idCriteria}
+      open={openCriteria}
+      anchorEl={anchorElCriteria}
+      anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'left',
+      }}
+    >
+      <Box className={classes.subCriteriaPaper}>
+        <Box className={classes.criteriaPaperBackground}>
+          <Box className={classes.subCriteriaPaperHeaderBox}>
+            <Box className={classes.addRatingTextBox}>
+              <Typography className={classes.textW500S14}>Add New Subfilter</Typography>
+            </Box>
           </Box>
-        </Box>
-        <Box className={classes.bluePlusIconBox}>
-          <IconButton
-            onClick={() => {
-              addOneSubCriteria(newSubFilters)
-            }}
-          >
-            <PlusIconBlue />
-          </IconButton>
-        </Box>
-        <Box className={classes.subfilterPaperInfo}>
-          {openedSubCriterias.map((subCriteria: ISubCriteria, indexSub: number) => (
-            <Box key={indexSub} className={classes.eachSubCriteria}>
-              <Box className={classes.eachCriteria} key={indexSub}>
-                <Checkbox
-                  className={classes.checkbox}
-                  defaultChecked
-                  icon={<UnCheckedIcon />}
-                  checkedIcon={<CheckedIcon />}
-                />
-                <TextField
-                  onChange={(e) => {
-                    const tempObj = {...subCriteria, name: e.target.value}
-                    const newArr = openedSubCriterias.map((item: ISubCriteria) => {
-                      if (item.id === tempObj.id) {
-                        return tempObj
-                      } else {
-                        return item
-                      }
-                    })
-                    setOpenedSubCriterias(newArr)
-                  }}
-                  InputProps={{
-                    classes: {notchedOutline: classes.noBorder},
-                  }}
-                  value={subCriteria.name}
-                  className={classes.outlinedBasic}
-                  placeholder="Subfilter name"
-                  variant="outlined"
-                />
-              </Box>
-            </Box>
-          ))}
-          {newSubFilters.map((newSubFilter: ISubCriteria, indexSubFilter: number) => (
-            <Box key={indexSubFilter} className={classes.eachSubCriteria}>
-              <Box className={classes.eachCriteria} key={indexSubFilter}>
-                <Checkbox
-                  className={classes.checkbox}
-                  defaultChecked
-                  icon={<UnCheckedIcon />}
-                  checkedIcon={<CheckedIcon />}
-                />
-                <TextField
-                  onChange={(e) => {
-                    const tempObj = {...newSubFilter, name: e.target.value}
-                    const newArr = newSubFilters.map((item: ISubCriteria) => {
-                      if (item.id === tempObj.id) {
-                        return tempObj
-                      } else {
-                        return item
-                      }
-                    })
-                    setNewSubFilters(newArr)
-                  }}
-                  InputProps={{
-                    classes: {notchedOutline: classes.noBorder},
-                  }}
-                  value={newSubFilter.name}
-                  className={classes.outlinedBasic}
-                  placeholder="Subfilter name"
-                  variant="outlined"
-                />
-              </Box>
-            </Box>
-          ))}
-          <Box className={classes.addSubCriteriaPopUpButtonsBox}>
-            <Button
-              onClick={handleCloseCriteria}
-              className={classes.criteriaAddButton}
-              variant="text"
-              disableRipple
-            >
-              <Typography className={classes.criteriasAddButtonText}>Cancel</Typography>
-            </Button>
-            <Button
+          <Box className={classes.bluePlusIconBox}>
+            <IconButton
               onClick={() => {
-                addNewSubfilters(
-                  newSubFilters,
-                  openedSubCriterias,
-                  openedCriteriaId,
-                  params.criteriaData,
-                )
+                addOneSubCriteria(newSubFilters)
               }}
-              className={classes.criteriaAddButton}
-              variant="text"
-              disableRipple
             >
-              <Typography className={classes.criteriasAddButtonText}>Apply</Typography>
-            </Button>
+              <PlusIconBlue />
+            </IconButton>
+          </Box>
+          <Box className={classes.subfilterPaperInfo}>
+            {openedSubCriterias.map((subCriteria: ISubCriteria, indexSub: number) => (
+              <Box key={indexSub} className={classes.eachSubCriteria}>
+                <Box className={classes.eachCriteria} key={indexSub}>
+                  <Checkbox
+                    className={classes.checkbox}
+                    defaultChecked
+                    icon={<UnCheckedIcon />}
+                    checkedIcon={<CheckedIcon />}
+                  />
+                  <TextField
+                    onChange={(e) => {
+                      const tempObj = {...subCriteria, name: e.target.value}
+                      const newArr = openedSubCriterias.map((item: ISubCriteria) => {
+                        if (item.id === tempObj.id) {
+                          return tempObj
+                        } return item
+                      })
+                      setOpenedSubCriterias(newArr)
+                    }}
+                    InputProps={{
+                      classes: {notchedOutline: classes.noBorder},
+                    }}
+                    value={subCriteria.name}
+                    className={classes.outlinedBasic}
+                    placeholder="Subfilter name"
+                    variant="outlined"
+                  />
+                </Box>
+              </Box>
+            ))}
+            {newSubFilters.map((newSubFilter: ISubCriteria, indexSubFilter: number) => (
+              <Box key={indexSubFilter} className={classes.eachSubCriteria}>
+                <Box className={classes.eachCriteria} key={indexSubFilter}>
+                  <Checkbox
+                    className={classes.checkbox}
+                    defaultChecked
+                    icon={<UnCheckedIcon />}
+                    checkedIcon={<CheckedIcon />}
+                  />
+                  <TextField
+                    onChange={(e) => {
+                      const tempObj = {...newSubFilter, name: e.target.value}
+                      const newArr = newSubFilters.map((item: ISubCriteria) => {
+                        if (item.id === tempObj.id) {
+                          return tempObj
+                        } return item
+                      })
+                      setNewSubFilters(newArr)
+                    }}
+                    InputProps={{
+                      classes: {notchedOutline: classes.noBorder},
+                    }}
+                    value={newSubFilter.name}
+                    className={classes.outlinedBasic}
+                    placeholder="Subfilter name"
+                    variant="outlined"
+                  />
+                </Box>
+              </Box>
+            ))}
+            <Box className={classes.addSubCriteriaPopUpButtonsBox}>
+              <Button
+                onClick={handleCloseCriteria}
+                className={classes.criteriaAddButton}
+                variant="text"
+                disableRipple
+              >
+                <Typography className={classes.criteriasAddButtonText}>Cancel</Typography>
+              </Button>
+              <Button
+                onClick={() => {
+                  addNewSubfilters(
+                    newSubFilters,
+                    openedSubCriterias,
+                    openedCriteriaId,
+                    params.criteriaData,
+                  )
+                }}
+                className={classes.criteriaAddButton}
+                variant="text"
+                disableRipple
+              >
+                <Typography className={classes.criteriasAddButtonText}>Apply</Typography>
+              </Button>
+            </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
-  </Popover>
-</Box>
+    </Popover>
+  </Box>
 
 
   );
