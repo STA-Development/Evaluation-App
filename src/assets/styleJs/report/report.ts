@@ -34,6 +34,13 @@ const useReportsStyle = makeStyles({
       display: 'none',
     },
   },
+  roundColor: {
+    width: '12px',
+    height: '12px',
+    borderRadius: borderRedius.all50,
+    display: ' inline-block',
+    marginLeft: margin.marginLeft6,
+  },
 })
 
 export default useReportsStyle

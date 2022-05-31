@@ -1,9 +1,11 @@
 import React from 'react'
+import {Box} from '@mui/material'
+import AddEmployee from './AddEmployee'
 
 const ComparativeReport = () => (
-  <div>
-    <h2>ComparativeReport</h2>
-  </div>
+  <Box>
+    <AddEmployee />
+  </Box>
 )
 
 export default ComparativeReport

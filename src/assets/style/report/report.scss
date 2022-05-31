@@ -67,15 +67,58 @@
     tr:nth-child(even){
       background-color: $tableEvenColor;
       &:hover{
-        background-color:  $tableEvenColor ;
+        background-color:  $employeeHover;
       }
     }
   }
 }
-.report-header{
+  .report-header{
   border-right: $borderRight1 solid $tableBorderColor;
   border-bottom-color: transparent;
   border-top-color: transparent;
   color: $navbarColor;
   padding: $paddingTopBottom20 $paddingLeftRight10;
+}
+
+.employee-report{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: $marginBottom30;;
+}
+
+.employ-paper{
+  width: 271px;
+  height: 155px;
+  padding: $padding10;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: $marginBottom30;
+  margin-right: $marginRight16;
+
+  &__employee-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__form{
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+}
+
+.employee-btn{
+  width: 340px;
+  display: flex;
+  justify-content: space-between;
+  height: 42px;
+  button:nth-child(1){
+    width: 176px;
+  }
+  button:nth-child(2){
+    width: 146px;
+  }
 }
