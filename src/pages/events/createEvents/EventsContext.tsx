@@ -1,16 +1,21 @@
 import React, {useReducer} from 'react'
 import {v4 as uuidv4} from 'uuid'
 import {Action, Event, EventProviderProps} from './TypesEvents'
-import {createEventReducerTypes} from '../../../types/createEventTypes'
+import {createEventPages, createEventReducerTypes} from '../../../types/createEventTypes'
 
 const initialState: Event = {
-  activePage: 'firstPage',
+  activePage: createEventPages.first,
   id: uuidv4(),
   eventTitle: '',
   evaluators: [],
   evaluatees: [],
   criterias: [],
-  ratingRange: 0,
+  ratingRange: {
+    from: 1,
+    to: 10,
+    isSelected: true,
+    id: Math.random()
+  },
   bonusPercentage: 0,
   startDate: {},
   endDate: {},
@@ -19,10 +24,10 @@ const initialState: Event = {
 
 const initialEventContext: {
   state: Event
-  dispatch: React.Dispatch<Action>
+  dispatchContext: React.Dispatch<Action>
 } = {
   state: initialState,
-  dispatch: () => ({}),
+  dispatchContext: () => ({}),
 }
 
 export const EventContext = React.createContext(initialEventContext)
@@ -55,13 +60,13 @@ function eventReducer(state: Event, action: Action): Event {
 }
 
 export const EventContextProvider = ({children}: EventProviderProps) => {
-  const [state, dispatch] = useReducer(eventReducer, initialState)
+  const [state, dispatchContext] = useReducer(eventReducer, initialState)
 
   return (
     <EventContext.Provider
       value={{
         state,
-        dispatch,
+        dispatchContext,
       }}
     >
       {children}

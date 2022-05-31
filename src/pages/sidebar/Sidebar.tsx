@@ -16,8 +16,6 @@ import {useAppDispatch, useAppSelector} from '../../redux/hooks'
 import {selectAuthId, selectFirstName, selectLastName} from '../../redux/selectors'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 import {removeUser} from '../../redux/user/userSlice'
-import axiosError from '../../utils/axiosError'
-import {AxiosError} from 'axios'
 
 const Sidebar = () => {
   const dispatch = useAppDispatch()
@@ -38,7 +36,6 @@ const Sidebar = () => {
       }
     } catch (err) {
       console.log(err, 'sidbar')
-      axiosError(err as AxiosError)
     }
   }
 
@@ -50,8 +47,12 @@ const Sidebar = () => {
             <AvatarIcon />
           </Avatar>
           <Typography className={classes.nameSurname}>{`${firstName} ${lastName}`}</Typography>
-          <NavLink className="text-decoration-none" to="events-create">
-            <Button variant="contained" size="large" className={globalClasses.button}>
+          <NavLink className="text-decoration-none" to="events/create">
+            <Button
+              variant="contained"
+              size="large"
+              className={globalClasses.button}
+            >
               CREATE EVENT
             </Button>
           </NavLink>
@@ -62,7 +63,10 @@ const Sidebar = () => {
               <NavLink
                 to={item.route}
                 key={item.id}
-                className={({isActive}) => (isActive ? 'link-active' : 'nav-link')}
+                className={({isActive}) => (
+
+                    isActive ? 'link-active' : 'nav-link'
+                )}
               >
                 <ListItem className={classes.listItem} button>
                   <Box className={classes.listItemContent}>

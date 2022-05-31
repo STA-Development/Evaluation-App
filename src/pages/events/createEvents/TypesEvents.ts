@@ -23,6 +23,37 @@ export interface IcreateEventReducerTypes {
   status: string
 }
 
+export interface ICriteriaCardParams {
+  criteriaData: ICriteriaPaperInfo[]
+  setCriteriaData: (value: ICriteriaPaperInfo[]) => void
+}
+
+export interface IRatingScoreParams {
+  evaluateesList: IEvaluatee[]
+  ratingScoreArr: IratingScoreObj[]
+  setPercentageIsSet: (value: boolean) => void
+  setRatingFinalValue: (value: IratingScoreObj) => void
+  setRatingScoreArr: (value: IratingScoreObj[]) => void
+}
+
+export interface IBonusPercentageParams {
+  evaluateesList: IEvaluatee[]
+  percentageIsSet: boolean
+  setEvaluateesList: (value: IEvaluatee[]) => void
+}
+
+export interface IratingScoreObj {
+  from: number
+  to: number
+  id: number
+  isSelected: boolean
+}
+
+export interface RatingValues {
+  from: number
+  to: number
+}
+
 export interface IEvaluatee {
   id: string
   header: string
@@ -34,11 +65,7 @@ export interface IEvaluatee {
   dateValue: unknown
   salary: string
   salaryValue: number | string
-}
-
-export interface ICriteria {
-  name: string
-  rating: number
+  isEditable: boolean
 }
 
 export interface Event {
@@ -47,8 +74,8 @@ export interface Event {
   eventTitle: string
   evaluators: IEvaluator[]
   evaluatees: IEvaluatee[]
-  criterias: ICriteria[]
-  ratingRange: number
+  criterias: ICriteriaPaperInfo[]
+  ratingRange: IratingScoreObj
   bonusPercentage: number
   startDate: object
   endDate: object
@@ -59,8 +86,8 @@ export type Action =
   | {type: createEventReducerTypes.evaluators; evaluators: IEvaluator[]}
   | {type: createEventReducerTypes.eventTitle; eventTitle: string}
   | {type: createEventReducerTypes.evaluatees; evaluatees: IEvaluatee[]}
-  | {type: createEventReducerTypes.criterias; criterias: ICriteria[]}
-  | {type: createEventReducerTypes.ratingRange; ratingRange: number}
+  | {type: createEventReducerTypes.criterias; criterias: ICriteriaPaperInfo[]}
+  | {type: createEventReducerTypes.ratingRange; ratingRange: IratingScoreObj}
   | {type: createEventReducerTypes.bonusPercentage; bonusPercentage: number}
   | {type: createEventReducerTypes.startDate; startDate: object}
   | {type: createEventReducerTypes.endDate; endDate: object}
@@ -79,6 +106,14 @@ export interface ITopManagerEmptyObjInfoType {
 }
 
 export interface ICriteriaPaperInfo {
-  header: string
-  criterias: string[]
+  id: string | React.MouseEvent<HTMLButtonElement>
+  name: string
+  criteria: boolean
+  subCriteria: ISubCriteria[]
+}
+
+export interface ISubCriteria {
+  id: number
+  name: string
+  result: boolean
 }
