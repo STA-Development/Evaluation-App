@@ -16,8 +16,6 @@ import {useAppDispatch, useAppSelector} from '../../redux/hooks'
 import {selectAuthId, selectFirstName, selectLastName} from '../../redux/selectors'
 import {useGlobalTheme} from '../../assets/style/globalVariables'
 import {removeUser} from '../../redux/user/userSlice'
-import axiosError from '../../utils/axiosError'
-import {AxiosError} from 'axios'
 
 const Sidebar = () => {
   const dispatch = useAppDispatch()
@@ -37,7 +35,7 @@ const Sidebar = () => {
         navigate('/sign-in')
       }
     } catch (err) {
-      axiosError(err as AxiosError)
+      console.log(err, 'sidbar')
     }
   }
 

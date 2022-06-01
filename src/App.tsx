@@ -7,8 +7,6 @@ import {selectAuth} from './redux/selectors'
 import {EventContextProvider} from './pages/events/createEvents/EventsContext'
 import {setUser} from './redux/user/userSlice'
 import {afterSelf} from './utils/authUtils'
-import axiosError from './utils/axiosError'
-import {AxiosError} from 'axios'
 
 const App = () => {
   const dispatch = useAppDispatch()
@@ -21,18 +19,17 @@ const App = () => {
       const user = await afterSelf(localStorage.token)
       dispatch(
         setUser({
-          firstName: user.firstName,
-          lastName: user.lastName,
-          authUid: user.authUid,
-          email: user.email,
-          salary: user.salary,
-          userId: user.id,
+          firstName: user.data.firstName,
+          lastName: user.data.lastName,
+          authUid: user.data.authUid,
+          email: user.data.email,
+          salary: user.data.salary,
+          userId: user.data.id,
         }),
       )
       setIsLoading(false)
     } catch (err) {
       setIsLoading(false)
-      axiosError(err as AxiosError)
     }
   }
 

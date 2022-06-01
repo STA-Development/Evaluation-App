@@ -29,17 +29,14 @@ const AddEmployee = () => {
 
   const handleAddEmployee = () => {
     const tempArr = []
-    for (let i = 0; i < employee.length; i++) {
-      const employeeNumber = employee.length + 1
-      tempArr[0] = {
-        id: uuidv4(),
-        name: '',
-        position: '',
-        employee: 'Employee ' + employeeNumber,
-        bgColor: randomColor(),
-      }
+    const employeeNumber = employee.length + 1
+    tempArr[0] = {
+      id: uuidv4(),
+      name: '',
+      position: '',
+      employee: 'Employee ' + employeeNumber,
+      bgColor: randomColor(),
     }
-
     setEmployee([...employee, ...tempArr])
   }
   const onChangeEmployeeData = (id: string, value: string, changingValue: string) => {
@@ -52,7 +49,6 @@ const AddEmployee = () => {
     setEmployee(newArray)
   }
   const handleRemoveEmployee = (item: IEmployee) => {
-    console.log(item)
     const newList = [...employee]
     const index = employee.indexOf(item)
     if (index > -1) {
@@ -91,7 +87,7 @@ const AddEmployee = () => {
                 size="small"
                 name={item.name}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  onChangeEmployeeData(item.id, e.target.value, e.target.name)
+                  onChangeEmployeeData(item.id, e.target.value, 'name')
                 }}
               />
               <TextField
@@ -105,7 +101,7 @@ const AddEmployee = () => {
                 size="small"
                 name={item.position}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  onChangeEmployeeData(item.id, e.target.value, e.target.name)
+                  onChangeEmployeeData(item.id, e.target.value, 'position')
                 }}
               />
             </FormControl>

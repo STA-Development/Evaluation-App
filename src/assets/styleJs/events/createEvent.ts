@@ -425,6 +425,46 @@ const useCreateEventStyles = makeStyles({
     justifyContent: 'space-between',
     width: '340px',
   },
+
+  dataPicker: {
+    margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
+  },
+  formBox: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  radioGroup: {
+    display: 'flex',
+    width: '360px',
+    flexDirection: 'row',
+    marginLeft: margin.marginLeft30,
+    marginBottom: margin.marginBottom30,
+  },
+
+  assignBtnGroup: {
+    display: 'flex',
+  },
+  assignButton: {
+    marginRight: margin.marginRight40,
+    width: '145px',
+    height: '40px',
+  },
+  selectDate: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: `${padding.paddingTopBottom10} ${padding.paddingLeftRight14}`,
+    width: '100%',
+    borderRadius: borderRedius.all4,
+    backgroundColor: color.whiteColor,
+  },
+  calendarDays: {
+    fontSize: font.fontSize16,
+    fontWeight: font.fontWeight400,
+  },
+  assignDatesFormLabel: {
+    paddingTop: padding.paddingTop8
+  },
   inputText: {
     color: color.grayColor,
     fontWeight: font.fontWeight400,
@@ -519,45 +559,6 @@ const useCreateEventStyles = makeStyles({
     display: 'flex',
     maxHeight: '25px',
     alignItems: 'center',
-  },
-  dataPicker: {
-    margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
-  },
-  formBox: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  radioGroup: {
-    display: 'flex',
-    width: '360px',
-    flexDirection: 'row',
-    marginLeft: margin.marginLeft30,
-    marginBottom: margin.marginBottom30,
-  },
-
-  assignBtnGroup: {
-    display: 'flex',
-  },
-  assignButton: {
-    marginRight: margin.marginRight40,
-    width: '145px',
-    height: '40px',
-  },
-  selectDate: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: `${padding.paddingTopBottom10} ${padding.paddingLeftRight14}`,
-    width: '100%',
-    borderRadius: borderRedius.all4,
-    backgroundColor: color.whiteColor,
-  },
-  calendarDays: {
-    fontSize: font.fontSize16,
-    fontWeight: font.fontWeight400,
-  },
-  assignDatesFormLabel: {
-    paddingTop: padding.paddingTop8,
   },
 })
 

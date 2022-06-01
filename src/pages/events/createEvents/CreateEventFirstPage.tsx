@@ -15,7 +15,7 @@ import DeleteIcon from '../../../assets/images/Icons/DeleteIcon'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
 import {EventContext} from './EventsContext'
 import {v4 as uuidv4} from 'uuid'
-import {createEventReducerTypes} from '../../../types/createEventTypes'
+import {createEventPages, createEventReducerTypes} from '../../../types/createEventTypes'
 import moment from 'moment'
 
 const CreateEventFirstPage = () => {
@@ -75,7 +75,7 @@ const CreateEventFirstPage = () => {
     dispatchContext({type: createEventReducerTypes.evaluatees, evaluatees: evaluateesList})
     dispatchContext({
       type: createEventReducerTypes.updateActivePageToCriterias,
-      activePage: 'criteriasPage',
+      activePage: createEventPages.criterias,
     })
   }
 

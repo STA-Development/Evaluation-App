@@ -19,8 +19,6 @@ import {afterSelf} from '../../utils/authUtils'
 import {setUser} from '../../redux/user/userSlice'
 import {useAppDispatch} from '../../redux/hooks'
 import SignInImg from '../../assets/images/auth/SignInImg'
-import axiosError from '../../utils/axiosError'
-import {AxiosError} from 'axios'
 
 const SignIn = () => {
   const dispatch = useAppDispatch()
@@ -43,15 +41,15 @@ const SignIn = () => {
         password,
       })
       localStorage.setItem('token', auth.data.accessToken)
-      const user = await afterSelf(auth.data.accessToken)
+      const {data} = await afterSelf(auth.data.accessToken)
       dispatch(
         setUser({
-          firstName: user.firstName,
-          lastName: user.lastName,
-          authUid: user.authUid,
-          email: user.email,
-          salary: user.salary,
-          userId: user.id,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          authUid: data.authUid,
+          email: data.email,
+          salary: data.salary,
+          userId: data.id,
         }),
       )
       if (auth.data.accessToken) {
@@ -63,7 +61,6 @@ const SignIn = () => {
       setPassword('')
       setEmail('')
       setError(true)
-      axiosError(err as AxiosError)
     }
   }
 

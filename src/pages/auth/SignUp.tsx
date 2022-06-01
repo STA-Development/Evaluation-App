@@ -18,8 +18,6 @@ import {useGlobalTheme} from '../../assets/style/globalVariables'
 import axiosInstance from '../../axiosInstance'
 import {afterSelf} from '../../utils/authUtils'
 import {useAppDispatch} from '../../redux/hooks'
-import axiosError from '../../utils/axiosError'
-import {AxiosError} from 'axios'
 import {setUser} from '../../redux/user/userSlice'
 
 const SignUp = () => {
@@ -57,15 +55,15 @@ const SignUp = () => {
           email,
         })
         localStorage.setItem('token', auth.data.accessToken)
-        const user = await afterSelf(auth.data.accessToken)
+        const {data} = await afterSelf(auth.data.accessToken)
         dispatch(
           setUser({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            authUid: user.authUid,
-            email: user.email,
-            salary: user.salary,
-            userId: user.id,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            authUid: data.authUid,
+            email: data.email,
+            salary: data.salary,
+            userId: data.id,
           }),
         )
         if (auth.data.accessToken) {
@@ -74,7 +72,6 @@ const SignUp = () => {
         setIsAuth(false)
       } catch (err) {
         setIsAuth(false)
-        axiosError(err as AxiosError)
       }
 
       setEmail('')
