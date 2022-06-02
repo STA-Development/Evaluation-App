@@ -41,6 +41,10 @@ const useReportsStyle = makeStyles({
     display: ' inline-block',
     marginLeft: margin.marginLeft6,
   },
+  exportBtn: {
+    marginTop: margin.marginTop30,
+    marginBottom: margin.marginBottom25,
+  },
 })
 
 export default useReportsStyle
