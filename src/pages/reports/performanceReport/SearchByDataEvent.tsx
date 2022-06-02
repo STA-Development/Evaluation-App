@@ -17,8 +17,8 @@ import CalendarIcon from '../../../assets/images/Icons/CalendarIcon'
 import {Calendar} from 'react-date-range'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
-import moment from 'moment'
 import {SelectChangeEvent} from '@mui/material/Select'
+import {formatWithMonthName} from '../../../utils/dateUtils'
 
 interface Propss {
   value: string
@@ -63,12 +63,11 @@ const SearchByDataEvent = ({
   }
 
   const open = Boolean(anchorEl)
-  const id = open ? 'simple-popover' : undefined
+  const calendarPopoverId = open ? 'simple-popover' : undefined
 
   const getEvoluationCriteria = (event: SelectChangeEvent) => {
     setEvoluationCriteria(event.target.value as string)
   }
-
   const getPerformerType = (event: SelectChangeEvent) => {
     setPerformerType(event.target.value as string)
   }
@@ -83,6 +82,14 @@ const SearchByDataEvent = ({
   }
   const getEvaluatorsPosition = (event: SelectChangeEvent) => {
     setEvaluatorsPosition(event.target.value as string)
+  }
+  const handleClear = () => {
+    setEvoluationCriteria('')
+    setPerformerType('')
+    setEvaluatees('')
+    setEvaluateesPosition('')
+    setEvaluators('')
+    setEvaluatorsPosition('')
   }
 
   return (
@@ -112,7 +119,7 @@ const SearchByDataEvent = ({
             onFocus={(e) => e.target.select()}
           />
           <Popover
-            id={id}
+            id={calendarPopoverId}
             open={open}
             anchorEl={anchorEl}
             onClose={handleClose}
@@ -126,7 +133,7 @@ const SearchByDataEvent = ({
             }}
           >
             <Box>
-              <Calendar onChange={(item) => setValue(moment(item).format('MMM DD yyyy'))} />
+              <Calendar onChange={(item) => setValue(formatWithMonthName(item))} />
             </Box>
           </Popover>
         </FormControl>
@@ -149,7 +156,6 @@ const SearchByDataEvent = ({
             </FormControl>
           </Box>
           <Box className="search-report__select-box">
-            {' '}
             <FormControl fullWidth>
               <InputLabel>Performer Type</InputLabel>
               <Select
@@ -239,7 +245,7 @@ const SearchByDataEvent = ({
           variant="outlined"
           color="primary"
           className={classes.performBtn}
-          // onClick={onBackButtonClick}
+          onClick={handleClear}
         >
           Clear
         </Button>
