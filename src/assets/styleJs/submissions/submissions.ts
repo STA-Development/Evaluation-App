@@ -1,5 +1,5 @@
 import {makeStyles} from '@mui/styles'
-import {color, font, margin, padding} from '../../style/globalVariables'
+import {borderRedius, color, font, margin, padding} from '../../style/globalVariables'
 
 const useSubmissionsStyle = makeStyles({
   header: {
@@ -20,6 +20,23 @@ const useSubmissionsStyle = makeStyles({
     fontSize: font.fontSize12,
     marginBottom: margin.marginBottom5,
   },
+  dataPicker: {
+    margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
+  },
+  selectDate: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingLeft: '10px',
+    height: '40px',
+    border: `1px solid ${color.lightGrayColor}`,
+    width: '100%',
+    borderRadius: borderRedius.all4,
+    backgroundColor: color.whiteColor,
+  },
+  // datePicker: {
+  //   width: '200px'
+  // },
   submitedReview: {
     margin: `${margin.marginTopBottom10} ${margin.marginLeftRight0}`,
     fontSize: font.fontSize10,

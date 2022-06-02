@@ -40,6 +40,7 @@ export const color = {
   greenColor: '#b2e4d5',
   tableBorderColor: '#bdbdbd',
   closeButton: '#4f4f4f',
+  lightGrayColor: '#c4c4c4',
   redColor: '#ff0000',
   blackColor: '#000',
 }

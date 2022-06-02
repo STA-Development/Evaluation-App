@@ -64,7 +64,6 @@ const Sidebar = () => {
                 to={item.route}
                 key={item.id}
                 className={({isActive}) => (
-
                     isActive ? 'link-active' : 'nav-link'
                 )}
               >
