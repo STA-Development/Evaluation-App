@@ -105,7 +105,7 @@ const PerformanceReportTable = () => {
     }
     setSelected([])
   }
-  console.log(selected)
+
   const handleClick = (event: React.MouseEvent, name: string) => {
     const selectedIndex = selected.indexOf(name)
     if (selectedIndex === -1) {
@@ -113,13 +113,7 @@ const PerformanceReportTable = () => {
     } else if (selectedIndex === 0) {
       setSelected(selected.filter((item) => item !== name))
     } else if (selectedIndex > 0) {
-      setSelected(
-        selected.filter((el, ind) => {
-          if (selectedIndex !== ind) {
-            return el
-          }
-        }),
-      )
+      setSelected(selected.filter((el, ind) => selectedIndex !== ind))
     }
   }
 
