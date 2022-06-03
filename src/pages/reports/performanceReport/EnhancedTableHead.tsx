@@ -49,7 +49,7 @@ const headCells: HeadCell[] = [
 const EnhancedTableHead = (props: EnhancedTableProps) => {
   const classes = useReportsStyle()
   const {onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort} = props
-  const createSortHandler = (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
+  const createSortHandler = (property: keyof Data) => (event: React.MouseEvent) => {
     onRequestSort(event, property)
   }
 

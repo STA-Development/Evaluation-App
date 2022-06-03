@@ -28,41 +28,44 @@ const AddEmployee = () => {
   ])
 
   const handleAddEmployee = () => {
-    const tempArr = []
     const employeeNumber = employee.length + 1
-    tempArr[0] = {
-      id: uuidv4(),
-      name: '',
-      position: '',
-      employee: 'Employee ' + employeeNumber,
-      bgColor: randomColor(),
-    }
-    setEmployee([...employee, ...tempArr])
+    setEmployee([
+      ...employee,
+      {
+        id: uuidv4(),
+        name: '',
+        position: '',
+        employee: 'Employee ' + employeeNumber,
+        bgColor: randomColor(),
+      },
+    ])
   }
   const onChangeEmployeeData = (id: string, value: string, changingValue: string) => {
-    const newArray = employee.map((item: IEmployee) => {
-      if (item.id === id) {
-        return {...item, [changingValue]: value}
-      }
-      return item
-    })
-    setEmployee(newArray)
+    setEmployee(
+      employee.map((item: IEmployee) => {
+        if (item.id === id) {
+          return {...item, [changingValue]: value}
+        }
+        return item
+      }),
+    )
   }
   const handleRemoveEmployee = (item: IEmployee) => {
-    const newList = [...employee]
-    const index = employee.indexOf(item)
-    if (index > -1) {
-      newList.splice(index, 1)
-    }
-    setEmployee(newList)
+    setEmployee(
+      employee.filter((list, index: number) => {
+        if (employee.indexOf(item) !== index) {
+          return item
+        }
+      }),
+    )
   }
 
   return (
     <Box>
       <Box className="employee-report">
         {employee.map((item: IEmployee) => (
-          <Paper key={item.id} className="employ-paper">
-            <Box className="employ-paper__employee-header">
+          <Paper key={item.id} className="employee-paper">
+            <Box className="employee-paper__header">
               <Typography>
                 {item.employee}
                 <Typography
@@ -75,7 +78,7 @@ const AddEmployee = () => {
                 <DeleteIcon />
               </IconButton>
             </Box>
-            <FormControl className="employ-paper__form">
+            <FormControl className="employee-paper__form">
               <TextField
                 InputLabelProps={{style: {fontSize: 14}}}
                 InputProps={{inputProps: {className: classesCreateEvent.inputText}}}

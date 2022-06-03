@@ -20,7 +20,7 @@ const TabPanel = (props: ITabPanelProps) => {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {pageList === index && <Box>{children}</Box>}
+      <Box>{children}</Box>
     </div>
   )
 }

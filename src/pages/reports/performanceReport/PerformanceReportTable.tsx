@@ -99,31 +99,22 @@ const PerformanceReportTable = () => {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.evaluatorLastName)
+      const newSelecteds = rows.map((n) => n.eventTitle)
       setSelected(newSelecteds)
       return
     }
     setSelected([])
   }
 
-  const handleClick = (event: React.MouseEvent<unknown>, name: string) => {
+  const handleClick = (event: React.MouseEvent, name: string) => {
     const selectedIndex = selected.indexOf(name)
-    let newSelected: readonly string[] = []
-
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name)
+      setSelected([...selected, name])
     } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1))
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1))
+      setSelected(selected.filter((item) => item !== name))
     } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1),
-      )
+      setSelected(selected.filter((el, ind) => selectedIndex !== ind))
     }
-
-    setSelected(newSelected)
   }
 
   const handleChangePage = (event: unknown, newPage: number) => {
