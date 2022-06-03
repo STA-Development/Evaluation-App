@@ -14,7 +14,7 @@ import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
 import CalendarIcon from '../../../assets/images/Icons/CalendarIcon'
 import {DateRangePicker} from 'react-date-range'
 import moment from 'moment'
-import 'react-date-range/dist/styles.css' // main css file
+import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import {createEventPages, createEventReducerTypes} from '../../../types/createEventTypes'
 import {EventContext} from './EventsContext'

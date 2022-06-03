@@ -463,10 +463,10 @@ const useCreateEventStyles = makeStyles({
     fontWeight: font.fontWeight400,
   },
   assignDatesFormLabel: {
-    paddingTop: padding.paddingTop8
+    paddingTop: padding.paddingTop8,
   },
   inputText: {
-    color: color.grayColor,
+    color: color.navbarColor,
     fontWeight: font.fontWeight400,
     fontSize: font.fontSize14,
   },

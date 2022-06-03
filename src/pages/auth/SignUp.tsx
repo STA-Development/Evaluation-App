@@ -66,8 +66,7 @@ const SignUp = () => {
             userId: data.id,
           }),
         )
-
-        if (auth.data) {
+        if (auth.data.accessToken) {
           navigate('/')
         }
         setIsAuth(false)
