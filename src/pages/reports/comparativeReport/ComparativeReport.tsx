@@ -14,12 +14,13 @@ const ComparativeReport = () => {
     },
 
     title: {
-      text: 'Highcharts responsive chart',
+      text: '',
     },
 
     subtitle: {
-      text: 'Resize the frame or click buttons to change appearance',
+      text: '',
     },
+    colors: ['red', 'blue'],
 
     legend: {
       align: 'right',
@@ -28,7 +29,7 @@ const ComparativeReport = () => {
     },
 
     xAxis: {
-      categories: ['Apples', 'Oranges', 'Bananas', 'miban'],
+      categories: ['Work Performance', 'Personal Skills ', 'Company Culture'],
       labels: {
         x: -10,
       },
@@ -37,22 +38,18 @@ const ComparativeReport = () => {
     yAxis: {
       allowDecimals: false,
       title: {
-        text: 'Amount',
+        text: '',
       },
     },
 
     series: [
       {
         name: 'Christmas Eve',
-        data: [1, 4, 3, 5],
+        data: [1, 4, 3],
       },
       {
         name: 'Christmas Day before dinner',
-        data: [6, 4, 2, 6],
-      },
-      {
-        name: 'Christmas Day after dinner',
-        data: [8, 4, 10, 7],
+        data: [6, 4, 2],
       },
     ],
 
