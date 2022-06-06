@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Box, Button, FormControl, IconButton, Paper, TextField, Typography} from '@mui/material'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
 import {v4 as uuidv4} from 'uuid'
@@ -7,7 +7,7 @@ import useReportsStyle from '../../../assets/styleJs/report/report'
 import {randomColor} from '../../../utils/utils'
 import {IEmployee} from '../../../types/eployeeTypes'
 
-const AddEmployee = () => {
+const AddEmployee = ({setColor}: any) => {
   const classesCreateEvent = useCreateEventStyles()
   const classes = useReportsStyle()
   const [employee, setEmployee] = useState<IEmployee[]>([
@@ -26,6 +26,14 @@ const AddEmployee = () => {
       bgColor: randomColor(),
     },
   ])
+
+  useEffect(() => {
+    setColor(
+      employee.map((item) => {
+        return item.bgColor
+      }),
+    )
+  }, [])
 
   const handleAddEmployee = () => {
     const employeeNumber = employee.length + 1

@@ -42,6 +42,7 @@ export const color = {
   closeButton: '#4f4f4f',
   redColor: '#ff0000',
   blackColor: '#000',
+  employeeColor: '#756F86',
 }
 
 export const margin = {

@@ -1,32 +1,57 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Box, Button} from '@mui/material'
 import AddEmployee from './AddEmployee'
 import useReportsStyle from '../../../assets/styleJs/report/report'
 import HighchartsReact from 'highcharts-react-official'
 import Highcharts from 'highcharts'
+import drilldown from 'highcharts/modules/drilldown'
 
+drilldown(Highcharts)
 const ComparativeReport = () => {
   const classes = useReportsStyle()
+  const [randomColor, setRandomColor] = useState()
 
   const chart = {
+    colors: randomColor,
     chart: {
       type: 'column',
     },
 
     title: {
-      text: '',
+      text: 'asdsa',
     },
 
     subtitle: {
       text: '',
     },
-    colors: ['red', 'blue'],
-
     legend: {
-      align: 'right',
-      verticalAlign: 'middle',
-      layout: 'vertical',
+      marginTop: 50,
+      alignColumns: true,
+      align: 'left',
+      layout: 'horizontal',
+      verticalAlign: 'top',
+      x: 150,
+      useHTML: '<span>Score</span>',
+      // title: {
+      //   text: 'Score',
+      //   style: {fontWeight: 'bold', color: color.employeeColor},
+      // },
     },
+
+    // legend: {
+    //   align: 'bottom',
+    //   verticalAlign: 'middle',
+    //   layout: 'horizontal',
+    //   itemStyle: {
+    //     color: color.employeeColor,
+    //     backgroundColor: 'red',
+    //   },
+    //   title: {
+    //     text: 'Score',
+    //     style: {fontWeight: 'bold', color: color.employeeColor},
+    //   },
+    //
+    // },
 
     xAxis: {
       categories: ['Work Performance', 'Personal Skills ', 'Company Culture'],
@@ -45,11 +70,11 @@ const ComparativeReport = () => {
     series: [
       {
         name: 'Christmas Eve',
-        data: [1, 4, 3],
+        data: [5, 4, 3],
       },
       {
         name: 'Christmas Day before dinner',
-        data: [6, 4, 2],
+        data: [6, 4, 12],
       },
     ],
 
@@ -62,7 +87,7 @@ const ComparativeReport = () => {
           chartOptions: {
             legend: {
               align: 'center',
-              verticalAlign: 'bottom',
+              verticalAlign: 'top',
               layout: 'horizontal',
             },
             yAxis: {
@@ -88,14 +113,16 @@ const ComparativeReport = () => {
   }
   return (
     <Box>
-      <AddEmployee />
+      <AddEmployee setColor={setRandomColor} />
       <Box className="export-btn">
         <Button variant="outlined" className={classes.exportBtn}>
           EXPORT REPORT
         </Button>
       </Box>
-
       <Box>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </Box>
+      <Box className="charts">
         <HighchartsReact highcharts={Highcharts} options={chart} />
       </Box>
     </Box>
