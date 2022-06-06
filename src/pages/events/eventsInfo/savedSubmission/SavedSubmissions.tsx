@@ -15,6 +15,7 @@ import useSubmissionsStyle from "../../../../assets/styleJs/submissions/submissi
 import CalendarIcon from "../../../../assets/images/Icons/CalendarIcon";
 import {Calendar} from "react-date-range";
 import moment from "moment";
+import TableContentSavedSubmissions from "./TableContentSavedSubmissions";
 
 const SavedSubmissions = () => {
   const [date, setDate] = useState<undefined | string | Date>(undefined);
@@ -239,6 +240,11 @@ const SavedSubmissions = () => {
             Export Report
           </Typography>
         </Button>
+      </Box>
+      <Box>
+        <Box>
+          <TableContentSavedSubmissions />
+        </Box>
       </Box>
     </Box>
   )

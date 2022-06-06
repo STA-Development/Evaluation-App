@@ -37,6 +37,17 @@ const useSubmissionsStyle = makeStyles({
   // datePicker: {
   //   width: '200px'
   // },
+  alignCenter: {
+    textAlign: 'center',
+  },
+  savedSubmissionCriteriaField:{
+    // width: '100%',
+    display: "flex",
+    verticalAlign: 'middle'
+  },
+  textAlignLeft: {
+    textAlign: "left"
+  },
   submitedReview: {
     margin: `${margin.marginTopBottom10} ${margin.marginLeftRight0}`,
     fontSize: font.fontSize10,

@@ -3,6 +3,9 @@ import React from 'react'
 export interface IRowsInfo {
   [keyof: string]: string | number
 }
+export interface IRowsInfoSavedSubmissionsTable {
+  [keyof: string]: string | number
+}
 
 export type Order = 'asc' | 'desc'
 

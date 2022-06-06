@@ -6,6 +6,9 @@ const useEventsStyle = makeStyles({
     margin: `${margin.marginTopBottom20} ${margin.marginLeftRight0}`,
     backgroundColor: color.lightGrey,
   },
+  alignCenter: {
+    textAlign: 'center'
+  },
   eventContent: {
     height: ' calc(100vh - 132px)',
     display: 'flex',
@@ -41,6 +44,11 @@ const useEventsStyle = makeStyles({
       justifyContent: 'flex-start',
       alignItem: 'center',
     },
+  },
+  tableHeaderCheckboxBox: {
+    backgroundColor: color.greenColor,
+    justifyContent: 'flex-start',
+    border: "none"
   },
   sortableIcon: {
     '& svg': {

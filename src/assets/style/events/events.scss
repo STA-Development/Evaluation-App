@@ -126,6 +126,56 @@
     }
   }
 
+  &__header-cell-saved-submissions {
+    padding-left: $marginLeft25;
+
+    th {
+      text-align: center;
+      width: 190px;
+      border-right: $borderRight1 solid $tableBorderColor;
+      border-bottom-color: transparent;
+      border-top-color: transparent;
+      color: $navbarColor;
+      padding: $paddingTopBottom20 $paddingLeftRight10;
+
+      &:nth-child(1) {
+        border-color: transparent;
+        padding: $paddingTopBottom20 $paddingLeftRight0;
+        width: 15px;
+      }
+      &:nth-child(2) {
+        width: 30px;
+        padding: $paddingTop10 $paddingRight20 $paddingBottom10 $paddingLeft0;
+      }
+      &:nth-child(7) {
+        width: 50px;
+      }
+      &:nth-child(8) {
+        width: 50px;
+      }
+
+      span {
+        font-weight: $fontWeight700;
+        font-size: $fontSize16;
+        padding-left: $marginLeft10;
+
+        &:first-child {
+          vertical-align: middle;
+          display: inline-flex;
+        }
+
+        &:hover {
+          color: $navbarColor;
+        }
+
+        &:focus {
+          color: $navbarColor;
+        }
+      }
+    }
+  }
+
+
   &__row {
     td {
       font-size: $fontSize14;
@@ -135,6 +185,36 @@
       border-right: $borderRight1 solid $tableBorderColor;
       padding: $paddingTopBottom10 $paddingLeftRight20;
       border-bottom-color: transparent;
+    }
+  }
+  &__row-saved-submissions {
+    td {
+      text-align: center;
+      font-size: $fontSize14;
+      font-weight: $fontWeight400;
+      color: $greyColor;
+      width: 190px;
+      border-right: $borderRight1 solid $tableBorderColor;
+      padding: $paddingTopBottom10 $paddingLeftRight20;
+      border-bottom-color: transparent;
+      &:nth-child(1) {
+        border-color: transparent;
+        width: 15px;
+        padding: $paddingTopBottom10 $paddingLeftRight0;
+      }
+      &:nth-child(2) {
+        width: 30px;
+        padding: $paddingTop10 $paddingRight20 $paddingBottom10 $paddingLeft0;
+      }
+      &:nth-child(4) {
+        padding: $paddingTop10 $paddingRight20 $paddingBottom10 $paddingLeft0;
+      }
+      &:nth-child(7) {
+        width: 50px;
+      }
+      &:nth-child(8) {
+        width: 50px;
+      }
     }
   }
 }
