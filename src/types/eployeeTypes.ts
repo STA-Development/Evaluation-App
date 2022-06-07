@@ -3,5 +3,8 @@ export interface IEmployee {
   name?: string
   position?: string
   employee?: string
-  bgColor?: any
+  bgColor?: string
+  data1?: number
+  data2?: number
+  data3?: number
 }

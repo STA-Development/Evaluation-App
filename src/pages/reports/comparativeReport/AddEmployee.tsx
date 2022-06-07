@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {Box, Button, FormControl, IconButton, Paper, TextField, Typography} from '@mui/material'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
 import {v4 as uuidv4} from 'uuid'
@@ -7,7 +7,7 @@ import useReportsStyle from '../../../assets/styleJs/report/report'
 import {randomColor} from '../../../utils/utils'
 import {IEmployee} from '../../../types/eployeeTypes'
 
-const AddEmployee = ({setColor}: any) => {
+const AddEmployee = ({getApply}: any) => {
   const classesCreateEvent = useCreateEventStyles()
   const classes = useReportsStyle()
   const [employee, setEmployee] = useState<IEmployee[]>([
@@ -17,6 +17,9 @@ const AddEmployee = ({setColor}: any) => {
       position: '',
       employee: 'Employee 1',
       bgColor: randomColor(),
+      data1: Math.floor(Math.random() * 9 + 1),
+      data2: Math.floor(Math.random() * 9 + 1),
+      data3: Math.floor(Math.random() * 9 + 1),
     },
     {
       id: uuidv4(),
@@ -24,16 +27,19 @@ const AddEmployee = ({setColor}: any) => {
       position: '',
       employee: 'Employee 2',
       bgColor: randomColor(),
+      data1: Math.floor(Math.random() * 9 + 1),
+      data2: Math.floor(Math.random() * 9 + 1),
+      data3: Math.floor(Math.random() * 9 + 1),
     },
   ])
 
-  useEffect(() => {
-    setColor(
-      employee.map((item) => {
-        return item.bgColor
-      }),
-    )
-  }, [])
+  // useEffect(() => {
+  //   setColor(
+  //     employee.map((item) => {
+  //       return item.bgColor
+  //     }),
+  //   )
+  // }, [])
 
   const handleAddEmployee = () => {
     const employeeNumber = employee.length + 1
@@ -45,6 +51,9 @@ const AddEmployee = ({setColor}: any) => {
         position: '',
         employee: 'Employee ' + employeeNumber,
         bgColor: randomColor(),
+        data1: Math.floor(Math.random() * 9 + 1),
+        data2: Math.floor(Math.random() * 9 + 1),
+        data3: Math.floor(Math.random() * 9 + 1),
       },
     ])
   }
@@ -123,7 +132,10 @@ const AddEmployee = ({setColor}: any) => {
         <Button variant="outlined" onClick={handleAddEmployee}>
           ADD EMPLOYEE
         </Button>
-        <Button variant="contained">APPLY</Button>
+
+        <Button variant="contained" onClick={() => getApply(employee)}>
+          APPLY
+        </Button>
       </Box>
     </Box>
   )
