@@ -1,15 +1,40 @@
 import React, {useState} from 'react'
-import {Box, Button} from '@mui/material'
+import {
+  Box,
+  Button,
+  FormControl,
+  IconButton,
+  InputAdornment,
+  Popover,
+  TextField,
+  Typography,
+} from '@mui/material'
 import AddEmployee from './AddEmployee'
 import useReportsStyle from '../../../assets/styleJs/report/report'
 import HighchartsReact from 'highcharts-react-official'
 import Highcharts from 'highcharts'
 import drilldown from 'highcharts/modules/drilldown'
+import {color} from '../../../assets/style/globalVariables'
+import CalendarIcon from '../../../assets/images/Icons/CalendarIcon'
+import {Calendar} from 'react-date-range'
+import {formatWithMonthName} from '../../../utils/dateUtils'
 
 drilldown(Highcharts)
 const ComparativeReport = () => {
   const classes = useReportsStyle()
+  const [value, setValue] = useState<string>('')
   const [randomColor, setRandomColor] = useState()
+  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
+  const open = Boolean(anchorEl)
+  const calendarPopoverId = open ? 'simple-popover' : undefined
 
   const chart = {
     colors: randomColor,
@@ -18,24 +43,24 @@ const ComparativeReport = () => {
     },
 
     title: {
-      text: 'asdsa',
+      text: '',
     },
 
     subtitle: {
       text: '',
     },
     legend: {
-      marginTop: 50,
+      // marginTop: 50,
       alignColumns: true,
       align: 'left',
       layout: 'horizontal',
       verticalAlign: 'top',
-      x: 150,
+      x: 10,
       useHTML: '<span>Score</span>',
-      // title: {
-      //   text: 'Score',
-      //   style: {fontWeight: 'bold', color: color.employeeColor},
-      // },
+      title: {
+        text: 'Score',
+        style: {fontWeight: 'bold', color: color.employeeColor},
+      },
     },
 
     // legend: {
@@ -74,7 +99,7 @@ const ComparativeReport = () => {
       },
       {
         name: 'Christmas Day before dinner',
-        data: [6, 4, 12],
+        data: [6, 4, 10],
       },
     ],
 
@@ -119,10 +144,54 @@ const ComparativeReport = () => {
           EXPORT REPORT
         </Button>
       </Box>
-      <Box>
-        <p>Lorem ipsum dolor sit amet.</p>
+      <Box className="chart-search">
+        <Typography>Employee average score comparison</Typography>
+        <Box>
+          <FormControl variant="outlined" style={{width: '100%'}}>
+            <TextField
+              variant="outlined"
+              fullWidth
+              label="Search by Event title and/or date"
+              value={value}
+              className={classes.reportSelect}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="start">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClick}
+                      edge="end"
+                    >
+                      <CalendarIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              onFocus={(e) => e.target.select()}
+            />
+            <Popover
+              id={calendarPopoverId}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+            >
+              <Box>
+                <Calendar onChange={(item) => setValue(formatWithMonthName(item))} />
+              </Box>
+            </Popover>
+          </FormControl>
+        </Box>
       </Box>
-      <Box className="charts">
+      <Box>
         <HighchartsReact highcharts={Highcharts} options={chart} />
       </Box>
     </Box>

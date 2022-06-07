@@ -128,7 +128,10 @@
   justify-content: flex-end;
 }
 
-
-.highcharts-legend-item{
-  background-color: red;
+.chart-search{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $greenColor;
+  padding: $paddingTopBottom10 $paddingRight25 $paddingBottom10 $paddingLeft40;
 }

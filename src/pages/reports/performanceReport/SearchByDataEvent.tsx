@@ -19,23 +19,7 @@ import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import {SelectChangeEvent} from '@mui/material/Select'
 import {formatWithMonthName} from '../../../utils/dateUtils'
-
-interface Propss {
-  value: string
-  setValue: (vlue: string) => void
-  evoluationCriteria: string
-  setEvoluationCriteria: (value: string) => void
-  performerType: string
-  setPerformerType: (value: string) => void
-  evaluatees: string
-  setEvaluatees: (value: string) => void
-  evaluateesPosition: string
-  setEvaluateesPosition: (value: string) => void
-  evaluators: string
-  setEvaluators: (value: string) => void
-  evaluatorsPosition: string
-  setEvaluatorsPosition: (value: string) => void
-}
+import {ISearchDataEvent} from '../../../types/SearchDataEvent'
 
 const SearchByDataEvent = ({
   value,
@@ -52,7 +36,7 @@ const SearchByDataEvent = ({
   setEvaluators,
   evaluatorsPosition,
   setEvaluatorsPosition,
-}: Propss) => {
+}: ISearchDataEvent) => {
   const classes = useReportsStyle()
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
