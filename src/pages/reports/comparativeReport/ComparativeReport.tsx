@@ -28,9 +28,10 @@ const ComparativeReport = () => {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
   const [chart, setChart] = useState<any>()
   const [getEmployee, setGetEmployee] = useState<any>([])
-  // const [getName, setGetName] = useState<any>([])
   const [isUpdatingChart, setIsUpdatingChart] = useState(true)
-  const [getColor, setGetColor] = useState<any>([])
+  const [getColor, setGetColor] = useState<string[]>([])
+
+  console.log(getEmployee)
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
@@ -46,16 +47,14 @@ const ComparativeReport = () => {
     setGetColor(getEmployee.map((item: IEmployee) => item.bgColor))
   }, [getEmployee])
 
-  // useEffect(() => {
-  //   setGetName(getEmployee.map((item: IEmployee) => item.name))
-  // }, [getEmployee])
-
   useEffect(() => {
     setIsUpdatingChart(true)
     setChart({
       colors: getColor,
       chart: {
         type: 'column',
+        marginRight: 75,
+        marginLeft: 75,
       },
 
       title: {
@@ -65,12 +64,13 @@ const ComparativeReport = () => {
       subtitle: {
         text: '',
       },
+
       legend: {
         alignColumns: true,
         align: 'left',
         layout: 'horizontal',
         verticalAlign: 'top',
-        x: 10,
+        x: 50,
         useHTML: 'Score',
         title: {
           text: 'Score',
@@ -82,7 +82,18 @@ const ComparativeReport = () => {
         categories: ['Work Performance', 'Personal Skills ', 'Company Culture'],
         labels: {
           x: -10,
+          y: 30,
+          style: {
+            color: '#756F86',
+            fontSize: '14px',
+          },
         },
+        margin: 0,
+        gridLineColor: '#DBE2EA',
+        gridLineWidth: 2,
+        lineColor: 'transparent',
+        min: 0,
+        max: 2,
       },
 
       yAxis: {
@@ -90,12 +101,18 @@ const ComparativeReport = () => {
         title: {
           text: '',
         },
+        gridLineDashStyle: 'LongDash',
+        lineColor: '#fff',
+        lineWidth: 2,
+        min: 0,
+        max: 10,
       },
-      series: getEmployee.map((item: any) => {
-        console.log(item.data)
+      series: getEmployee.map((item: IEmployee) => {
         return {
           name: item.name,
           data: [item.data1, item.data2, item.data3],
+          pointWidth: 40,
+          pointPadding: 0,
         }
       }),
 
@@ -104,6 +121,7 @@ const ComparativeReport = () => {
           {
             condition: {
               maxWidth: 500,
+              padding: 50,
             },
             chartOptions: {
               legend: {
