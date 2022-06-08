@@ -30,8 +30,7 @@ const ComparativeReport = () => {
   const [getEmployee, setGetEmployee] = useState<any>([])
   const [isUpdatingChart, setIsUpdatingChart] = useState(true)
   const [getColor, setGetColor] = useState<string[]>([])
-
-  console.log(getEmployee)
+  const [getEmployeeSeries, setGetEmployeeSeries] = useState<IEmployee[]>([])
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
@@ -48,9 +47,23 @@ const ComparativeReport = () => {
   }, [getEmployee])
 
   useEffect(() => {
+    setGetEmployeeSeries(
+      getEmployee.map((item: IEmployee) => {
+        if (item.name) {
+          return {
+            name: item.name,
+            data: [item.performanceData, item.skillsData, item.cultureData],
+            pointWidth: 50,
+          }
+        }
+        return item
+      }),
+    )
+  }, [getEmployee])
+
+  useEffect(() => {
     setIsUpdatingChart(true)
     setChart({
-      colors: getColor,
       chart: {
         type: 'column',
         marginRight: 75,
@@ -107,14 +120,8 @@ const ComparativeReport = () => {
         min: 0,
         max: 10,
       },
-      series: getEmployee.map((item: IEmployee) => {
-        return {
-          name: item.name,
-          data: [item.data1, item.data2, item.data3],
-          pointWidth: 40,
-          pointPadding: 0,
-        }
-      }),
+      colors: getColor,
+      series: getEmployeeSeries,
 
       responsive: {
         rules: [
@@ -158,7 +165,7 @@ const ComparativeReport = () => {
 
   return (
     <Box>
-      <AddEmployee getApply={(item: IEmployee) => setGetEmployee(item)} />
+      <AddEmployee getApply={(item: IEmployee[]) => setGetEmployee(item)} />
       <Box className="export-btn">
         <Button variant="outlined" className={classes.exportBtn}>
           EXPORT REPORT

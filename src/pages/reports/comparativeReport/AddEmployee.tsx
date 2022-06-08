@@ -4,56 +4,49 @@ import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
 import {v4 as uuidv4} from 'uuid'
 import DeleteIcon from '../../../assets/images/Icons/DeleteIcon'
 import useReportsStyle from '../../../assets/styleJs/report/report'
-import {randomColor} from '../../../utils/utils'
+import {randomColor, randomData} from '../../../utils/utils'
 import {IEmployee} from '../../../types/eployeeTypes'
 
 const AddEmployee = ({getApply}: any) => {
   const classesCreateEvent = useCreateEventStyles()
   const classes = useReportsStyle()
+  const [employeeCount, setEmployeeCount] = useState<number>(2)
   const [employee, setEmployee] = useState<IEmployee[]>([
     {
       id: uuidv4(),
       name: '',
       position: '',
-      employee: 'Employee 1',
+      employee: `Employee 1`,
       bgColor: randomColor(),
-      data1: Math.floor(Math.random() * 9 + 1),
-      data2: Math.floor(Math.random() * 9 + 1),
-      data3: Math.floor(Math.random() * 9 + 1),
+      performanceData: randomData(),
+      skillsData: randomData(),
+      cultureData: randomData(),
     },
-    {
-      id: uuidv4(),
-      name: '',
-      position: '',
-      employee: 'Employee 2',
-      bgColor: randomColor(),
-      data1: Math.floor(Math.random() * 9 + 1),
-      data2: Math.floor(Math.random() * 9 + 1),
-      data3: Math.floor(Math.random() * 9 + 1),
-    },
+    // {
+    //   id: uuidv4(),
+    //   name: '',
+    //   position: '',
+    //   employee: `Employee 2`,
+    //   bgColor: randomColor(),
+    //   performanceData: randomData(),
+    //   skillsData: randomData(),
+    //   cultureData: randomData(),
+    // },
   ])
 
-  // useEffect(() => {
-  //   setColor(
-  //     employee.map((item) => {
-  //       return item.bgColor
-  //     }),
-  //   )
-  // }, [])
-
   const handleAddEmployee = () => {
-    const employeeNumber = employee.length + 1
+    setEmployeeCount(employeeCount + 1)
     setEmployee([
       ...employee,
       {
         id: uuidv4(),
         name: '',
         position: '',
-        employee: 'Employee ' + employeeNumber,
+        employee: `Employee ${employeeCount}`,
         bgColor: randomColor(),
-        data1: Math.floor(Math.random() * 9 + 1),
-        data2: Math.floor(Math.random() * 9 + 1),
-        data3: Math.floor(Math.random() * 9 + 1),
+        performanceData: randomData(),
+        skillsData: randomData(),
+        cultureData: randomData(),
       },
     ])
   }

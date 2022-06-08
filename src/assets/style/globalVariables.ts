@@ -210,6 +210,7 @@ export const useGlobalTheme = makeStyles({
     color: color.navbarColor,
     maxWidth: '425px',
     minWidth: '120px',
+    textTransform: 'capitalize',
     '&:hover': {
       textDecoration: 'none',
     },
