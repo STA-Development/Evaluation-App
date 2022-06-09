@@ -10,13 +10,13 @@ import {IEmployee} from '../../../types/eployeeTypes'
 const AddEmployee = ({getApply}: any) => {
   const classesCreateEvent = useCreateEventStyles()
   const classes = useReportsStyle()
-  const [employeeCount, setEmployeeCount] = useState<number>(2)
+  const [employeeCount, setEmployeeCount] = useState<number>(0)
   const [employee, setEmployee] = useState<IEmployee[]>([
     {
       id: uuidv4(),
       name: '',
       position: '',
-      employee: `Employee 1`,
+      employee: `Employee ${employeeCount}`,
       bgColor: randomColor(),
       performanceData: randomData(),
       skillsData: randomData(),
@@ -61,6 +61,7 @@ const AddEmployee = ({getApply}: any) => {
     )
   }
   const handleRemoveEmployee = (item: IEmployee) => {
+    setEmployeeCount(employeeCount - 1)
     setEmployee(
       employee.filter((list, index: number) => {
         if (employee.indexOf(item) !== index) {
@@ -69,7 +70,6 @@ const AddEmployee = ({getApply}: any) => {
       }),
     )
   }
-
   return (
     <Box>
       <Box className="employee-report">
