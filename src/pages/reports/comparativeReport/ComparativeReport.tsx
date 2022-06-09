@@ -20,15 +20,16 @@ import CalendarIcon from '../../../assets/images/Icons/CalendarIcon'
 import {Calendar} from 'react-date-range'
 import {formatWithMonthName} from '../../../utils/dateUtils'
 import {IEmployee} from '../../../types/eployeeTypes'
+import {v4 as uuidv4} from 'uuid'
 
 drilldown(Highcharts)
 const ComparativeReport = () => {
   const classes = useReportsStyle()
   const [value, setValue] = useState<string>('')
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
-  const [chart, setChart] = useState<any>()
-  const [getEmployee, setGetEmployee] = useState<any>([])
-  const [isUpdatingChart, setIsUpdatingChart] = useState(true)
+  const [chart, setChart] = useState<HighchartsReact.Props>()
+  const [getEmployee, setGetEmployee] = useState<IEmployee[]>([])
+  const [isUpdatingChart, setIsUpdatingChart] = useState<boolean>(true)
   const [getColor, setGetColor] = useState<string[]>([])
   const [getEmployeeSeries, setGetEmployeeSeries] = useState<IEmployee[]>([])
 
@@ -51,7 +52,9 @@ const ComparativeReport = () => {
       getEmployee.map((item: IEmployee) => {
         if (item.name) {
           return {
+            id: uuidv4(),
             name: item.name,
+            bgColor: item.bgColor,
             data: [item.performanceData, item.skillsData, item.cultureData],
             pointWidth: 50,
           }
@@ -174,11 +177,11 @@ const ComparativeReport = () => {
       <Box className="chart-search">
         <Typography>Employee average score comparison</Typography>
         <Box>
-          <FormControl variant="outlined" style={{maxWidth: '100%', width: '400px'}}>
+          <FormControl variant="outlined" className={classes.formControl}>
             <TextField
               variant="outlined"
               fullWidth
-              label="Search by Event title and/or date"
+              placeholder="Search by Event title and/or date"
               value={value}
               className={classes.reportSelect}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}

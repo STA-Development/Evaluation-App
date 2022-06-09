@@ -45,6 +45,10 @@ const useReportsStyle = makeStyles({
     marginTop: margin.marginTop30,
     marginBottom: margin.marginBottom25,
   },
+  formControl: {
+    maxWidth: '100%',
+    width: '400px',
+  },
 })
 
 export default useReportsStyle

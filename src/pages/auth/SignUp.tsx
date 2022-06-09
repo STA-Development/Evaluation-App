@@ -32,7 +32,7 @@ const SignUp = () => {
   const [password, setPassword] = useState<string>('')
   const [nameError, setNameError] = useState<boolean>(false)
   const [emailError, setEmailError] = useState<boolean>(false)
-  const [paswordError, setPasswordError] = useState<boolean>(false)
+  const [passwordError, setPasswordError] = useState<boolean>(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -164,7 +164,7 @@ const SignUp = () => {
                       variant="outlined"
                       fullWidth
                       required
-                      error={paswordError}
+                      error={passwordError}
                       value={password}
                       size="small"
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

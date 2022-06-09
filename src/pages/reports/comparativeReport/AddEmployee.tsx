@@ -7,35 +7,32 @@ import useReportsStyle from '../../../assets/styleJs/report/report'
 import {randomColor, randomData} from '../../../utils/utils'
 import {IEmployee} from '../../../types/eployeeTypes'
 
-const AddEmployee = ({getApply}: any) => {
+const AddEmployee = ({getApply}: {getApply: (value: IEmployee[]) => void}) => {
   const classesCreateEvent = useCreateEventStyles()
   const classes = useReportsStyle()
-  const [employeeCount, setEmployeeCount] = useState<number>(0)
+  const [nameError, setNameError] = useState<boolean>(false)
+  const [positionError, setPositionError] = useState<boolean>(false)
+  const [employeeCount, setEmployeeCount] = useState<number>(2)
   const [employee, setEmployee] = useState<IEmployee[]>([
     {
       id: uuidv4(),
       name: '',
       position: '',
-      employee: `Employee ${employeeCount}`,
+      employee: `Employee 1`,
       bgColor: randomColor(),
       performanceData: randomData(),
       skillsData: randomData(),
       cultureData: randomData(),
     },
-    // {
-    //   id: uuidv4(),
-    //   name: '',
-    //   position: '',
-    //   employee: `Employee 2`,
-    //   bgColor: randomColor(),
-    //   performanceData: randomData(),
-    //   skillsData: randomData(),
-    //   cultureData: randomData(),
-    // },
   ])
 
   const handleAddEmployee = () => {
+    setNameError(false)
+    setPositionError(false)
+
     setEmployeeCount(employeeCount + 1)
+    setNameError(false)
+    setPositionError(false)
     setEmployee([
       ...employee,
       {
@@ -50,6 +47,7 @@ const AddEmployee = ({getApply}: any) => {
       },
     ])
   }
+
   const onChangeEmployeeData = (id: string, value: string, changingValue: string) => {
     setEmployee(
       employee.map((item: IEmployee) => {
@@ -61,7 +59,6 @@ const AddEmployee = ({getApply}: any) => {
     )
   }
   const handleRemoveEmployee = (item: IEmployee) => {
-    setEmployeeCount(employeeCount - 1)
     setEmployee(
       employee.filter((list, index: number) => {
         if (employee.indexOf(item) !== index) {
@@ -95,6 +92,7 @@ const AddEmployee = ({getApply}: any) => {
                 label="Name / Surname"
                 variant="outlined"
                 type="input"
+                error={nameError}
                 autoComplete="off"
                 fullWidth
                 size="small"
@@ -111,6 +109,7 @@ const AddEmployee = ({getApply}: any) => {
                 type="input"
                 autoComplete="off"
                 fullWidth
+                error={positionError}
                 size="small"
                 name={item.position}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
