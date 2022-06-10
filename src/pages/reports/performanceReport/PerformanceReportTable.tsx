@@ -1,24 +1,29 @@
 import * as React from 'react'
-import Box from '@mui/material/Box'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
-import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
-import TablePagination from '@mui/material/TablePagination'
-import TableRow from '@mui/material/TableRow'
-import Paper from '@mui/material/Paper'
-import Checkbox from '@mui/material/Checkbox'
-import moment from 'moment'
-import {sortedRowInformation} from '../../../utils/utils'
+import {useEffect, useState} from 'react'
 import {Data} from '../../../types/performeTypes'
 import {Order} from '../../../types/ongoingEventsType'
-import {getComparator} from '../../../utils/performUtils'
+import {v4 as uuidv4} from 'uuid'
+import moment from 'moment'
 import EnhancedTableHead from './EnhancedTableHead'
-import {Button} from '@mui/material'
+import TableCell from '@mui/material/TableCell'
+import Checkbox from '@mui/material/Checkbox'
+import {sortedRowInformation} from '../../../utils/utils'
+import {getComparator} from '../../../utils/performUtils'
+import {
+  Box,
+  Button,
+  Paper,
+  Table,
+  TableBody,
+  TableContainer,
+  TablePagination,
+  TableRow,
+} from '@mui/material'
 
-const rows = [
+const mockData = [
   {
-    eventTitle: 'aastring',
+    id: uuidv4(),
+    eventTitle: '1',
     eventStartsAt: '2022-05-27T16:42:45.838Z',
     criteria: 'string',
     criteriaScore: 67,
@@ -31,6 +36,77 @@ const rows = [
     evaluateePosition: 'string',
   },
   {
+    id: uuidv4(),
+    eventTitle: '2',
+    eventStartsAt: '2022-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 67,
+    performerType: 'Rock Stasdasdar',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'werwer',
+    evaluateePosition: 'string',
+  },
+  {
+    id: uuidv4(),
+    eventTitle: '3',
+    eventStartsAt: '2022-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 67,
+    performerType: 'Rock Stasdasdar',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'werwer',
+    evaluateePosition: 'string',
+  },
+  {
+    id: uuidv4(),
+    eventTitle: '4',
+    eventStartsAt: '2022-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 67,
+    performerType: 'Rock Stasdasdar',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'werwer',
+    evaluateePosition: 'string',
+  },
+  {
+    id: uuidv4(),
+    eventTitle: '5',
+    eventStartsAt: '2022-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 67,
+    performerType: 'Rock Stasdasdar',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'werwer',
+    evaluateePosition: 'string',
+  },
+  {
+    id: uuidv4(),
+    eventTitle: '6',
+    eventStartsAt: '2022-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 67,
+    performerType: 'Rock Stasdasdar',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'werwer',
+    evaluateePosition: 'string',
+  },
+  {
+    id: uuidv4(),
     eventTitle: 'strasding',
     eventStartsAt: '2021-05-27T16:42:45.838Z',
     criteria: 'string',
@@ -44,6 +120,7 @@ const rows = [
     evaluateePosition: 'string',
   },
   {
+    id: uuidv4(),
     eventTitle: 'bbs456tring',
     eventStartsAt: '2012-05-27T16:42:45.838Z',
     criteria: 'string',
@@ -57,6 +134,7 @@ const rows = [
     evaluateePosition: 'sdfsdfsdf ',
   },
   {
+    id: uuidv4(),
     eventTitle: 'bbstrhgjghing',
     eventStartsAt: '2012-05-27T16:42:45.838Z',
     criteria: 'string',
@@ -70,7 +148,92 @@ const rows = [
     evaluateePosition: 'sdfsdfsdf ',
   },
   {
-    eventTitle: 'bbsasdtring',
+    id: uuidv4(),
+    eventTitle: '7',
+    eventStartsAt: '2012-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 67,
+    performerType: 'Rock Star',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'string',
+    evaluateePosition: 'sdfsdfsdf ',
+  },
+  {
+    id: uuidv4(),
+    eventTitle: '7',
+    eventStartsAt: '2012-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 67,
+    performerType: 'Rock Star',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'string',
+    evaluateePosition: 'sdfsdfsdf ',
+  },
+  {
+    id: uuidv4(),
+    eventTitle: '7',
+    eventStartsAt: '2012-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 67,
+    performerType: 'Rock Star',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'string',
+    evaluateePosition: 'sdfsdfsdf ',
+  },
+  {
+    id: uuidv4(),
+    eventTitle: '7',
+    eventStartsAt: '2012-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 67,
+    performerType: 'Rock Star',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'string',
+    evaluateePosition: 'sdfsdfsdf ',
+  },
+  {
+    id: uuidv4(),
+    eventTitle: '7',
+    eventStartsAt: '2012-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 67,
+    performerType: 'Rock Star',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'string',
+    evaluateePosition: 'sdfsdfsdf ',
+  },
+  {
+    id: uuidv4(),
+    eventTitle: '7',
+    eventStartsAt: '2012-05-27T16:42:45.838Z',
+    criteria: 'string',
+    criteriaScore: 67,
+    performerType: 'Rock Star',
+    evaluatorFirstName: 'string',
+    evaluatorLastName: 'string',
+    evaluatorPosition: 'string',
+    evaluateeFirstName: 'string',
+    evaluateeLastName: 'string',
+    evaluateePosition: 'sdfsdfsdf ',
+  },
+  {
+    id: uuidv4(),
+    eventTitle: '7',
     eventStartsAt: '2012-05-27T16:42:45.838Z',
     criteria: 'string',
     criteriaScore: 67,
@@ -90,6 +253,58 @@ const PerformanceReportTable = () => {
   const [selected, setSelected] = React.useState<readonly string[]>([])
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(5)
+  const [reportData, setReportData] = useState<Data[]>([])
+
+  function createData(
+    id: string,
+    eventTitle: string,
+    eventStartsAt: string,
+    criteria: string,
+    criteriaScore: number,
+    performerType: string,
+    evaluatorFirstName: string,
+    evaluatorLastName: string,
+    evaluatorPosition: string,
+    evaluateeFirstName: string,
+    evaluateeLastName: string,
+    evaluateePosition: string,
+  ): Data {
+    return {
+      id,
+      eventTitle,
+      eventStartsAt,
+      criteria,
+      criteriaScore,
+      performerType,
+      evaluatorFirstName,
+      evaluatorLastName,
+      evaluatorPosition,
+      evaluateeFirstName,
+      evaluateeLastName,
+      evaluateePosition,
+    }
+  }
+
+  useEffect(() => {
+    setReportData(
+      mockData.map((item: Data) =>
+        createData(
+          item.id,
+          item.eventTitle,
+          item.eventStartsAt,
+          item.criteria,
+          item.criteriaScore,
+          item.performerType,
+          item.evaluatorFirstName,
+          item.evaluatorLastName,
+          item.evaluatorPosition,
+          item.evaluateeFirstName,
+          item.evaluateeLastName,
+          item.evaluateePosition,
+        ),
+      ),
+    )
+  }, [])
 
   const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Data) => {
     const isAsc = orderBy === property && order === 'asc'
@@ -99,7 +314,7 @@ const PerformanceReportTable = () => {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.eventTitle)
+      const newSelecteds = reportData.map((n) => n.eventTitle)
       setSelected(newSelecteds)
       return
     }
@@ -148,10 +363,10 @@ const PerformanceReportTable = () => {
                 orderBy={orderBy}
                 onSelectAllClick={handleSelectAllClick}
                 onRequestSort={handleRequestSort}
-                rowCount={rows.length}
+                rowCount={reportData.length}
               />
               <TableBody>
-                {sortedRowInformation(rows, getComparator(order, orderBy))
+                {sortedRowInformation(reportData, getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
                     const isItemSelected = isSelected(row.eventTitle)
@@ -164,7 +379,7 @@ const PerformanceReportTable = () => {
                         role="checkbox"
                         aria-checked={isItemSelected}
                         tabIndex={-1}
-                        key={row.eventTitle}
+                        key={row.id}
                         selected={isItemSelected}
                         className="report-table-head__rows"
                       >
@@ -201,11 +416,12 @@ const PerformanceReportTable = () => {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={rows.length}
+          count={reportData.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
+          labelRowsPerPage={'Results per page'}
         />
       </Box>
     </Box>

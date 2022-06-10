@@ -34,7 +34,6 @@ const AddEmployee = ({getApply}: {getApply: (value: IEmployee[]) => void}) => {
     setNameError(false)
     setPositionError(false)
     setEmployee([
-      ...employee,
       {
         id: uuidv4(),
         name: '',
@@ -45,6 +44,7 @@ const AddEmployee = ({getApply}: {getApply: (value: IEmployee[]) => void}) => {
         skillsData: randomData(),
         cultureData: randomData(),
       },
+      ...employee,
     ])
   }
 

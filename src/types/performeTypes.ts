@@ -2,6 +2,7 @@ import * as React from 'react'
 import {Order} from './ongoingEventsType'
 
 export interface Data {
+  id: string
   eventTitle: string
   eventStartsAt: string
   criteria: string
