@@ -1,0 +1,138 @@
+.search-event {
+  margin-bottom: $marginBottom30;
+}
+.search-report {
+  &__select-box {
+    width: 200px;
+    margin-bottom: $marginBottom20;
+  }
+}
+.report-export-btn{
+  max-width: 380px;
+  margin-top: $marginTop60;
+  display: flex;
+  justify-content: space-between;
+  button{
+    width: 173px;
+    height: 36px;
+  }
+}
+.report-table-head{
+  background-color: $greenColor;
+  th:first-child{
+   padding-left: $paddingLeft10;
+  }
+  th{
+    border-bottom-color: transparent;
+    padding: $padding0;
+    border-right: $borderRight1 solid $tableBorderColor;
+  }
+  &__arrow{
+    display: inline-block;
+    vertical-align: middle;
+    margin:$marginTop5  $marginLeft10 0  $marginRight10;
+    cursor:pointer;
+  }
+  &__header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-right: $borderRight1 solid $tableBorderColor;
+  }
+  &__rows{
+    td{
+      border-right: $borderRight1 solid $tableBorderColor;
+      padding: $paddingTopBottom0 $paddingLeftRight10;
+      cursor:pointer;
+    }
+    th{
+      border-right: $borderRight1 solid $tableBorderColor;
+      padding: $paddingTopBottom0 $paddingLeftRight10;
+      cursor:pointer;
+    }
+  }
+}
+.report-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+.report-table{
+  margin-top: $marginTop30 ;
+}
+
+.report-paper{
+  width: 100%;
+  margin-bottom: $marginBottom20;
+  tbody{
+    tr:nth-child(even){
+      background-color: $tableEvenColor;
+      &:hover{
+        background-color:  $employeeHover;
+      }
+    }
+  }
+}
+  .report-header{
+  border-right: $borderRight1 solid $tableBorderColor;
+  border-bottom-color: transparent;
+  border-top-color: transparent;
+  color: $navbarColor;
+  padding: $paddingTopBottom20 $paddingLeftRight10;
+}
+
+.employee-report{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: $marginBottom30;;
+}
+
+.employee-paper{
+  width: 271px;
+  height: 155px;
+  padding: $padding10;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: $marginBottom30;
+  margin-right: $marginRight16;
+
+  &__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__form{
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+}
+
+.employee-btn{
+  width: 340px;
+  display: flex;
+  justify-content: space-between;
+  height: 42px;
+  button:nth-child(1){
+    width: 176px;
+  }
+  button:nth-child(2){
+    width: 146px;
+  }
+}
+
+.export-btn{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chart-search{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: $borderRadius10  $borderRadius10  $borderRadius0 $borderRadius0 ;
+  background-color: $greenColor;
+  padding: $paddingTopBottom10 $paddingRight25 $paddingBottom10 $paddingLeft40;
+}

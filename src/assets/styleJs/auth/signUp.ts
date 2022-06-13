@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     '& label': {
       fontSize: font.fontSize14,
     },
-    '&:nth-child(3)': {
+    '&:last-child': {
       marginBottom: margin.marginBottom10,
     },
   },

@@ -23,6 +23,7 @@ import SignInImg from '../../assets/images/auth/SignInImg'
 const SignIn = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+
   const [isAuthLoading, setIsAuthLoading] = useState<boolean>(false)
   const classes = useStyles()
   const globalClasses = useGlobalTheme()
@@ -51,7 +52,7 @@ const SignIn = () => {
           userId: data.id,
         }),
       )
-      if (auth.data) {
+      if (auth.data.accessToken) {
         navigate('/')
       }
       setIsAuthLoading(false)
