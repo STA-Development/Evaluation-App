@@ -69,8 +69,13 @@ const ComparativeReport = () => {
     setChart({
       chart: {
         type: 'column',
+        height: '600px',
         marginRight: 75,
         marginLeft: 75,
+      },
+
+      credits: {
+        enabled: false,
       },
 
       title: {
@@ -97,8 +102,6 @@ const ComparativeReport = () => {
       xAxis: {
         categories: ['Work Performance', 'Personal Skills ', 'Company Culture'],
         labels: {
-          x: -10,
-          y: 30,
           style: {
             color: '#756F86',
             fontSize: '14px',
@@ -108,23 +111,31 @@ const ComparativeReport = () => {
         gridLineColor: '#DBE2EA',
         gridLineWidth: 2,
         lineColor: 'transparent',
-        min: 0,
         max: 2,
       },
 
       yAxis: {
-        allowDecimals: false,
+        min: 0,
+        max: 10,
+
         title: {
           text: '',
         },
         gridLineDashStyle: 'LongDash',
         lineColor: '#fff',
-        lineWidth: 2,
-        min: 0,
-        max: 10,
+        lineWidth: 20,
       },
       colors: getColor,
       series: getEmployeeSeries,
+      tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key} </span><table>',
+        pointFormat:
+          '<tr><td style="color:{series.color};padding:0">{series.name}:  </td>' +
+          '<td style="padding:0"><b> {point.y:.1f}</b></td></tr>',
+        footerFormat: '</table>',
+        shared: false,
+        useHTML: false,
+      },
 
       responsive: {
         rules: [

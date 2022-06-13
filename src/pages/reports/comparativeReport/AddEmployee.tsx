@@ -11,7 +11,6 @@ const AddEmployee = ({getApply}: {getApply: (value: IEmployee[]) => void}) => {
   const classesCreateEvent = useCreateEventStyles()
   const classes = useReportsStyle()
   const [nameError, setNameError] = useState<boolean>(false)
-  const [positionError, setPositionError] = useState<boolean>(false)
   const [employeeCount, setEmployeeCount] = useState<number>(2)
   const [employee, setEmployee] = useState<IEmployee[]>([
     {
@@ -27,13 +26,9 @@ const AddEmployee = ({getApply}: {getApply: (value: IEmployee[]) => void}) => {
   ])
 
   const handleAddEmployee = () => {
-    setNameError(false)
-    setPositionError(false)
-
     setEmployeeCount(employeeCount + 1)
-    setNameError(false)
-    setPositionError(false)
     setEmployee([
+      ...employee,
       {
         id: uuidv4(),
         name: '',
@@ -44,7 +39,6 @@ const AddEmployee = ({getApply}: {getApply: (value: IEmployee[]) => void}) => {
         skillsData: randomData(),
         cultureData: randomData(),
       },
-      ...employee,
     ])
   }
 
@@ -59,14 +53,17 @@ const AddEmployee = ({getApply}: {getApply: (value: IEmployee[]) => void}) => {
     )
   }
   const handleRemoveEmployee = (item: IEmployee) => {
-    setEmployee(
-      employee.filter((list, index: number) => {
-        if (employee.indexOf(item) !== index) {
-          return item
-        }
-      }),
-    )
+    if (employee.length > 1) {
+      setEmployee(
+        employee.filter((list, index: number) => {
+          if (employee.indexOf(item) !== index) {
+            return item
+          }
+        }),
+      )
+    }
   }
+
   return (
     <Box>
       <Box className="employee-report">
@@ -109,7 +106,6 @@ const AddEmployee = ({getApply}: {getApply: (value: IEmployee[]) => void}) => {
                 type="input"
                 autoComplete="off"
                 fullWidth
-                error={positionError}
                 size="small"
                 name={item.position}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,7 +121,19 @@ const AddEmployee = ({getApply}: {getApply: (value: IEmployee[]) => void}) => {
           ADD EMPLOYEE
         </Button>
 
-        <Button variant="contained" onClick={() => getApply(employee)}>
+        <Button
+          variant="contained"
+          onClick={() => {
+            employee.map((item) => {
+              if (item.name) {
+                setNameError(false)
+                getApply(employee)
+              } else {
+                setNameError(true)
+              }
+            })
+          }}
+        >
           APPLY
         </Button>
       </Box>
