@@ -101,6 +101,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    p{
+      font-weight: $fontWeight700;
+    }
   }
   &__form{
     height: 100px;
@@ -123,6 +126,7 @@
   }
 }
 
+
 .export-btn{
   display: flex;
   justify-content: flex-end;
@@ -135,4 +139,11 @@
   border-radius: $borderRadius10  $borderRadius10  $borderRadius0 $borderRadius0 ;
   background-color: $greenColor;
   padding: $paddingTopBottom10 $paddingRight25 $paddingBottom10 $paddingLeft40;
+}
+
+.personal-btn{
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  margin-bottom: $marginBottom30;
 }
