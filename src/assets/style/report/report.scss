@@ -1,12 +1,11 @@
 .search-event {
   margin-bottom: $marginBottom30;
-
 }
 
 .error-message{
   transition: all ease-in-out .3s;
   margin-bottom: $marginBottom20;
-  color: #f90c0c;
+  color: $reportEmployeeError;
   font-size: $fontSize20;
   font-weight: 700;
 }
@@ -42,7 +41,7 @@
   &__arrow{
     display: inline-block;
     vertical-align: middle;
-    margin:$marginTop5  $marginLeft10 0  $marginRight10;
+    margin:$marginTop5  $marginLeft10 0$marginBottom0 $marginRight10;
     cursor:pointer;
   }
   &__header{
