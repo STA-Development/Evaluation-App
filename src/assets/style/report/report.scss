@@ -1,5 +1,17 @@
 .search-event {
   margin-bottom: $marginBottom30;
+
+}
+
+.error-message{
+  transition: all ease-in-out .3s;
+  margin-bottom: $marginBottom20;
+  color: #f90c0c;
+  font-size: $fontSize20;
+  font-weight: 700;
+}
+.error-message-out{
+  transition: all ease-in-out .3s;
 }
 .search-report {
   &__select-box {
@@ -147,3 +159,4 @@
   flex-wrap: wrap;
   margin-bottom: $marginBottom30;
 }
+
