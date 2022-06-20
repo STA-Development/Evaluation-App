@@ -42,6 +42,7 @@ export const color = {
   closeButton: '#4f4f4f',
   redColor: '#ff0000',
   blackColor: '#000',
+  employeeColor: '#756F86',
 }
 
 export const margin = {
@@ -96,6 +97,7 @@ export const margin = {
   marginLeft6: '6px',
   marginLeft15: '15px',
   marginLeft30: '30px',
+  marginLeft40: '40px',
   marginLeftM36: '-36px',
 }
 
@@ -206,6 +208,9 @@ export const useGlobalTheme = makeStyles({
     fontSize: font.fontSize18,
     fontWeight: font.fontWeight400,
     color: color.navbarColor,
+    maxWidth: '425px',
+    minWidth: '120px',
+    textTransform: 'capitalize',
     '&:hover': {
       textDecoration: 'none',
     },

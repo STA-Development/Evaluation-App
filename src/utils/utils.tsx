@@ -34,3 +34,5 @@ export const sortedRowInformation = <T,>(array: T[], comparator: (a: T, b: T) =>
   })
   return stabilizedThis.map((el) => el[0])
 }
+
+export const randomData = () => Math.floor(Math.random() * 9 + 1)
