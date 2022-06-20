@@ -41,7 +41,7 @@
   &__arrow{
     display: inline-block;
     vertical-align: middle;
-    margin:$marginTop5  $marginLeft10 0$marginBottom0 $marginRight10;
+    margin:$marginTop5  $marginLeft10 $marginBottom0 $marginRight10;
     cursor:pointer;
   }
   &__header{
@@ -159,3 +159,23 @@
   margin-bottom: $marginBottom30;
 }
 
+.report-chart{
+  margin: $marginTopBottom30 $marginLeftRight0;
+}
+
+.report-export-btn{
+  width: 168px;
+  height: 40px;
+font-weight: $fontWeight500;
+}
+
+.evaluated-box{
+  display :flex;
+  flex-direction: column;
+
+  &__paper{
+    width: 310px;
+    padding: $paddingTop20 $paddingLeft10 $paddingBottom15 $paddingRight15;
+  }
+
+}

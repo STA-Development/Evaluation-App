@@ -1,17 +1,21 @@
 import React, {useEffect, useState} from 'react'
+import {IEmployeeReport} from '../../../types/EmpoyeeReport'
 import {Box, Button, FormControl, List, Paper, TextField, Typography} from '@mui/material'
 import useCreateEventStyles from '../../../assets/styleJs/events/createEvent'
-import {IEmployeeReport} from '../../../types/EmpoyeeReport'
 
-const AddEmployeeEvent = ({getReport}: {getReport: (value: IEmployeeReport) => void}) => {
+const AddEmployeeEvent = ({
+  getReport,
+}: {
+  getReport: (value: IEmployeeReport | undefined) => void
+}) => {
   const classesCreateEvent = useCreateEventStyles()
   const [employee, setEmployee] = useState<string>('')
   const [event, setEvent] = useState<string>('')
   const [position, setPosition] = useState<string>('')
   const [date, setDate] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
-  const [employeeReport, setEmployeeReport] = useState<any>({})
-  const [animated, setAnimated] = useState<any>(false)
+  const [employeeReport, setEmployeeReport] = useState<IEmployeeReport | undefined>()
+  const [animated, setAnimated] = useState<boolean>(false)
 
   const getApplyEmployee = () => {
     if (employee && event) {

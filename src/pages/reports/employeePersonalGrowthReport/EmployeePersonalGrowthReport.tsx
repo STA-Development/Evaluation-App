@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import {Box, CircularProgress} from '@mui/material'
+import {Box, Button, CircularProgress, Typography} from '@mui/material'
 import AddEmployeeEvent from './AddEmployeeEvent'
 import {IEmployeeReport} from '../../../types/EmpoyeeReport'
 import HighchartsReact from 'highcharts-react-official'
 import Highcharts from 'highcharts'
 import {color} from '../../../assets/style/globalVariables'
 import {randomColor, randomData} from '../../../utils/utils'
+import EvaluatedBy from './EvaluatedBy'
 
 const EmployeePersonalGrowthReport = () => {
   const [employeeReport, setEmployeeReport] = useState<IEmployeeReport>()
@@ -143,17 +144,30 @@ const EmployeePersonalGrowthReport = () => {
   return (
     <Box>
       <AddEmployeeEvent
-        getReport={(item: IEmployeeReport) => {
+        getReport={(item) => {
           setEmployeeReport(item)
         }}
       />
 
-      <Box>
-        {isUpdatingChart ? (
-          <CircularProgress />
-        ) : (
+      <Button variant="outlined" className="report-export-btn">
+        Export
+      </Button>
+
+      {isUpdatingChart ? (
+        <CircularProgress />
+      ) : (
+        <Box className="report-chart">
+          <Box className="chart-search">
+            <Typography>Employee’s average score progress comparison</Typography>
+          </Box>
           <HighchartsReact highcharts={Highcharts} options={chart} />
-        )}
+        </Box>
+      )}
+      <Button variant="outlined" className="report-export-btn">
+        GET CERTIFICATE
+      </Button>
+      <Box>
+        <EvaluatedBy />
       </Box>
     </Box>
   )
